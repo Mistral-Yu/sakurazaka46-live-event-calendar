@@ -33,7 +33,6 @@ python3 scripts/render_live_calendar.py --refresh-holidays
 この実行で更新されるもの:
 
 - `index.html`
-- `previews/sakurazaka46_live_calendar_preview.jpg`
 - `scripts/sakurazaka_schedule_workflow.md`
 
 必要なときだけ追加でMarkdownカレンダーも出力:
@@ -43,6 +42,14 @@ python3 scripts/render_live_calendar.py --output-calendar-md
 ```
 
 - `summary/sakurazaka46_live_calendar.md`（通常は未出力）
+
+必要なときだけプレビュー画像も出力:
+
+```bash
+python3 scripts/render_live_calendar.py --output-preview
+```
+
+- `summary/sakurazaka46_live_calendar_preview.jpg`（通常は未出力）
 
 ## HTML表示範囲ルール
 
@@ -71,7 +78,7 @@ python3 scripts/render_live_calendar.py --output-calendar-md
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
 - 祝日はセル内で `祝` 表示
 - 日付クリックで同じ月カード内の詳細パネルを開く
-- プレビュー画像は Python 生成の JPG
+- プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
 - 祝日テンプレートは年ごとに管理する
 
 ## 編集ルール
@@ -88,6 +95,12 @@ python3 scripts/render_live_calendar.py
 open index.html
 ```
 
+プレビュー画像も確認したいとき:
+
+```bash
+python3 scripts/render_live_calendar.py --output-preview
+```
+
 確認ポイント:
 
 - HTMLの最終月が Markdown の最終確定月と一致している
@@ -98,12 +111,31 @@ open index.html
 - 日付クリックで詳細パネルが出る
 - 初回成功後に祝日テンプレートが生成されている
 
+## Codex向け Summary更新プロンプト例
+
+```text
+Summary更新依頼です。
+
+対象ファイル:
+- `summary/sakurazaka46_live_summary.md`
+
+やってほしいこと:
+- 櫻坂46の新しいライブ発表内容を、既存の書式に合わせて追記・更新してください。
+- `### ライブ公演の日程`、`### 抽選の日程`、`### 公式ソース` の構成は崩さないでください。
+- 日付は `2026-07-23〜24` のように整理し、曜日も入れてください。
+- 抽選情報は金額を入れず、受付期間と対象だけを簡潔にまとめてください。
+- 首都圏以外の公演で必要なら、`### 公式ソース` の次に `### 東京からの大まかな交通手段` を短く追記してください。
+- 更新後は `python3 scripts/render_live_calendar.py` を実行して `index.html` と workflow を再生成してください。
+- プレビュー画像が必要な場合だけ `python3 scripts/render_live_calendar.py --output-preview` を使ってください。
+```
+
 ## Codex向け短縮指示テンプレート
 
 ```text
 `summary/sakurazaka46_live_summary.md` を source of truth として扱う。
 `python3 scripts/render_live_calendar.py` を実行して生成物を更新する。
 `--output-calendar-md` は追加のMarkdownカレンダーが欲しいときだけ使う。
+`--output-preview` は追加のプレビュー画像が欲しいときだけ使い、出力先は `summary/` とする。
 `--refresh-holidays` は保存済み祝日テンプレートを公式CSVで更新したいときだけ使う。
 HTMLは常に単一ファイル `index.html`。
 summaryに 2026 と 2027 が混在していても同じHTML内に連続表示する。
