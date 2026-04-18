@@ -276,7 +276,9 @@ def merge_day_items(items: list[dict]) -> list[dict]:
 
 def mobile_chip_text(text: str) -> str:
     compact = re.sub(r"\s+", "", text)
-    return compact[:2] if len(compact) > 2 else compact
+    if len(compact) <= 3:
+        return compact
+    return f"{compact[:2]}…"
 
 
 def lottery_calendar_label(title: str) -> str:
@@ -944,6 +946,12 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
       button.classList.remove('active');
       closeDetailPanel(panel);
       return;
+    }}
+    const monthBody = button.closest('.month-body');
+    if (monthBody) {{
+      for (const candidate of monthBody.querySelectorAll('.day-cell.clickable.active')) {{
+        if (candidate !== button) candidate.classList.remove('active');
+      }}
     }}
     title.textContent = payload.date ? `${{payload.date}} の詳細` : '日付をタップすると詳細を表示';
     list.innerHTML = (payload.items || []).map((item) => {{
