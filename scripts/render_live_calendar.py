@@ -923,6 +923,18 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 </div>
 <script>
 const detailData = {detail_json};
+const forceVisualRefresh = (...elements) => {{
+  for (const element of elements) {{
+    if (!element) continue;
+    void element.offsetHeight;
+  }}
+  requestAnimationFrame(() => {{
+    for (const element of elements) {{
+      if (!element) continue;
+      void element.offsetHeight;
+    }}
+  }});
+}};
 const closeDetailPanel = (panel) => {{
   if (!panel) return;
   const title = panel.querySelector('.detail-title');
@@ -945,6 +957,7 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
     if (button.classList.contains('active')) {{
       button.classList.remove('active');
       closeDetailPanel(panel);
+      forceVisualRefresh(panel, button);
       return;
     }}
     const monthBody = button.closest('.month-body');
@@ -965,6 +978,7 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
     }}).join('');
     if (sections) sections.classList.remove('is-hidden');
     button.classList.add('active');
+    forceVisualRefresh(panel, monthBody, button);
   }});
 }}
 </script>
