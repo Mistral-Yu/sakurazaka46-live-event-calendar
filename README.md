@@ -14,12 +14,14 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 
 ## 更新の元データ
 
-このリポジトリでは、以下のMarkdownを元データとして管理しています。
+このリポジトリでは、以下のMarkdownを管理しています。
 
-- `summary/sakurazaka46_live_summary.md`
-- `summary/sakurazaka46_event_summary.md`
+- `summary/sakurazaka46_live_summary.md`  
+  公開ページのHTML生成に使う、ライブカレンダーの元データです。
+- `summary/sakurazaka46_event_summary.md`  
+  関連イベント情報を整理するためのまとめファイルです。
 
-公開ページのHTMLは、上記の内容をもとに Python スクリプトで生成しています。
+公開ページのHTMLは、`summary/sakurazaka46_live_summary.md` の内容をもとに Python スクリプトで生成しています。
 
 ## 主なファイル
 
@@ -42,7 +44,16 @@ python3 scripts/render_live_calendar.py
 
 - `index.html`
 - `scripts/sakurazaka_schedule_workflow.md`
-- `previews/sakurazaka46_live_calendar_preview.jpg`
+
+プレビュー画像も必要なときだけ、以下を実行します。
+
+```bash
+python3 scripts/render_live_calendar.py --output-preview
+```
+
+この場合は、以下も出力されます。
+
+- `summary/sakurazaka46_live_calendar_preview.jpg`
 
 ## 補足
 
