@@ -903,7 +903,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <div class='page'>
   <section class='hero'>
     <h1>櫻坂46 ライブカレンダー</h1>
-    <p>五周年のアニラからのライブをまとめる（文章校正）</p>
+    <p>5th YEAR ANNIVERSARY LIVE以降のライブ情報を、見やすく整理してまとめています。</p>
   </section>
   <section class='legend'>
     <div class='legend-row'>ライブ一覧: {html.escape(' / '.join(legend_live.keys()))}</div>
