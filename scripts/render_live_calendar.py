@@ -848,6 +848,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 
         collapsed = " collapsed" if not month_has_schedule(month_data) else ""
         open_attr = "" if not month_has_schedule(month_data) else " open"
+        month_heading = f"{month_value}月"
         cards.append(
             f"""
 <details class='month-card{collapsed}' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'{open_attr}>
@@ -864,8 +865,8 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
       <div class='detail-sections is-hidden'>
-        <div class='meta-block'><h3>ライブ詳細</h3><div class='meta-list'>{live_items}</div></div>
-        <div class='meta-block'><h3>抽選メモ</h3><div class='meta-list'>{lot_html}</div></div>
+        <div class='meta-block'><h3>{month_heading}のライブ情報</h3><div class='meta-list'>{live_items}</div></div>
+        <div class='meta-block'><h3>{month_heading}のチケット情報</h3><div class='meta-list'>{lot_html}</div></div>
       </div>
     </div>
   </div>
@@ -902,6 +903,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <div class='page'>
   <section class='hero'>
     <h1>櫻坂46 ライブカレンダー</h1>
+    <p>五周年のアニラからのライブをまとめる（文章校正）</p>
   </section>
   <section class='legend'>
     <div class='legend-row'>ライブ一覧: {html.escape(' / '.join(legend_live.keys()))}</div>
@@ -911,6 +913,15 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 </div>
 <script>
 const detailData = {detail_json};
+const closeDetailPanel = (panel) => {{
+  if (!panel) return;
+  const title = panel.querySelector('.detail-title');
+  const list = panel.querySelector('.detail-list');
+  const sections = panel.querySelector('.detail-sections');
+  if (title) title.textContent = '日付をタップすると詳細を表示';
+  if (list) list.innerHTML = '';
+  if (sections) sections.classList.add('is-hidden');
+}};
 for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('click', () => {{
     const month = button.dataset.month;
@@ -923,10 +934,14 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
     const sections = panel.querySelector('.detail-sections');
     if (button.classList.contains('active')) {{
       button.classList.remove('active');
-      title.textContent = '日付をタップすると詳細を表示';
-      list.innerHTML = '';
-      if (sections) sections.classList.add('is-hidden');
+      closeDetailPanel(panel);
       return;
+    }}
+    for (const candidate of document.querySelectorAll('.day-cell.clickable.active')) {{
+      if (candidate !== button) candidate.classList.remove('active');
+    }}
+    for (const otherPanel of document.querySelectorAll('.day-detail')) {{
+      if (otherPanel !== panel) closeDetailPanel(otherPanel);
     }}
     title.textContent = payload.date ? `${{payload.date}} の詳細` : '日付をタップすると詳細を表示';
     list.innerHTML = (payload.items || []).map((item) => {{
@@ -939,9 +954,6 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
         + `</div>`;
     }}).join('');
     if (sections) sections.classList.remove('is-hidden');
-    for (const candidate of document.querySelectorAll(`.day-cell.clickable[data-month='${{month}}']`)) {{
-      if (candidate !== button) candidate.classList.remove('active');
-    }}
     button.classList.add('active');
   }});
 }}
