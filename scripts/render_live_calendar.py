@@ -908,8 +908,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <section class='legend'>
     <div class='legend-row'>ライブ一覧: {html.escape(' / '.join(legend_live.keys()))}</div>
     <div class='legend-meaning'>
-      <div class='legend-item'><span class='legend-chip tone-live' aria-hidden='true'></span><span>色の意味: ライブ</span></div>
-      <div class='legend-item'><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span></div>
+      <div class='legend-item'><span>色の意味: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ開催日</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span></div>
     </div>
   </section>
   <nav class='month-nav'>{month_nav}</nav>
