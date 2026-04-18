@@ -72,9 +72,9 @@ HTML_TONE = {
 }
 
 RGB_TONE = {
-    "バックスライブ": (214, 100, 114), "四期生ライブ": (214, 100, 114), "静岡公演": (214, 100, 114), "神戸公演": (214, 100, 114),
-    "広島公演": (214, 100, 114), "千葉公演": (214, 100, 114), "宮城公演": (214, 100, 114), "香川公演": (214, 100, 114),
-    "アニラ": (214, 100, 114), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
+    "バックスライブ": (20, 134, 109), "四期生ライブ": (20, 134, 109), "静岡公演": (20, 134, 109), "神戸公演": (20, 134, 109),
+    "広島公演": (20, 134, 109), "千葉公演": (20, 134, 109), "宮城公演": (20, 134, 109), "香川公演": (20, 134, 109),
+    "アニラ": (20, 134, 109), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
     "イオン": (91, 110, 240), "一般": (91, 110, 240), "FC2": (91, 110, 240), "先行": (91, 110, 240),
     "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (229, 72, 77), "情報": (91, 110, 240),
 }
@@ -880,7 +880,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>櫻坂46 ライブカレンダー</title>
 <style>
-:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#d66472;--ticket:#5b6ef0;--holiday:#e5484d;}}
+:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#14866d;--ticket:#5b6ef0;--holiday:#e5484d;}}
 *{{box-sizing:border-box}} html{{scroll-behavior:smooth}} body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--text)}}
 .page{{max-width:1200px;margin:0 auto;padding:20px 14px 60px}} .hero{{margin-bottom:18px}} .hero h1{{margin:0;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.04em}} .hero p{{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch}}
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}}
