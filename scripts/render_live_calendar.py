@@ -274,6 +274,11 @@ def merge_day_items(items: list[dict]) -> list[dict]:
     return merged
 
 
+def mobile_chip_text(text: str) -> str:
+    compact = re.sub(r"\s+", "", text)
+    return compact[:2] if len(compact) > 2 else compact
+
+
 def lottery_calendar_label(title: str) -> str:
     normalized = re.sub(r"^\d+枚目シングル\s*", "", title.strip())
     if "BACKS LIVE" in normalized:
@@ -809,7 +814,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             items = merge_day_items(month_data["days"][day])[:3]
             span_items = [item for item in month_data["days"][day] if item["kind"] == "lottery_span"]
             chips = "".join(
-                f"<div class='chip tone-{html.escape(HTML_TONE.get(item['tone'], 'ticket'))}'>{html.escape(item['text'])}</div>"
+                f"<div class='chip tone-{html.escape(HTML_TONE.get(item['tone'], 'ticket'))}' data-mobile-text='{html.escape(mobile_chip_text(item['text']))}' aria-label='{html.escape(item['text'])}'><span class='chip-text'>{html.escape(item['text'])}</span></div>"
                 for item in items
             )
             span_html = ""
@@ -891,12 +896,12 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--muted)}}
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}}
 .day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82)}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable:active{{transform:scale(.985)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.25);border-color:rgba(93,119,255,.2)}}
-.day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:normal;word-break:break-all;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden;text-overflow:clip}}
+.day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
 .day-detail{{margin-top:16px;border:1px solid var(--line);border-radius:20px;padding:14px 16px;background:#fcfcfa}} .detail-title{{font-size:15px;font-weight:600;margin-bottom:8px}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-block h3{{font-size:16px;margin:0 0 8px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
-@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:3px 6px;font-size:10px}} .legend-row{{font-size:13px}}}}
+@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}}
 </style>
 </head>
 <body>
@@ -908,7 +913,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <section class='legend'>
     <div class='legend-row'>ライブ一覧: {html.escape(' / '.join(legend_live.keys()))}</div>
     <div class='legend-meaning'>
-      <div class='legend-item'><span>色の意味: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ開催日</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span></div>
+      <div class='legend-item'><span>色分け: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ開催日</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span></div>
     </div>
   </section>
   <nav class='month-nav'>{month_nav}</nav>
@@ -939,12 +944,6 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
       button.classList.remove('active');
       closeDetailPanel(panel);
       return;
-    }}
-    for (const candidate of document.querySelectorAll('.day-cell.clickable.active')) {{
-      if (candidate !== button) candidate.classList.remove('active');
-    }}
-    for (const otherPanel of document.querySelectorAll('.day-detail')) {{
-      if (otherPanel !== panel) closeDetailPanel(otherPanel);
     }}
     title.textContent = payload.date ? `${{payload.date}} の詳細` : '日付をタップすると詳細を表示';
     list.innerHTML = (payload.items || []).map((item) => {{
