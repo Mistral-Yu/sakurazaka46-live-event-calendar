@@ -953,118 +953,118 @@ def render_workflow(display_months: list[dt.date] | int, holiday_template_paths:
     holiday_lines = "\n".join(f"  - `{path.relative_to(BASE_DIR)}`" for path in holiday_template_paths)
     return f"""# sakurazaka schedule workflow
 
-## Source of truth
+## 概要
 
-- Pipeline: `summary/sakurazaka46_live_summary.md` -> `scripts/render_live_calendar.py` -> `index.html`
-- `summary/sakurazaka46_live_summary.md` is the source of truth.
-- `.plan/` files are not used for calendar generation.
+- 生成フロー: `summary/sakurazaka46_live_summary.md` → `scripts/render_live_calendar.py` → `index.html`
+- `summary/sakurazaka46_live_summary.md` を唯一の source of truth とする。
+- `.plan/` は作業用であり、カレンダー生成には使わない。
 
-## Source markdown format rules
+## 元Markdownの書き方ルール
 
-- Keep each event as a `##` section.
-- Use the existing headings exactly: `### ライブ公演の日程` or equivalent live schedule heading, `### 抽選の日程`, `### 公式ソース`.
-- Live rows must stay as markdown table rows like `| 2026-07-23〜24 | 木金 | 静岡・エコパアリーナ |`.
-- Lottery rows must stay as markdown table rows like `| FC会員先行 | **4/13(月)〜4/19(日)** | 全席指定／親子・女性エリア |`.
-- If a lottery date is not fixed yet, keep it as a bullet under `### 抽選の日程` such as `- チケット先行詳細は後日発表`.
-- Keep official URLs under `### 公式ソース`.
-- The Python parser reads this markdown directly, so changing headings or table shape will break generation.
+- 各イベントは `##` 見出し単位で管理する。
+- 見出しは `### ライブ公演の日程` / `### 抽選の日程` / `### 公式ソース` を基本に崩さない。
+- ライブ日程は `| 2026-07-23〜24 | 木金 | 静岡・エコパアリーナ |` のような表形式を維持する。
+- 抽選日程も `| FC会員先行 | **4/13(月)〜4/19(日)** | 全席指定／親子・女性エリア |` のような表形式を維持する。
+- 抽選日が未定のときは、`### 抽選の日程` 配下に `- チケット先行詳細は後日発表` のような箇条書きで置く。
+- 公式URLは `### 公式ソース` の下にまとめる。
+- Python 側のパーサがこのMarkdownを直接読むので、見出し名や表の形を変えると生成が壊れる。
 
-## Generator
+## 生成コマンド
 
-Run:
+通常実行:
 
 ```bash
 python3 scripts/render_live_calendar.py
 ```
 
-Force a holiday template refresh from the official CSV:
+祝日テンプレートを公式CSVから更新したいとき:
 
 ```bash
 python3 scripts/render_live_calendar.py --refresh-holidays
 ```
 
-This regenerates:
+この実行で更新されるもの:
 
 - `index.html`
 - `previews/sakurazaka46_live_calendar_preview.jpg`
 - `scripts/sakurazaka_schedule_workflow.md`
 
-Optional:
+必要なときだけ追加でMarkdownカレンダーも出力:
 
 ```bash
 python3 scripts/render_live_calendar.py --output-calendar-md
 ```
 
-- `summary/sakurazaka46_live_calendar.md` (default off)
+- `summary/sakurazaka46_live_calendar.md`（通常は未出力）
 
-## HTML range rule
+## HTML表示範囲ルール
 
-- HTML is always a single file: `index.html`.
-- If `summary/sakurazaka46_live_summary.md` mixes `2026` and `2027`, the same HTML includes both years.
-- The page always renders continuously from the earliest dated month through the last dated month in the markdown.
-- Undetermined bullet items under `### 抽選の日程` do not extend the rendered month range.
-- Current detected last month: `{last_month.year}年{last_month.month}月`
+- HTML は常に単一ファイル `index.html`。
+- `summary/sakurazaka46_live_summary.md` に `2026` と `2027` が混在していても、同じHTML内に連続表示する。
+- 表示範囲は Markdown 内の最初の確定月から最後の確定月まで連続で描画する。
+- `### 抽選の日程` 配下の未定箇条書きは表示月範囲を延ばさない。
+- 現在検出している最終月: `{last_month.year}年{last_month.month}月`
 
-## Holiday source
+## 祝日データ
 
-- Holidays are fetched from the official Cabinet Office CSV only when you first prepare a new year:
+- 新しい年を初めて扱うときだけ、内閣府の祝日CSVを取得する。
   - `{HOLIDAY_CSV_URL}`
-- The result is saved as reusable templates under:
+- 取得結果は再利用用テンプレートとして保存する。
 {holiday_lines}
-- In practice, once per year is usually enough. You do not need to fetch every run.
-- If CSV fetch fails and no template exists yet, the script creates an empty year template and tells you to retry later or fill it manually.
-- If CSV fetch fails but a year template already exists, the script just keeps using that template.
-- Date cells show only `祝`; the full holiday name remains in the details and notes.
+- 通常運用では年に1回取得できれば十分で、毎回の更新は不要。
+- CSV取得に失敗し、まだテンプレートが無い年は空テンプレートを作って後で再試行できるようにする。
+- CSV取得に失敗しても既存テンプレートがあれば、そのまま既存テンプレートを使う。
+- 日付セルには `祝` だけを表示し、祝日名の詳細は詳細欄や補足側で扱う。
 
-## Current HTML behavior
+## 現在のHTML仕様
 
-- single standalone HTML file
-- months are rendered continuously until the last dated month in the markdown
-- months with no live or lottery schedule are collapsed by default
-- live tags / lottery start / lottery end tags appear inside date cells
-- holidays are shown as `祝` in the cell
-- clicking a scheduled date opens a detail panel inside the same month card
-- the preview image is a Python-rendered JPG preview
-- holiday templates are year-specific under `scripts/templates/`
+- 単一のスタンドアロンHTML
+- Markdown内の最後の確定月まで連続表示
+- ライブも抽選もない月はデフォルトで折りたたみ
+- 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
+- 祝日はセル内で `祝` 表示
+- 日付クリックで同じ月カード内の詳細パネルを開く
+- プレビュー画像は Python 生成の JPG
+- 祝日テンプレートは年ごとに管理する
 
-## Editing rules for Codex
+## 編集ルール
 
-1. If live dates, lottery dates, or source URLs change, update `summary/sakurazaka46_live_summary.md` first.
-2. If layout or behavior changes, edit `scripts/render_live_calendar.py` and regenerate.
-3. Do not hand-edit generated HTML.
-4. Do not use `.plan/` files as calendar input.
+1. ライブ日程・抽選日程・公式URLを変えるときは、先に `summary/sakurazaka46_live_summary.md` を更新する。
+2. レイアウトや表示挙動を変えるときは `scripts/render_live_calendar.py` を編集して再生成する。
+3. 生成後のHTMLを手で直接編集しない。
+4. `.plan/` をカレンダー入力に使わない。
 
-## Verification
+## 確認手順
 
 ```bash
 python3 scripts/render_live_calendar.py
 open index.html
 ```
 
-Check:
+確認ポイント:
 
-- the last month in the HTML matches the last dated month in the markdown
-- the target month contains the correct live rows
-- lottery tags are correct
-- holidays are visible as `祝`
-- no-schedule months are collapsed
-- clicking a scheduled date shows the detail panel
-- the holiday templates exist under `scripts/templates/` after the first successful run
+- HTMLの最終月が Markdown の最終確定月と一致している
+- 対象月に正しいライブ日程が入っている
+- 抽選タグが正しい
+- 祝日が `祝` として見えている
+- 予定なしの月が折りたたまれている
+- 日付クリックで詳細パネルが出る
+- 初回成功後に祝日テンプレートが生成されている
 
-## Short instruction template for Codex
+## Codex向け短縮指示テンプレート
 
 ```text
-Treat summary/sakurazaka46_live_summary.md as the source of truth.
-Run python3 scripts/render_live_calendar.py to regenerate the calendar assets.
-Use --output-calendar-md only when you want the text calendar markdown as an extra generated file.
-Use --refresh-holidays only when you intentionally want to replace saved holiday templates from the official CSV.
-The HTML is always a single file named index.html.
-If the summary mixes 2026 and 2027, include both years in the same HTML and render continuously through the last dated month.
-Undetermined bullet items under 抽選の日程 should not extend the rendered range.
-Do not change the summary markdown headings or table shape without updating the parser.
-Do not hand-edit generated HTML.
-Do not use .plan/ files as calendar input.
-Make display changes in scripts/render_live_calendar.py.
+`summary/sakurazaka46_live_summary.md` を source of truth として扱う。
+`python3 scripts/render_live_calendar.py` を実行して生成物を更新する。
+`--output-calendar-md` は追加のMarkdownカレンダーが欲しいときだけ使う。
+`--refresh-holidays` は保存済み祝日テンプレートを公式CSVで更新したいときだけ使う。
+HTMLは常に単一ファイル `index.html`。
+summaryに 2026 と 2027 が混在していても同じHTML内に連続表示する。
+`### 抽選の日程` 配下の未定項目は表示範囲を延ばさない。
+見出し名や表の形を変えるなら、先にパーサ側も直す。
+生成済みHTMLを手で直接編集しない。
+`.plan/` を入力に使わない。
+表示変更は `scripts/render_live_calendar.py` で行う。
 ```
 """
 
