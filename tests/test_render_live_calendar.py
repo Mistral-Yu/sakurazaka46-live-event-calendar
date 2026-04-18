@@ -222,6 +222,21 @@ def test_render_html_handles_touchend_directly_for_iphone_taps_without_double_to
     assert "if (Date.now() - lastTouchToggleAt < 700) return;" in html
 
 
+def test_render_html_adds_immediate_pressed_state_feedback_for_touch_day_buttons():
+    months = {m: module.empty_month_struct() for m in range(1, 13)}
+    months[7]["days"][23].append({"text": "静岡公演", "tone": "静岡公演", "kind": "live"})
+    months[7]["detail_map"][23].append({"label": "LIVE: テスト", "sub": "", "meta": "", "sources": []})
+
+    html = module.render_html(months, {}, {}, 2026)
+
+    assert ".day-cell.clickable.is-pressed,.day-cell.clickable:active" in html
+    assert "const setPressedState = (button, pressed) => {" in html
+    assert "button.classList.toggle('is-pressed', pressed);" in html
+    assert "button.addEventListener('pointerdown', () => setPressedState(button, true));" in html
+    assert "button.addEventListener('pointerup', () => setPressedState(button, false));" in html
+    assert "button.addEventListener('pointercancel', () => setPressedState(button, false));" in html
+
+
 def test_render_html_removes_redundant_month_subtitle_for_scheduled_months():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[1]["days"][4].append({"text": "幕張", "tone": "幕張", "kind": "live"})
