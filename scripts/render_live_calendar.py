@@ -65,18 +65,18 @@ LOTTERY_SHORT = {
 }
 
 HTML_TONE = {
-    "バックスライブ": "rose", "四期生ライブ": "blue", "静岡公演": "green", "神戸公演": "orange", "広島公演": "violet",
-    "千葉公演": "sky", "宮城公演": "teal", "香川公演": "amber", "アニラ": "pink",
-    "FC": "indigo", "LeminoS": "violet", "LeminoP": "blue", "イオン": "sky", "一般": "slate",
-    "FC2": "indigo", "先行": "indigo", "三井": "blue", "先行2": "indigo", "祝": "holiday", "情報": "slate",
+    "バックスライブ": "live", "四期生ライブ": "live", "静岡公演": "live", "神戸公演": "live", "広島公演": "live",
+    "千葉公演": "live", "宮城公演": "live", "香川公演": "live", "アニラ": "live",
+    "FC": "ticket", "LeminoS": "ticket", "LeminoP": "ticket", "イオン": "ticket", "一般": "ticket",
+    "FC2": "ticket", "先行": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket",
 }
 
 RGB_TONE = {
-    "バックスライブ": (216, 84, 95), "四期生ライブ": (91, 110, 240), "静岡公演": (105, 150, 102), "神戸公演": (237, 128, 84),
-    "広島公演": (152, 114, 207), "千葉公演": (84, 156, 214), "宮城公演": (59, 130, 120), "香川公演": (196, 132, 52),
-    "アニラ": (194, 76, 110), "FC": (93, 119, 255), "LeminoS": (163, 120, 220), "LeminoP": (110, 150, 255),
-    "イオン": (80, 145, 255), "一般": (150, 150, 150), "FC2": (81, 116, 222), "先行": (93, 119, 255),
-    "三井": (118, 132, 235), "先行2": (75, 104, 190), "祝": (229, 72, 77), "情報": (140, 140, 140),
+    "バックスライブ": (214, 100, 114), "四期生ライブ": (214, 100, 114), "静岡公演": (214, 100, 114), "神戸公演": (214, 100, 114),
+    "広島公演": (214, 100, 114), "千葉公演": (214, 100, 114), "宮城公演": (214, 100, 114), "香川公演": (214, 100, 114),
+    "アニラ": (214, 100, 114), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
+    "イオン": (91, 110, 240), "一般": (91, 110, 240), "FC2": (91, 110, 240), "先行": (91, 110, 240),
+    "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (229, 72, 77), "情報": (91, 110, 240),
 }
 
 HOLIDAYS = {month: {} for month in range(1, 13)}
@@ -299,11 +299,13 @@ def live_calendar_label(title: str, venue: str) -> str:
     return base
 
 
-def lottery_phase_labels(calendar_label: str, lottery_type: str) -> tuple[str, str, str]:
+def lottery_phase_labels(calendar_label: str, title: str, lottery_type: str) -> tuple[str, str, str]:
     if lottery_type == "一般発売":
         sale_label = calendar_label.removesuffix("抽選") if calendar_label.endswith("抽選") else calendar_label
-        return f"{sale_label}一般発売", f"一般発売: {lottery_type}", f"販売終了: {lottery_type}"
-    return f"{calendar_label}開始", f"抽選開始: {lottery_type}", f"抽選締切: {lottery_type}"
+        detail_label = f"一般発売: {title}"
+        return f"{sale_label}一般発売", detail_label, detail_label
+    detail_label = f"抽選: {title} {lottery_type}"
+    return f"{calendar_label}開始", detail_label, detail_label
 
 
 def iter_date_range(start: dt.date, end: dt.date):
@@ -450,7 +452,7 @@ def parse_summary_timeline(text: str, display_months: list[dt.date], holidays_by
                 short = LOTTERY_SHORT.get(lottery_type, lottery_type[:4])
                 calendar_label = lottery_calendar_label(title)
                 legend_lottery[short] = lottery_type
-                start_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, lottery_type)
+                start_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
                 period_dates = parse_lottery_period(period, section_dates)
                 if not period_dates:
                     continue
@@ -471,7 +473,7 @@ def parse_summary_timeline(text: str, display_months: list[dt.date], holidays_by
                         detail_label = end_detail_label
                     else:
                         item = {"text": f"{calendar_label}継続", "tone": short, "kind": "lottery_span"}
-                        detail_label = f"抽選継続: {lottery_type}"
+                        detail_label = start_detail_label
                     months[current_month_key]["days"][current_date.day].append(item)
                     add_detail(months, current_month_key, current_date.day, {
                         "label": detail_label,
@@ -547,7 +549,7 @@ def parse_summary(text: str, year: int):
                     short = LOTTERY_SHORT.get(lottery_type, lottery_type[:4])
                     calendar_label = lottery_calendar_label(title)
                     legend_lottery[short] = lottery_type
-                    start_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, lottery_type)
+                    start_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
                     parsed = re.match(r"(\d{1,2})/(\d{1,2})\([^)]*\)(?:〜(?:(\d{1,2})/(\d{1,2})\([^)]*\)|))?", period)
                     if not parsed:
                         continue
@@ -576,7 +578,7 @@ def parse_summary(text: str, year: int):
                             if current_date.year == year:
                                 months[current_date.month]["days"][current_date.day].append({"text": f"{calendar_label}継続", "tone": short, "kind": "lottery_span"})
                                 add_detail(months, current_date.month, current_date.day, {
-                                    "label": f"抽選継続: {lottery_type}",
+                                    "label": start_detail_label,
                                     "sub": f"対象: {target}" if target else title,
                                     "meta": period,
                                     "sources": section_sources,
@@ -807,12 +809,12 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             items = merge_day_items(month_data["days"][day])[:3]
             span_items = [item for item in month_data["days"][day] if item["kind"] == "lottery_span"]
             chips = "".join(
-                f"<div class='chip tone-{html.escape(HTML_TONE.get(item['tone'], 'slate'))}'>{html.escape(item['text'])}</div>"
+                f"<div class='chip tone-{html.escape(HTML_TONE.get(item['tone'], 'ticket'))}'>{html.escape(item['text'])}</div>"
                 for item in items
             )
             span_html = ""
             if span_items:
-                span_tone = html.escape(HTML_TONE.get(span_items[0]["tone"], "slate"))
+                span_tone = html.escape(HTML_TONE.get(span_items[0]["tone"], "ticket"))
                 span_label = html.escape(span_items[0]["text"])
                 span_html = f"<div class='lottery-span' data-span-tone='{span_tone}' aria-label='{span_label}'></div>"
             panel_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
@@ -878,7 +880,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>櫻坂46 ライブカレンダー</title>
 <style>
-:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--rose:#d8545f;--blue:#5b6ef0;--green:#699666;--orange:#ed8054;--violet:#9872cf;--sky:#549cd6;--teal:#3b8278;--amber:#c48434;--pink:#c24c6e;--indigo:#5d77ff;--slate:#959595;--holiday:#e5484d;}}
+:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#d66472;--ticket:#5b6ef0;--holiday:#e5484d;}}
 *{{box-sizing:border-box}} html{{scroll-behavior:smooth}} body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--text)}}
 .page{{max-width:1200px;margin:0 auto;padding:20px 14px 60px}} .hero{{margin-bottom:18px}} .hero h1{{margin:0;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.04em}} .hero p{{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch}}
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}}
@@ -889,8 +891,8 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}}
 .day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82)}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable:active{{transform:scale(.985)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.25);border-color:rgba(93,119,255,.2)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:normal;word-break:break-all;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden;text-overflow:clip}}
-.lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='rose']{{background:var(--rose)}} .lottery-span[data-span-tone='blue']{{background:var(--blue)}} .lottery-span[data-span-tone='green']{{background:var(--green)}} .lottery-span[data-span-tone='orange']{{background:var(--orange)}} .lottery-span[data-span-tone='violet']{{background:var(--violet)}} .lottery-span[data-span-tone='sky']{{background:var(--sky)}} .lottery-span[data-span-tone='teal']{{background:var(--teal)}} .lottery-span[data-span-tone='amber']{{background:var(--amber)}} .lottery-span[data-span-tone='pink']{{background:var(--pink)}} .lottery-span[data-span-tone='indigo']{{background:var(--indigo)}} .lottery-span[data-span-tone='slate']{{background:var(--slate)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
-.tone-rose{{background:var(--rose)}} .tone-blue{{background:var(--blue)}} .tone-green{{background:var(--green)}} .tone-orange{{background:var(--orange)}} .tone-violet{{background:var(--violet)}} .tone-sky{{background:var(--sky)}} .tone-teal{{background:var(--teal)}} .tone-amber{{background:var(--amber)}} .tone-pink{{background:var(--pink)}} .tone-indigo{{background:var(--indigo)}} .tone-slate{{background:var(--slate)}} .tone-holiday{{background:var(--holiday)}}
+.lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
+.tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
 .day-detail{{margin-top:16px;border:1px solid var(--line);border-radius:20px;padding:14px 16px;background:#fcfcfa}} .detail-title{{font-size:15px;font-weight:600;margin-bottom:8px}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-block h3{{font-size:16px;margin:0 0 8px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
 @media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:3px 6px;font-size:10px}} .legend-row{{font-size:13px}}}}
