@@ -263,6 +263,22 @@ def test_render_html_uses_roomier_desktop_width_and_detail_readability_styles():
     assert "@media (max-width:720px)" in html
 
 
+def test_render_html_offsets_hash_target_scroll_to_keep_some_calendar_visible():
+    months = {m: module.empty_month_struct() for m in range(1, 13)}
+    months[5]["days"][12].append({"text": "バックスライブ", "tone": "バックスライブ", "kind": "live"})
+    months[5]["detail_map"][12].append({
+        "label": "LIVE: テスト",
+        "sub": "会場: 幕張イベントホール",
+        "meta": "2026/05/12 火",
+        "sources": [],
+    })
+
+    html = module.render_html(months, {}, {}, 2026)
+
+    assert ".detail-panel{display:none;scroll-margin-top:clamp(96px,22vh,220px)}" in html
+    assert ".detail-panel:target{display:block}" in html
+
+
 def test_render_html_removes_redundant_month_subtitle_for_scheduled_months():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[1]["days"][4].append({"text": "幕張", "tone": "幕張", "kind": "live"})
