@@ -241,6 +241,28 @@ def test_render_html_uses_target_panels_with_close_link_for_selected_day_details
     assert "pointerdown" not in html
 
 
+def test_render_html_uses_roomier_desktop_width_and_detail_readability_styles():
+    months = {m: module.empty_month_struct() for m in range(1, 13)}
+    months[6]["days"][2].append({"text": "四期生ライブ", "tone": "四期生ライブ", "kind": "live"})
+    months[6]["detail_map"][2].append({
+        "label": "LIVE: 四期生 LIVE",
+        "sub": "会場: LaLa arena TOKYO-BAY",
+        "meta": "2026/06/02 火",
+        "sources": ["https://sakurazaka46.com/test"],
+    })
+
+    html = module.render_html(months, {}, {}, 2026)
+
+    assert "@media (min-width:980px)" in html
+    assert ".page{max-width:1400px;padding-inline:24px}" in html
+    assert ".month-summary{padding:24px 24px 20px}" in html
+    assert ".month-body{padding:0 24px 24px}" in html
+    assert ".day-detail{padding:18px 20px 20px}" in html
+    assert ".detail-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}" in html
+    assert ".detail-panel:target ~ .detail-sections{grid-template-columns:minmax(0,1.2fr) minmax(320px,.9fr)}" in html
+    assert "@media (max-width:720px)" in html
+
+
 def test_render_html_removes_redundant_month_subtitle_for_scheduled_months():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[1]["days"][4].append({"text": "幕張", "tone": "幕張", "kind": "live"})
