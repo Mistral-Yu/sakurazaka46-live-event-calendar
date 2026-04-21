@@ -856,7 +856,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             if details:
                 detail_payload[detail_key] = {"date": f"{year_value}/{month_value:02d}/{day:02d}", "items": details}
                 cells.append(
-                    f"<a class='day-cell clickable' href='#{panel_id}-detail' data-month='{panel_id}' data-detail-key='{detail_key}'>"
+                    f"<a class='day-cell clickable' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
                     f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
                 )
             else:
@@ -994,12 +994,8 @@ const maybeScrollToPanel = (panel, button) => {{
   if (!(panelBelowFold || panelCutOff || panelStillBelowButton)) return;
   window.scrollTo({{ top: targetTop, behavior: 'smooth' }});
 }};
-const activateDetailFromRelease = (button, event) => {{
-  if (event) event.preventDefault();
-  setPressedState(button, false);
-  toggleDetailPanel(button);
-}};
-const toggleDetailPanel = (button) => {{
+const openDetailPanel = (button) => {{
+  if (!button) return;
   const month = button.dataset.month;
   const key = button.dataset.detailKey;
   const panel = document.querySelector(`.day-detail[data-panel-month='${{month}}']`);
@@ -1007,13 +1003,6 @@ const toggleDetailPanel = (button) => {{
   const payload = detailData[key] || {{date: '', items: []}};
   const title = panel.querySelector('.detail-title');
   const list = panel.querySelector('.detail-list');
-  if (button.classList.contains('active')) {{
-    button.classList.remove('active');
-    closeDetailPanel(panel);
-    history.replaceState(null, '', `#${{month}}`);
-    forceVisualRefresh(panel, button);
-    return;
-  }}
   const monthBody = button.closest('.month-body');
   if (monthBody) {{
     for (const candidate of monthBody.querySelectorAll('.day-cell.clickable.active')) {{
@@ -1031,11 +1020,25 @@ const toggleDetailPanel = (button) => {{
       + `</div>`;
   }}).join('');
   button.classList.add('active');
-  history.replaceState(null, '', `#${{key}}`);
   forceVisualRefresh(panel, monthBody, button);
   requestAnimationFrame(() => {{
     maybeScrollToPanel(panel, button);
   }});
+}};
+const closeDetailForButton = (button) => {{
+  if (!button) return;
+  const month = button.dataset.month;
+  const panel = document.querySelector(`.day-detail[data-panel-month='${{month}}']`);
+  button.classList.remove('active');
+  closeDetailPanel(panel);
+  forceVisualRefresh(panel, button);
+}};
+const syncDetailFromHash = () => {{
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+  const button = Array.from(document.querySelectorAll('.day-cell.clickable')).find((candidate) => candidate.dataset.detailKey === hash);
+  if (!button) return;
+  openDetailPanel(button);
 }};
 for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('pointerdown', () => setPressedState(button, true));
@@ -1046,8 +1049,16 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('touchend', () => setPressedState(button, false));
   button.addEventListener('touchcancel', () => setPressedState(button, false));
   button.addEventListener('click', (event) => {{
-    activateDetailFromRelease(button, event);
+    setPressedState(button, false);
+    if (!button.classList.contains('active')) return;
+    event.preventDefault();
+    history.replaceState(null, '', `#${{button.dataset.month}}`);
+    closeDetailForButton(button);
   }});
+}}
+window.addEventListener('hashchange', syncDetailFromHash);
+if (window.location.hash) {{
+  syncDetailFromHash();
 }}
 </script>
 </body>
