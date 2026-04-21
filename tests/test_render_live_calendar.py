@@ -373,6 +373,10 @@ def test_render_html_script_supports_second_click_to_close_details_and_single_op
     assert "button.closest('.month-body')" in html
     assert "monthBody.querySelectorAll('.day-cell.clickable.active')" in html
     assert "candidate !== button" in html
+    assert "maybeScrollToPanel(panel, button);" in html
+    assert "window.scrollTo({ top: targetTop, behavior: 'smooth' });" in html
+    assert "panelStillBelowButton" in html
+    assert "requestAnimationFrame(() => {" in html
     assert "candidate.classList.remove('active')" in html
     assert "document.querySelectorAll('.day-detail')" not in html
 

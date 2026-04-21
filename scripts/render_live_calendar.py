@@ -970,6 +970,18 @@ const closeDetailPanel = (panel) => {{
   if (list) list.innerHTML = '';
   if (sections) sections.classList.add('is-hidden');
 }};
+const maybeScrollToPanel = (panel, button) => {{
+  if (!panel || !button) return;
+  const panelRect = panel.getBoundingClientRect();
+  const buttonRect = button.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+  const targetTop = Math.max(window.scrollY + panelRect.top - 16, 0);
+  const panelBelowFold = panelRect.top > viewportHeight - 140;
+  const panelCutOff = panelRect.bottom > viewportHeight - 24;
+  const panelStillBelowButton = panelRect.top > buttonRect.bottom + 12;
+  if (!(panelBelowFold || panelCutOff || panelStillBelowButton)) return;
+  window.scrollTo({{ top: targetTop, behavior: 'smooth' }});
+}};
 let lastTouchToggleAt = 0;
 const toggleDetailPanel = (button) => {{
   const month = button.dataset.month;
@@ -1005,6 +1017,9 @@ const toggleDetailPanel = (button) => {{
   if (sections) sections.classList.remove('is-hidden');
   button.classList.add('active');
   forceVisualRefresh(panel, monthBody, button);
+  requestAnimationFrame(() => {{
+    maybeScrollToPanel(panel, button);
+  }});
 }};
 for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('click', () => {{
