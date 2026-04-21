@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# pytest
+.pytest_cache/
+
+# local-only planning files
+.plan/
+summary/sakurazaka46_memo.md
+
+# local folders the user does not want tracked
+test/
+tests/
+template/
+templates/
+scripts/templates/

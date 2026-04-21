@@ -856,8 +856,8 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             if details:
                 detail_payload[detail_key] = {"date": f"{year_value}/{month_value:02d}/{day:02d}", "items": details}
                 cells.append(
-                    f"<button type='button' class='day-cell clickable' data-month='{panel_id}' data-detail-key='{detail_key}'>"
-                    f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></button>"
+                    f"<a class='day-cell clickable' href='#{panel_id}-detail' data-month='{panel_id}' data-detail-key='{detail_key}'>"
+                    f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
                 )
             else:
                 cells.append(f"<div class='day-cell'><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></div>")
@@ -882,6 +882,8 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         collapsed = " collapsed" if not month_has_schedule(month_data) else ""
         open_attr = "" if not month_has_schedule(month_data) else " open"
         month_heading = f"{month_value}月"
+        live_count = len(month_data["events"])
+        lot_count = len(lot_items)
         cards.append(
             f"""
 <details class='month-card{collapsed}' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'{open_attr}>
@@ -894,12 +896,18 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <div class='month-body'>
     <div class='weekdays'>{''.join(f"<div class='weekday{' weekend' if i in (0, 6) else ''}'>{d}</div>" for i, d in enumerate(['日', '月', '火', '水', '木', '金', '土']))}</div>
     <div class='grid'>{''.join(cells)}</div>
-    <div class='day-detail' data-panel-month='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'>
+    <div class='day-detail' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}-detail' data-panel-month='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
       <div class='detail-sections is-hidden'>
-        <div class='meta-block'><h3>{month_heading}のライブ情報</h3><div class='meta-list'>{live_items}</div></div>
-        <div class='meta-block'><h3>{month_heading}のチケット情報</h3><div class='meta-list'>{lot_html}</div></div>
+        <details class='meta-fold'>
+          <summary><span>{month_heading}のライブ情報</span><span class='meta-count'>{live_count}件</span></summary>
+          <div class='meta-list'>{live_items}</div>
+        </details>
+        <details class='meta-fold'>
+          <summary><span>{month_heading}のチケット情報</span><span class='meta-count'>{lot_count}件</span></summary>
+          <div class='meta-list'>{lot_html}</div>
+        </details>
       </div>
     </div>
   </div>
@@ -923,13 +931,13 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:40px;line-height:1;letter-spacing:-.05em;font-weight:700}} .month-sub{{color:var(--muted);font-size:13px}}
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--muted)}}
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}}
-.day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable:active{{transform:scale(.985)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.25);border-color:rgba(93,119,255,.2)}}
+.day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
-.day-detail{{margin-top:16px;border:1px solid var(--line);border-radius:20px;padding:14px 16px;background:#fcfcfa}} .detail-title{{font-size:15px;font-weight:600;margin-bottom:8px}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
-.detail-sections{{display:grid;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-block h3{{font-size:16px;margin:0 0 8px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
-@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
+.day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
+.detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
+@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
 </style>
 </head>
 <body>
@@ -975,10 +983,11 @@ const maybeScrollToPanel = (panel, button) => {{
   const panelRect = panel.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-  const targetTop = Math.max(window.scrollY + panelRect.top - 16, 0);
+  const desiredTop = Math.min(Math.max(Math.round(viewportHeight * 0.27), 96), 220);
+  const targetTop = Math.max(window.scrollY + panelRect.top - desiredTop, 0);
   const panelBelowFold = panelRect.top > viewportHeight - 140;
   const panelCutOff = panelRect.bottom > viewportHeight - 24;
-  const panelStillBelowButton = panelRect.top > buttonRect.bottom + 12;
+  const panelStillBelowButton = panelRect.top > buttonRect.bottom + 20;
   if (!(panelBelowFold || panelCutOff || panelStillBelowButton)) return;
   window.scrollTo({{ top: targetTop, behavior: 'smooth' }});
 }};
@@ -995,6 +1004,7 @@ const toggleDetailPanel = (button) => {{
   if (button.classList.contains('active')) {{
     button.classList.remove('active');
     closeDetailPanel(panel);
+    history.replaceState(null, '', `#${{month}}`);
     forceVisualRefresh(panel, button);
     return;
   }}
@@ -1016,13 +1026,15 @@ const toggleDetailPanel = (button) => {{
   }}).join('');
   if (sections) sections.classList.remove('is-hidden');
   button.classList.add('active');
+  history.replaceState(null, '', `#${{key}}`);
   forceVisualRefresh(panel, monthBody, button);
   requestAnimationFrame(() => {{
     maybeScrollToPanel(panel, button);
   }});
 }};
 for (const button of document.querySelectorAll('.day-cell.clickable')) {{
-  button.addEventListener('click', () => {{
+  button.addEventListener('click', (event) => {{
+    event.preventDefault();
     if (Date.now() - lastTouchToggleAt < 700) return;
     toggleDetailPanel(button);
   }});
