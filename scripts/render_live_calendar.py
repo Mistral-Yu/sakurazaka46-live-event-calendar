@@ -348,8 +348,16 @@ def iter_date_range(start: dt.date, end: dt.date):
         current += dt.timedelta(days=1)
 
 
+JAPANESE_WEEKDAYS = ("月", "火", "水", "木", "金", "土", "日")
+
+
 def month_start(year: int, month: int) -> dt.date:
     return dt.date(year, month, 1)
+
+
+def format_detail_date(year: int, month: int, day: int) -> str:
+    date_value = dt.date(year, month, day)
+    return f"{date_value:%Y/%m/%d} ({JAPANESE_WEEKDAYS[date_value.weekday()]})"
 
 
 def iter_month_starts(start: dt.date, end: dt.date):
@@ -855,7 +863,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             detail_key = f"{panel_id}-d{day:02d}"
             details = month_data["detail_map"][day]
             if details:
-                detail_payload[detail_key] = {"date": f"{year_value}/{month_value:02d}/{day:02d}", "items": details}
+                detail_payload[detail_key] = {"date": format_detail_date(year_value, month_value, day), "items": details}
                 active_css_rules.append(
                     f".day-cell.clickable:has(.detail-target#{detail_key}:target){{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}"
                 )
