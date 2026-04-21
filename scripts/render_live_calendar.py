@@ -826,6 +826,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     )
     detail_payload = {}
     cards = []
+    active_css_rules = []
 
     for month_key in display_months:
         month_data = normalized_months[month_key]
@@ -836,6 +837,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         sunday_first = (first + 1) % 7
         total = calendar.monthrange(year_value, month_value)[1]
         cells = []
+        target_markers = []
         for _ in range(sunday_first):
             cells.append("<div class='day-cell empty'></div>")
         for day in range(1, total + 1):
@@ -855,6 +857,10 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             details = month_data["detail_map"][day]
             if details:
                 detail_payload[detail_key] = {"date": f"{year_value}/{month_value:02d}/{day:02d}", "items": details}
+                target_markers.append(f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span>")
+                active_css_rules.append(
+                    f"body:has(.detail-target#{detail_key}:target) .day-cell.clickable[data-detail-key='{detail_key}']{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}"
+                )
                 cells.append(
                     f"<a class='day-cell clickable' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
                     f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
@@ -896,6 +902,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <div class='month-body'>
     <div class='weekdays'>{''.join(f"<div class='weekday{' weekend' if i in (0, 6) else ''}'>{d}</div>" for i, d in enumerate(['日', '月', '火', '水', '木', '金', '土']))}</div>
     <div class='grid'>{''.join(cells)}</div>
+    <div class='detail-targets' aria-hidden='true'>{''.join(target_markers)}</div>
     <div class='day-detail' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}-detail' data-panel-month='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
@@ -915,6 +922,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         )
 
     detail_json = json.dumps(detail_payload, ensure_ascii=False)
+    active_css = "".join(active_css_rules)
     return f"""<!doctype html>
 <html lang='ja'>
 <head>
@@ -935,8 +943,9 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
-.day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
+.detail-targets{{position:relative;height:0;overflow:hidden}} .detail-target{{display:block;height:0;pointer-events:none;visibility:hidden}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
+{active_css}
 @media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
 </style>
 </head>
@@ -1035,6 +1044,9 @@ const closeDetailForButton = (button) => {{
 }};
 const syncDetailFromHash = () => {{
   const hash = window.location.hash.slice(1);
+  for (const candidate of document.querySelectorAll('.day-cell.clickable.active')) {{
+    candidate.classList.remove('active');
+  }}
   if (!hash) return;
   const button = Array.from(document.querySelectorAll('.day-cell.clickable')).find((candidate) => candidate.dataset.detailKey === hash);
   if (!button) return;
@@ -1050,7 +1062,7 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('touchcancel', () => setPressedState(button, false));
   button.addEventListener('click', (event) => {{
     setPressedState(button, false);
-    if (!button.classList.contains('active')) return;
+    if (window.location.hash !== `#${{button.dataset.detailKey}}`) return;
     event.preventDefault();
     history.replaceState(null, '', `#${{button.dataset.month}}`);
     closeDetailForButton(button);
