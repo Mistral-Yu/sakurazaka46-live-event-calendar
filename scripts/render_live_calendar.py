@@ -38,7 +38,7 @@ LOTTERY_ROW_RE = re.compile(
     r"^\|\s*([^|\n]+?)\s*\|\s*\*\*?([^|\n*]+)\*\*?\s*\|\s*([^|\n]+?)\s*\|$",
     re.M,
 )
-SOURCE_URL_RE = re.compile(r"https://sakurazaka46\.com[^\s)]+")
+SOURCE_URL_RE = re.compile(r"https://[^\s)]+")
 
 LIVE_LABEL = {
     "幕張イベントホール": "幕張",
@@ -50,6 +50,7 @@ LIVE_LABEL = {
     "宮城・セキスイハイムスーパーアリーナ": "宮城",
     "香川・あなぶきアリーナ香川": "香川",
     "ZOZOマリンスタジアム": "アニラ",
+    "大阪・舞洲スポーツアイランド": "ジャイガ",
 }
 
 LOTTERY_SHORT = {
@@ -60,23 +61,24 @@ LOTTERY_SHORT = {
     "Lemino櫻坂46パック先行": "LeminoP",
     "FC会員2次先行": "FC2",
     "オフィシャル先行": "先行",
+    "オフィシャル先着受付": "先着",
     "三井ショッピングパーク チケット先行（千葉公演）": "三井",
     "オフィシャル2次先行": "先行2",
 }
 
 HTML_TONE = {
     "バックスライブ": "live", "四期生ライブ": "live", "静岡公演": "live", "神戸公演": "live", "広島公演": "live",
-    "千葉公演": "live", "宮城公演": "live", "香川公演": "live", "アニラ": "live",
+    "千葉公演": "live", "宮城公演": "live", "香川公演": "live", "アニラ": "live", "ジャイガ": "live",
     "FC": "ticket", "LeminoS": "ticket", "LeminoP": "ticket", "イオン": "ticket", "一般": "ticket",
-    "FC2": "ticket", "先行": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket",
+    "FC2": "ticket", "先行": "ticket", "先着": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket",
 }
 
 RGB_TONE = {
     "バックスライブ": (20, 134, 109), "四期生ライブ": (20, 134, 109), "静岡公演": (20, 134, 109), "神戸公演": (20, 134, 109),
     "広島公演": (20, 134, 109), "千葉公演": (20, 134, 109), "宮城公演": (20, 134, 109), "香川公演": (20, 134, 109),
-    "アニラ": (20, 134, 109), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
+    "アニラ": (20, 134, 109), "ジャイガ": (20, 134, 109), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
     "イオン": (91, 110, 240), "一般": (91, 110, 240), "FC2": (91, 110, 240), "先行": (91, 110, 240),
-    "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (229, 72, 77), "情報": (91, 110, 240),
+    "先着": (91, 110, 240), "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (229, 72, 77), "情報": (91, 110, 240),
 }
 
 HOLIDAYS = {month: {} for month in range(1, 13)}
@@ -291,6 +293,8 @@ def lottery_calendar_label(title: str) -> str:
         return "ツアー抽選"
     if "ANNIVERSARY LIVE" in normalized or "アニラ" in normalized:
         return "アニラ抽選"
+    if "OSAKA GIGANTIC MUSIC FESTIVAL" in normalized or "ジャイガ" in normalized:
+        return "ジャイガ抽選"
     normalized = re.sub(r"\s*LIVE!?！*$", "", normalized)
     return f"{normalized}抽選"
 
@@ -300,19 +304,41 @@ def live_calendar_label(title: str, venue: str) -> str:
         return "バックスライブ"
     if "四期生 LIVE" in title:
         return "四期生ライブ"
+    if "OSAKA GIGANTIC MUSIC FESTIVAL" in title or "ジャイガ" in title:
+        return "ジャイガ"
     base = LIVE_LABEL.get(venue, title[:4])
     if "全国アリーナツアー" in title or "全国ツアー" in title:
         return f"{base}公演"
     return base
 
 
-def lottery_phase_labels(calendar_label: str, title: str, lottery_type: str) -> tuple[str, str, str]:
+def lottery_phase_labels(
+    calendar_label: str,
+    title: str,
+    lottery_type: str,
+) -> tuple[str, str, str, str, str]:
+    sale_label = calendar_label.removesuffix("抽選") if calendar_label.endswith("抽選") else calendar_label
     if lottery_type == "一般発売":
-        sale_label = calendar_label.removesuffix("抽選") if calendar_label.endswith("抽選") else calendar_label
         detail_label = f"一般発売: {title}"
-        return f"{sale_label}一般発売", detail_label, detail_label
+        return (
+            f"{sale_label}一般発売",
+            f"{sale_label}一般発売中",
+            f"{sale_label}販売終了",
+            detail_label,
+            detail_label,
+        )
+    if "先着" in lottery_type:
+        compact_type = "先着受付" if lottery_type == "オフィシャル先着受付" else lottery_type
+        detail_label = f"{lottery_type}: {title}"
+        return (
+            f"{sale_label}{compact_type}",
+            f"{sale_label}{compact_type}中",
+            f"{sale_label}販売終了",
+            detail_label,
+            detail_label,
+        )
     detail_label = f"抽選: {title} {lottery_type}"
-    return f"{calendar_label}開始", detail_label, detail_label
+    return f"{calendar_label}開始", f"{calendar_label}継続", f"{calendar_label}締切", detail_label, detail_label
 
 
 def iter_date_range(start: dt.date, end: dt.date):
@@ -459,7 +485,7 @@ def parse_summary_timeline(text: str, display_months: list[dt.date], holidays_by
                 short = LOTTERY_SHORT.get(lottery_type, lottery_type[:4])
                 calendar_label = lottery_calendar_label(title)
                 legend_lottery[short] = lottery_type
-                start_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
+                start_chip_text, middle_chip_text, end_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
                 period_dates = parse_lottery_period(period, section_dates)
                 if not period_dates:
                     continue
@@ -476,10 +502,10 @@ def parse_summary_timeline(text: str, display_months: list[dt.date], holidays_by
                         item = {"text": start_chip_text, "tone": short, "kind": "lottery"}
                         detail_label = start_detail_label
                     elif current_date == end_date:
-                        item = {"text": f"{calendar_label}締切", "tone": short, "kind": "lottery"}
+                        item = {"text": end_chip_text, "tone": short, "kind": "lottery"}
                         detail_label = end_detail_label
                     else:
-                        item = {"text": f"{calendar_label}継続", "tone": short, "kind": "lottery_span"}
+                        item = {"text": middle_chip_text, "tone": short, "kind": "lottery_span"}
                         detail_label = start_detail_label
                     months[current_month_key]["days"][current_date.day].append(item)
                     add_detail(months, current_month_key, current_date.day, {
@@ -556,7 +582,7 @@ def parse_summary(text: str, year: int):
                     short = LOTTERY_SHORT.get(lottery_type, lottery_type[:4])
                     calendar_label = lottery_calendar_label(title)
                     legend_lottery[short] = lottery_type
-                    start_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
+                    start_chip_text, middle_chip_text, end_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
                     parsed = re.match(r"(\d{1,2})/(\d{1,2})\([^)]*\)(?:〜(?:(\d{1,2})/(\d{1,2})\([^)]*\)|))?", period)
                     if not parsed:
                         continue
@@ -583,7 +609,7 @@ def parse_summary(text: str, year: int):
                             end_date = dt.date(year, end_month, end_day)
                         for current_date in iter_date_range(start_date + dt.timedelta(days=1), end_date - dt.timedelta(days=1)):
                             if current_date.year == year:
-                                months[current_date.month]["days"][current_date.day].append({"text": f"{calendar_label}継続", "tone": short, "kind": "lottery_span"})
+                                months[current_date.month]["days"][current_date.day].append({"text": middle_chip_text, "tone": short, "kind": "lottery_span"})
                                 add_detail(months, current_date.month, current_date.day, {
                                     "label": start_detail_label,
                                     "sub": f"対象: {target}" if target else title,
@@ -591,7 +617,7 @@ def parse_summary(text: str, year: int):
                                     "sources": section_sources,
                                 })
                         if end_date.year == year:
-                            months[end_month]["days"][end_day].append({"text": f"{calendar_label}締切", "tone": short, "kind": "lottery"})
+                            months[end_month]["days"][end_day].append({"text": end_chip_text, "tone": short, "kind": "lottery"})
                             add_detail(months, end_month, end_day, {
                                 "label": end_detail_label,
                                 "sub": f"対象: {target}" if target else title,
@@ -650,7 +676,7 @@ def build_markdown(months, legend_live, legend_lottery, year: int, display_month
         "## タグ凡例",
         "",
         "- LIVEタグ: " + " / ".join(f"`{k}`={v}" for k, v in legend_live.items()),
-        "- 抽選タグ: `開始` / `締切` をそのまま表記",
+        "- 抽選タグ: 抽選は `開始` / `継続` / `締切`、販売系は `一般発売` / `一般発売中` / `先着受付` / `販売終了` を表記",
         "- 抽選コード: " + " / ".join(f"`{k}`={v}" for k, v in legend_lottery.items()),
         "- 祝日: 日付セル内は `祝` のみ表示（正式名はメモと詳細で保持）",
         "",
@@ -798,19 +824,18 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         f"<a href='#m{month_key.month:02d}'>{month_key.month}月</a>" if legacy_mode else f"<a href='#m{month_key.year}{month_key.month:02d}'>{month_key.year}/{month_key.month:02d}</a>"
         for month_key in display_months
     )
+    detail_payload = {}
     cards = []
 
     for month_key in display_months:
         month_data = normalized_months[month_key]
         year_value = month_key.year
         month_value = month_key.month
-        panel_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
         holiday_map = holidays_by_month.get(month_key, {})
         first = calendar.monthrange(year_value, month_value)[0]
         sunday_first = (first + 1) % 7
         total = calendar.monthrange(year_value, month_value)[1]
         cells = []
-        detail_panels = []
         for _ in range(sunday_first):
             cells.append("<div class='day-cell empty'></div>")
         for day in range(1, total + 1):
@@ -825,33 +850,14 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
                 span_tone = html.escape(HTML_TONE.get(span_items[0]["tone"], "ticket"))
                 span_label = html.escape(span_items[0]["text"])
                 span_html = f"<div class='lottery-span' data-span-tone='{span_tone}' aria-label='{span_label}'></div>"
+            panel_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
             detail_key = f"{panel_id}-d{day:02d}"
             details = month_data["detail_map"][day]
             if details:
-                detail_items = "".join(
-                    (
-                        "<div class='detail-item'>"
-                        f"<div class='detail-label'>{html.escape(item.get('label', ''))}</div>"
-                        f"<div class='detail-sub'>{html.escape(item.get('sub', ''))}</div>"
-                        f"<div class='detail-meta'>{html.escape(item.get('meta', ''))}</div>"
-                        + "".join(
-                            f"<div class='detail-source'><a href='{html.escape(url)}' target='_blank' rel='noreferrer'>{html.escape(url)}</a></div>"
-                            for url in item.get("sources", [])
-                        )
-                        + "</div>"
-                    )
-                    for item in details
-                )
-                detail_panels.append(
-                    f"<section id='{detail_key}' class='detail-panel' data-detail-key='{detail_key}'>"
-                    f"<div class='detail-head'><div class='detail-title'>{year_value}/{month_value:02d}/{day:02d} の詳細</div>"
-                    f"<a class='detail-reset' href='#{panel_id}'>閉じる</a></div>"
-                    f"<div class='detail-list'>{detail_items}</div>"
-                    "</section>"
-                )
+                detail_payload[detail_key] = {"date": f"{year_value}/{month_value:02d}/{day:02d}", "items": details}
                 cells.append(
-                    f"<a class='day-cell clickable' href='#{detail_key}' data-detail-key='{detail_key}'>"
-                    f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
+                    f"<button type='button' class='day-cell clickable' data-month='{panel_id}' data-detail-key='{detail_key}'>"
+                    f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></button>"
                 )
             else:
                 cells.append(f"<div class='day-cell'><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></div>")
@@ -878,7 +884,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         month_heading = f"{month_value}月"
         cards.append(
             f"""
-<details class='month-card{collapsed}' id='{panel_id}'{open_attr}>
+<details class='month-card{collapsed}' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'{open_attr}>
   <summary class='month-summary'>
     <div class='month-header'>
       <div class='month-title'>{year_value}年{month_value}月</div>
@@ -888,12 +894,10 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <div class='month-body'>
     <div class='weekdays'>{''.join(f"<div class='weekday{' weekend' if i in (0, 6) else ''}'>{d}</div>" for i, d in enumerate(['日', '月', '火', '水', '木', '金', '土']))}</div>
     <div class='grid'>{''.join(cells)}</div>
-    <div class='day-detail'>
-      {''.join(detail_panels)}
-      <div class='detail-default'>
-        <div class='detail-title'>日付をタップすると詳細を表示</div>
-      </div>
-      <div class='detail-sections'>
+    <div class='day-detail' data-panel-month='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'>
+      <div class='detail-title'>日付をタップすると詳細を表示</div>
+      <div class='detail-list'></div>
+      <div class='detail-sections is-hidden'>
         <div class='meta-block'><h3>{month_heading}のライブ情報</h3><div class='meta-list'>{live_items}</div></div>
         <div class='meta-block'><h3>{month_heading}のチケット情報</h3><div class='meta-list'>{lot_html}</div></div>
       </div>
@@ -902,6 +906,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 </details>"""
         )
 
+    detail_json = json.dumps(detail_payload, ensure_ascii=False)
     return f"""<!doctype html>
 <html lang='ja'>
 <head>
@@ -918,13 +923,13 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:40px;line-height:1;letter-spacing:-.05em;font-weight:700}} .month-sub{{color:var(--muted);font-size:13px}}
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--muted)}}
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}}
-.day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18);transform:scale(.985)}} .day-cell.clickable:focus-visible{{outline:2px solid rgba(93,119,255,.35);outline-offset:-2px}}
+.day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable:active{{transform:scale(.985)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.25);border-color:rgba(93,119,255,.2)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
-.day-detail{{margin-top:16px;border:1px solid var(--line);border-radius:20px;padding:14px 16px;background:#fcfcfa}} .detail-head{{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}} .detail-title{{font-size:15px;font-weight:600}} .detail-reset{{font-size:12px;color:var(--muted);text-decoration:none;white-space:nowrap}} .detail-reset:hover{{color:var(--text)}} .detail-panel{{display:none;scroll-margin-top:clamp(96px,22vh,220px)}} .detail-panel:target{{display:block}} .detail-default{{display:block}} .detail-panel:target ~ .detail-default{{display:none}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
-.detail-sections{{display:none;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-panel:target ~ .detail-sections{{display:grid}} .meta-block h3{{font-size:16px;margin:0 0 8px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
-@media (min-width:980px){{.page{{max-width:1400px;padding-inline:24px}} .month-summary{{padding:24px 24px 20px}} .month-body{{padding:0 24px 24px}} .day-cell{{min-height:108px;padding:8px}} .day-detail{{padding:18px 20px 20px}} .detail-title{{font-size:16px}} .detail-list{{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}} .detail-label{{font-size:15px}} .detail-sub,.detail-meta,.detail-source{{font-size:14px;line-height:1.7}} .detail-panel:target ~ .detail-sections{{grid-template-columns:minmax(0,1.2fr) minmax(320px,.9fr)}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
+.day-detail{{margin-top:16px;border:1px solid var(--line);border-radius:20px;padding:14px 16px;background:#fcfcfa}} .detail-title{{font-size:15px;font-weight:600;margin-bottom:8px}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
+.detail-sections{{display:grid;gap:18px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-block h3{{font-size:16px;margin:0 0 8px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
+@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
 </style>
 </head>
 <body>
@@ -942,6 +947,78 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <nav class='month-nav'>{month_nav}</nav>
   <section class='month-list'>{''.join(cards)}</section>
 </div>
+<script>
+const detailData = {detail_json};
+const forceVisualRefresh = (...elements) => {{
+  for (const element of elements) {{
+    if (!element) continue;
+    void element.offsetHeight;
+  }}
+  requestAnimationFrame(() => {{
+    for (const element of elements) {{
+      if (!element) continue;
+      void element.offsetHeight;
+    }}
+  }});
+}};
+const closeDetailPanel = (panel) => {{
+  if (!panel) return;
+  const title = panel.querySelector('.detail-title');
+  const list = panel.querySelector('.detail-list');
+  const sections = panel.querySelector('.detail-sections');
+  if (title) title.textContent = '日付をタップすると詳細を表示';
+  if (list) list.innerHTML = '';
+  if (sections) sections.classList.add('is-hidden');
+}};
+let lastTouchToggleAt = 0;
+const toggleDetailPanel = (button) => {{
+  const month = button.dataset.month;
+  const key = button.dataset.detailKey;
+  const panel = document.querySelector(`.day-detail[data-panel-month='${{month}}']`);
+  if (!panel) return;
+  const payload = detailData[key] || {{date: '', items: []}};
+  const title = panel.querySelector('.detail-title');
+  const list = panel.querySelector('.detail-list');
+  const sections = panel.querySelector('.detail-sections');
+  if (button.classList.contains('active')) {{
+    button.classList.remove('active');
+    closeDetailPanel(panel);
+    forceVisualRefresh(panel, button);
+    return;
+  }}
+  const monthBody = button.closest('.month-body');
+  if (monthBody) {{
+    for (const candidate of monthBody.querySelectorAll('.day-cell.clickable.active')) {{
+      if (candidate !== button) candidate.classList.remove('active');
+    }}
+  }}
+  title.textContent = payload.date ? `${{payload.date}} の詳細` : '日付をタップすると詳細を表示';
+  list.innerHTML = (payload.items || []).map((item) => {{
+    const sources = (item.sources || []).map((url) => `<div class='detail-source'><a href='${{url}}' target='_blank' rel='noreferrer'>${{url}}</a></div>`).join('');
+    return `<div class='detail-item'>`
+      + `<div class='detail-label'>${{item.label || ''}}</div>`
+      + `<div class='detail-sub'>${{item.sub || ''}}</div>`
+      + `<div class='detail-meta'>${{item.meta || ''}}</div>`
+      + sources
+      + `</div>`;
+  }}).join('');
+  if (sections) sections.classList.remove('is-hidden');
+  button.classList.add('active');
+  forceVisualRefresh(panel, monthBody, button);
+}};
+for (const button of document.querySelectorAll('.day-cell.clickable')) {{
+  button.addEventListener('click', () => {{
+    if (Date.now() - lastTouchToggleAt < 700) return;
+    toggleDetailPanel(button);
+  }});
+  button.addEventListener('touchend', (event) => {{
+    event.preventDefault();
+    if (Date.now() - lastTouchToggleAt < 700) return;
+    lastTouchToggleAt = Date.now();
+    toggleDetailPanel(button);
+  }});
+}}
+</script>
 </body>
 </html>"""
 

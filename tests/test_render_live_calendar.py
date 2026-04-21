@@ -182,21 +182,17 @@ def test_render_html_gives_clickable_cells_a_lightweight_polished_button_style()
     assert "border:1px solid rgba(231,229,222,.82)" in html
 
 
-def test_render_html_uses_native_hash_day_disclosure_instead_of_touch_button_js():
+def test_render_html_forces_visual_refresh_after_detail_toggle_for_iphone_safari():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[6]["days"][2].append({"text": "四期生ライブ", "tone": "四期生ライブ", "kind": "live"})
     months[6]["detail_map"][2].append({"label": "LIVE: 四期生 LIVE", "sub": "", "meta": "", "sources": []})
 
     html = module.render_html(months, {}, {}, 2026)
 
-    assert "<a class='day-cell clickable'" in html
-    assert "href='#m06-d02'" in html
-    assert "id='m06-d02'" in html
-    assert "data-detail-key='m06-d02'" in html
-    assert "<button type='button' class='day-cell clickable'" not in html
-    assert "touchend" not in html
-    assert "pointerdown" not in html
-    assert "forceVisualRefresh" not in html
+    assert "const forceVisualRefresh = (...elements) =>" in html
+    assert "void element.offsetHeight;" in html
+    assert "requestAnimationFrame(() => {" in html
+    assert "forceVisualRefresh(panel, monthBody, button);" in html
 
 
 def test_render_html_disables_clickable_cell_animations_on_touch_devices():
@@ -209,74 +205,21 @@ def test_render_html_disables_clickable_cell_animations_on_touch_devices():
     assert "@media (hover:none), (pointer:coarse)" in html
     assert "transition:none" in html
     assert "transform:none" in html
-    assert "-webkit-tap-highlight-color:transparent" in html
+    assert "-webkit-appearance:none" in html
 
 
-def test_render_html_uses_focusable_link_states_instead_of_custom_touch_handlers():
+def test_render_html_handles_touchend_directly_for_iphone_taps_without_double_toggle():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[5]["days"][12].append({"text": "バックスライブ", "tone": "バックスライブ", "kind": "live"})
     months[5]["detail_map"][12].append({"label": "LIVE: テスト", "sub": "", "meta": "", "sources": []})
 
     html = module.render_html(months, {}, {}, 2026)
 
-    assert ".day-cell.clickable:active" in html
-    assert ".day-cell.clickable:focus-visible" in html
-    assert "touchend" not in html
-    assert "lastTouchToggleAt" not in html
-    assert "event.preventDefault()" not in html
-
-
-def test_render_html_uses_target_panels_with_close_link_for_selected_day_details():
-    months = {m: module.empty_month_struct() for m in range(1, 13)}
-    months[7]["days"][23].append({"text": "静岡公演", "tone": "静岡公演", "kind": "live"})
-    months[7]["detail_map"][23].append({"label": "LIVE: テスト", "sub": "", "meta": "", "sources": []})
-
-    html = module.render_html(months, {}, {}, 2026)
-
-    assert "class='detail-panel'" in html
-    assert ".detail-panel:target{display:block}" in html
-    assert ".detail-panel:target ~ .detail-default{display:none}" in html
-    assert "class='detail-reset' href='#m07'" in html
-    assert "is-pressed" not in html
-    assert "pointerdown" not in html
-
-
-def test_render_html_uses_roomier_desktop_width_and_detail_readability_styles():
-    months = {m: module.empty_month_struct() for m in range(1, 13)}
-    months[6]["days"][2].append({"text": "四期生ライブ", "tone": "四期生ライブ", "kind": "live"})
-    months[6]["detail_map"][2].append({
-        "label": "LIVE: 四期生 LIVE",
-        "sub": "会場: LaLa arena TOKYO-BAY",
-        "meta": "2026/06/02 火",
-        "sources": ["https://sakurazaka46.com/test"],
-    })
-
-    html = module.render_html(months, {}, {}, 2026)
-
-    assert "@media (min-width:980px)" in html
-    assert ".page{max-width:1400px;padding-inline:24px}" in html
-    assert ".month-summary{padding:24px 24px 20px}" in html
-    assert ".month-body{padding:0 24px 24px}" in html
-    assert ".day-detail{padding:18px 20px 20px}" in html
-    assert ".detail-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}" in html
-    assert ".detail-panel:target ~ .detail-sections{grid-template-columns:minmax(0,1.2fr) minmax(320px,.9fr)}" in html
-    assert "@media (max-width:720px)" in html
-
-
-def test_render_html_offsets_hash_target_scroll_to_keep_some_calendar_visible():
-    months = {m: module.empty_month_struct() for m in range(1, 13)}
-    months[5]["days"][12].append({"text": "バックスライブ", "tone": "バックスライブ", "kind": "live"})
-    months[5]["detail_map"][12].append({
-        "label": "LIVE: テスト",
-        "sub": "会場: 幕張イベントホール",
-        "meta": "2026/05/12 火",
-        "sources": [],
-    })
-
-    html = module.render_html(months, {}, {}, 2026)
-
-    assert ".detail-panel{display:none;scroll-margin-top:clamp(96px,22vh,220px)}" in html
-    assert ".detail-panel:target{display:block}" in html
+    assert "touch-action:manipulation" in html
+    assert "let lastTouchToggleAt = 0;" in html
+    assert "button.addEventListener('touchend', (event) => {" in html
+    assert "event.preventDefault();" in html
+    assert "if (Date.now() - lastTouchToggleAt < 700) return;" in html
 
 
 def test_render_html_removes_redundant_month_subtitle_for_scheduled_months():
@@ -321,6 +264,41 @@ https://sakurazaka46.com/test-backs
     assert "バックスライブ" in legend_live
 
 
+def test_parse_summary_supports_external_festival_sources_and_jaiga_labels():
+    module.HOLIDAYS = {m: {} for m in range(1, 13)}
+    summary = """## OSAKA GIGANTIC MUSIC FESTIVAL 2026
+
+### ライブ公演の日程
+
+| 2026-08-01 | 土 | 大阪・舞洲スポーツアイランド |
+
+### 抽選の日程
+
+| オフィシャル先着受付 | **4/21(火)〜5/10(日)** | 1DAY |
+
+### 公式ソース
+
+- https://spice.eplus.jp/articles/345649
+- https://eplus.jp/sf/word/0000109593
+- https://giga.link.fespli.com/
+"""
+
+    months, legend_live, legend_lottery = module.parse_summary(summary, 2026)
+
+    assert any(item["text"] == "ジャイガ" for item in months[8]["days"][1])
+    assert any(item["text"] == "ジャイガ先着受付" for item in months[4]["days"][21])
+    assert any(item["kind"] == "lottery_span" and item["text"] == "ジャイガ先着受付中" for item in months[5]["days"][1])
+    assert any(item["text"] == "ジャイガ販売終了" for item in months[5]["days"][10])
+    assert any(item["label"] == "オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2026" for item in months[4]["detail_map"][21])
+    assert any(item["sources"] == [
+        "https://spice.eplus.jp/articles/345649",
+        "https://eplus.jp/sf/word/0000109593",
+        "https://giga.link.fespli.com/",
+    ] for item in months[8]["detail_map"][1])
+    assert "ジャイガ" in legend_live
+    assert legend_lottery["先着"] == "オフィシャル先着受付"
+
+
 def test_render_html_uses_live_list_and_color_split_legend():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[5]["events"].append({"tag": "バックスライブ", "range": "05/12〜13", "wdays": "火水", "title": "14枚目シングル BACKS LIVE!!", "venue": "幕張イベントホール"})
@@ -342,6 +320,26 @@ def test_render_html_uses_live_list_and_color_split_legend():
     assert "<span>色分け: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ開催日</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span>" in html
 
 
+def test_render_html_keeps_external_source_links_in_detail_panel():
+    months = {m: module.empty_month_struct() for m in range(1, 13)}
+    months[8]["days"][1].append({"text": "ジャイガ", "tone": "ジャイガ", "kind": "live"})
+    months[8]["detail_map"][1].append({
+        "label": "LIVE: OSAKA GIGANTIC MUSIC FESTIVAL 2026",
+        "sub": "会場: 大阪・舞洲スポーツアイランド",
+        "meta": "2026/08/01 土",
+        "sources": [
+            "https://spice.eplus.jp/articles/345649",
+            "https://eplus.jp/sf/word/0000109593",
+        ],
+    })
+
+    html = module.render_html(months, {"ジャイガ": "OSAKA GIGANTIC MUSIC FESTIVAL 2026 / 大阪・舞洲スポーツアイランド"}, {}, 2026)
+
+    assert "https://spice.eplus.jp/articles/345649" in html
+    assert "https://eplus.jp/sf/word/0000109593" in html
+    assert "target='_blank'" in html
+
+
 def test_render_html_uses_mobile_ellipsis_short_labels_only_under_narrow_width():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[5]["days"][12].append({"text": "バックスライブ", "tone": "バックスライブ", "kind": "live"})
@@ -359,7 +357,7 @@ def test_render_html_uses_mobile_ellipsis_short_labels_only_under_narrow_width()
     assert ".chip-text{display:block" in html
 
 
-def test_render_html_uses_one_hash_target_panel_per_month_detail_area():
+def test_render_html_script_supports_second_click_to_close_details_and_single_open_panel_within_month():
     months = {m: module.empty_month_struct() for m in range(1, 13)}
     months[6]["days"][2].append({"text": "四期生ライブ", "tone": "四期生ライブ", "kind": "live"})
     months[6]["detail_map"][2].append({"label": "LIVE: 四期生 LIVE", "sub": "", "meta": "", "sources": []})
@@ -368,14 +366,15 @@ def test_render_html_uses_one_hash_target_panel_per_month_detail_area():
 
     html = module.render_html(months, {}, {}, 2026)
 
-    assert "id='m06-d02'" in html
-    assert "id='m06-d03'" in html
-    assert "href='#m06-d02'" in html
-    assert "href='#m06-d03'" in html
-    assert ".detail-panel:target ~ .detail-sections{display:grid}" in html
-    assert "class='detail-default'" in html
-    assert "button.classList.contains('active')" not in html
-    assert "closeDetailPanel" not in html
+    assert "button.classList.contains('active')" in html
+    assert "sections.classList.add('is-hidden')" in html
+    assert "list.innerHTML = ''" in html
+    assert "closeDetailPanel(panel);" in html
+    assert "button.closest('.month-body')" in html
+    assert "monthBody.querySelectorAll('.day-cell.clickable.active')" in html
+    assert "candidate !== button" in html
+    assert "candidate.classList.remove('active')" in html
+    assert "document.querySelectorAll('.day-detail')" not in html
 
 
 def test_parse_summary_uses_general_sale_not_lottery_start_for_ippan():
@@ -494,8 +493,7 @@ def test_render_html_integrates_click_revealed_month_specific_live_and_ticket_se
 
     html = module.render_html(months, {"四期": "四期生 LIVE / LaLa arena TOKYO-BAY"}, {"FC": "FC会員先行"}, 2026)
 
-    assert "class='detail-sections'" in html
-    assert ".detail-panel:target ~ .detail-sections{display:grid}" in html
+    assert "detail-sections is-hidden" in html
     assert "<h3>6月のライブ情報</h3>" in html
     assert "<h3>6月のチケット情報</h3>" in html
     assert "日付をタップすると詳細を表示" in html
