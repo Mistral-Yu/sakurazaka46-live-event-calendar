@@ -50,7 +50,7 @@
     <div class='day-detail' id='m202604-detail' data-panel-month='m202604'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>4月のライブ情報</span><span class='meta-count'>0件</span></summary>
           <div class='meta-list'><div class='meta-item'>この月のライブ予定なし</div></div>
@@ -76,7 +76,7 @@
     <div class='day-detail' id='m202605-detail' data-panel-month='m202605'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>5月のライブ情報</span><span class='meta-count'>1件</span></summary>
           <div class='meta-list'><div class='meta-item'>バックスライブ  05/12〜13 火水  14枚目シングル BACKS LIVE!! / 幕張イベントホール</div></div>
@@ -102,7 +102,7 @@
     <div class='day-detail' id='m202606-detail' data-panel-month='m202606'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>6月のライブ情報</span><span class='meta-count'>1件</span></summary>
           <div class='meta-list'><div class='meta-item'>四期生ライブ  06/02〜03 火水  四期生 LIVE / LaLa arena TOKYO-BAY</div></div>
@@ -128,7 +128,7 @@
     <div class='day-detail' id='m202607-detail' data-panel-month='m202607'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>7月のライブ情報</span><span class='meta-count'>2件</span></summary>
           <div class='meta-list'><div class='meta-item'>静岡公演  07/23〜24 木金  全国アリーナツアー2026 / 静岡・エコパアリーナ</div><div class='meta-item'>神戸公演  07/28〜29 火水  全国アリーナツアー2026 / 兵庫・神戸ワールド記念ホール</div></div>
@@ -154,7 +154,7 @@
     <div class='day-detail' id='m202608-detail' data-panel-month='m202608'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>8月のライブ情報</span><span class='meta-count'>5件</span></summary>
           <div class='meta-list'><div class='meta-item'>広島公演  08/08〜09 土日  全国アリーナツアー2026 / 広島・広島グリーンアリーナ</div><div class='meta-item'>千葉公演  08/15〜16 土日  全国アリーナツアー2026 / 千葉・LaLa arena TOKYO-BAY</div><div class='meta-item'>宮城公演  08/22〜23 土日  全国アリーナツアー2026 / 宮城・セキスイハイムスーパーアリーナ</div><div class='meta-item'>香川公演  08/29〜30 土日  全国アリーナツアー2026 / 香川・あなぶきアリーナ香川</div><div class='meta-item'>ジャイガ  08/01 土  OSAKA GIGANTIC MUSIC FESTIVAL 2026 / 大阪・舞洲スポーツアイランド</div></div>
@@ -180,7 +180,7 @@
     <div class='day-detail' id='m202609-detail' data-panel-month='m202609'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>9月のライブ情報</span><span class='meta-count'>0件</span></summary>
           <div class='meta-list'><div class='meta-item'>この月のライブ予定なし</div></div>
@@ -206,7 +206,7 @@
     <div class='day-detail' id='m202610-detail' data-panel-month='m202610'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>10月のライブ情報</span><span class='meta-count'>0件</span></summary>
           <div class='meta-list'><div class='meta-item'>この月のライブ予定なし</div></div>
@@ -232,7 +232,7 @@
     <div class='day-detail' id='m202611-detail' data-panel-month='m202611'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
-      <div class='detail-sections is-hidden'>
+      <div class='detail-sections'>
         <details class='meta-fold'>
           <summary><span>11月のライブ情報</span><span class='meta-count'>1件</span></summary>
           <div class='meta-list'><div class='meta-item'>アニラ  11/14〜15 土日  6th YEAR ANNIVERSARY LIVE / ZOZOマリンスタジアム</div></div>
@@ -264,10 +264,8 @@ const closeDetailPanel = (panel) => {
   if (!panel) return;
   const title = panel.querySelector('.detail-title');
   const list = panel.querySelector('.detail-list');
-  const sections = panel.querySelector('.detail-sections');
   if (title) title.textContent = '日付をタップすると詳細を表示';
   if (list) list.innerHTML = '';
-  if (sections) sections.classList.add('is-hidden');
 };
 const maybeScrollToPanel = (panel, button) => {
   if (!panel || !button) return;
@@ -291,7 +289,6 @@ const toggleDetailPanel = (button) => {
   const payload = detailData[key] || {date: '', items: []};
   const title = panel.querySelector('.detail-title');
   const list = panel.querySelector('.detail-list');
-  const sections = panel.querySelector('.detail-sections');
   if (button.classList.contains('active')) {
     button.classList.remove('active');
     closeDetailPanel(panel);
@@ -315,7 +312,6 @@ const toggleDetailPanel = (button) => {
       + sources
       + `</div>`;
   }).join('');
-  if (sections) sections.classList.remove('is-hidden');
   button.classList.add('active');
   history.replaceState(null, '', `#${key}`);
   forceVisualRefresh(panel, monthBody, button);
