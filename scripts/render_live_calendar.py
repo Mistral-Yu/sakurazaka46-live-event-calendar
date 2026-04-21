@@ -837,7 +837,6 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         sunday_first = (first + 1) % 7
         total = calendar.monthrange(year_value, month_value)[1]
         cells = []
-        target_markers = []
         for _ in range(sunday_first):
             cells.append("<div class='day-cell empty'></div>")
         for day in range(1, total + 1):
@@ -857,13 +856,12 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             details = month_data["detail_map"][day]
             if details:
                 detail_payload[detail_key] = {"date": f"{year_value}/{month_value:02d}/{day:02d}", "items": details}
-                target_markers.append(f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span>")
                 active_css_rules.append(
-                    f"body:has(.detail-target#{detail_key}:target) .day-cell.clickable[data-detail-key='{detail_key}']{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}"
+                    f".day-cell.clickable:has(.detail-target#{detail_key}:target){{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}"
                 )
                 cells.append(
                     f"<a class='day-cell clickable' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
-                    f"<div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
+                    f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
                 )
             else:
                 cells.append(f"<div class='day-cell'><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></div>")
@@ -902,7 +900,6 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <div class='month-body'>
     <div class='weekdays'>{''.join(f"<div class='weekday{' weekend' if i in (0, 6) else ''}'>{d}</div>" for i, d in enumerate(['日', '月', '火', '水', '木', '金', '土']))}</div>
     <div class='grid'>{''.join(cells)}</div>
-    <div class='detail-targets' aria-hidden='true'>{''.join(target_markers)}</div>
     <div class='day-detail' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}-detail' data-panel-month='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'>
       <div class='detail-title'>日付をタップすると詳細を表示</div>
       <div class='detail-list'></div>
@@ -943,7 +940,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
-.detail-targets{{position:relative;height:0;overflow:hidden}} .detail-target{{display:block;height:0;pointer-events:none;visibility:hidden}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
+.detail-target{{display:block;height:0;overflow:hidden;pointer-events:none;visibility:hidden;scroll-margin-top:70vh}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
 {active_css}
 @media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
@@ -978,6 +975,7 @@ const forceVisualRefresh = (...elements) => {{
     }}
   }});
 }};
+const pendingTapTops = new Map();
 const setPressedState = (button, pressed) => {{
   if (!button) return;
   button.classList.toggle('is-pressed', pressed);
@@ -995,13 +993,13 @@ const maybeScrollToPanel = (panel, button) => {{
   const panelRect = panel.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-  const desiredTop = Math.min(Math.max(Math.round(viewportHeight * 0.27), 96), 220);
-  const targetTop = Math.max(window.scrollY + panelRect.top - desiredTop, 0);
-  const panelBelowFold = panelRect.top > viewportHeight - 140;
-  const panelCutOff = panelRect.bottom > viewportHeight - 24;
-  const panelStillBelowButton = panelRect.top > buttonRect.bottom + 20;
-  if (!(panelBelowFold || panelCutOff || panelStillBelowButton)) return;
-  window.scrollTo({{ top: targetTop, behavior: 'smooth' }});
+  const minGapBelowButton = 6;
+  const viewportBottomPadding = 20;
+  const shiftToClearButton = Math.max(panelRect.top - (buttonRect.bottom + minGapBelowButton), 0);
+  const shiftToFitBottom = Math.max(panelRect.bottom - (viewportHeight - viewportBottomPadding), 0);
+  const shift = Math.max(shiftToClearButton, shiftToFitBottom);
+  if (shift <= 0) return;
+  window.scrollTo({{ top: Math.max(window.scrollY + shift, 0), behavior: 'smooth' }});
 }};
 const openDetailPanel = (button) => {{
   if (!button) return;
@@ -1031,6 +1029,16 @@ const openDetailPanel = (button) => {{
   button.classList.add('active');
   forceVisualRefresh(panel, monthBody, button);
   requestAnimationFrame(() => {{
+    const savedTop = pendingTapTops.get(key);
+    if (typeof savedTop === 'number') {{
+      const currentTop = button.getBoundingClientRect().top;
+      const desiredTop = Math.max(savedTop - 24, 12);
+      const correction = currentTop - desiredTop;
+      if (Math.abs(correction) > 1) {{
+        window.scrollTo({{ top: Math.max(window.scrollY + correction, 0), behavior: 'auto' }});
+      }}
+      pendingTapTops.delete(key);
+    }}
     maybeScrollToPanel(panel, button);
   }});
 }};
@@ -1067,6 +1075,9 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
     history.replaceState(null, '', `#${{button.dataset.month}}`);
     closeDetailForButton(button);
   }});
+  button.addEventListener('click', () => {{
+    pendingTapTops.set(button.dataset.detailKey, button.getBoundingClientRect().top);
+  }}, {{capture:true}});
 }}
 window.addEventListener('hashchange', syncDetailFromHash);
 if (window.location.hash) {{
