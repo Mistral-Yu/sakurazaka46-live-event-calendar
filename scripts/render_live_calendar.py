@@ -989,7 +989,10 @@ const maybeScrollToPanel = (panel, button) => {{
   if (!(panelBelowFold || panelCutOff || panelStillBelowButton)) return;
   window.scrollTo({{ top: targetTop, behavior: 'smooth' }});
 }};
-let lastTouchToggleAt = 0;
+const activateDetailFromRelease = (button, event) => {{
+  if (event) event.preventDefault();
+  toggleDetailPanel(button);
+}};
 const toggleDetailPanel = (button) => {{
   const month = button.dataset.month;
   const key = button.dataset.detailKey;
@@ -1030,15 +1033,7 @@ const toggleDetailPanel = (button) => {{
 }};
 for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('click', (event) => {{
-    event.preventDefault();
-    if (Date.now() - lastTouchToggleAt < 700) return;
-    toggleDetailPanel(button);
-  }});
-  button.addEventListener('touchend', (event) => {{
-    event.preventDefault();
-    if (Date.now() - lastTouchToggleAt < 700) return;
-    lastTouchToggleAt = Date.now();
-    toggleDetailPanel(button);
+    activateDetailFromRelease(button, event);
   }});
 }}
 </script>
