@@ -1093,7 +1093,7 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
     }}
     url.searchParams.set('d', button.dataset.detailKey);
     history.pushState(null, '', `${{url.pathname}}${{url.search}}${{url.hash}}`);
-    syncDetailFromLocation();
+    openDetailPanel(button);
   }});
 }}
 window.addEventListener('popstate', syncDetailFromLocation);
