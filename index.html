@@ -262,6 +262,7 @@ const forceVisualRefresh = (...elements) => {
   });
 };
 const pendingTapTops = new Map();
+const shouldAutoScrollToPanel = window.matchMedia('(hover:none), (pointer:coarse)').matches;
 const setPressedState = (button, pressed) => {
   if (!button) return;
   button.classList.toggle('is-pressed', pressed);
@@ -275,7 +276,7 @@ const closeDetailPanel = (panel) => {
   if (list) list.innerHTML = '';
 };
 const maybeScrollToPanel = (panel, button) => {
-  if (!panel || !button) return;
+  if (!panel || !button || !shouldAutoScrollToPanel) return;
   const panelRect = panel.getBoundingClientRect();
   const buttonRect = button.getBoundingClientRect();
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
@@ -315,6 +316,10 @@ const openDetailPanel = (button) => {
   button.classList.add('active');
   forceVisualRefresh(panel, monthBody, button);
   requestAnimationFrame(() => {
+    if (!shouldAutoScrollToPanel) {
+      pendingTapTops.delete(key);
+      return;
+    }
     const savedTop = pendingTapTops.get(key);
     if (typeof savedTop === 'number') {
       const currentTop = button.getBoundingClientRect().top;
@@ -336,13 +341,13 @@ const closeDetailForButton = (button) => {
   closeDetailPanel(panel);
   forceVisualRefresh(panel, button);
 };
-const syncDetailFromHash = () => {
-  const hash = window.location.hash.slice(1);
+const syncDetailFromLocation = () => {
+  const detailKey = new URLSearchParams(window.location.search).get('d');
   for (const candidate of document.querySelectorAll('.day-cell.clickable.active')) {
     candidate.classList.remove('active');
   }
-  if (!hash) return;
-  const button = Array.from(document.querySelectorAll('.day-cell.clickable')).find((candidate) => candidate.dataset.detailKey === hash);
+  if (!detailKey) return;
+  const button = Array.from(document.querySelectorAll('.day-cell.clickable')).find((candidate) => candidate.dataset.detailKey === detailKey);
   if (!button) return;
   openDetailPanel(button);
 };
@@ -356,18 +361,23 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {
   button.addEventListener('touchcancel', () => setPressedState(button, false));
   button.addEventListener('click', (event) => {
     setPressedState(button, false);
-    if (window.location.hash !== `#${button.dataset.detailKey}`) return;
     event.preventDefault();
-    history.replaceState(null, '', `#${button.dataset.month}`);
-    closeDetailForButton(button);
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('d') === button.dataset.detailKey) {
+      url.searchParams.delete('d');
+      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+      closeDetailForButton(button);
+      return;
+    }
+    url.searchParams.set('d', button.dataset.detailKey);
+    history.pushState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    syncDetailFromLocation();
   });
-  button.addEventListener('click', () => {
-    pendingTapTops.set(button.dataset.detailKey, button.getBoundingClientRect().top);
-  }, {capture:true});
 }
-window.addEventListener('hashchange', syncDetailFromHash);
-if (window.location.hash) {
-  syncDetailFromHash();
+window.addEventListener('popstate', syncDetailFromLocation);
+window.addEventListener('hashchange', syncDetailFromLocation);
+if (window.location.search.includes('d=')) {
+  syncDetailFromLocation();
 }
 </script>
 </body>
