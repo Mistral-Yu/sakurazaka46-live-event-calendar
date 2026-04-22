@@ -985,6 +985,8 @@ const forceVisualRefresh = (...elements) => {{
 }};
 const pendingTapTops = new Map();
 const shouldAutoScrollToPanel = window.matchMedia('(hover:none), (pointer:coarse)').matches;
+const shouldUseNativeHash = shouldAutoScrollToPanel;
+const getDetailKeyFromLocation = () => new URLSearchParams(window.location.search).get('d') || window.location.hash.slice(1);
 const setPressedState = (button, pressed) => {{
   if (!button) return;
   button.classList.toggle('is-pressed', pressed);
@@ -1064,7 +1066,7 @@ const closeDetailForButton = (button) => {{
   forceVisualRefresh(panel, button);
 }};
 const syncDetailFromLocation = () => {{
-  const detailKey = new URLSearchParams(window.location.search).get('d');
+  const detailKey = getDetailKeyFromLocation();
   for (const candidate of document.querySelectorAll('.day-cell.clickable.active')) {{
     candidate.classList.remove('active');
   }}
@@ -1083,8 +1085,23 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
   button.addEventListener('touchcancel', () => setPressedState(button, false));
   button.addEventListener('click', (event) => {{
     setPressedState(button, false);
-    event.preventDefault();
     const url = new URL(window.location.href);
+    const currentDetailKey = getDetailKeyFromLocation();
+    if (shouldUseNativeHash) {{
+      if (currentDetailKey === button.dataset.detailKey) {{
+        event.preventDefault();
+        url.hash = '';
+        history.replaceState(null, '', `${{url.pathname}}${{url.search}}`);
+        closeDetailForButton(button);
+        return;
+      }}
+      if (url.searchParams.has('d')) {{
+        url.searchParams.delete('d');
+        history.replaceState(null, '', `${{url.pathname}}${{url.search}}${{url.hash}}`);
+      }}
+      return;
+    }}
+    event.preventDefault();
     if (url.searchParams.get('d') === button.dataset.detailKey) {{
       url.searchParams.delete('d');
       history.replaceState(null, '', `${{url.pathname}}${{url.search}}${{url.hash}}`);
@@ -1098,7 +1115,7 @@ for (const button of document.querySelectorAll('.day-cell.clickable')) {{
 }}
 window.addEventListener('popstate', syncDetailFromLocation);
 window.addEventListener('hashchange', syncDetailFromLocation);
-if (window.location.search.includes('d=')) {{
+if (getDetailKeyFromLocation()) {{
   syncDetailFromLocation();
 }}
 </script>
