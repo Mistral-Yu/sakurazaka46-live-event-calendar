@@ -74,11 +74,11 @@ HTML_TONE = {
 }
 
 RGB_TONE = {
-    "バックスライブ": (20, 134, 109), "四期生ライブ": (20, 134, 109), "静岡公演": (20, 134, 109), "神戸公演": (20, 134, 109),
-    "広島公演": (20, 134, 109), "千葉公演": (20, 134, 109), "宮城公演": (20, 134, 109), "香川公演": (20, 134, 109),
-    "アニラ": (20, 134, 109), "ジャイガ": (20, 134, 109), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
+    "バックスライブ": (232, 163, 195), "四期生ライブ": (232, 163, 195), "静岡公演": (232, 163, 195), "神戸公演": (232, 163, 195),
+    "広島公演": (232, 163, 195), "千葉公演": (232, 163, 195), "宮城公演": (232, 163, 195), "香川公演": (232, 163, 195),
+    "アニラ": (232, 163, 195), "ジャイガ": (232, 163, 195), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
     "イオン": (91, 110, 240), "一般": (91, 110, 240), "FC2": (91, 110, 240), "先行": (91, 110, 240),
-    "先着": (91, 110, 240), "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (229, 72, 77), "情報": (91, 110, 240),
+    "先着": (91, 110, 240), "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (201, 183, 255), "情報": (91, 110, 240),
 }
 
 HOLIDAYS = {month: {} for month in range(1, 13)}
@@ -92,6 +92,10 @@ MUTED = (120, 120, 120)
 
 def empty_holiday_map() -> dict[int, dict[int, str]]:
     return {month: {} for month in range(1, 13)}
+
+
+def get_today() -> dt.date:
+    return dt.date.today()
 
 
 def parse_holiday_csv_bytes(data: bytes, year: int = DEFAULT_YEAR) -> dict[int, dict[int, str]]:
@@ -835,6 +839,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     detail_payload = {}
     cards = []
     active_css_rules = []
+    today = get_today()
 
     for month_key in display_months:
         month_data = normalized_months[month_key]
@@ -862,17 +867,24 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             panel_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
             detail_key = f"{panel_id}-d{day:02d}"
             details = month_data["detail_map"][day]
+            is_today = today == dt.date(year_value, month_value, day)
+            day_class = "day-cell today" if is_today else "day-cell"
+            clickable_class = f"{day_class} clickable" if details else day_class
             if details:
                 detail_payload[detail_key] = {"date": format_detail_date(year_value, month_value, day), "items": details}
                 active_css_rules.append(
                     f".day-cell.clickable:has(.detail-target#{detail_key}:target){{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}"
                 )
+                if is_today:
+                    active_css_rules.append(
+                        f".day-cell.clickable.today:has(.detail-target#{detail_key}:target){{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}"
+                    )
                 cells.append(
-                    f"<a class='day-cell clickable' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
+                    f"<a class='{clickable_class}' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
                     f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
                 )
             else:
-                cells.append(f"<div class='day-cell'><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></div>")
+                cells.append(f"<div class='{day_class}'><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></div>")
         while len(cells) % 7 != 0:
             cells.append("<div class='day-cell empty'></div>")
 
@@ -935,7 +947,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>櫻坂46 ライブカレンダー</title>
 <style>
-:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#14866d;--ticket:#5b6ef0;--holiday:#e5484d;}}
+:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#e8a3c3;--ticket:#5b6ef0;--holiday:#c9b7ff;}}
 *{{box-sizing:border-box}} html{{scroll-behavior:smooth}} body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--text)}}
 .page{{max-width:1200px;margin:0 auto;padding:20px 14px 60px}} .hero{{margin-bottom:18px}} .hero h1{{margin:0;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.04em}} .hero p{{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch}}
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}} .legend-meaning{{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px}} .legend-item{{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;line-height:1.4}} .legend-chip{{display:inline-block;width:12px;height:12px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}}
@@ -943,8 +955,8 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .month-list{{display:grid;gap:18px}} .month-card{{background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 44px rgba(30,30,28,.05);overflow:hidden}} .month-summary{{list-style:none;cursor:pointer;padding:20px 18px}} .month-summary::-webkit-details-marker{{display:none}} .month-card.collapsed .month-summary{{background:rgba(0,0,0,.01)}}
 .month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:40px;line-height:1;letter-spacing:-.05em;font-weight:700}} .month-sub{{color:var(--muted);font-size:13px}}
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--muted)}}
-.day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}}
-.day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable.is-pressed,.day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}}
+.day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700;color:#6d5bb3}}
+.day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable.is-pressed,.day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.active.today{{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
