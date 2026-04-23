@@ -24,44 +24,24 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 - `summary/sakurazaka46_event_summary.md`  
   関連イベント情報を整理するためのまとめファイルです。
 
-公開ページのHTMLは、`summary/sakurazaka46_live_summary.md` の内容をもとに Python スクリプトで生成しています。
+公開ページの `index.html` は、`summary/sakurazaka46_live_summary.md` をもとにローカル環境で生成して反映しています。
 
-## 主なファイル
+## 主な公開ファイル
 
 - `index.html`  
   公開ページ本体です。
-- `scripts/render_live_calendar.py`  
-  カレンダーを生成するスクリプトです。
-- `scripts/sakurazaka_schedule_workflow.md`  
-  更新手順と運用ルールをまとめたファイルです。
 - `summary/`  
   ライブ・イベント情報の元データです。
 
-## ローカルで更新する方法
+## ローカル運用メモ
 
-```bash
-python3 scripts/render_live_calendar.py
-```
-
-実行すると、主に以下が更新されます。
-
-- `index.html`
-- `scripts/sakurazaka_schedule_workflow.md`
-
-プレビュー画像も必要なときだけ、以下を実行します。
-
-```bash
-python3 scripts/render_live_calendar.py --output-preview
-```
-
-この場合は、以下も出力されます。
-
-- `summary/sakurazaka46_live_calendar_preview.jpg`
+- 生成用の `scripts/` フォルダーはローカル専用で、GitHub には含めません
+- 公開リポジトリには、主に `index.html` と `summary/` を反映します
+- 祝日データや生成ワークフローもローカル側で管理します
 
 ## 補足
 
 - `.plan/` は作業用ディレクトリで、公開や生成の入力には使いません
-- 祝日データは公式CSVをもとにテンプレート化して再利用しています
 - 公開ページは GitHub Pages で配信しています
 
 櫻坂46の予定を、できるだけ見やすく・追いやすく整理していくためのページとして運用しています。
