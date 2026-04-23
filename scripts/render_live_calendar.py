@@ -854,16 +854,10 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             cells.append("<div class='day-cell empty'></div>")
         for day in range(1, total + 1):
             items = merge_day_items(month_data["days"][day])[:3]
-            span_items = [item for item in month_data["days"][day] if item["kind"] == "lottery_span"]
             chips = "".join(
                 f"<div class='chip tone-{html.escape(HTML_TONE.get(item['tone'], 'ticket'))}' data-mobile-text='{html.escape(mobile_chip_text(item['text']))}' aria-label='{html.escape(item['text'])}'><span class='chip-text'>{html.escape(item['text'])}</span></div>"
                 for item in items
             )
-            span_html = ""
-            if span_items:
-                span_tone = html.escape(HTML_TONE.get(span_items[0]["tone"], "ticket"))
-                span_label = html.escape(span_items[0]["text"])
-                span_html = f"<div class='lottery-span' data-span-tone='{span_tone}' aria-label='{span_label}'></div>"
             panel_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
             detail_key = f"{panel_id}-d{day:02d}"
             details = month_data["detail_map"][day]
@@ -881,10 +875,10 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
                     )
                 cells.append(
                     f"<a class='{clickable_class}' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
-                    f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></a>"
+                    f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span><div class='day-num'>{day}</div><div class='chips'>{chips}</div></a>"
                 )
             else:
-                cells.append(f"<div class='{day_class}'><div class='day-num'>{day}</div>{span_html}<div class='chips'>{chips}</div></div>")
+                cells.append(f"<div class='{day_class}'><div class='day-num'>{day}</div><div class='chips'>{chips}</div></div>")
         while len(cells) % 7 != 0:
             cells.append("<div class='day-cell empty'></div>")
 
@@ -958,7 +952,6 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700;color:#6d5bb3}}
 .day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable.is-pressed,.day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.active.today{{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
-.lottery-span{{position:absolute;left:6px;right:6px;top:30px;height:8px;border-radius:999px;opacity:.3;pointer-events:none}} .lottery-span[data-span-tone='live']{{background:var(--live)}} .lottery-span[data-span-tone='ticket']{{background:var(--ticket)}} .lottery-span[data-span-tone='holiday']{{background:var(--holiday)}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-holiday{{background:var(--holiday)}}
 .detail-target{{display:block;height:0;overflow:hidden;pointer-events:none;visibility:hidden;scroll-margin-top:70vh}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
@@ -975,7 +968,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   <section class='legend'>
     <div class='legend-row'>ライブ一覧: {html.escape(' / '.join(legend_live.keys()))}</div>
     <div class='legend-meaning'>
-      <div class='legend-item'><span>色分け: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ開催日</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span></div>
+      <div class='legend-item'><span>色分け: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ開催日</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>チケット抽選</span><span class='legend-chip tone-holiday' aria-hidden='true'></span><span>祝日</span></div>
     </div>
   </section>
   <nav class='month-nav'>{month_nav}</nav>
