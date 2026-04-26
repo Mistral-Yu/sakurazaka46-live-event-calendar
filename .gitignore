@@ -10,6 +10,7 @@ __pycache__/
 
 # local-only planning files
 .plan/
+AGENTS.md
 summary/sakurazaka46_memo.md
 
 # local folders the user does not want tracked
