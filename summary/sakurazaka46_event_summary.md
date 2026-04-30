@@ -63,6 +63,22 @@
 
 - https://sakurazaka46.com/s/s46/news/detail/R00559?ima=0000
 
+## 帰ってきた！『櫻坂46×ビルディバイド -ブライト- 』 マチアソビ感謝祭ステージ！
+
+### イベント開催の日程
+
+| 開催日 | 曜日 | 内容 |
+|---|---|---|
+| 2026-05-16 | 土 | 11:00〜／新町橋東公園ステージ／松田里奈・的野美青 出演 |
+
+### 抽選の日程
+
+- 応募・抽選なし
+
+### 公式ソース
+
+- https://www.machiasobi.com/event/465/
+
 ## 14枚目シングル「The growing up train」連動オンラインミーグリ
 
 ### イベント開催の日程
@@ -134,3 +150,4 @@
 - 14枚目シングル CD購入者スペシャル応募抽選企画ニュース: https://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 - ミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000
 - リアルミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000&ct=kobetsu_talk
+- マチ★アソビ感謝祭ステージ: https://www.machiasobi.com/event/465/
