@@ -49,6 +49,32 @@
 
 - https://sakurazaka46.com/s/s46/news/detail/R00558?ima=0000
 
+## 15枚目シングル発売記念オンラインミート＆グリート
+
+### イベント開催の日程
+
+| 開催日 | 曜日 | 内容 |
+|---|---|---|
+| 2026-06-14 | 日 | オンラインミーグリ |
+| 2026-06-21 | 日 | オンラインミーグリ |
+| 2026-06-27 | 土 | オンラインミーグリ |
+| 2026-07-04 | 土 | オンラインミーグリ |
+| 2026-09-12 | 土 | オンラインミーグリ |
+| 2026-09-13 | 日 | オンラインミーグリ |
+
+### 抽選の日程
+
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| 第1次応募 | **2026-05-07(木)〜2026-05-08(金)** | オンラインミーグリ |
+| 第2次応募 | **2026-05-13(水)〜2026-05-14(木)** | オンラインミーグリ |
+| 第3次応募 | **2026-05-20(水)〜2026-05-21(木)** | オンラインミーグリ |
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000
+- https://www.fortunemusic.jp/sakurazaka_202606/
+
 ## 15枚目シングル CDショップチェーン別先着特典
 
 ### イベント開催の日程
@@ -149,5 +175,7 @@
 - 14枚目シングル スペシャル応募抽選特設: https://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
 - 14枚目シングル CD購入者スペシャル応募抽選企画ニュース: https://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 - ミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000
+- 15枚目シングル発売記念オンラインミーグリ: https://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000
+- 15枚目シングル forTUNE music限定オンラインミーグリ: https://www.fortunemusic.jp/sakurazaka_202606/
 - リアルミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000&ct=kobetsu_talk
 - マチ★アソビ感謝祭ステージ: https://www.machiasobi.com/event/465/
