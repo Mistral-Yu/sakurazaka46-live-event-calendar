@@ -169,6 +169,25 @@
 - https://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
 - https://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 
+## ＮＨＫ仙台フェスティバル２０２６ てれまさ スペシャルステージ「みんなで語ろう！未来へつなぎたい TOHOKU HEART」
+
+### イベント開催の日程
+
+| 開催日 | 曜日 | 内容 |
+|---|---|---|
+| 2026-05-16 | 土 | 14:30〜15:30／ＮＨＫ仙台放送局／山川宇衣 登壇 |
+
+### 抽選の日程
+
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| 着席観覧事前申込 | **2026-04-06(月)〜2026-04-21(火)** | 無料観覧／入場整理券 |
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004
+- https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
+
 ## 公式ソースまとめ
 
 - 櫻坂46メッセージ Wキャンペーン: https://sakurazaka46.com/s/s46/news/detail/O100081?ima=0000
@@ -179,3 +198,5 @@
 - 15枚目シングル forTUNE music限定オンラインミーグリ: https://www.fortunemusic.jp/sakurazaka_202606/
 - リアルミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000&ct=kobetsu_talk
 - マチ★アソビ感謝祭ステージ: https://www.machiasobi.com/event/465/
+- ＮＨＫ仙台フェスティバル２０２６ てれまさスペシャルステージ: https://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004
+- NHKイベント・インフォメーション てれまさスペシャルステージ: https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
