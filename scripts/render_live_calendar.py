@@ -1650,13 +1650,14 @@ def extract_calendar_parts(rendered_html: str) -> tuple[str, str, str]:
     return style, body, script
 
 
-def render_mode_html(months, legend_live, legend_lottery, *, display_months, holidays_by_month, page_title, hero_copy, list_label, live_meaning, ticket_meaning, primary_meta_label="ライブ情報", ticket_meta_label="チケット情報") -> str:
-    previous = {name: getattr(render_html, name, None) for name in ("page_title", "hero_copy", "list_label", "live_meaning", "ticket_meaning", "primary_meta_label", "ticket_meta_label")}
+def render_mode_html(months, legend_live, legend_lottery, *, display_months, holidays_by_month, page_title, hero_copy, list_label, live_meaning, ticket_meaning, deadline_meaning="締切・販売終了", primary_meta_label="ライブ情報", ticket_meta_label="チケット情報") -> str:
+    previous = {name: getattr(render_html, name, None) for name in ("page_title", "hero_copy", "list_label", "live_meaning", "ticket_meaning", "deadline_meaning", "primary_meta_label", "ticket_meta_label")}
     render_html.page_title = page_title
     render_html.hero_copy = hero_copy
     render_html.list_label = list_label
     render_html.live_meaning = live_meaning
     render_html.ticket_meaning = ticket_meaning
+    render_html.deadline_meaning = deadline_meaning
     render_html.primary_meta_label = primary_meta_label
     render_html.ticket_meta_label = ticket_meta_label
     try:
@@ -1775,10 +1776,11 @@ def main(argv: list[str] | None = None) -> None:
         display_months=live_display_months,
         holidays_by_month=holidays_by_live_month,
         page_title="櫻坂46 ライブカレンダー",
-        hero_copy="5th YEAR ANNIVERSARY LIVE以降のライブ情報を、見やすく整理してまとめています。",
+        hero_copy="ライブ情報をまとめています。",
         list_label="ライブ一覧",
         live_meaning="ライブ開催日",
-        ticket_meaning="抽選開始・抽選中",
+        ticket_meaning="抽選中",
+        deadline_meaning="抽選終了",
     )
     if event_source_text:
         event_html = render_mode_html(
@@ -1788,10 +1790,11 @@ def main(argv: list[str] | None = None) -> None:
             display_months=event_display_months,
             holidays_by_month=holidays_by_event_month,
             page_title="櫻坂46 イベントカレンダー",
-            hero_copy="CD応募・ミーグリ・メッセージキャンペーンなど、ライブ以外の予定を整理しています。",
+            hero_copy="ライブ以外の予定をまとめています。",
             list_label="イベント分類",
             live_meaning="イベント日程",
-            ticket_meaning="応募開始・応募中",
+            ticket_meaning="応募中",
+            deadline_meaning="応募終了",
             primary_meta_label="イベント情報",
             ticket_meta_label="応募・締切情報",
         )
