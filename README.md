@@ -41,7 +41,7 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 
 このリポジトリで公開している掲載内容・文章・構成・デザイン・公開用HTMLは、原則として **CC BY-NC 4.0**（表示-非営利 4.0 国際）で公開しています。
 
-- ライセンス概要: `license.html`
+- ライセンス概要: `license.md`
 - 詳細条文: `LICENSE`
 
 商用利用は許可していません。

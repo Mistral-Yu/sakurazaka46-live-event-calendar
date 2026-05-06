@@ -1251,7 +1251,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   </section>
   <nav class='month-nav'>{month_nav}</nav>
   <section class='month-list'>{''.join(cards)}</section>
-  <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。<a href='license.html'>CC BY-NC 4.0</a></footer>
+  <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。CC BY-NC 4.0</footer>
 </div>
 <script>
 (function() {{
