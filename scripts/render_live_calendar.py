@@ -1241,7 +1241,6 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <div class='page'>
   <section class='hero'>
     <h1>{html.escape(page_title)}</h1>
-    <p>{html.escape(hero_copy)}</p>
   </section>
   <section class='legend'>
     <div class='legend-row'>{html.escape(list_label)}: {html.escape(' / '.join(legend_live.keys()))}</div>
