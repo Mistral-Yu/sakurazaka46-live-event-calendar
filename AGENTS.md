@@ -41,7 +41,7 @@
 
 ## Repository hygiene
 
-- 公開repoは `index.html`、`summary/`、`README.md`、`LICENSE`、`license.md` などユーザー向け静的ファイルを中心にする。
+- 公開repoは `index.html`、`summary/`、`README.md`、`LICENSE` などユーザー向け静的ファイルを中心にする。
 - `AGENTS.md` はAIエージェント向けの保守ルールとして公開repoに含める。
 - `scripts/` は原則ローカル運用扱いだが、公開ページ生成に必要な `scripts/render_live_calendar.py`、`scripts/sakurazaka_schedule_workflow.md`、`scripts/holidays_template.json` は追跡対象にする。
 - `.gitignore` はGitHubに置かず、ローカル除外ルールは `.git/info/exclude` で管理する。
