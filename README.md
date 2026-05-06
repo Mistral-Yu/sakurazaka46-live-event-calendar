@@ -3,7 +3,13 @@
 櫻坂46のライブ日程・チケット抽選・関連イベントを、見やすい形でまとめるための公開用リポジトリです。
 自分用のチケット抽選管理と、確認メモを整理するためのページとして運用しています。
 
-ページやサマリーなどの土台は Codex を使って作成し、人間が内容確認と文章校正を行いながら更新しています。
+## AI利用について
+
+本リポジトリでは、AIモデル（ChatGPT / GPT-5.5）による作成・整理支援を利用しています。  
+また、AIエージェントである Hermes Agent を用いた、情報収集・整理・更新支援ワークフローの検証も兼ねています。
+
+掲載内容は、AIによる作成・整理支援、エージェントによる調査支援、人間による確認・補正を組み合わせて管理しています。  
+ただし、正確性が重要な予定については、公式サイト・公式SNS・配信元などの一次情報も確認してください。
 
 公開ページはこちらです。  
 https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
@@ -17,14 +23,12 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 
 ## 更新の元データ
 
-このリポジトリでは、以下のMarkdownを管理しています。
+このリポジトリでは、以下のMarkdown形式のテキストデータを管理しています。
 
 - `summary/sakurazaka46_live_summary.md`  
   公開ページのHTML生成に使う、ライブカレンダーの元データです。
 - `summary/sakurazaka46_event_summary.md`  
   関連イベント情報を整理するためのまとめファイルです。
-
-公開ページの `index.html` は、`summary/sakurazaka46_live_summary.md` をもとにローカル環境で生成して反映しています。
 
 ## 主な公開ファイル
 
@@ -32,12 +36,6 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
   公開ページ本体です。
 - `summary/`  
   ライブ・イベント情報の元データです。
-
-## ローカル運用メモ
-
-- 生成用の `scripts/` フォルダーはローカル専用で、GitHub には含めません
-- 公開リポジトリには、主に `index.html` と `summary/` を反映します
-- 祝日データや生成ワークフローもローカル側で管理します
 
 ## ライセンス
 
@@ -47,10 +45,5 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 - 詳細条文: `LICENSE`
 
 商用利用は許可していません。
-
-## 補足
-
-- `.plan/` は作業用ディレクトリで、公開や生成の入力には使いません
-- 公開ページは GitHub Pages で配信しています
 
 櫻坂46の予定を、できるだけ見やすく・追いやすく整理していくためのページとして運用しています。

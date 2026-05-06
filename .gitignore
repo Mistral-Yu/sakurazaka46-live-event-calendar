@@ -14,8 +14,10 @@ AGENTS.md
 summary/sakurazaka46_memo.md
 
 # local folders the user does not want tracked
-test/
 tests/
-template/
-templates/
-scripts/
+scripts/*
+!scripts/render_live_calendar.py
+!scripts/sakurazaka_schedule_workflow.md
+!scripts/holidays_template.json
+scripts/__pycache__/
+scripts/.DS_Store
