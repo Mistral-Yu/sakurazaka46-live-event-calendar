@@ -33,9 +33,21 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 ## 主な公開ファイル
 
 - `index.html`  
-  公開ページ本体です。
-- `summary/`  
-  ライブ・イベント情報の元データです。
+  GitHub Pagesで公開するカレンダー本体です。
+- `summary/sakurazaka46_live_summary.md`  
+  ライブ日程・チケット抽選情報の元データです。
+- `summary/sakurazaka46_event_summary.md`  
+  CD発売、ミーグリ、リアルミーグリ、関連イベント情報の元データです。
+- `scripts/render_live_calendar.py`  
+  Markdownの元データから `index.html` を生成するスクリプトです。
+- `scripts/holidays_template.json`  
+  祝日表示に使う祝日データです。
+- `scripts/sakurazaka_schedule_workflow.md`  
+  生成手順と現在の表示仕様をまとめた運用メモです。
+- `AGENTS.md`  
+  AIエージェント向けの保守ルール・表示仕様・検証手順です。
+- `LICENSE`  
+  掲載内容・構成・デザイン・HTMLのライセンスです。
 
 ## ライセンス
 
