@@ -73,6 +73,7 @@ HTML_TONE = {
     "FC2": "ticket", "先行": "ticket", "先着": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket", "deadline": "deadline",
     "メッセージ": "live", "メッセージキャンペーン": "ticket", "CD": "live", "CD応募": "ticket", "ミーグリ": "live", "リアルミーグリ": "live",
     "ミーグリ応募": "ticket", "イベント": "live", "イベント応募": "ticket", "応募": "ticket", "発売": "live", "発売日": "live",
+    "live": "live",
 }
 
 RGB_TONE = {
@@ -274,7 +275,7 @@ def merge_day_items(items: list[dict]) -> list[dict]:
     grouped: dict[tuple[str, str], dict] = {}
 
     for item in items:
-        if item.get("kind") not in {"lottery", "lottery_span"}:
+        if item.get("kind") not in {"lottery", "lottery_span", "all_event"}:
             merged.append(item)
             continue
 
@@ -306,6 +307,59 @@ def lottery_calendar_label(title: str) -> str:
         return "ジャイガ抽選"
     normalized = re.sub(r"\s*LIVE!?！*$", "", normalized)
     return f"{normalized}抽選"
+
+
+def continuous_display_months(months: list[dt.date]) -> list[dt.date]:
+    if not months:
+        return []
+    return list(iter_month_starts(min(months), max(months)))
+
+
+def summarize_all_day_item(item: dict) -> dict | None:
+    kind = item.get("kind")
+    if kind == "holiday":
+        return None
+    if kind in {"live", "event"}:
+        return {"text": "開催", "tone": "live", "kind": "all_event"}
+    if kind in {"lottery", "lottery_span"}:
+        text = item.get("text", "")
+        is_deadline = item.get("tone") == "deadline" or "締切" in text or "販売終了" in text
+        if is_deadline:
+            return {"text": "締切", "tone": "deadline", "kind": "lottery"}
+        return {"text": "応募", "tone": "応募", "kind": "lottery"}
+    return dict(item)
+
+
+def build_all_months(
+    live_months: dict,
+    event_months: dict,
+    display_months: list[dt.date],
+    holidays_by_month: dict[dt.date, dict[int, str]],
+) -> dict:
+    all_months = {month_key: empty_month_struct() for month_key in display_months}
+    for source_months in (live_months, event_months):
+        for month_key, source in source_months.items():
+            if month_key not in all_months:
+                continue
+            target = all_months[month_key]
+            target["events"].extend(source["events"])
+            target["lotteries"].extend(source["lotteries"])
+            target["sources"].extend(source["sources"])
+            for day, items in source["days"].items():
+                for item in items:
+                    summarized = summarize_all_day_item(item)
+                    if summarized is not None:
+                        target["days"][day].append(summarized)
+            for day, details in source["detail_map"].items():
+                target["detail_map"][day].extend(details)
+    for month_key, holiday_map in holidays_by_month.items():
+        if month_key not in all_months:
+            continue
+        for day in holiday_map:
+            all_months[month_key]["days"][day].append({"text": "祝", "tone": "祝", "kind": "holiday"})
+    for month_key in all_months:
+        all_months[month_key]["sources"] = sorted(set(all_months[month_key]["sources"]))
+    return all_months
 
 
 def live_calendar_label(title: str, venue: str) -> str:
@@ -1493,6 +1547,7 @@ def render_workflow(display_months: list[dt.date] | int, holiday_template_paths:
 
 - 生成フロー: `summary/sakurazaka46_live_summary.md` / `summary/sakurazaka46_event_summary.md` → `scripts/render_live_calendar.py` → `index.html`
 - live表示は `summary/sakurazaka46_live_summary.md`、event表示は `summary/sakurazaka46_event_summary.md` を source of truth とする。
+- all表示は live/event の生成結果を統合し、カレンダー内の表示を `開催` / `応募` / `締切` に要約する。
 - `.plan/` は作業用であり、カレンダー生成には使わない。
 
 ## 元Markdownの書き方ルール
@@ -1567,6 +1622,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - Markdown内の最後の確定月まで連続表示
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
+- all表示では日付セル内を `開催`（ピンク）/ `応募`（青）/ `締切`（赤）に要約
 - 祝日はセル内で `祝` 表示
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
@@ -1672,9 +1728,12 @@ def render_mode_html(months, legend_live, legend_lottery, *, display_months, hol
                 setattr(render_html, name, value)
 
 
-def render_combined_html(live_html: str, event_html: str) -> str:
+def render_combined_html(live_html: str, event_html: str, all_html: str | None = None) -> str:
     live_style, live_body, live_script = extract_calendar_parts(live_html)
     _event_style, event_body, event_script = extract_calendar_parts(event_html)
+    all_body = all_script = None
+    if all_html is not None:
+        _all_style, all_body, all_script = extract_calendar_parts(all_html)
     root_setup_re = re.compile(
         r"const scriptElement = document\.currentScript;\n"
         r"const rootMode = scriptElement && scriptElement\.dataset \? scriptElement\.dataset\.rootMode : '';\n"
@@ -1682,6 +1741,8 @@ def render_combined_html(live_html: str, event_html: str) -> str:
     )
     live_script = root_setup_re.sub("const root = document.querySelector(\"[data-mode='live']\") || document;", live_script)
     event_script = root_setup_re.sub("const root = document.querySelector(\"[data-mode='event']\") || document;", event_script)
+    if all_script is not None:
+        all_script = root_setup_re.sub("const root = document.querySelector(\"[data-mode='all']\") || document;", all_script)
     mode_css = """
 .mode-switch{margin:12px 0 0}
 .mode-switch-inner{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -1694,16 +1755,38 @@ def render_combined_html(live_html: str, event_html: str) -> str:
       <div class='mode-switch-inner'>
         <a class='mode-button active' href='?mode=live' aria-current='page'>live</a>
         <a class='mode-button' href='?mode=event'>event</a>
+        <a class='mode-button' href='?mode=all'>all</a>
       </div>
     </nav>"""
     event_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
       <div class='mode-switch-inner'>
         <a class='mode-button' href='?mode=live'>live</a>
         <a class='mode-button active' href='?mode=event' aria-current='page'>event</a>
+        <a class='mode-button' href='?mode=all'>all</a>
+      </div>
+    </nav>"""
+    all_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
+      <div class='mode-switch-inner'>
+        <a class='mode-button' href='?mode=live'>live</a>
+        <a class='mode-button' href='?mode=event'>event</a>
+        <a class='mode-button active' href='?mode=all' aria-current='page'>all</a>
       </div>
     </nav>"""
     live_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + live_mode_switch_html, live_body, count=1, flags=re.S)
     event_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + event_mode_switch_html, event_body, count=1, flags=re.S)
+    if all_body is not None:
+        all_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + all_mode_switch_html, all_body, count=1, flags=re.S)
+    all_section = ""
+    if all_body is not None and all_script is not None:
+        all_section = f"""
+<section class='calendar-view' data-mode='all' hidden>
+  <div class='page'>
+{all_body}
+  </div>
+  <script data-root-mode='all'>
+{all_script}
+  </script>
+</section>"""
     return f"""<!doctype html>
 <html lang='ja'>
 <head>
@@ -1732,8 +1815,10 @@ def render_combined_html(live_html: str, event_html: str) -> str:
 {event_script}
   </script>
 </section>
+{all_section}
 <script>
-const selectedMode = new URL(document.URL).searchParams.get('mode') === 'event' ? 'event' : 'live';
+const requestedMode = new URL(document.URL).searchParams.get('mode');
+const selectedMode = ['live', 'event', 'all'].includes(requestedMode) ? requestedMode : 'live';
 for (const view of document.querySelectorAll('.calendar-view')) {{
   view.hidden = view.dataset.mode !== selectedMode;
 }}
@@ -1753,7 +1838,7 @@ def main(argv: list[str] | None = None) -> None:
     event_source_text = EVENT_SOURCE_MD.read_text() if EVENT_SOURCE_MD.exists() else ""
     live_display_months = collect_display_months(source_text)
     event_display_months = collect_event_display_months(event_source_text) if event_source_text else live_display_months
-    all_display_months = sorted(set(live_display_months + event_display_months))
+    all_display_months = continuous_display_months(live_display_months + event_display_months)
     holidays_by_month_all = build_holiday_lookup(all_display_months, refresh=args.refresh_holidays)
     holidays_by_live_month = {month: holidays_by_month_all.get(month, {}) for month in live_display_months}
     holidays_by_event_month = {month: holidays_by_month_all.get(month, {}) for month in event_display_months}
@@ -1763,6 +1848,7 @@ def main(argv: list[str] | None = None) -> None:
 
     months, legend_live, legend_lottery = parse_summary_timeline(source_text, live_display_months, holidays_by_live_month)
     event_months, legend_event, legend_event_dates = parse_event_summary_timeline(event_source_text, event_display_months, holidays_by_event_month) if event_source_text else ({}, {}, {})
+    combined_months = build_all_months(months, event_months, all_display_months, holidays_by_month_all)
 
     if args.output_calendar_md:
         OUTPUT_MD.write_text(build_markdown(months, legend_live, legend_lottery, latest_year, display_months=live_display_months, holidays_by_month=holidays_by_live_month))
@@ -1797,7 +1883,22 @@ def main(argv: list[str] | None = None) -> None:
             primary_meta_label="イベント情報",
             ticket_meta_label="応募・締切情報",
         )
-        OUTPUT_HTML.write_text(render_combined_html(live_html, event_html))
+        all_html = render_mode_html(
+            combined_months,
+            {"開催": "ライブ・イベント開催"},
+            {"応募": "応募・抽選", "締切": "応募・抽選締切"},
+            display_months=all_display_months,
+            holidays_by_month=holidays_by_month_all,
+            page_title="櫻坂46 全スケジュールカレンダー",
+            hero_copy="ライブとイベントをまとめています。",
+            list_label="内容分類",
+            live_meaning="開催",
+            ticket_meaning="応募",
+            deadline_meaning="締切",
+            primary_meta_label="開催情報",
+            ticket_meta_label="応募・締切情報",
+        )
+        OUTPUT_HTML.write_text(render_combined_html(live_html, event_html, all_html))
     else:
         OUTPUT_HTML.write_text(live_html)
     WORKFLOW_MD.write_text(render_workflow(live_display_months, holiday_template_paths))

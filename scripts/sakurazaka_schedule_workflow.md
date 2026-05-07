@@ -4,6 +4,7 @@
 
 - 生成フロー: `summary/sakurazaka46_live_summary.md` / `summary/sakurazaka46_event_summary.md` → `scripts/render_live_calendar.py` → `index.html`
 - live表示は `summary/sakurazaka46_live_summary.md`、event表示は `summary/sakurazaka46_event_summary.md` を source of truth とする。
+- all表示は live/event の生成結果を統合し、カレンダー内の表示を `開催` / `応募` / `締切` に要約する。
 - `.plan/` は作業用であり、カレンダー生成には使わない。
 
 ## 元Markdownの書き方ルール
@@ -78,6 +79,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - Markdown内の最後の確定月まで連続表示
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
+- all表示では日付セル内を `開催`（ピンク）/ `応募`（青）/ `締切`（赤）に要約
 - 祝日はセル内で `祝` 表示
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
