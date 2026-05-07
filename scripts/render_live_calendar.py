@@ -73,7 +73,7 @@ HTML_TONE = {
     "FC2": "ticket", "先行": "ticket", "先着": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket", "deadline": "deadline",
     "メッセージ": "live", "メッセージキャンペーン": "ticket", "CD": "live", "CD応募": "ticket", "ミーグリ": "live", "リアルミーグリ": "live",
     "ミーグリ応募": "ticket", "イベント": "live", "イベント応募": "ticket", "応募": "ticket", "発売": "live", "発売日": "live",
-    "live": "live",
+    "live": "live", "live開催": "live", "event開催": "live", "live抽選": "ticket", "live締切": "deadline", "締切": "deadline",
 }
 
 RGB_TONE = {
@@ -315,18 +315,21 @@ def continuous_display_months(months: list[dt.date]) -> list[dt.date]:
     return list(iter_month_starts(min(months), max(months)))
 
 
-def summarize_all_day_item(item: dict) -> dict | None:
+def summarize_all_day_item(item: dict, source_mode: str) -> dict | None:
     kind = item.get("kind")
     if kind == "holiday":
         return None
     if kind in {"live", "event"}:
-        return {"text": "開催", "tone": "live", "kind": "all_event"}
+        label = "live開催" if source_mode == "live" else "event開催"
+        return {"text": label, "tone": label, "kind": "all_event"}
     if kind in {"lottery", "lottery_span"}:
         text = item.get("text", "")
         is_deadline = item.get("tone") == "deadline" or "締切" in text or "販売終了" in text
         if is_deadline:
-            return {"text": "締切", "tone": "deadline", "kind": "lottery"}
-        return {"text": "応募", "tone": "応募", "kind": "lottery"}
+            label = "live締切" if source_mode == "live" else "締切"
+            return {"text": label, "tone": label, "kind": "lottery"}
+        label = "live抽選" if source_mode == "live" else "応募"
+        return {"text": label, "tone": label, "kind": "lottery"}
     return dict(item)
 
 
@@ -337,7 +340,7 @@ def build_all_months(
     holidays_by_month: dict[dt.date, dict[int, str]],
 ) -> dict:
     all_months = {month_key: empty_month_struct() for month_key in display_months}
-    for source_months in (live_months, event_months):
+    for source_mode, source_months in (("live", live_months), ("event", event_months)):
         for month_key, source in source_months.items():
             if month_key not in all_months:
                 continue
@@ -347,7 +350,7 @@ def build_all_months(
             target["sources"].extend(source["sources"])
             for day, items in source["days"].items():
                 for item in items:
-                    summarized = summarize_all_day_item(item)
+                    summarized = summarize_all_day_item(item, source_mode)
                     if summarized is not None:
                         target["days"][day].append(summarized)
             for day, details in source["detail_map"].items():
@@ -1265,6 +1268,11 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     deadline_meaning = getattr(render_html, "deadline_meaning", "締切・販売終了")
     primary_meta_label = getattr(render_html, "primary_meta_label", "ライブ情報")
     ticket_meta_label = getattr(render_html, "ticket_meta_label", "チケット情報")
+    legend_row_html = (
+        f"    <div class='legend-row'>{html.escape(list_label)}: {html.escape(' / '.join(legend_live.keys()))}</div>\n"
+        if list_label
+        else ""
+    )
     return f"""<!doctype html>
 <html lang='ja'>
 <head>
@@ -1297,8 +1305,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     <h1>{html.escape(page_title)}</h1>
   </section>
   <section class='legend'>
-    <div class='legend-row'>{html.escape(list_label)}: {html.escape(' / '.join(legend_live.keys()))}</div>
-    <div class='legend-meaning'>
+{legend_row_html}    <div class='legend-meaning'>
       <div class='legend-item'><span>色分け: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>{html.escape(live_meaning)}</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>{html.escape(ticket_meaning)}</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>{html.escape(deadline_meaning)}</span><span class='legend-chip tone-holiday' aria-hidden='true'></span><span>祝日</span></div>
     </div>
   </section>
@@ -1622,7 +1629,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - Markdown内の最後の確定月まで連続表示
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
-- all表示では日付セル内を `開催`（ピンク）/ `応募`（青）/ `締切`（赤）に要約
+- all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `応募`（同じ青）、`live締切` / `締切`（同じ赤）に要約
 - 祝日はセル内で `祝` 表示
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
@@ -1792,7 +1799,7 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 <head>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>櫻坂46 スケジュールカレンダー</title>
+<title>櫻坂46 カレンダー</title>
 <style>
 {live_style}
 {mode_css}
@@ -1860,7 +1867,7 @@ def main(argv: list[str] | None = None) -> None:
         legend_lottery,
         display_months=live_display_months,
         holidays_by_month=holidays_by_live_month,
-        page_title="櫻坂46 ライブカレンダー",
+        page_title="櫻坂46 カレンダー",
         hero_copy="ライブ情報をまとめています。",
         list_label="ライブ一覧",
         live_meaning="ライブ開催日",
@@ -1874,7 +1881,7 @@ def main(argv: list[str] | None = None) -> None:
             legend_event_dates,
             display_months=event_display_months,
             holidays_by_month=holidays_by_event_month,
-            page_title="櫻坂46 イベントカレンダー",
+            page_title="櫻坂46 カレンダー",
             hero_copy="ライブ以外の予定をまとめています。",
             list_label="イベント分類",
             live_meaning="イベント開催日",
@@ -1885,13 +1892,13 @@ def main(argv: list[str] | None = None) -> None:
         )
         all_html = render_mode_html(
             combined_months,
-            {"開催": "ライブ・イベント開催"},
-            {"応募": "応募・抽選", "締切": "応募・抽選締切"},
+            {"live開催": "ライブ開催", "event開催": "イベント開催"},
+            {"live抽選": "ライブ抽選", "応募": "応募", "live締切": "ライブ締切", "締切": "応募締切"},
             display_months=all_display_months,
             holidays_by_month=holidays_by_month_all,
-            page_title="櫻坂46 全スケジュールカレンダー",
+            page_title="櫻坂46 カレンダー",
             hero_copy="ライブとイベントをまとめています。",
-            list_label="内容分類",
+            list_label="",
             live_meaning="開催",
             ticket_meaning="応募",
             deadline_meaning="締切",
