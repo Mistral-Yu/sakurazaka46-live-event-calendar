@@ -504,7 +504,7 @@ def event_period_label(tag: str, text: str) -> str:
         return "CD応募"
     if "リアル" in joined and ("ミーグリ" in joined or "ミート＆グリート" in joined):
         return "ミーグリ応募"
-    if "応募" in joined:
+    if "応募" in joined or "期限" in joined or "締切" in joined:
         return f"{tag}応募"
     if tag == "メッセージ":
         return "メッセージキャンペーン"
@@ -676,7 +676,10 @@ def parse_event_summary_timeline(text: str, display_months: list[dt.date], holid
                 for current_date in iter_date_range(start_date, end_date):
                     if label in {"CD応募", "メッセージキャンペーン"} and current_date not in {start_date, end_date}:
                         continue
-                    if current_date == start_date:
+                    is_single_day_deadline = start_date == end_date and ("期限" in lottery_type or "締切" in lottery_type)
+                    if is_single_day_deadline:
+                        chip = f"{label}締切"
+                    elif current_date == start_date:
                         chip = f"{label}開始"
                     elif current_date == end_date:
                         chip = f"{label}締切"
