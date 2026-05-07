@@ -73,7 +73,8 @@ HTML_TONE = {
     "FC2": "ticket", "先行": "ticket", "先着": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket", "deadline": "deadline",
     "メッセージ": "live", "メッセージキャンペーン": "ticket", "CD": "live", "CD応募": "ticket", "ミーグリ": "live", "リアルミーグリ": "live",
     "ミーグリ応募": "ticket", "イベント": "live", "イベント応募": "ticket", "応募": "ticket", "発売": "live", "発売日": "live",
-    "live": "live", "live開催": "live", "event開催": "live", "live抽選": "ticket", "live締切": "deadline", "締切": "deadline",
+    "live": "live", "live開催": "live", "event開催": "live", "live抽選": "ticket", "event応募": "ticket",
+    "live締切": "deadline", "締切": "deadline", "live抽選締切": "deadline", "event応募締切": "deadline",
 }
 
 RGB_TONE = {
@@ -84,7 +85,8 @@ RGB_TONE = {
     "先着": (91, 110, 240), "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (201, 183, 255), "情報": (91, 110, 240), "deadline": (220, 88, 104),
     "メッセージ": (232, 163, 195), "メッセージキャンペーン": (91, 110, 240), "CD": (232, 163, 195), "CD応募": (91, 110, 240),
     "ミーグリ": (232, 163, 195), "リアルミーグリ": (232, 163, 195), "ミーグリ応募": (91, 110, 240), "イベント": (232, 163, 195), "イベント応募": (91, 110, 240),
-    "応募": (91, 110, 240), "発売": (232, 163, 195), "発売日": (232, 163, 195),
+    "応募": (91, 110, 240), "event応募": (91, 110, 240), "発売": (232, 163, 195), "発売日": (232, 163, 195),
+    "live抽選締切": (220, 88, 104), "event応募締切": (220, 88, 104),
 }
 
 HOLIDAYS = {month: {} for month in range(1, 13)}
@@ -326,9 +328,9 @@ def summarize_all_day_item(item: dict, source_mode: str) -> dict | None:
         text = item.get("text", "")
         is_deadline = item.get("tone") == "deadline" or "締切" in text or "販売終了" in text
         if is_deadline:
-            label = "live締切" if source_mode == "live" else "締切"
+            label = "live抽選締切" if source_mode == "live" else "event応募締切"
             return {"text": label, "tone": label, "kind": "lottery"}
-        label = "live抽選" if source_mode == "live" else "応募"
+        label = "live抽選" if source_mode == "live" else "event応募"
         return {"text": label, "tone": label, "kind": "lottery"}
     return dict(item)
 
@@ -1633,7 +1635,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - Markdown内の最後の確定月まで連続表示
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
-- all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `応募`（同じ青）、`live締切` / `締切`（同じ赤）に要約
+- all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約
 - 祝日はセル内で `祝` 表示
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
@@ -1897,7 +1899,7 @@ def main(argv: list[str] | None = None) -> None:
         all_html = render_mode_html(
             combined_months,
             {"live開催": "ライブ開催", "event開催": "イベント開催"},
-            {"live抽選": "ライブ抽選", "応募": "応募", "live締切": "ライブ締切", "締切": "応募締切"},
+            {"live抽選": "ライブ抽選", "event応募": "イベント応募", "live抽選締切": "ライブ抽選締切", "event応募締切": "イベント応募締切"},
             display_months=all_display_months,
             holidays_by_month=holidays_by_month_all,
             page_title="櫻坂46 カレンダー",

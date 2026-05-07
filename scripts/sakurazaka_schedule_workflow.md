@@ -79,7 +79,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - Markdown内の最後の確定月まで連続表示
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
-- all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `応募`（同じ青）、`live締切` / `締切`（同じ赤）に要約
+- all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約
 - 祝日はセル内で `祝` 表示
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
