@@ -1332,8 +1332,9 @@ const forceVisualRefresh = (...elements) => {{
   }});
 }};
 const pendingTapTops = new Map();
-const shouldAutoScrollToPanel = window.matchMedia('(hover:none), (pointer:coarse)').matches;
-const shouldUseNativeHash = shouldAutoScrollToPanel;
+const isCoarsePointer = window.matchMedia('(hover:none), (pointer:coarse)').matches;
+const shouldAutoScrollToPanel = true;
+const shouldUseNativeHash = isCoarsePointer;
 const getDetailKeyFromLocation = () => new URLSearchParams(window.location.search).get('d') || window.location.hash.slice(1);
 const isMonthHash = (value) => /^m\d{{2}}$/.test(value || '') || /^m\d{{6}}$/.test(value || '');
 const getCurrentDate = () => {{
@@ -1883,7 +1884,7 @@ def main(argv: list[str] | None = None) -> None:
             holidays_by_month=holidays_by_event_month,
             page_title="櫻坂46 カレンダー",
             hero_copy="ライブ以外の予定をまとめています。",
-            list_label="イベント分類",
+            list_label="イベント一覧",
             live_meaning="イベント開催日",
             ticket_meaning="応募中",
             deadline_meaning="応募終了",
