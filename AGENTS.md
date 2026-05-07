@@ -6,27 +6,22 @@
 
 ## 正とするファイル
 
+- 入力: `summary/sakurazaka46_live_summary.md`（live）、`summary/sakurazaka46_event_summary.md`（event/CD/ミーグリ/リアルミーグリ）
+- 生成器: `scripts/render_live_calendar.py`
 - 公開出力: `index.html`
-- ライブ入力: `summary/sakurazaka46_live_summary.md`
-- イベント入力: `summary/sakurazaka46_event_summary.md`
-- 生成スクリプト: `scripts/render_live_calendar.py`
-- 生成ワークフロー文書: `scripts/sakurazaka_schedule_workflow.md`
-- 祝日テンプレート: `scripts/holidays_template.json`
+- 生成補助: `scripts/sakurazaka_schedule_workflow.md`、`scripts/holidays_template.json`
 - `summary/` と `plan/` は別用途。`plan/` はカレンダー生成入力に使わない。
-- `index.html` を直接手編集しない。表示・生成ロジックは `scripts/render_live_calendar.py` を直して再生成する。
+- `index.html` は生成物。直接手編集せず、入力Markdownか生成器を直して再生成する。
 
 ## 現在のページ仕様
 
 - `index.html` は単一のスタンドアロンHTMLとして公開する。外部アセットに依存しない。
-- 表示モードは `live` / `event` / `all` の3タブ。
-- デフォルト表示は `live`。
+- 表示モード兼タブ名は `live` / `event` / `all`。デフォルト表示は `live`。
 - URL状態は `?mode=live` / `?mode=event` / `?mode=all` を使う。
-- タブ名は `live` / `event` / `all` のままにする。
 - 全タブのページ見出しとHTML `<title>` は `櫻坂46 カレンダー` に統一する。
 - `all` は解析済みの live/event 生成結果から作る。HTML手編集で統合しない。
 - `all` は live/event の最初の月から最後の月まで連続表示する。途中の空月も残す。
-- `all` では旧式の分類行（例: `内容分類: 開催`）を表示しない。色分け注釈だけ残す。
-- 色分け注釈は高レベル分類のままにする: `開催` / `応募` / `締切` / `祝日`。
+- `all` の色分け注釈は高レベル分類（`開催` / `応募` / `締切` / `祝日`）だけ残し、旧式の分類行（例: `内容分類: 開催`）は表示しない。
 - `all` の日付セルチップは詳細分類する:
   - `live開催` と `event開催` は別チップ。ただし同じピンクの開催色。
   - `live抽選` と `応募` は別チップ。ただし同じ青の応募・抽選色。
@@ -37,11 +32,9 @@
 
 ## データ入力ルール
 
-- live 日程は `summary/sakurazaka46_live_summary.md` を編集する。
-- live 以外のイベント、CD応募、ミーグリ、リアルミーグリは `summary/sakurazaka46_event_summary.md` を編集する。
-- 各予定は `##` 見出し単位で管理する。
-- live は `### ライブ公演の日程` / `### 抽選の日程` / `### 公式ソース` を基本にする。
-- event は `## イベント名` → `### イベント開催の日程` → `### 抽選の日程` → `### 公式ソース` の順にする。
+- 予定は該当する入力Markdownに `##` 見出し単位で追加する。
+  - live: `summary/sakurazaka46_live_summary.md`、基本形は `### ライブ公演の日程` / `### 抽選の日程` / `### 公式ソース`。
+  - event/CD/ミーグリ/リアルミーグリ: `summary/sakurazaka46_event_summary.md`、基本形は `## イベント名` → `### イベント開催の日程` → `### 抽選の日程` → `### 公式ソース`。
 - live 日程は曜日付きにする。
 - 連番日は1行でまとめ、同月範囲は短く書く。
 - 抽選情報は時間・祝日を省く。
@@ -78,43 +71,32 @@
 
 ## コマンド
 
-テスト:
+基本コマンド:
 
 ```bash
 python3 -m pytest tests/test_render_live_calendar.py -q
-```
-
-通常再生成:
-
-```bash
 python3 scripts/render_live_calendar.py
-```
-
-内閣府CSVから祝日を更新:
-
-```bash
 python3 scripts/render_live_calendar.py --refresh-holidays
-```
-
-任意出力:
-
-```bash
 python3 scripts/render_live_calendar.py --output-calendar-md
 python3 scripts/render_live_calendar.py --output-preview
 ```
 
-このワークスペースでは `python3` をそのまま使える。repo内に有効化すべき `venv/` はない。
+- 1行目: テスト。
+- 2行目: 通常再生成。
+- 3行目: 内閣府CSVから祝日を更新する必要があるときだけ実行。
+- 4〜5行目: 任意出力。通常実行で復活させない。
+- このワークスペースでは `python3` をそのまま使える。repo内に有効化すべき `venv/` はない。
 
 ## 検証チェックリスト
 
-- `python3 -m pytest tests/test_render_live_calendar.py -q` が通る。
-- 生成器や出力に関わる変更では `python3 scripts/render_live_calendar.py` が成功する。
+- 上記のテストが通る。
+- 生成器や出力に関わる変更では、通常再生成が成功する。
 - `index.html` と `scripts/sakurazaka_schedule_workflow.md` は、意図したときだけ再生成される。
-- all-mode変更ではブラウザまたはDOMで以下を確認する:
+- all-mode変更では、仕様確認と重ねてブラウザまたはDOMで以下を確認する:
   - `?mode=live`、`?mode=event`、`?mode=all` が正しく切り替わる。
   - 表示中の見出しが `櫻坂46 カレンダー`。
   - all mode に `内容分類:` 行がない。
-  - `live開催` / `event開催` はピンク、`live抽選` / `応募` は青、`live締切` / `締切` は赤。
+  - all-modeチップの色が仕様どおり（開催=ピンク、応募/抽選=青、締切=赤）。
   - all-modeの日付クリックで元のlive/event詳細が統合表示される。
   - JavaScriptコンソールにエラーがない。
 - ローカルブラウザ確認で `127.0.0.1:9333` のCDPが起動していない場合は以下で起動する:
@@ -135,9 +117,9 @@ open -na "Google Chrome" --args --remote-debugging-port=9333 --user-data-dir="/U
   - `scripts/holidays_template.json`
 - `.gitignore` はGitHubに置かず、ローカル除外ルールは `.git/info/exclude` で管理する。
 - 検証用の `tests/` と一時ファイル、Pythonキャッシュ、OS生成ファイルは公開repoへ混ぜない。
-- `scripts/templates/` は使わない。祝日テンプレートは `scripts/holidays_template.json` に集約する。
+- `scripts/templates/` は使わない。祝日テンプレートは正とするファイル一覧の `scripts/holidays_template.json` に集約する。
 - READMEでページ用途を書く場合は、次の個人利用表現を優先する: `自分用のチケット抽選管理と、確認メモを整理するためのページとして運用しています。`
 
 ## Skillとの関係
 
-Hermes skill `sakurazaka-live-calendar-generator-maintenance` は、このrepo用の薄い作業プレイブック。repo固有の現在ルールはこの `AGENTS.md` を正とし、skill側には長い作業手順、ブラウザ検証メモ、情報収集手順だけを置く。
+Hermes skill `sakurazaka-live-calendar-generator-maintenance` は、このrepoへ迷わず入るための薄い入口。repo固有の現在ルールはこの `AGENTS.md` を正とし、skill側は短い補助手順と必要なデバッグ参照だけを持つ。
