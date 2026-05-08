@@ -698,7 +698,7 @@ def parse_event_summary_timeline(text: str, display_months: list[dt.date], holid
                         continue
                     is_single_day_deadline = start_date == end_date and ("期限" in lottery_type or "締切" in lottery_type)
                     if is_single_day_deadline:
-                        chip = f"{label}締切"
+                        chip = "支払い方法選択期限" if "支払い方法選択期限" in lottery_type else f"{label}締切"
                     elif current_date == start_date:
                         chip = f"{label}開始"
                     elif current_date == end_date:
@@ -1270,7 +1270,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     <div class='weekdays'>{''.join(f"<div class='weekday{' weekend' if i in (0, 6) else ''}'>{d}</div>" for i, d in enumerate(['日', '月', '火', '水', '木', '金', '土']))}</div>
     <div class='grid'>{''.join(cells)}</div>
     <div class='day-detail' id='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}-detail' data-panel-month='{'m' + f'{month_value:02d}' if legacy_mode else 'm' + f'{year_value}{month_value:02d}'}'>
-      <div class='detail-title'>日付をタップすると詳細を表示</div>
+      <div class='detail-title'></div>
       <div class='detail-list'></div>
       <div class='detail-sections'>
         <details class='meta-fold'>
@@ -1315,13 +1315,13 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}} .legend-meaning{{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px}} .legend-item{{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;line-height:1.4}} .legend-chip{{display:inline-block;width:12px;height:12px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}}
 .month-nav{{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}} .month-nav a{{text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:14px;box-shadow:0 8px 20px rgba(30,30,28,.04)}}
 .month-list{{display:grid;gap:18px}} .month-card{{background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 44px rgba(30,30,28,.05);overflow:hidden;scroll-margin-top:14px}} .month-summary{{list-style:none;cursor:pointer;padding:20px 18px}} .month-summary::-webkit-details-marker{{display:none}} .month-card.collapsed .month-summary{{background:rgba(0,0,0,.01)}}
-.month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:40px;line-height:1;letter-spacing:-.05em;font-weight:700}} .month-sub{{color:var(--muted);font-size:13px}}
+.month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:clamp(30px,3.6vw,38px);line-height:1;letter-spacing:-.035em;font-weight:600;color:#3b3a36;font-feature-settings:'palt' 1}} .month-sub{{color:var(--muted);font-size:13px}}
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--weekend)}}
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:center;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700}} .day-cell.today:not(.weekend):not(.holiday) .day-num{{color:#6d5bb3}} .day-cell.weekend .day-num,.day-cell.holiday .day-num{{color:var(--weekend)}}
 .day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable.is-pressed,.day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.is-pressed{{transform:translateY(1px)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.active.today{{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}} .chip-text{{text-align:center;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .chip-mobile-text{{display:none}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-deadline{{background:var(--deadline)}} .tone-event{{background:var(--event)}} .tone-holiday{{background:var(--holiday)}}
-.detail-target{{display:block;height:0;overflow:hidden;pointer-events:none;visibility:hidden;scroll-margin-top:70vh}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
+.detail-target{{display:block;height:0;overflow:hidden;pointer-events:none;visibility:hidden;scroll-margin-top:70vh}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-title:empty{{display:none}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
 .site-footer{{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6;text-align:center}} .site-footer a{{color:inherit}}
 {active_css}
@@ -1420,7 +1420,7 @@ const closeDetailPanel = (panel) => {{
   if (!panel) return;
   const title = panel.querySelector('.detail-title');
   const list = panel.querySelector('.detail-list');
-  if (title) title.textContent = '日付をタップすると詳細を表示';
+  if (title) title.textContent = '';
   if (list) list.innerHTML = '';
 }};
 const maybeScrollToPanel = (panel, button) => {{
@@ -1451,7 +1451,7 @@ const openDetailPanel = (button) => {{
       if (candidate !== button) candidate.classList.remove('active');
     }}
   }}
-  title.textContent = payload.date ? `${{payload.date}} の詳細` : '日付をタップすると詳細を表示';
+  title.textContent = payload.date ? `${{payload.date}} の詳細` : '';
   list.innerHTML = (payload.items || []).map((item) => {{
     const sources = (item.sources || []).map((url) => `<div class='detail-source'><a href='${{url}}' target='_blank' rel='noreferrer'>${{url}}</a></div>`).join('');
     return `<div class='detail-item'>`
@@ -1595,6 +1595,7 @@ def render_workflow(display_months: list[dt.date] | int, holiday_template_paths:
 - live日程は `| 2026-07-23〜24 | 木金 | 静岡・エコパアリーナ |` のような表形式を維持する。
 - event日程は `| 2026-05-03 | 日 | 京都パルスプラザ |` や `| 2026-06-10 | 水 | 発売日 |` のような表形式を維持する。
 - 抽選日程も `| FC会員先行 | **4/13(月)〜4/19(日)** | 全席指定／親子・女性エリア |` のような表形式を維持する。event側で年をまたがず明確にしたい場合は `**2026-03-11(水)〜2026-05-29(金)**` のように年付きで書ける。
+- Fortune Music などの `支払い方法選択期限` は応募側の締切として扱い、日付セルでは `支払い方法選択期限` と表示する。
 - 抽選日が未定のときは、`### 抽選の日程` 配下に `- チケット先行詳細は後日発表` のような箇条書きで置く。
 - 公式URLは `### 公式ソース` の下にまとめる。
 - Python 側のパーサがこのMarkdownを直接読むので、見出し名や表の形を変えると生成が壊れる。
@@ -1663,7 +1664,8 @@ python3 scripts/render_live_calendar.py --output-preview
 - 祝日はセル内で `祝` 表示
 - 曜日行の土日と、土日・祝日の日付数字は赤文字表示（セル内チップ文言と `祝` チップは通常通り）。カレンダー内の日付数字とチップ文言はPC/スマホとも中央揃え
 - スマホ幅ではチップ文言を最大2行にし、長い文言は中央付近で分けて行ごとの文字数をできるだけ均等化
-- 日付クリックで同じ月カード内の詳細パネルを開く
+- 日付クリックで同じ月カード内の詳細パネルを開く。初期状態の `日付をタップすると詳細を表示` 注釈は出さない
+- 月見出しは太く出しすぎず、やや小さめ・軽めのモダンな日本語フォント感にする
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
 - 祝日テンプレートは `scripts/holidays_template.json` で管理する
 
