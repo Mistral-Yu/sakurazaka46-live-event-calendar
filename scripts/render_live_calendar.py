@@ -74,7 +74,9 @@ HTML_TONE = {
     "メッセージ": "live", "メッセージキャンペーン": "ticket", "CD": "live", "CD応募": "ticket", "ミーグリ": "live", "リアルミーグリ": "live",
     "ミーグリ応募": "ticket", "イベント": "live", "イベント応募": "ticket", "応募": "ticket", "発売": "live", "発売日": "live",
     "live": "live", "live開催": "live", "event開催": "live", "live抽選": "ticket", "event応募": "ticket",
+    "ライブ開催": "live", "イベント開催": "live", "ライブ抽選": "ticket", "イベント応募": "ticket",
     "live締切": "deadline", "締切": "deadline", "live抽選締切": "deadline", "event応募締切": "deadline",
+    "ライブ抽選締切": "deadline", "イベント応募締切": "deadline",
 }
 
 RGB_TONE = {
@@ -85,8 +87,10 @@ RGB_TONE = {
     "先着": (91, 110, 240), "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (201, 183, 255), "情報": (91, 110, 240), "deadline": (220, 88, 104),
     "メッセージ": (232, 163, 195), "メッセージキャンペーン": (91, 110, 240), "CD": (232, 163, 195), "CD応募": (91, 110, 240),
     "ミーグリ": (232, 163, 195), "リアルミーグリ": (232, 163, 195), "ミーグリ応募": (91, 110, 240), "イベント": (232, 163, 195), "イベント応募": (91, 110, 240),
-    "応募": (91, 110, 240), "event応募": (91, 110, 240), "発売": (232, 163, 195), "発売日": (232, 163, 195),
+    "応募": (91, 110, 240), "event応募": (91, 110, 240), "イベント応募": (91, 110, 240), "発売": (232, 163, 195), "発売日": (232, 163, 195),
+    "ライブ開催": (232, 163, 195), "イベント開催": (232, 163, 195), "ライブ抽選": (91, 110, 240),
     "live抽選締切": (220, 88, 104), "event応募締切": (220, 88, 104),
+    "ライブ抽選締切": (220, 88, 104), "イベント応募締切": (220, 88, 104),
 }
 
 HOLIDAYS = {month: {} for month in range(1, 13)}
@@ -340,15 +344,15 @@ def summarize_all_day_item(item: dict, source_mode: str) -> dict | None:
     if kind == "holiday":
         return None
     if kind in {"live", "event"}:
-        label = "live開催" if source_mode == "live" else "event開催"
+        label = "ライブ開催" if source_mode == "live" else "イベント開催"
         return {"text": label, "tone": label, "kind": "all_event"}
     if kind in {"lottery", "lottery_span"}:
         text = item.get("text", "")
         is_deadline = item.get("tone") == "deadline" or "締切" in text or "販売終了" in text
         if is_deadline:
-            label = "live抽選締切" if source_mode == "live" else "event応募締切"
+            label = "ライブ抽選締切" if source_mode == "live" else "イベント応募締切"
             return {"text": label, "tone": label, "kind": "lottery"}
-        label = "live抽選" if source_mode == "live" else "event応募"
+        label = "ライブ抽選" if source_mode == "live" else "イベント応募"
         return {"text": label, "tone": label, "kind": "lottery"}
     return dict(item)
 
@@ -1657,11 +1661,11 @@ python3 scripts/render_live_calendar.py --output-preview
 ## 現在のHTML仕様
 
 - 単一のスタンドアロンHTML
-- live / event / all / 直近2週間 を単一HTML内のタブとして表示
+- LIVE / EVENT / ALL / 直近2週間 を単一HTML内のタブとして表示
 - `直近2週間` はブラウザJSで Asia/Tokyo 基準の今日を取得し、今日を含む14日分を1日1行で表示。予定なしの日も表示し、live/event の元チップ文言・色を使い、祝日チップは出さない
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
-- all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約
+- all表示では日付セル内を `ライブ開催` / `イベント開催`（同じピンク）、`ライブ抽選` / `イベント応募`（同じ青）、`ライブ抽選締切` / `イベント応募締切`（同じ赤）に要約
 - 祝日はセル内で `祝` 表示
 - 曜日行の土日と、土日・祝日の日付数字は赤文字表示（セル内チップ文言と `祝` チップは通常通り）。カレンダー内の日付数字とチップ文言はPC/スマホとも中央揃え
 - スマホ幅ではチップ文言を最大2行にし、長い文言は中央付近で分けて行ごとの文字数をできるだけ均等化
@@ -1785,9 +1789,9 @@ def render_next14_html(
       <h1>櫻坂46 カレンダー</h1>
       <nav class='mode-switch' aria-label='表示切替'>
         <div class='mode-switch-inner'>
-          <a class='mode-button' href='?mode=live'>live</a>
-          <a class='mode-button' href='?mode=event'>event</a>
-          <a class='mode-button' href='?mode=all'>all</a>
+          <a class='mode-button' href='?mode=live'>LIVE</a>
+          <a class='mode-button' href='?mode=event'>EVENT</a>
+          <a class='mode-button' href='?mode=all'>ALL</a>
           <a class='mode-button active' href='?mode=next14' aria-current='page'>直近2週間</a>
         </div>
       </nav>
@@ -1916,29 +1920,29 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 .mode-button.active,.mode-button[aria-current='page']{background:#1e1e1c;color:#fff;border-color:#1e1e1c}
 .mode-button:active{background:#1e1e1c;color:#fff;border-color:#1e1e1c;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
 .calendar-view[hidden]{display:none}
-.next14-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 44px rgba(30,30,28,.05);padding:16px;overflow:hidden}.next14-title{font-size:clamp(26px,3vw,34px);line-height:1;font-weight:600;letter-spacing:-.035em;color:#3b3a36}.next14-range{margin-top:8px;color:var(--muted);font-size:13px}.next14-list{display:grid;gap:8px;margin-top:16px}.next14-row{border:1px solid rgba(231,229,222,.86);border-radius:18px;background:#fff;overflow:hidden}.next14-row.next14-today{box-shadow:inset 0 0 0 1px rgba(201,183,255,.42);background:rgba(201,183,255,.08)}.next14-row-main{width:100%;display:grid;grid-template-columns:92px 1fr;align-items:center;gap:10px;padding:10px 12px;border:none;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}.next14-row-main:disabled{cursor:default}.next14-date{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap}.next14-date.next14-weekend{color:var(--weekend)}.next14-items{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.next14-items .chip{align-self:auto;display:inline-flex;max-width:100%;padding:3px 7px 4px}.next14-empty{color:var(--muted);font-size:13px}.next14-detail{border-top:1px solid rgba(0,0,0,.06);padding:10px 12px 12px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5)}.next14-detail[hidden]{display:none}.next14-detail-item{padding-top:8px;border-top:1px solid rgba(0,0,0,.05)}.next14-detail-item:first-child{padding-top:0;border-top:none}.next14-source a{color:inherit}@media (max-width:520px){.next14-row-main{grid-template-columns:74px 1fr;padding:9px 10px}.next14-date{font-size:13px}.next14-card{padding:12px;border-radius:22px}}
+.next14-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 44px rgba(30,30,28,.05);padding:16px;overflow:hidden}.next14-title{font-size:clamp(26px,3vw,34px);line-height:1;font-weight:600;letter-spacing:-.035em;color:#3b3a36}.next14-range{margin-top:8px;color:var(--muted);font-size:13px}.next14-list{display:grid;gap:8px;margin-top:16px}.next14-row{border:1px solid rgba(231,229,222,.86);border-radius:18px;background:#fff;overflow:hidden}.next14-row.next14-today{box-shadow:inset 0 0 0 1px rgba(201,183,255,.42);background:rgba(201,183,255,.08)}.next14-row-main{width:100%;display:grid;grid-template-columns:92px 1fr;align-items:center;gap:10px;padding:10px 12px;border:none;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}.next14-row-main:disabled{cursor:default}.next14-date{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap}.next14-date.next14-weekend{color:var(--weekend)}.next14-items{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.next14-items .chip{align-self:auto;display:inline-flex;max-width:100%;padding:3px 7px 4px}.next14-empty{color:var(--muted);font-size:13px}.next14-detail{border-top:1px solid rgba(0,0,0,.06);padding:10px 12px 12px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5)}.next14-detail[hidden]{display:none}.next14-detail-item{padding-top:8px;border-top:1px solid rgba(0,0,0,.05)}.next14-detail-item:first-child{padding-top:0;border-top:none}.next14-source a{color:inherit}@media (max-width:520px){.next14-row-main{grid-template-columns:74px 1fr;padding:9px 10px}.next14-date{font-size:13px}.next14-card{padding:12px;border-radius:22px}.next14-items .chip .chip-text{display:block;white-space:normal;overflow:visible;text-overflow:clip}.next14-items .chip{font-size:10px;line-height:1.12;padding:3px 6px}.next14-items{gap:4px}}
 """
     live_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
       <div class='mode-switch-inner'>
-        <a class='mode-button active' href='?mode=live' aria-current='page'>live</a>
-        <a class='mode-button' href='?mode=event'>event</a>
-        <a class='mode-button' href='?mode=all'>all</a>
+        <a class='mode-button active' href='?mode=live' aria-current='page'>LIVE</a>
+        <a class='mode-button' href='?mode=event'>EVENT</a>
+        <a class='mode-button' href='?mode=all'>ALL</a>
         <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
     event_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
       <div class='mode-switch-inner'>
-        <a class='mode-button' href='?mode=live'>live</a>
-        <a class='mode-button active' href='?mode=event' aria-current='page'>event</a>
-        <a class='mode-button' href='?mode=all'>all</a>
+        <a class='mode-button' href='?mode=live'>LIVE</a>
+        <a class='mode-button active' href='?mode=event' aria-current='page'>EVENT</a>
+        <a class='mode-button' href='?mode=all'>ALL</a>
         <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
     all_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
       <div class='mode-switch-inner'>
-        <a class='mode-button' href='?mode=live'>live</a>
-        <a class='mode-button' href='?mode=event'>event</a>
-        <a class='mode-button active' href='?mode=all' aria-current='page'>all</a>
+        <a class='mode-button' href='?mode=live'>LIVE</a>
+        <a class='mode-button' href='?mode=event'>EVENT</a>
+        <a class='mode-button active' href='?mode=all' aria-current='page'>ALL</a>
         <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
@@ -2056,8 +2060,8 @@ def main(argv: list[str] | None = None) -> None:
         )
         all_html = render_mode_html(
             combined_months,
-            {"live開催": "ライブ開催", "event開催": "イベント開催"},
-            {"live抽選": "ライブ抽選", "event応募": "イベント応募", "live抽選締切": "ライブ抽選締切", "event応募締切": "イベント応募締切"},
+            {"ライブ開催": "ライブ開催", "イベント開催": "イベント開催"},
+            {"ライブ抽選": "ライブ抽選", "イベント応募": "イベント応募", "ライブ抽選締切": "ライブ抽選締切", "イベント応募締切": "イベント応募締切"},
             display_months=all_display_months,
             holidays_by_month=holidays_by_month_all,
             page_title="櫻坂46 カレンダー",
