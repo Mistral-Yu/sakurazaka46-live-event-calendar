@@ -77,7 +77,8 @@ python3 scripts/render_live_calendar.py --output-preview
 ## 現在のHTML仕様
 
 - 単一のスタンドアロンHTML
-- Markdown内の最後の確定月まで連続表示
+- live / event / all / 直近2週間 を単一HTML内のタブとして表示
+- `直近2週間` はブラウザJSで Asia/Tokyo 基準の今日を取得し、今日を含む14日分を1日1行で表示。予定なしの日も表示し、live/event の元チップ文言・色を使い、祝日チップは出さない
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
 - all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約

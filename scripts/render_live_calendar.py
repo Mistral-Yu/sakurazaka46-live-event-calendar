@@ -1657,7 +1657,8 @@ python3 scripts/render_live_calendar.py --output-preview
 ## 現在のHTML仕様
 
 - 単一のスタンドアロンHTML
-- Markdown内の最後の確定月まで連続表示
+- live / event / all / 直近2週間 を単一HTML内のタブとして表示
+- `直近2週間` はブラウザJSで Asia/Tokyo 基準の今日を取得し、今日を含む14日分を1日1行で表示。予定なしの日も表示し、live/event の元チップ文言・色を使い、祝日チップは出さない
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
 - all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約
@@ -1738,6 +1739,130 @@ summaryに 2026 と 2027 が混在していても同じHTML内に連続表示す
 """
 
 
+def build_next14_schedule_payload(
+    live_months: dict[dt.date, dict],
+    event_months: dict[dt.date, dict],
+    display_months: list[dt.date],
+) -> dict[str, dict]:
+    payload: dict[str, dict] = {}
+    for month_key in display_months:
+        merged_months = [live_months.get(month_key), event_months.get(month_key)]
+        total = calendar.monthrange(month_key.year, month_key.month)[1]
+        for day in range(1, total + 1):
+            date_key = dt.date(month_key.year, month_key.month, day).isoformat()
+            items = []
+            details = []
+            for month_data in merged_months:
+                if not month_data:
+                    continue
+                for item in merge_day_items(month_data["days"][day]):
+                    if item.get("kind") == "holiday" or item.get("text") == "祝":
+                        continue
+                    text = item["text"]
+                    tone = item.get("tone", "ticket")
+                    items.append({
+                        "text": text,
+                        "tone": tone,
+                        "toneClass": HTML_TONE.get(tone, "ticket"),
+                    })
+                details.extend(month_data["detail_map"][day])
+            if items or details:
+                payload[date_key] = {"items": items, "details": details}
+    return payload
+
+
+def render_next14_html(
+    live_months: dict[dt.date, dict],
+    event_months: dict[dt.date, dict],
+    display_months: list[dt.date],
+) -> str:
+    payload = build_next14_schedule_payload(live_months, event_months, display_months)
+    payload_json = json.dumps(payload, ensure_ascii=False)
+    return f"""
+<section class='calendar-view next14-view' data-mode='next14' hidden>
+  <div class='page'>
+    <section class='hero'>
+      <h1>櫻坂46 カレンダー</h1>
+      <nav class='mode-switch' aria-label='表示切替'>
+        <div class='mode-switch-inner'>
+          <a class='mode-button' href='?mode=live'>live</a>
+          <a class='mode-button' href='?mode=event'>event</a>
+          <a class='mode-button' href='?mode=all'>all</a>
+          <a class='mode-button active' href='?mode=next14' aria-current='page'>直近2週間</a>
+        </div>
+      </nav>
+    </section>
+    <section class='legend next14-legend'>
+      <div class='legend-meaning'>
+        <div class='legend-item'><span>凡例: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ・イベント</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>応募・抽選</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>締切・販売終了</span></div>
+      </div>
+    </section>
+    <section class='next14-card' aria-live='polite'>
+      <div class='next14-header'>
+        <div>
+          <div class='next14-title'>直近2週間</div>
+          <div class='next14-range' data-next14-range>Asia/Tokyo 基準で読み込み中</div>
+        </div>
+      </div>
+      <div class='next14-list' data-next14-list></div>
+    </section>
+  </div>
+  <script>
+(function() {{
+const NEXT14_DAYS = 14;
+const scheduleData = {payload_json};
+const root = document.querySelector("[data-mode='next14']") || document;
+const list = root.querySelector('[data-next14-list]');
+const range = root.querySelector('[data-next14-range]');
+const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+const getTokyoToday = () => {{
+  const parts = new Intl.DateTimeFormat('en-CA', {{timeZone:'Asia/Tokyo', year:'numeric', month:'2-digit', day:'2-digit'}}).formatToParts(new Date());
+  const values = Object.fromEntries(parts.filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
+}};
+const addDays = (date, days) => {{
+  const next = new Date(date.getTime());
+  next.setUTCDate(next.getUTCDate() + days);
+  return next;
+}};
+const dateKey = (date) => date.toISOString().slice(0, 10);
+const dateLabel = (date) => `${{date.getUTCMonth() + 1}}/${{String(date.getUTCDate()).padStart(2, '0')}}(${{weekdays[date.getUTCDay()]}})`;
+const fullDateLabel = (date) => `${{date.getUTCFullYear()}}/${{String(date.getUTCMonth() + 1).padStart(2, '0')}}/${{String(date.getUTCDate()).padStart(2, '0')}}(${{weekdays[date.getUTCDay()]}})`;
+const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[char]));
+const renderSources = (sources = []) => sources.map((url) => `<div class='next14-source'><a href='${{escapeHtml(url)}}' target='_blank' rel='noreferrer'>${{escapeHtml(url)}}</a></div>`).join('');
+const renderDetails = (details = []) => details.map((item) => `<div class='next14-detail-item'><div class='detail-label'>${{escapeHtml(item.label)}}</div>${{item.sub ? `<div class='detail-sub'>${{escapeHtml(item.sub)}}</div>` : ''}}${{item.meta ? `<div class='detail-meta'>${{escapeHtml(item.meta)}}</div>` : ''}}${{renderSources(item.sources || [])}}</div>`).join('');
+function toggleNext14Detail(button) {{
+  const detail = button.closest('.next14-row').querySelector('.next14-detail');
+  const expanded = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', String(!expanded));
+  detail.hidden = expanded;
+}}
+const renderNext14 = () => {{
+  if (!list) return;
+  const today = getTokyoToday();
+  const end = addDays(today, NEXT14_DAYS - 1);
+  if (range) range.textContent = `${{fullDateLabel(today)}}〜${{fullDateLabel(end)}}`;
+  list.innerHTML = '';
+  for (let offset = 0; offset < NEXT14_DAYS; offset += 1) {{
+    const date = addDays(today, offset);
+    const key = dateKey(date);
+    const data = scheduleData[key] || {{items: [], details: []}};
+    const isWeekend = date.getUTCDay() === 0 || date.getUTCDay() === 6;
+    const row = document.createElement('div');
+    row.className = `next14-row${{offset === 0 ? ' next14-today' : ''}}`;
+    const chips = (data.items || []).map((item) => `<span class='chip tone-${{escapeHtml(item.toneClass || 'ticket')}}'><span class='chip-text'>${{escapeHtml(item.text)}}</span></span>`).join('') || `<span class='next14-empty'>予定なし</span>`;
+    const hasDetails = (data.details || []).length > 0;
+    row.innerHTML = `<button class='next14-row-main' type='button' aria-expanded='false' ${{hasDetails ? '' : 'disabled'}}><span class='next14-date${{isWeekend ? ' next14-weekend' : ''}}'>${{dateLabel(date)}}</span><span class='next14-items'>${{chips}}</span></button><div class='next14-detail' hidden>${{renderDetails(data.details || [])}}</div>`;
+    const button = row.querySelector('.next14-row-main');
+    if (hasDetails) button.addEventListener('click', () => toggleNext14Detail(button));
+    list.appendChild(row);
+  }}
+}};
+renderNext14();
+}})();
+  </script>
+</section>"""
+
 
 def extract_calendar_parts(rendered_html: str) -> tuple[str, str, str]:
     style = re.search(r"<style>\n(.*?)\n</style>", rendered_html, re.S).group(1)
@@ -1769,7 +1894,7 @@ def render_mode_html(months, legend_live, legend_lottery, *, display_months, hol
                 setattr(render_html, name, value)
 
 
-def render_combined_html(live_html: str, event_html: str, all_html: str | None = None) -> str:
+def render_combined_html(live_html: str, event_html: str, all_html: str | None = None, next14_html: str | None = None) -> str:
     live_style, live_body, live_script = extract_calendar_parts(live_html)
     _event_style, event_body, event_script = extract_calendar_parts(event_html)
     all_body = all_script = None
@@ -1791,12 +1916,14 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 .mode-button.active,.mode-button[aria-current='page']{background:#1e1e1c;color:#fff;border-color:#1e1e1c}
 .mode-button:active{background:#1e1e1c;color:#fff;border-color:#1e1e1c;box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
 .calendar-view[hidden]{display:none}
+.next14-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 44px rgba(30,30,28,.05);padding:16px;overflow:hidden}.next14-title{font-size:clamp(26px,3vw,34px);line-height:1;font-weight:600;letter-spacing:-.035em;color:#3b3a36}.next14-range{margin-top:8px;color:var(--muted);font-size:13px}.next14-list{display:grid;gap:8px;margin-top:16px}.next14-row{border:1px solid rgba(231,229,222,.86);border-radius:18px;background:#fff;overflow:hidden}.next14-row.next14-today{box-shadow:inset 0 0 0 1px rgba(201,183,255,.42);background:rgba(201,183,255,.08)}.next14-row-main{width:100%;display:grid;grid-template-columns:92px 1fr;align-items:center;gap:10px;padding:10px 12px;border:none;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}.next14-row-main:disabled{cursor:default}.next14-date{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap}.next14-date.next14-weekend{color:var(--weekend)}.next14-items{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.next14-items .chip{align-self:auto;display:inline-flex;max-width:100%;padding:3px 7px 4px}.next14-empty{color:var(--muted);font-size:13px}.next14-detail{border-top:1px solid rgba(0,0,0,.06);padding:10px 12px 12px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5)}.next14-detail[hidden]{display:none}.next14-detail-item{padding-top:8px;border-top:1px solid rgba(0,0,0,.05)}.next14-detail-item:first-child{padding-top:0;border-top:none}.next14-source a{color:inherit}@media (max-width:520px){.next14-row-main{grid-template-columns:74px 1fr;padding:9px 10px}.next14-date{font-size:13px}.next14-card{padding:12px;border-radius:22px}}
 """
     live_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
       <div class='mode-switch-inner'>
         <a class='mode-button active' href='?mode=live' aria-current='page'>live</a>
         <a class='mode-button' href='?mode=event'>event</a>
         <a class='mode-button' href='?mode=all'>all</a>
+        <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
     event_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
@@ -1804,6 +1931,7 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
         <a class='mode-button' href='?mode=live'>live</a>
         <a class='mode-button active' href='?mode=event' aria-current='page'>event</a>
         <a class='mode-button' href='?mode=all'>all</a>
+        <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
     all_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
@@ -1811,6 +1939,7 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
         <a class='mode-button' href='?mode=live'>live</a>
         <a class='mode-button' href='?mode=event'>event</a>
         <a class='mode-button active' href='?mode=all' aria-current='page'>all</a>
+        <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
     live_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + live_mode_switch_html, live_body, count=1, flags=re.S)
@@ -1857,9 +1986,10 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
   </script>
 </section>
 {all_section}
+{next14_html or ''}
 <script>
 const requestedMode = new URL(document.URL).searchParams.get('mode');
-const selectedMode = ['live', 'event', 'all'].includes(requestedMode) ? requestedMode : 'live';
+const selectedMode = ['live', 'event', 'all', 'next14'].includes(requestedMode) ? requestedMode : 'live';
 for (const view of document.querySelectorAll('.calendar-view')) {{
   view.hidden = view.dataset.mode !== selectedMode;
 }}
@@ -1939,7 +2069,8 @@ def main(argv: list[str] | None = None) -> None:
             primary_meta_label="開催情報",
             ticket_meta_label="応募・締切情報",
         )
-        OUTPUT_HTML.write_text(render_combined_html(live_html, event_html, all_html))
+        next14_html = render_next14_html(months, event_months, all_display_months)
+        OUTPUT_HTML.write_text(render_combined_html(live_html, event_html, all_html, next14_html))
     else:
         OUTPUT_HTML.write_text(live_html)
     WORKFLOW_MD.write_text(render_workflow(live_display_months, holiday_template_paths))
