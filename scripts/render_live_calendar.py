@@ -289,10 +289,7 @@ def merge_day_items(items: list[dict]) -> list[dict]:
 
 
 def mobile_chip_text(text: str) -> str:
-    compact = re.sub(r"\s+", "", text)
-    if len(compact) <= 3:
-        return compact
-    return f"{compact[:3]}…"
+    return re.sub(r"\s+", "", text)
 
 
 def lottery_calendar_label(title: str) -> str:
@@ -1189,7 +1186,16 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             detail_key = f"{panel_id}-d{day:02d}"
             details = month_data["detail_map"][day]
             is_today = today == dt.date(year_value, month_value, day)
-            day_class = "day-cell today" if is_today else "day-cell"
+            is_weekend = dt.date(year_value, month_value, day).weekday() in (5, 6)
+            is_holiday = day in holiday_map
+            day_classes = ["day-cell"]
+            if is_today:
+                day_classes.append("today")
+            if is_weekend:
+                day_classes.append("weekend")
+            if is_holiday:
+                day_classes.append("holiday")
+            day_class = " ".join(day_classes)
             clickable_class = f"{day_class} clickable" if details else day_class
             if details:
                 detail_payload[detail_key] = {"date": format_detail_date(year_value, month_value, day), "items": details}
@@ -1285,15 +1291,15 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>{html.escape(page_title)}</title>
 <style>
-:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#e8a3c3;--ticket:#5b6ef0;--deadline:#dc5868;--event:#76955a;--holiday:#c9b7ff;}}
+:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#e8a3c3;--ticket:#5b6ef0;--deadline:#dc5868;--event:#76955a;--holiday:#c9b7ff;--weekend:#d8505f;}}
 *{{box-sizing:border-box}} html{{scroll-behavior:smooth}} body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--text)}}
 .page{{max-width:1200px;margin:0 auto;padding:20px 14px 60px}} .hero{{margin-bottom:18px}} .hero h1{{margin:0;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.04em}} .hero p{{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch}}
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}} .legend-meaning{{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px}} .legend-item{{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;line-height:1.4}} .legend-chip{{display:inline-block;width:12px;height:12px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}}
 .month-nav{{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}} .month-nav a{{text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:14px;box-shadow:0 8px 20px rgba(30,30,28,.04)}}
 .month-list{{display:grid;gap:18px}} .month-card{{background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 44px rgba(30,30,28,.05);overflow:hidden;scroll-margin-top:14px}} .month-summary{{list-style:none;cursor:pointer;padding:20px 18px}} .month-summary::-webkit-details-marker{{display:none}} .month-card.collapsed .month-summary{{background:rgba(0,0,0,.01)}}
 .month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:40px;line-height:1;letter-spacing:-.05em;font-weight:700}} .month-sub{{color:var(--muted);font-size:13px}}
-.month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--muted)}}
-.day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700;color:#6d5bb3}}
+.month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--weekend)}}
+.day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700}} .day-cell.today:not(.weekend):not(.holiday) .day-num{{color:#6d5bb3}} .day-cell.weekend .day-num,.day-cell.holiday .day-num{{color:var(--weekend)}}
 .day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable.is-pressed,.day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.is-pressed{{transform:translateY(1px)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.active.today{{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}
 .day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-deadline{{background:var(--deadline)}} .tone-event{{background:var(--event)}} .tone-holiday{{background:var(--holiday)}}
@@ -1301,7 +1307,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
 .site-footer{{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6;text-align:center}} .site-footer a{{color:inherit}}
 {active_css}
-@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 4px 3px;font-size:9px;line-height:1.05;letter-spacing:-.02em}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip::before{{content:attr(data-mobile-text)}} .chip-text{{display:none}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
+@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 3px 3px;font-size:8.2px;line-height:1.04;letter-spacing:-.055em;border-radius:8px}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip{{font-size:7.2px;padding-left:2px;padding-right:2px;letter-spacing:-.075em}} .chip-text{{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}} .chips{{gap:3px}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
 </style>
 </head>
 <body>
@@ -1637,6 +1643,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
 - all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約
 - 祝日はセル内で `祝` 表示
+- 曜日行の土日と、土日・祝日の日付数字は赤文字表示（セル内チップ文言と `祝` チップは通常通り）
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
 - 祝日テンプレートは `scripts/holidays_template.json` で管理する
