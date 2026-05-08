@@ -343,17 +343,6 @@ def summarize_all_day_item(item: dict, source_mode: str) -> dict | None:
     kind = item.get("kind")
     if kind == "holiday":
         return None
-    if kind in {"live", "event"}:
-        label = "ライブ開催" if source_mode == "live" else "イベント開催"
-        return {"text": label, "tone": label, "kind": "all_event"}
-    if kind in {"lottery", "lottery_span"}:
-        text = item.get("text", "")
-        is_deadline = item.get("tone") == "deadline" or "締切" in text or "販売終了" in text
-        if is_deadline:
-            label = "ライブ抽選締切" if source_mode == "live" else "イベント応募締切"
-            return {"text": label, "tone": label, "kind": "lottery"}
-        label = "ライブ抽選" if source_mode == "live" else "イベント応募"
-        return {"text": label, "tone": label, "kind": "lottery"}
     return dict(item)
 
 
@@ -1184,9 +1173,9 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     page_title = getattr(render_html, "page_title", "櫻坂46 ライブカレンダー")
     hero_copy = getattr(render_html, "hero_copy", "5th YEAR ANNIVERSARY LIVE以降のライブ情報を、見やすく整理してまとめています。")
     list_label = getattr(render_html, "list_label", "ライブ一覧")
-    live_meaning = getattr(render_html, "live_meaning", "ライブ開催日")
-    ticket_meaning = getattr(render_html, "ticket_meaning", "チケット抽選")
-    deadline_meaning = getattr(render_html, "deadline_meaning", "締切・販売終了")
+    live_meaning = getattr(render_html, "live_meaning", "開催")
+    ticket_meaning = getattr(render_html, "ticket_meaning", "抽選")
+    deadline_meaning = getattr(render_html, "deadline_meaning", "締切")
     primary_meta_label = getattr(render_html, "primary_meta_label", "ライブ情報")
     ticket_meta_label = getattr(render_html, "ticket_meta_label", "チケット情報")
 
@@ -1296,9 +1285,9 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     page_title = getattr(render_html, "page_title", "櫻坂46 ライブカレンダー")
     hero_copy = getattr(render_html, "hero_copy", "5th YEAR ANNIVERSARY LIVE以降のライブ情報を、見やすく整理してまとめています。")
     list_label = getattr(render_html, "list_label", "ライブ一覧")
-    live_meaning = getattr(render_html, "live_meaning", "ライブ開催日")
-    ticket_meaning = getattr(render_html, "ticket_meaning", "チケット抽選")
-    deadline_meaning = getattr(render_html, "deadline_meaning", "締切・販売終了")
+    live_meaning = getattr(render_html, "live_meaning", "開催")
+    ticket_meaning = getattr(render_html, "ticket_meaning", "抽選")
+    deadline_meaning = getattr(render_html, "deadline_meaning", "締切")
     primary_meta_label = getattr(render_html, "primary_meta_label", "ライブ情報")
     ticket_meta_label = getattr(render_html, "ticket_meta_label", "チケット情報")
     legend_row_html = (
@@ -1665,7 +1654,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - `直近2週間` はブラウザJSで Asia/Tokyo 基準の今日を取得し、今日を含む14日分を1日1行で表示。予定なしの日も表示し、live/event の元チップ文言・色を使い、祝日チップは出さない
 - ライブも抽選もない月はデフォルトで折りたたみ
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
-- all表示では日付セル内を `ライブ開催` / `イベント開催`（同じピンク）、`ライブ抽選` / `イベント応募`（同じ青）、`ライブ抽選締切` / `イベント応募締切`（同じ赤）に要約
+- all表示では live/event タブ内の日付セルチップ文言をそのまま統合表示
 - 祝日はセル内で `祝` 表示
 - 曜日行の土日と、土日・祝日の日付数字は赤文字表示（セル内チップ文言と `祝` チップは通常通り）。カレンダー内の日付数字とチップ文言はPC/スマホとも中央揃え
 - スマホ幅ではチップ文言を最大2行にし、長い文言は中央付近で分けて行ごとの文字数をできるだけ均等化
@@ -2038,9 +2027,9 @@ def main(argv: list[str] | None = None) -> None:
         page_title="櫻坂46 カレンダー",
         hero_copy="ライブ情報をまとめています。",
         list_label="ライブ一覧",
-        live_meaning="ライブ開催日",
-        ticket_meaning="抽選中",
-        deadline_meaning="抽選終了",
+        live_meaning="開催",
+        ticket_meaning="抽選",
+        deadline_meaning="締切",
     )
     if event_source_text:
         event_html = render_mode_html(
@@ -2052,16 +2041,16 @@ def main(argv: list[str] | None = None) -> None:
             page_title="櫻坂46 カレンダー",
             hero_copy="ライブ以外の予定をまとめています。",
             list_label="イベント一覧",
-            live_meaning="イベント開催日",
-            ticket_meaning="応募中",
-            deadline_meaning="応募終了",
+            live_meaning="開催",
+            ticket_meaning="応募",
+            deadline_meaning="締切",
             primary_meta_label="イベント情報",
             ticket_meta_label="応募・締切情報",
         )
         all_html = render_mode_html(
             combined_months,
-            {"ライブ開催": "ライブ開催", "イベント開催": "イベント開催"},
-            {"ライブ抽選": "ライブ抽選", "イベント応募": "イベント応募", "ライブ抽選締切": "ライブ抽選締切", "イベント応募締切": "イベント応募締切"},
+            {},
+            {},
             display_months=all_display_months,
             holidays_by_month=holidays_by_month_all,
             page_title="櫻坂46 カレンダー",
