@@ -1339,7 +1339,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   </section>
   <section class='legend'>
 {legend_row_html}    <div class='legend-meaning'>
-      <div class='legend-item'><span>色分け: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>{html.escape(live_meaning)}</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>{html.escape(ticket_meaning)}</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>{html.escape(deadline_meaning)}</span><span class='legend-chip tone-holiday' aria-hidden='true'></span><span>祝日</span></div>
+      <div class='legend-item'><span>凡例: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>{html.escape(live_meaning)}</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>{html.escape(ticket_meaning)}</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>{html.escape(deadline_meaning)}</span><span class='legend-chip tone-holiday' aria-hidden='true'></span><span>祝日</span></div>
     </div>
   </section>
   <nav class='month-nav'>{month_nav}</nav>
@@ -1798,7 +1798,7 @@ def render_next14_html(
     </section>
     <section class='legend next14-legend'>
       <div class='legend-meaning'>
-        <div class='legend-item'><span>凡例: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>ライブ・イベント</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>応募・抽選</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>締切・販売終了</span></div>
+        <div class='legend-item'><span>凡例: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>開催</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>応募</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>締切</span></div>
       </div>
     </section>
     <section class='next14-card' aria-live='polite'>
