@@ -292,6 +292,27 @@ def mobile_chip_text(text: str) -> str:
     return re.sub(r"\s+", "", text)
 
 
+def mobile_chip_lines(text: str) -> list[str]:
+    compact = mobile_chip_text(text)
+    if len(compact) <= 4:
+        return [compact]
+    split_at = (len(compact) + 1) // 2
+    return [compact[:split_at], compact[split_at:]]
+
+
+def render_chip_html(item: dict[str, str]) -> str:
+    text = item["text"]
+    compact = mobile_chip_text(text)
+    mobile_lines = "".join(f"<span>{html.escape(line)}</span>" for line in mobile_chip_lines(text))
+    tone = html.escape(HTML_TONE.get(item["tone"], "ticket"))
+    return (
+        f"<div class='chip tone-{tone}' data-mobile-text='{html.escape(compact)}' aria-label='{html.escape(text)}'>"
+        f"<span class='chip-text'>{html.escape(text)}</span>"
+        f"<span class='chip-mobile-text' aria-hidden='true'>{mobile_lines}</span>"
+        f"</div>"
+    )
+
+
 def lottery_calendar_label(title: str) -> str:
     normalized = re.sub(r"^\d+枚目シングル\s*", "", title.strip())
     if "BACKS LIVE" in normalized:
@@ -1178,10 +1199,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
             cells.append("<div class='day-cell empty'></div>")
         for day in range(1, total + 1):
             items = merge_day_items(month_data["days"][day])[:3]
-            chips = "".join(
-                f"<div class='chip tone-{html.escape(HTML_TONE.get(item['tone'], 'ticket'))}' data-mobile-text='{html.escape(mobile_chip_text(item['text']))}' aria-label='{html.escape(item['text'])}'><span class='chip-text'>{html.escape(item['text'])}</span></div>"
-                for item in items
-            )
+            chips = "".join(render_chip_html(item) for item in items)
             panel_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
             detail_key = f"{panel_id}-d{day:02d}"
             details = month_data["detail_map"][day]
@@ -1299,15 +1317,15 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .month-list{{display:grid;gap:18px}} .month-card{{background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 44px rgba(30,30,28,.05);overflow:hidden;scroll-margin-top:14px}} .month-summary{{list-style:none;cursor:pointer;padding:20px 18px}} .month-summary::-webkit-details-marker{{display:none}} .month-card.collapsed .month-summary{{background:rgba(0,0,0,.01)}}
 .month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:40px;line-height:1;letter-spacing:-.05em;font-weight:700}} .month-sub{{color:var(--muted);font-size:13px}}
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--weekend)}}
-.day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:left;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700}} .day-cell.today:not(.weekend):not(.holiday) .day-num{{color:#6d5bb3}} .day-cell.weekend .day-num,.day-cell.holiday .day-num{{color:var(--weekend)}}
+.day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:center;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700}} .day-cell.today:not(.weekend):not(.holiday) .day-num{{color:#6d5bb3}} .day-cell.weekend .day-num,.day-cell.holiday .day-num{{color:var(--weekend)}}
 .day-cell.clickable{{cursor:pointer;transition:transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;position:relative;border-radius:14px;background:linear-gradient(180deg,#fff,#f8f8f5);border:1px solid rgba(231,229,222,.82);-webkit-tap-highlight-color:transparent;touch-action:manipulation;text-decoration:none;color:inherit;outline:none;appearance:none;-webkit-appearance:none}} .day-cell.clickable::after{{content:'';position:absolute;left:8px;right:8px;top:6px;height:1px;border-radius:999px;background:rgba(255,255,255,.5);pointer-events:none}} .day-cell.clickable:hover{{background:#faf9f6;transform:translateY(-1px);border-color:rgba(231,229,222,.9);box-shadow:0 2px 6px rgba(30,30,28,.02)}} .day-cell.clickable.is-pressed,.day-cell.clickable:active{{background:#eef2ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.is-pressed{{transform:translateY(1px)}} .day-cell.clickable:active{{transform:scale(.992)}} .day-cell.clickable:focus-visible{{box-shadow:inset 0 0 0 2px rgba(91,110,240,.28),0 0 0 3px rgba(91,110,240,.10)}} .day-cell.active{{background:#f3f5ff;box-shadow:inset 0 0 0 2px rgba(93,119,255,.22);border-color:rgba(93,119,255,.18)}} .day-cell.clickable.active.today{{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}
-.day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}} .chip-text{{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+.day-num{{font-size:19px;line-height:1;letter-spacing:-.03em}} .chips{{display:flex;flex-direction:column;gap:4px;min-width:0}} .chip{{align-self:stretch;padding:3px 7px 4px;border-radius:10px;color:#fff;font-size:11px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}} .chip-text{{text-align:center;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .chip-mobile-text{{display:none}}
 .tone-live{{background:var(--live)}} .tone-ticket{{background:var(--ticket)}} .tone-deadline{{background:var(--deadline)}} .tone-event{{background:var(--event)}} .tone-holiday{{background:var(--holiday)}}
 .detail-target{{display:block;height:0;overflow:hidden;pointer-events:none;visibility:hidden;scroll-margin-top:70vh}} .day-detail{{margin-top:18px;border:1px solid var(--line);border-radius:22px;padding:16px 16px 14px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5);box-shadow:0 10px 24px rgba(30,30,28,.04);scroll-margin-top:18vh}} .detail-title{{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 12px;border-radius:999px;background:rgba(91,110,240,.08);color:#3644a8;font-size:15px;font-weight:700;letter-spacing:-.01em}} .detail-list{{display:grid;gap:8px}} .detail-item{{border-top:1px solid rgba(0,0,0,.05);padding-top:8px}} .detail-item:first-child{{border-top:none;padding-top:0}} .detail-label{{font-size:14px;font-weight:600}} .detail-sub,.detail-meta,.detail-source{{font-size:13px;color:var(--muted);line-height:1.6}} .detail-source a{{color:inherit}}
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
 .site-footer{{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6;text-align:center}} .site-footer a{{color:inherit}}
 {active_css}
-@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 3px 3px;font-size:8.2px;line-height:1.04;letter-spacing:-.055em;border-radius:8px}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip{{font-size:7.2px;padding-left:2px;padding-right:2px;letter-spacing:-.075em}} .chip-text{{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}} .chips{{gap:3px}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
+@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:34px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 3px 3px;font-size:8.2px;line-height:1.04;letter-spacing:-.055em;border-radius:8px}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip{{font-size:7.2px;padding-left:2px;padding-right:2px;letter-spacing:-.075em}} .chip-text{{display:none}} .chip-mobile-text{{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1px;min-height:1em;white-space:normal;overflow:hidden}} .chip-mobile-text span{{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .chips{{gap:3px}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
 </style>
 </head>
 <body>
@@ -1347,7 +1365,7 @@ const isCoarsePointer = window.matchMedia('(hover:none), (pointer:coarse)').matc
 const shouldAutoScrollToPanel = true;
 const shouldUseNativeHash = isCoarsePointer;
 const getDetailKeyFromLocation = () => new URLSearchParams(window.location.search).get('d') || window.location.hash.slice(1);
-const isMonthHash = (value) => /^m\d{{2}}$/.test(value || '') || /^m\d{{6}}$/.test(value || '');
+const isMonthHash = (value) => /^m[0-9]{{2}}$/.test(value || '') || /^m[0-9]{{6}}$/.test(value || '');
 const getCurrentDate = () => {{
   const now = new Date();
   return new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -1643,7 +1661,8 @@ python3 scripts/render_live_calendar.py --output-preview
 - 日付セル内にライブタグ / 抽選開始 / 抽選締切などを表示
 - all表示では日付セル内を `live開催` / `event開催`（同じピンク）、`live抽選` / `event応募`（同じ青）、`live抽選締切` / `event応募締切`（同じ赤）に要約
 - 祝日はセル内で `祝` 表示
-- 曜日行の土日と、土日・祝日の日付数字は赤文字表示（セル内チップ文言と `祝` チップは通常通り）
+- 曜日行の土日と、土日・祝日の日付数字は赤文字表示（セル内チップ文言と `祝` チップは通常通り）。カレンダー内の日付数字とチップ文言はPC/スマホとも中央揃え
+- スマホ幅ではチップ文言を最大2行にし、長い文言は中央付近で分けて行ごとの文字数をできるだけ均等化
 - 日付クリックで同じ月カード内の詳細パネルを開く
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
 - 祝日テンプレートは `scripts/holidays_template.json` で管理する
