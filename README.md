@@ -20,6 +20,16 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 - チケット抽選や一般発売の時期をまとめて見られます
 - 祝日を含めて、日付の流れをひと目で追えます
 - スマートフォンでも見やすい形で確認できます
+- ICSカレンダーを購読して、iPhone標準カレンダーなどにも予定を表示できます
+
+## ICSカレンダー購読
+
+カレンダーアプリでURL購読できます。まずは通知しやすい `締切・開催だけ` がおすすめです。
+
+- 全部入り: `https://raw.githubusercontent.com/Mistral-Yu/sakurazaka46-live-event-calendar/main/ics/sakurazaka46_all.ics`
+- 締切・開催だけ: `https://raw.githubusercontent.com/Mistral-Yu/sakurazaka46-live-event-calendar/main/ics/sakurazaka46_deadlines.ics`
+
+iPhoneでは、`設定` → `アプリ` → `カレンダー` → `カレンダーアカウント` → `アカウントを追加` → `その他` → `照会するカレンダーを追加` からURLを貼り付けます。通知は `設定` → `通知` → `カレンダー` と、`設定` → `アプリ` → `カレンダー` → `デフォルトの通知時間` → `終日イベント` を確認してください。
 
 ## 更新の元データ
 
@@ -44,6 +54,10 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
   祝日表示に使う祝日データです。
 - `scripts/sakurazaka_schedule_workflow.md`  
   生成手順と現在の表示仕様をまとめた運用メモです。
+- `ics/sakurazaka46_all.ics`  
+  live/eventを統合した全部入りの購読用ICSカレンダーです。
+- `ics/sakurazaka46_deadlines.ics`  
+  live/event両方の締切・期限・販売終了・開催予定だけを入れた購読用ICSカレンダーです。
 - `AGENTS.md`  
   AIエージェント向けの保守ルール・表示仕様・検証手順です。
 - `LICENSE`  

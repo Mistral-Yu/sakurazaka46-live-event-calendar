@@ -8,7 +8,7 @@
 
 - 入力: `summary/sakurazaka46_live_summary.md`（live）、`summary/sakurazaka46_event_summary.md`（event/CD/ミーグリ/リアルミーグリ）
 - 生成器: `scripts/render_live_calendar.py`
-- 公開出力: `index.html`
+- 公開出力: `index.html`、`ics/sakurazaka46_all.ics`、`ics/sakurazaka46_deadlines.ics`
 - 生成補助: `scripts/sakurazaka_schedule_workflow.md`、`scripts/holidays_template.json`
 - `summary/` と `plan/` は別用途。`plan/` はカレンダー生成入力に使わない。
 - `index.html` は生成物。直接手編集せず、入力Markdownか生成器を直して再生成する。
@@ -29,6 +29,7 @@
 - `直近2週間` は all要約ではなく live/event の元チップ文言・色を使い、祝日チップは表示しない。行クリックでその日の詳細を行下に展開する。
 - 祝日だけの日はクリック対象・詳細を作らない。祝日はセル内で `祝` のみ表示し、詳細欄に祝日名説明を出さない。
 - 曜日行の土日は赤文字にし、土日・祝日の日付数字も赤文字にする。セル内のチップ文言や `祝` チップ色はこの指定で変えない。カレンダー内の日付数字とチップ文言はPC/スマホとも中央揃えにする。
+- 通常生成では購読用ICSも `ics/` に出力する。`sakurazaka46_all.ics` はlive/event統合の全部入り、`sakurazaka46_deadlines.ics` はlive/event両方の締切・期限・販売終了・開催予定だけを入れる。`index.html` にはICS購読リンクをまだ置かない。
 
 ## データ入力ルール
 
@@ -85,7 +86,7 @@ python3 scripts/render_live_calendar.py --output-preview
 ```
 
 - 1行目: テスト。
-- 2行目: 通常再生成。
+- 2行目: 通常再生成（`index.html` と `ics/*.ics` を出力）。
 - 3行目: 内閣府CSVから祝日を更新する必要があるときだけ実行。
 - 4〜5行目: 任意出力。通常実行で復活させない。
 - このワークスペースでは `python3` をそのまま使える。repo内に有効化すべき `venv/` はない。
@@ -113,7 +114,7 @@ open -na "Google Chrome" --args --remote-debugging-port=9333 --user-data-dir="/U
 ## リポジトリ管理
 
 - `sakurazaka46-live-event-calendar` は原則 `main` に直接pushする。
-- 公開repoは `index.html`、`summary/`、`README.md`、`LICENSE`、`AGENTS.md` などユーザー向け/保守向け静的ファイルを中心にする。
+- 公開repoは `index.html`、`ics/`、`summary/`、`README.md`、`LICENSE`、`AGENTS.md` などユーザー向け/保守向け静的ファイルを中心にする。
 - `scripts/` は原則ローカル運用扱いだが、公開ページ生成に必要な以下は追跡対象にする:
   - `scripts/render_live_calendar.py`
   - `scripts/sakurazaka_schedule_workflow.md`
