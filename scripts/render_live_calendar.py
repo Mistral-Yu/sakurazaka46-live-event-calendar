@@ -6,6 +6,7 @@ import argparse
 import calendar
 import csv
 import datetime as dt
+import hashlib
 import html
 import json
 import re
@@ -24,6 +25,9 @@ SOURCE_MD = SUMMARY_DIR / "sakurazaka46_live_summary.md"
 EVENT_SOURCE_MD = SUMMARY_DIR / "sakurazaka46_event_summary.md"
 OUTPUT_MD = SUMMARY_DIR / "sakurazaka46_live_calendar.md"
 OUTPUT_HTML = BASE_DIR / "index.html"
+ICS_DIR = BASE_DIR / "ics"
+OUTPUT_ICS_ALL = ICS_DIR / "sakurazaka46_all.ics"
+OUTPUT_ICS_DEADLINES = ICS_DIR / "sakurazaka46_deadlines.ics"
 WORKFLOW_MD = SCRIPT_DIR / "sakurazaka_schedule_workflow.md"
 LEGACY_WORKFLOW_MD = SUMMARY_DIR / "sakurazaka_schedule_workflow.md"
 LONG_PREVIEW = SUMMARY_DIR / "sakurazaka46_live_calendar_preview.jpg"
@@ -376,6 +380,150 @@ def build_all_months(
     for month_key in all_months:
         all_months[month_key]["sources"] = sorted(set(all_months[month_key]["sources"]))
     return all_months
+
+
+def ics_escape(value: str) -> str:
+    return (
+        value.replace("\\", "\\\\")
+        .replace(";", r"\;")
+        .replace(",", r"\,")
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+        .replace("\n", r"\n")
+    )
+
+
+def fold_ics_line(line: str) -> list[str]:
+    encoded = line.encode("utf-8")
+    if len(encoded) <= 75:
+        return [line]
+    folded = []
+    current = ""
+    current_len = 0
+    for char in line:
+        char_len = len(char.encode("utf-8"))
+        limit = 75 if not folded else 74
+        if current and current_len + char_len > limit:
+            folded.append(current if not folded else f" {current}")
+            current = char
+            current_len = char_len
+        else:
+            current += char
+            current_len += char_len
+    if current:
+        folded.append(current if not folded else f" {current}")
+    return folded
+
+
+def ics_text_line(name: str, value: str) -> list[str]:
+    return fold_ics_line(f"{name}:{ics_escape(value)}")
+
+
+def ics_slug(value: str) -> str:
+    slug = re.sub(r"[^0-9A-Za-z]+", "-", value).strip("-").lower()
+    if slug:
+        return slug[:48]
+    return hashlib.sha1(value.encode("utf-8")).hexdigest()[:12]
+
+
+def all_day_ics_event(date_value: dt.date, summary: str, description: str, uid_suffix: str) -> list[str]:
+    end_date = date_value + dt.timedelta(days=1)
+    lines = [
+        "BEGIN:VEVENT",
+        f"UID:sakurazaka46-{date_value:%Y%m%d}-{uid_suffix}@mistral-yu",
+        "DTSTAMP:20260101T000000Z",
+        f"DTSTART;VALUE=DATE:{date_value:%Y%m%d}",
+        f"DTEND;VALUE=DATE:{end_date:%Y%m%d}",
+    ]
+    lines.extend(ics_text_line("SUMMARY", summary))
+    if description:
+        lines.extend(ics_text_line("DESCRIPTION", description))
+    lines.append("END:VEVENT")
+    return lines
+
+
+def is_deadline_calendar_item(item: dict) -> bool:
+    text = item.get("text", "")
+    tone = item.get("tone", "")
+    return "締切" in text or "期限" in text or "販売終了" in text or tone == "deadline"
+
+
+def is_event_calendar_item(item: dict) -> bool:
+    return item.get("kind") in {"live", "event", "all_event"}
+
+
+def detail_description(details: list[dict]) -> str:
+    lines = []
+    seen = set()
+    for detail in details:
+        label = detail.get("label", "")
+        sub = detail.get("sub", "")
+        meta = detail.get("meta", "")
+        sources = detail.get("sources", [])
+        parts = [part for part in (label, sub, meta) if part]
+        if sources:
+            parts.extend(sources)
+        text = "\n".join(parts)
+        if text and text not in seen:
+            seen.add(text)
+            lines.append(text)
+    return "\n\n".join(lines)
+
+
+def iter_ics_items(all_months: dict, include_filter: Callable[[dict], bool] | None = None):
+    for month_key in sorted(all_months):
+        month_data = all_months[month_key]
+        for day in sorted(month_data["days"]):
+            date_value = dt.date(month_key.year, month_key.month, day)
+            details = month_data["detail_map"].get(day, [])
+            description = detail_description(details)
+            seen = set()
+            for item in merge_day_items(month_data["days"][day]):
+                if item.get("kind") == "holiday":
+                    continue
+                if include_filter is not None and not include_filter(item):
+                    continue
+                text = item.get("text", "")
+                if not text:
+                    continue
+                key = (date_value, text, item.get("kind", ""))
+                if key in seen:
+                    continue
+                seen.add(key)
+                yield date_value, text, description, item
+
+
+def render_ics_calendar(name: str, items) -> str:
+    lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Mistral-Yu//Sakurazaka46 Calendar//JA",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+    ]
+    lines.extend(ics_text_line("X-WR-CALNAME", name))
+    for index, (date_value, summary, description, item) in enumerate(items, start=1):
+        uid_suffix = f"{index:04d}-{ics_slug(summary)}"
+        lines.extend(all_day_ics_event(date_value, summary, description, uid_suffix))
+    lines.append("END:VCALENDAR")
+    folded = []
+    for line in lines:
+        folded.extend(fold_ics_line(line))
+    return "\r\n".join(folded) + "\r\n"
+
+
+def write_ics_outputs(all_months: dict) -> tuple[Path, Path]:
+    ICS_DIR.mkdir(parents=True, exist_ok=True)
+    all_items = list(iter_ics_items(all_months))
+    deadline_event_items = list(
+        iter_ics_items(all_months, lambda item: is_deadline_calendar_item(item) or is_event_calendar_item(item))
+    )
+    OUTPUT_ICS_ALL.write_text(render_ics_calendar("櫻坂46 全予定", all_items), encoding="utf-8")
+    OUTPUT_ICS_DEADLINES.write_text(
+        render_ics_calendar("櫻坂46 締切・開催", deadline_event_items),
+        encoding="utf-8",
+    )
+    return OUTPUT_ICS_ALL, OUTPUT_ICS_DEADLINES
 
 
 def live_calendar_label(title: str, venue: str) -> str:
@@ -2023,6 +2171,7 @@ def main(argv: list[str] | None = None) -> None:
     months, legend_live, legend_lottery = parse_summary_timeline(source_text, live_display_months, holidays_by_live_month)
     event_months, legend_event, legend_event_dates = parse_event_summary_timeline(event_source_text, event_display_months, holidays_by_event_month) if event_source_text else ({}, {}, {})
     combined_months = build_all_months(months, event_months, all_display_months, holidays_by_month_all)
+    ics_paths = write_ics_outputs(combined_months)
 
     if args.output_calendar_md:
         OUTPUT_MD.write_text(build_markdown(months, legend_live, legend_lottery, latest_year, display_months=live_display_months, holidays_by_month=holidays_by_live_month))
@@ -2089,6 +2238,9 @@ def main(argv: list[str] | None = None) -> None:
         print(f"markdown: {OUTPUT_MD.relative_to(BASE_DIR)}")
     print(f"html: {OUTPUT_HTML.relative_to(BASE_DIR)}")
     print(f"workflow: {WORKFLOW_MD.relative_to(BASE_DIR)}")
+    print("ics:")
+    for path in ics_paths:
+        print(f"  - {path.relative_to(BASE_DIR)}")
     if preview is not None:
         print(f"preview: {preview.relative_to(BASE_DIR)}")
     print("holiday_templates:")
