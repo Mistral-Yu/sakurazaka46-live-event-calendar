@@ -33,6 +33,23 @@
 - https://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
 - https://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 
+## 14thシングル『The growing up train』ミニライブ視聴用ID
+
+### イベント開催の日程
+
+- 開催日はライブタブに整理します。
+
+### 抽選の日程
+
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| ミニライブ応募締切 | **2026-04-17(金)** | ミニライブ・アーカイブ配信 視聴用ID |
+| ミニライブ応募締切 | **2026-05-01(金)** | ミニライブ・メンバー解説付き 視聴用ID |
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
+
 ## 15枚目シングル『Lonesome rabbit / What’s “KAZOKU”?』
 
 ### イベント開催の日程

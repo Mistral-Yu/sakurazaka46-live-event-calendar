@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:櫻坂46 全予定
 BEGIN:VEVENT
-UID:sakurazaka46-20260401-0001-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260401-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260401
 DTEND;VALUE=DATE:20260402
@@ -20,7 +20,7 @@ DESCRIPTION:応募: 14枚目シングル「The growing up train」連動オ
  /sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260402-0002-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260402-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260402
 DTEND;VALUE=DATE:20260403
@@ -35,7 +35,7 @@ DESCRIPTION:応募: 14枚目シングル「The growing up train」連動オ
  /sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260405-0003-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260405-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260405
 DTEND;VALUE=DATE:20260406
@@ -49,7 +49,7 @@ DESCRIPTION:EVENT: 14枚目シングル「The growing up train」連動オ
  ttps://www.fortunemusic.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260406-0004-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260406-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260406
 DTEND;VALUE=DATE:20260407
@@ -66,7 +66,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  OBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260406-0005-141624bef570@mistral-yu
+UID:sakurazaka46-20260406-141624bef570-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260406
 DTEND;VALUE=DATE:20260407
@@ -83,7 +83,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  OBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260407-0006-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260407-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260407
 DTEND;VALUE=DATE:20260408
@@ -100,7 +100,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  OBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260407-0007-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260407-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260407
 DTEND;VALUE=DATE:20260408
@@ -117,7 +117,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  OBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260408-0008-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260408-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260408
 DTEND;VALUE=DATE:20260409
@@ -137,7 +137,7 @@ DESCRIPTION:応募: 14枚目シングル「The growing up train」連動オ
  /www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260408-0009-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260408-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260408
 DTEND;VALUE=DATE:20260409
@@ -157,7 +157,7 @@ DESCRIPTION:応募: 14枚目シングル「The growing up train」連動オ
  /www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260409-0010-cadecfb7bb0e@mistral-yu
+UID:sakurazaka46-20260409-cadecfb7bb0e-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
@@ -180,7 +180,7 @@ DESCRIPTION:応募: 櫻坂46メッセージ『全員購読』＆『プラ
  https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260409-0011-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260409-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
@@ -203,7 +203,7 @@ DESCRIPTION:応募: 櫻坂46メッセージ『全員購読』＆『プラ
  https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260409-0012-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260409-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260409
 DTEND;VALUE=DATE:20260410
@@ -226,7 +226,7 @@ DESCRIPTION:応募: 櫻坂46メッセージ『全員購読』＆『プラ
  https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260410-0013-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260410-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260410
 DTEND;VALUE=DATE:20260411
@@ -239,7 +239,7 @@ DESCRIPTION:応募: ＮＨＫ仙台フェスティバル２０２６ てれ
  .nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260411-0014-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260411-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260411
 DTEND;VALUE=DATE:20260412
@@ -252,7 +252,7 @@ DESCRIPTION:応募: ＮＨＫ仙台フェスティバル２０２６ てれ
  .nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260412-0015-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260412-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260412
 DTEND;VALUE=DATE:20260413
@@ -265,7 +265,7 @@ DESCRIPTION:応募: ＮＨＫ仙台フェスティバル２０２６ てれ
  .nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260413-0016-6d6e63930a66@mistral-yu
+UID:sakurazaka46-20260413-6d6e63930a66-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
@@ -290,7 +290,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260413-0017-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260413-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
@@ -315,7 +315,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260413-0018-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260413-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
@@ -340,7 +340,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260414-0019-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260414-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260414
 DTEND;VALUE=DATE:20260415
@@ -365,7 +365,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260414-0020-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260414-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260414
 DTEND;VALUE=DATE:20260415
@@ -390,7 +390,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260414-0021-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260414-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260414
 DTEND;VALUE=DATE:20260415
@@ -415,7 +415,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260415-0022-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260415-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260415
 DTEND;VALUE=DATE:20260416
@@ -443,7 +443,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260415-0023-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260415-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260415
 DTEND;VALUE=DATE:20260416
@@ -471,7 +471,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260415-0024-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260415-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260415
 DTEND;VALUE=DATE:20260416
@@ -499,7 +499,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260416-0025-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260416-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260416
 DTEND;VALUE=DATE:20260417
@@ -527,7 +527,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260416-0026-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260416-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260416
 DTEND;VALUE=DATE:20260417
@@ -555,7 +555,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260416-0027-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260416-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260416
 DTEND;VALUE=DATE:20260417
@@ -583,7 +583,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  k=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260417-0028-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260417-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260417
 DTEND;VALUE=DATE:20260418
@@ -596,15 +596,44 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  /s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国アリーナツア
  ー2026 Lemino櫻坂46パック先行\n対象: 全席指定／親子・女
  性エリア\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com/s/s46/page/n
- ationaltour2026?ima=0000\n\n応募: ＮＨＫ仙台フェスティバル
- ２０２６ てれまさ スペシャルステージ「みんなで語ろ
- う！未来へつなぎたい TOHOKU HEART」 着席観覧事前申込\n
- 対象: 無料観覧／入場整理券\n2026-04-06(月)〜2026-04-21(火)\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004\n
- https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
+ ationaltour2026?ima=0000\n\n応募: 14thシングル『The growing up trai
+ n』ミニライブ視聴用ID ミニライブ応募締切\n対象: ミニ
+ ライブ・アーカイブ配信 視聴用ID\n2026-04-17(金)\nhttps://sa
+ kurazaka46.com/s/s46/page/14th_single_serial?ima=0000\n\n応募: ＮＨＫ
+ 仙台フェスティバル２０２６ てれまさ スペシャルステ
+ ージ「みんなで語ろう！未来へつなぎたい TOHOKU HEART」 
+ 着席観覧事前申込\n対象: 無料観覧／入場整理券\n2026-04-
+ 06(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/news/detail/E006
+ 18?ima=0000&link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html
+ ?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260417-0029-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260417-181994301571-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260417
+DTEND;VALUE=DATE:20260418
+SUMMARY:ミニライブ応募締切
+DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
+  全席指定／親子・女性エリア\n4/13(月)〜4/19(日)\nhttps://s
+ akurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国ア
+ リーナツアー2026 Leminoスペシャルシート先行\n対象: Lemin
+ oスペシャルシート\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com
+ /s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国アリーナツア
+ ー2026 Lemino櫻坂46パック先行\n対象: 全席指定／親子・女
+ 性エリア\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com/s/s46/page/n
+ ationaltour2026?ima=0000\n\n応募: 14thシングル『The growing up trai
+ n』ミニライブ視聴用ID ミニライブ応募締切\n対象: ミニ
+ ライブ・アーカイブ配信 視聴用ID\n2026-04-17(金)\nhttps://sa
+ kurazaka46.com/s/s46/page/14th_single_serial?ima=0000\n\n応募: ＮＨＫ
+ 仙台フェスティバル２０２６ てれまさ スペシャルステ
+ ージ「みんなで語ろう！未来へつなぎたい TOHOKU HEART」 
+ 着席観覧事前申込\n対象: 無料観覧／入場整理券\n2026-04-
+ 06(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/news/detail/E006
+ 18?ima=0000&link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html
+ ?id=3983
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260417-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260417
 DTEND;VALUE=DATE:20260418
@@ -617,15 +646,19 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  /s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国アリーナツア
  ー2026 Lemino櫻坂46パック先行\n対象: 全席指定／親子・女
  性エリア\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com/s/s46/page/n
- ationaltour2026?ima=0000\n\n応募: ＮＨＫ仙台フェスティバル
- ２０２６ てれまさ スペシャルステージ「みんなで語ろ
- う！未来へつなぎたい TOHOKU HEART」 着席観覧事前申込\n
- 対象: 無料観覧／入場整理券\n2026-04-06(月)〜2026-04-21(火)\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004\n
- https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
+ ationaltour2026?ima=0000\n\n応募: 14thシングル『The growing up trai
+ n』ミニライブ視聴用ID ミニライブ応募締切\n対象: ミニ
+ ライブ・アーカイブ配信 視聴用ID\n2026-04-17(金)\nhttps://sa
+ kurazaka46.com/s/s46/page/14th_single_serial?ima=0000\n\n応募: ＮＨＫ
+ 仙台フェスティバル２０２６ てれまさ スペシャルステ
+ ージ「みんなで語ろう！未来へつなぎたい TOHOKU HEART」 
+ 着席観覧事前申込\n対象: 無料観覧／入場整理券\n2026-04-
+ 06(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/news/detail/E006
+ 18?ima=0000&link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html
+ ?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260418-0030-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260418-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260418
 DTEND;VALUE=DATE:20260419
@@ -646,7 +679,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260418-0031-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260418-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260418
 DTEND;VALUE=DATE:20260419
@@ -667,7 +700,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260419-0032-f8ea66bb2642@mistral-yu
+UID:sakurazaka46-20260419-f8ea66bb2642-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260419
 DTEND;VALUE=DATE:20260420
@@ -695,7 +728,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  tail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260419-0033-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260419-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260419
 DTEND;VALUE=DATE:20260420
@@ -723,7 +756,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  tail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260419-0034-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260419-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260419
 DTEND;VALUE=DATE:20260420
@@ -751,7 +784,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  tail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260420-0035-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260420-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260420
 DTEND;VALUE=DATE:20260421
@@ -768,7 +801,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  OBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260420-0036-1c80e701d70f@mistral-yu
+UID:sakurazaka46-20260420-1c80e701d70f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260420
 DTEND;VALUE=DATE:20260421
@@ -785,7 +818,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  OBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260421-0037-fdf7882e323c@mistral-yu
+UID:sakurazaka46-20260421-fdf7882e323c-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260421
 DTEND;VALUE=DATE:20260422
@@ -806,7 +839,7 @@ DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260421-0038-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260421-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260421
 DTEND;VALUE=DATE:20260422
@@ -827,7 +860,7 @@ DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260421-0039-d690b7459ddb@mistral-yu
+UID:sakurazaka46-20260421-d690b7459ddb-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260421
 DTEND;VALUE=DATE:20260422
@@ -848,7 +881,7 @@ DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260422-0040-781825e58a02@mistral-yu
+UID:sakurazaka46-20260422-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260422
 DTEND;VALUE=DATE:20260423
@@ -866,7 +899,7 @@ DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  ews/detail/S00214?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260422-0041-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260422-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260422
 DTEND;VALUE=DATE:20260423
@@ -884,7 +917,7 @@ DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  ews/detail/S00214?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260423-0042-093d8dbdac7c@mistral-yu
+UID:sakurazaka46-20260423-093d8dbdac7c-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260423
 DTEND;VALUE=DATE:20260424
@@ -906,7 +939,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  .jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260423-0043-781825e58a02@mistral-yu
+UID:sakurazaka46-20260423-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260423
 DTEND;VALUE=DATE:20260424
@@ -928,7 +961,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  .jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260423-0044-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260423-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260423
 DTEND;VALUE=DATE:20260424
@@ -950,7 +983,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  .jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260424-0045-ad0154a7ab0e@mistral-yu
+UID:sakurazaka46-20260424-ad0154a7ab0e-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260424
 DTEND;VALUE=DATE:20260425
@@ -965,7 +998,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260424-0046-781825e58a02@mistral-yu
+UID:sakurazaka46-20260424-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260424
 DTEND;VALUE=DATE:20260425
@@ -980,7 +1013,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260425-0047-ad0154a7ab0e@mistral-yu
+UID:sakurazaka46-20260425-ad0154a7ab0e-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260425
 DTEND;VALUE=DATE:20260426
@@ -995,7 +1028,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260425-0048-781825e58a02@mistral-yu
+UID:sakurazaka46-20260425-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260425
 DTEND;VALUE=DATE:20260426
@@ -1010,7 +1043,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260426-0049-ad0154a7ab0e@mistral-yu
+UID:sakurazaka46-20260426-ad0154a7ab0e-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260426
 DTEND;VALUE=DATE:20260427
@@ -1025,7 +1058,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260426-0050-781825e58a02@mistral-yu
+UID:sakurazaka46-20260426-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260426
 DTEND;VALUE=DATE:20260427
@@ -1040,7 +1073,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260427-0051-ad0154a7ab0e@mistral-yu
+UID:sakurazaka46-20260427-ad0154a7ab0e-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
@@ -1058,7 +1091,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  100081?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260427-0052-781825e58a02@mistral-yu
+UID:sakurazaka46-20260427-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
@@ -1076,7 +1109,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  100081?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260427-0053-cbd9b81aebc7@mistral-yu
+UID:sakurazaka46-20260427-cbd9b81aebc7-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260427
 DTEND;VALUE=DATE:20260428
@@ -1094,7 +1127,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  100081?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260428-0054-ad0154a7ab0e@mistral-yu
+UID:sakurazaka46-20260428-ad0154a7ab0e-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260428
 DTEND;VALUE=DATE:20260429
@@ -1109,7 +1142,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260428-0055-781825e58a02@mistral-yu
+UID:sakurazaka46-20260428-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260428
 DTEND;VALUE=DATE:20260429
@@ -1124,7 +1157,7 @@ DESCRIPTION:抽選: 四期生 LIVE イオンカード先行\n対象: 全席
  espli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260429-0056-13095b6260a2@mistral-yu
+UID:sakurazaka46-20260429-13095b6260a2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260429
 DTEND;VALUE=DATE:20260430
@@ -1141,7 +1174,7 @@ DESCRIPTION:一般発売: 14枚目シングル BACKS LIVE!!\n対象: 先着
  5649\nhttps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260429-0057-9ccc4b052df7@mistral-yu
+UID:sakurazaka46-20260429-9ccc4b052df7-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260429
 DTEND;VALUE=DATE:20260430
@@ -1158,7 +1191,7 @@ DESCRIPTION:一般発売: 14枚目シングル BACKS LIVE!!\n対象: 先着
  5649\nhttps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260429-0058-781825e58a02@mistral-yu
+UID:sakurazaka46-20260429-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260429
 DTEND;VALUE=DATE:20260430
@@ -1175,18 +1208,35 @@ DESCRIPTION:一般発売: 14枚目シングル BACKS LIVE!!\n対象: 先着
  5649\nhttps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260430-0059-781825e58a02@mistral-yu
+UID:sakurazaka46-20260430-f2034a50939c-live@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260430
+DTEND;VALUE=DATE:20260501
+SUMMARY:ミニライブ
+DESCRIPTION:LIVE: 14thシングル『The growing up train』ミニライブ
+ 配信\n会場: 配信\n2026/04/30 木\nhttps://sakurazaka46.com/s/s46/pag
+ e/14th_single_serial?ima=0000\n\nオフィシャル先着受付: OSAKA GIG
+ ANTIC MUSIC FESTIVAL 2026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバ
+ ンド事前発送付きあり\n4/21(火)〜5/10(日)\nhttps://spice.eplus
+ .jp/articles/345649\nhttps://eplus.jp/sf/word/0000109593\nhttps://giga.lin
+ k.fespli.com/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260430-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260430
 DTEND;VALUE=DATE:20260501
 SUMMARY:ジャイガ先着受付中
-DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
- 026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバンド事前発送付き
- あり\n4/21(火)〜5/10(日)\nhttps://spice.eplus.jp/articles/345649\nhtt
- ps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/
+DESCRIPTION:LIVE: 14thシングル『The growing up train』ミニライブ
+ 配信\n会場: 配信\n2026/04/30 木\nhttps://sakurazaka46.com/s/s46/pag
+ e/14th_single_serial?ima=0000\n\nオフィシャル先着受付: OSAKA GIG
+ ANTIC MUSIC FESTIVAL 2026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバ
+ ンド事前発送付きあり\n4/21(火)〜5/10(日)\nhttps://spice.eplus
+ .jp/articles/345649\nhttps://eplus.jp/sf/word/0000109593\nhttps://giga.lin
+ k.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260501-0060-781825e58a02@mistral-yu
+UID:sakurazaka46-20260501-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260501
 DTEND;VALUE=DATE:20260502
@@ -1194,10 +1244,29 @@ SUMMARY:ジャイガ先着受付中
 DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバンド事前発送付き
  あり\n4/21(火)〜5/10(日)\nhttps://spice.eplus.jp/articles/345649\nhtt
- ps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/
+ ps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/\n\n応募:
+  14thシングル『The growing up train』ミニライブ視聴用ID ミ
+ ニライブ応募締切\n対象: ミニライブ・メンバー解説付
+ き 視聴用ID\n2026-05-01(金)\nhttps://sakurazaka46.com/s/s46/page/14th
+ _single_serial?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260502-0061-6d6e63930a66@mistral-yu
+UID:sakurazaka46-20260501-181994301571-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+SUMMARY:ミニライブ応募締切
+DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
+ 026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバンド事前発送付き
+ あり\n4/21(火)〜5/10(日)\nhttps://spice.eplus.jp/articles/345649\nhtt
+ ps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/\n\n応募:
+  14thシングル『The growing up train』ミニライブ視聴用ID ミ
+ ニライブ応募締切\n対象: ミニライブ・メンバー解説付
+ き 視聴用ID\n2026-05-01(金)\nhttps://sakurazaka46.com/s/s46/page/14th
+ _single_serial?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260502-6d6e63930a66-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260502
 DTEND;VALUE=DATE:20260503
@@ -1211,7 +1280,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260502-0062-781825e58a02@mistral-yu
+UID:sakurazaka46-20260502-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260502
 DTEND;VALUE=DATE:20260503
@@ -1225,7 +1294,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260503-0063-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260503-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260503
 DTEND;VALUE=DATE:20260504
@@ -1243,7 +1312,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  a=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260503-0064-781825e58a02@mistral-yu
+UID:sakurazaka46-20260503-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260503
 DTEND;VALUE=DATE:20260504
@@ -1261,7 +1330,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  a=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260503-0065-291b5b45f266@mistral-yu
+UID:sakurazaka46-20260503-291b5b45f266-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260503
 DTEND;VALUE=DATE:20260504
@@ -1279,7 +1348,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  a=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260504-0066-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260504-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260504
 DTEND;VALUE=DATE:20260505
@@ -1296,7 +1365,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  al?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260504-0067-781825e58a02@mistral-yu
+UID:sakurazaka46-20260504-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260504
 DTEND;VALUE=DATE:20260505
@@ -1313,7 +1382,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  al?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260504-0068-291b5b45f266@mistral-yu
+UID:sakurazaka46-20260504-291b5b45f266-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260504
 DTEND;VALUE=DATE:20260505
@@ -1330,7 +1399,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  al?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260505-0069-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260505-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260505
 DTEND;VALUE=DATE:20260506
@@ -1344,7 +1413,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260505-0070-781825e58a02@mistral-yu
+UID:sakurazaka46-20260505-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260505
 DTEND;VALUE=DATE:20260506
@@ -1358,7 +1427,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260506-0071-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260506-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260506
 DTEND;VALUE=DATE:20260507
@@ -1372,7 +1441,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260506-0072-781825e58a02@mistral-yu
+UID:sakurazaka46-20260506-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260506
 DTEND;VALUE=DATE:20260507
@@ -1386,7 +1455,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260507-0073-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260507-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260507
 DTEND;VALUE=DATE:20260508
@@ -1404,7 +1473,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260507-0074-781825e58a02@mistral-yu
+UID:sakurazaka46-20260507-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260507
 DTEND;VALUE=DATE:20260508
@@ -1422,7 +1491,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260507-0075-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260507-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260507
 DTEND;VALUE=DATE:20260508
@@ -1440,7 +1509,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260508-0076-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260508-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260508
 DTEND;VALUE=DATE:20260509
@@ -1458,7 +1527,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260508-0077-781825e58a02@mistral-yu
+UID:sakurazaka46-20260508-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260508
 DTEND;VALUE=DATE:20260509
@@ -1476,7 +1545,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260508-0078-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260508-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260508
 DTEND;VALUE=DATE:20260509
@@ -1494,7 +1563,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260509-0079-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260509-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260509
 DTEND;VALUE=DATE:20260510
@@ -1508,7 +1577,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260509-0080-781825e58a02@mistral-yu
+UID:sakurazaka46-20260509-781825e58a02-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260509
 DTEND;VALUE=DATE:20260510
@@ -1522,7 +1591,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  0109593\nhttps://giga.link.fespli.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260510-0081-f8ea66bb2642@mistral-yu
+UID:sakurazaka46-20260510-f8ea66bb2642-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260510
 DTEND;VALUE=DATE:20260511
@@ -1540,7 +1609,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  c.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260510-0082-04383a6b5a0b@mistral-yu
+UID:sakurazaka46-20260510-04383a6b5a0b-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260510
 DTEND;VALUE=DATE:20260511
@@ -1558,7 +1627,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  c.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260510-0083-820b3f83f88a@mistral-yu
+UID:sakurazaka46-20260510-820b3f83f88a-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260510
 DTEND;VALUE=DATE:20260511
@@ -1576,7 +1645,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員2次先行\n対
  c.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260512-0084-913d8e9e735f@mistral-yu
+UID:sakurazaka46-20260512-913d8e9e735f-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260512
 DTEND;VALUE=DATE:20260513
@@ -1587,7 +1656,7 @@ DESCRIPTION:LIVE: 14枚目シングル BACKS LIVE!!\n会場: 幕張イベ
  11?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260513-0085-913d8e9e735f@mistral-yu
+UID:sakurazaka46-20260513-913d8e9e735f-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260514
@@ -1601,7 +1670,7 @@ DESCRIPTION:LIVE: 14枚目シングル BACKS LIVE!!\n会場: 幕張イベ
  ail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260513-0086-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260513-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260514
@@ -1615,18 +1684,35 @@ DESCRIPTION:LIVE: 14枚目シングル BACKS LIVE!!\n会場: 幕張イベ
  ail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260514-0087-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260514-f2034a50939c-live@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260514
+DTEND;VALUE=DATE:20260515
+SUMMARY:ミニライブ
+DESCRIPTION:LIVE: 14thシングル『The growing up train』ミニライブ
+ 配信\n会場: 配信\n2026/05/14 木\nhttps://sakurazaka46.com/s/s46/pag
+ e/14th_single_serial?ima=0000\n\n応募: 15枚目シングル発売記念
+ オンラインミート＆グリート 第2次応募\n対象: オンラ
+ インミーグリ\n2026-05-13(水)〜2026-05-14(木)\nhttps://sakurazaka4
+ 6.com/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakur
+ azaka_202606/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260514-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260514
 DTEND;VALUE=DATE:20260515
 SUMMARY:ミーグリ応募締切
-DESCRIPTION:応募: 15枚目シングル発売記念オンラインミー
- ト＆グリート 第2次応募\n対象: オンラインミーグリ\n202
- 6-05-13(水)〜2026-05-14(木)\nhttps://sakurazaka46.com/s/s46/news/detail
- /S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
+DESCRIPTION:LIVE: 14thシングル『The growing up train』ミニライブ
+ 配信\n会場: 配信\n2026/05/14 木\nhttps://sakurazaka46.com/s/s46/pag
+ e/14th_single_serial?ima=0000\n\n応募: 15枚目シングル発売記念
+ オンラインミート＆グリート 第2次応募\n対象: オンラ
+ インミーグリ\n2026-05-13(水)〜2026-05-14(木)\nhttps://sakurazaka4
+ 6.com/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakur
+ azaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260516-0088-980b42bc62ca@mistral-yu
+UID:sakurazaka46-20260516-980b42bc62ca-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260516
 DTEND;VALUE=DATE:20260517
@@ -1648,7 +1734,7 @@ DESCRIPTION:一般発売: 四期生 LIVE\n対象: 先着販売\n5/16(土)
  &link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260516-0089-820b3f83f88a@mistral-yu
+UID:sakurazaka46-20260516-820b3f83f88a-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260516
 DTEND;VALUE=DATE:20260517
@@ -1670,7 +1756,7 @@ DESCRIPTION:一般発売: 四期生 LIVE\n対象: 先着販売\n5/16(土)
  &link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260516-0090-e18b1ea15d9c@mistral-yu
+UID:sakurazaka46-20260516-e18b1ea15d9c-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260516
 DTEND;VALUE=DATE:20260517
@@ -1692,7 +1778,7 @@ DESCRIPTION:一般発売: 四期生 LIVE\n対象: 先着販売\n5/16(土)
  &link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260517-0091-6d6e63930a66@mistral-yu
+UID:sakurazaka46-20260517-6d6e63930a66-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260517
 DTEND;VALUE=DATE:20260518
@@ -1706,7 +1792,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  om/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260518-0092-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260518-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260518
 DTEND;VALUE=DATE:20260519
@@ -1720,7 +1806,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  om/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260519-0093-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260519-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260519
 DTEND;VALUE=DATE:20260520
@@ -1734,7 +1820,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  om/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260520-0094-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260520-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260521
@@ -1752,7 +1838,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260520-0095-193f0d364bc2@mistral-yu
+UID:sakurazaka46-20260520-193f0d364bc2-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260521
@@ -1770,7 +1856,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260521-0096-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260521-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260521
 DTEND;VALUE=DATE:20260522
@@ -1788,7 +1874,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260521-0097-765d17a1653f@mistral-yu
+UID:sakurazaka46-20260521-765d17a1653f-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260521
 DTEND;VALUE=DATE:20260522
@@ -1806,7 +1892,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  .jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260522-0098-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260522-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260522
 DTEND;VALUE=DATE:20260523
@@ -1820,7 +1906,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  om/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260523-0099-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260523-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260523
 DTEND;VALUE=DATE:20260524
@@ -1838,7 +1924,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  c.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260523-0100-820b3f83f88a@mistral-yu
+UID:sakurazaka46-20260523-820b3f83f88a-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260523
 DTEND;VALUE=DATE:20260524
@@ -1856,7 +1942,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  c.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260524-0101-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260524-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260524
 DTEND;VALUE=DATE:20260525
@@ -1870,7 +1956,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  om/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260525-0102-f8ea66bb2642@mistral-yu
+UID:sakurazaka46-20260525-f8ea66bb2642-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260525
 DTEND;VALUE=DATE:20260526
@@ -1884,7 +1970,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル先
  om/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260529-0103-cd@mistral-yu
+UID:sakurazaka46-20260529-cd-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260529
 DTEND;VALUE=DATE:20260530
@@ -1898,7 +1984,7 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』CD購入
  2?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260530-0104-6d6e63930a66@mistral-yu
+UID:sakurazaka46-20260530-6d6e63930a66-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260530
 DTEND;VALUE=DATE:20260531
@@ -1915,7 +2001,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  music.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260530-0105-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260530-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260530
 DTEND;VALUE=DATE:20260531
@@ -1932,7 +2018,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  music.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260531-0106-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260531-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260531
 DTEND;VALUE=DATE:20260601
@@ -1949,7 +2035,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  music.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260531-0107-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260531-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260531
 DTEND;VALUE=DATE:20260601
@@ -1966,7 +2052,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  music.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260601-0108-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260601-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260602
@@ -1976,7 +2062,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260602-0109-f661cbfe70ee@mistral-yu
+UID:sakurazaka46-20260602-f661cbfe70ee-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260602
 DTEND;VALUE=DATE:20260603
@@ -1989,7 +2075,7 @@ DESCRIPTION:LIVE: 四期生 LIVE\n会場: LaLa arena TOKYO-BAY\n2026/06/02
  .com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260602-0110-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260602-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260602
 DTEND;VALUE=DATE:20260603
@@ -2002,7 +2088,7 @@ DESCRIPTION:LIVE: 四期生 LIVE\n会場: LaLa arena TOKYO-BAY\n2026/06/02
  .com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260603-0111-f661cbfe70ee@mistral-yu
+UID:sakurazaka46-20260603-f661cbfe70ee-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260603
 DTEND;VALUE=DATE:20260604
@@ -2015,7 +2101,7 @@ DESCRIPTION:LIVE: 四期生 LIVE\n会場: LaLa arena TOKYO-BAY\n2026/06/02
  .com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260603-0112-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260603-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260603
 DTEND;VALUE=DATE:20260604
@@ -2028,7 +2114,7 @@ DESCRIPTION:LIVE: 四期生 LIVE\n会場: LaLa arena TOKYO-BAY\n2026/06/02
  .com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260604-0113-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260604-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260604
 DTEND;VALUE=DATE:20260605
@@ -2038,7 +2124,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260605-0114-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260605-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260605
 DTEND;VALUE=DATE:20260606
@@ -2048,7 +2134,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260606-0115-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260606-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260606
 DTEND;VALUE=DATE:20260607
@@ -2058,7 +2144,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260607-0116-f8ea66bb2642@mistral-yu
+UID:sakurazaka46-20260607-f8ea66bb2642-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260607
 DTEND;VALUE=DATE:20260608
@@ -2068,7 +2154,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260610-0117-b5854a1cbd94@mistral-yu
+UID:sakurazaka46-20260610-b5854a1cbd94-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260610
 DTEND;VALUE=DATE:20260611
@@ -2078,7 +2164,7 @@ DESCRIPTION:EVENT: 15枚目シングル『Lonesome rabbit / What’s “KAZ
  il/R00558?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260613-0118-6d6e63930a66@mistral-yu
+UID:sakurazaka46-20260613-6d6e63930a66-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260613
 DTEND;VALUE=DATE:20260614
@@ -2088,7 +2174,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260614-0119-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260614-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260614
 DTEND;VALUE=DATE:20260615
@@ -2102,7 +2188,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  06/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260614-0120-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260614-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260614
 DTEND;VALUE=DATE:20260615
@@ -2116,7 +2202,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  06/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260615-0121-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260615-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260615
 DTEND;VALUE=DATE:20260616
@@ -2126,7 +2212,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260616-0122-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260616-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260616
 DTEND;VALUE=DATE:20260617
@@ -2136,7 +2222,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260617-0123-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260617-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260617
 DTEND;VALUE=DATE:20260618
@@ -2146,7 +2232,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260618-0124-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260618-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260618
 DTEND;VALUE=DATE:20260619
@@ -2156,7 +2242,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260619-0125-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260619-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260619
 DTEND;VALUE=DATE:20260620
@@ -2166,7 +2252,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260620-0126-edeba8269ab7@mistral-yu
+UID:sakurazaka46-20260620-edeba8269ab7-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260620
 DTEND;VALUE=DATE:20260621
@@ -2176,7 +2262,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260621-0127-f8ea66bb2642@mistral-yu
+UID:sakurazaka46-20260621-f8ea66bb2642-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
@@ -2190,7 +2276,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  06/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260621-0128-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260621-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
@@ -2204,7 +2290,7 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  06/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260627-0129-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260627-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260627
 DTEND;VALUE=DATE:20260628
@@ -2215,7 +2301,7 @@ DESCRIPTION:EVENT: 15枚目シングル発売記念オンラインミート
  urazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260704-0130-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260704-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260704
 DTEND;VALUE=DATE:20260705
@@ -2226,7 +2312,7 @@ DESCRIPTION:EVENT: 15枚目シングル発売記念オンラインミート
  urazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260723-0131-665059a10577@mistral-yu
+UID:sakurazaka46-20260723-665059a10577-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260723
 DTEND;VALUE=DATE:20260724
@@ -2236,7 +2322,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 静岡・エコ
  ge/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260724-0132-665059a10577@mistral-yu
+UID:sakurazaka46-20260724-665059a10577-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260724
 DTEND;VALUE=DATE:20260725
@@ -2246,7 +2332,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 静岡・エコ
  ge/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260728-0133-a4c5cb6fdefa@mistral-yu
+UID:sakurazaka46-20260728-a4c5cb6fdefa-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260728
 DTEND;VALUE=DATE:20260729
@@ -2256,7 +2342,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 兵庫・神戸
  com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260729-0134-a4c5cb6fdefa@mistral-yu
+UID:sakurazaka46-20260729-a4c5cb6fdefa-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260729
 DTEND;VALUE=DATE:20260730
@@ -2266,7 +2352,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 兵庫・神戸
  com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260801-0135-f8fad0f116b5@mistral-yu
+UID:sakurazaka46-20260801-f8fad0f116b5-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260801
 DTEND;VALUE=DATE:20260802
@@ -2277,7 +2363,7 @@ DESCRIPTION:LIVE: OSAKA GIGANTIC MUSIC FESTIVAL 2026\n会場: 大阪・舞
  i.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260808-0136-94be08c4de39@mistral-yu
+UID:sakurazaka46-20260808-94be08c4de39-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260808
 DTEND;VALUE=DATE:20260809
@@ -2287,7 +2373,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 広島・広島
  /s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260809-0137-94be08c4de39@mistral-yu
+UID:sakurazaka46-20260809-94be08c4de39-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260809
 DTEND;VALUE=DATE:20260810
@@ -2297,7 +2383,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 広島・広島
  /s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260815-0138-fae5cff5dfc5@mistral-yu
+UID:sakurazaka46-20260815-fae5cff5dfc5-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260815
 DTEND;VALUE=DATE:20260816
@@ -2307,7 +2393,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 千葉・LaLa ar
  /nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260816-0139-fae5cff5dfc5@mistral-yu
+UID:sakurazaka46-20260816-fae5cff5dfc5-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260816
 DTEND;VALUE=DATE:20260817
@@ -2317,7 +2403,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 千葉・LaLa ar
  /nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260822-0140-36707761fb0c@mistral-yu
+UID:sakurazaka46-20260822-36707761fb0c-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260822
 DTEND;VALUE=DATE:20260823
@@ -2327,7 +2413,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 宮城・セキ
  akurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260823-0141-36707761fb0c@mistral-yu
+UID:sakurazaka46-20260823-36707761fb0c-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260823
 DTEND;VALUE=DATE:20260824
@@ -2337,7 +2423,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 宮城・セキ
  akurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260829-0142-9602506b0e43@mistral-yu
+UID:sakurazaka46-20260829-9602506b0e43-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260829
 DTEND;VALUE=DATE:20260830
@@ -2347,7 +2433,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 香川・あな
  /s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260830-0143-9602506b0e43@mistral-yu
+UID:sakurazaka46-20260830-9602506b0e43-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260830
 DTEND;VALUE=DATE:20260831
@@ -2357,7 +2443,7 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 香川・あな
  /s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260912-0144-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260912-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260912
 DTEND;VALUE=DATE:20260913
@@ -2368,7 +2454,7 @@ DESCRIPTION:EVENT: 15枚目シングル発売記念オンラインミート
  urazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260913-0145-a72a35d6a4c5@mistral-yu
+UID:sakurazaka46-20260913-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260913
 DTEND;VALUE=DATE:20260914
@@ -2379,7 +2465,7 @@ DESCRIPTION:EVENT: 15枚目シングル発売記念オンラインミート
  urazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20261114-0146-5fe6121efeae@mistral-yu
+UID:sakurazaka46-20261114-5fe6121efeae-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
@@ -2389,7 +2475,7 @@ DESCRIPTION:LIVE: 6th YEAR ANNIVERSARY LIVE\n会場: ZOZOマリンスタジ
  /E00619?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20261115-0147-5fe6121efeae@mistral-yu
+UID:sakurazaka46-20261115-5fe6121efeae-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116

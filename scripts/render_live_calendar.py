@@ -490,8 +490,8 @@ def render_ics_calendar(name: str, items) -> str:
         "METHOD:PUBLISH",
     ]
     lines.extend(ics_text_line("X-WR-CALNAME", name))
-    for index, (date_value, summary, description, item) in enumerate(items, start=1):
-        uid_suffix = f"{index:04d}-{ics_slug(summary)}"
+    for date_value, summary, description, item in items:
+        uid_suffix = f"{ics_slug(summary)}-{ics_slug(item.get('kind', 'item'))}"
         lines.extend(all_day_ics_event(date_value, summary, description, uid_suffix))
     lines.append("END:VCALENDAR")
     folded = []
@@ -648,6 +648,8 @@ def format_event_range(start: dt.date, end: dt.date | None = None) -> str:
 
 def event_period_label(tag: str, text: str) -> str:
     joined = f"{tag} {text}"
+    if "ミニライブ" in joined and ("視聴用ID" in joined or "ミニライブ応募" in joined):
+        return "ミニライブ応募"
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
     if "リアル" in joined and ("ミーグリ" in joined or "ミート＆グリート" in joined):

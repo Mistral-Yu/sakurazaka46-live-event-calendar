@@ -15,6 +15,7 @@
     "live_title_rules": [
       {"contains": ["BACKS LIVE"], "label": "バックスライブ"},
       {"contains": ["四期生 LIVE"], "label": "四期生ライブ"},
+      {"contains": ["ミニライブ"], "label": "ミニライブ"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
     ],
@@ -42,6 +43,7 @@
     "html": {
       "バックスライブ": "live",
       "四期生ライブ": "live",
+      "ミニライブ": "live",
       "静岡公演": "live",
       "神戸公演": "live",
       "広島公演": "live",
@@ -70,6 +72,7 @@
       "ミーグリ": "live",
       "リアルミーグリ": "live",
       "ミーグリ応募": "ticket",
+      "ミニライブ応募": "ticket",
       "イベント": "live",
       "イベント応募": "ticket",
       "応募": "ticket",
