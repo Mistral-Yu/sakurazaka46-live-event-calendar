@@ -1481,7 +1481,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   </section>
   <nav class='month-nav'>{month_nav}</nav>
   <section class='month-list'>{''.join(cards)}</section>
-  <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。CC BY-NC 4.0</footer>
+  <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。CC BY-NC 4.0<br><a href='https://github.com/Mistral-Yu/sakurazaka46-live-event-calendar#readme'>README</a></footer>
 </div>
 <script>
 (function() {{
@@ -1947,7 +1947,7 @@ def render_next14_html(
       </div>
       <div class='next14-list' data-next14-list></div>
     </section>
-    <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。CC BY-NC 4.0</footer>
+    <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。CC BY-NC 4.0<br><a href='https://github.com/Mistral-Yu/sakurazaka46-live-event-calendar#readme'>README</a></footer>
   </div>
   <script>
 (function() {{
@@ -2062,6 +2062,7 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 .calendar-view:not([data-mode='next14']) .day-cell:nth-child(7n+1){border-left:none}
 .calendar-view:not([data-mode='next14']) .day-cell.clickable::after{content:none}
 .calendar-view:not([data-mode='next14']) .day-cell.clickable:hover{background:#faf9f6;transform:translateY(-1px);box-shadow:none;border-color:var(--line)}
+.calendar-view:not([data-mode='next14']) .day-cell.clickable.today{background-color:rgba(201,183,255,.10)!important;background-image:none!important;box-shadow:none;border-color:var(--line)}
 .calendar-view:not([data-mode='next14']) .day-cell.clickable.is-pressed,.calendar-view:not([data-mode='next14']) .day-cell.clickable:active{background:#eef2ff;box-shadow:none;border-color:var(--line)}
 .calendar-view:not([data-mode='next14']) .day-cell.clickable.active{background-color:#f3f5ff!important;background-image:none!important;box-shadow:none;border-color:var(--line)}
 .calendar-view:not([data-mode='next14']) .day-cell.clickable.active.today{background-color:rgba(201,183,255,.14)!important;background-image:none!important;box-shadow:none;border-color:var(--line)}

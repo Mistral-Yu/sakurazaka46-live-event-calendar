@@ -24,21 +24,21 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 
 ## ICSカレンダー購読
 
-カレンダーアプリでURL購読できます。まずは通知しやすい `締切・開催だけ` がおすすめです。
+カレンダーアプリでURL購読できます。
 
 - 全部入り: `https://raw.githubusercontent.com/Mistral-Yu/sakurazaka46-live-event-calendar/main/ics/sakurazaka46_all.ics`
 - 締切・開催だけ: `https://raw.githubusercontent.com/Mistral-Yu/sakurazaka46-live-event-calendar/main/ics/sakurazaka46_deadlines.ics`
 
 iPhoneでは、`設定` → `アプリ` → `カレンダー` → `カレンダーアカウント` → `アカウントを追加` → `その他` → `照会するカレンダーを追加` からURLを貼り付けます。通知は `設定` → `通知` → `カレンダー` と、`設定` → `アプリ` → `カレンダー` → `デフォルトの通知時間` → `終日イベント` を確認してください。
 
-## 更新の元データ
+## 変換元データ
 
-このリポジトリでは、以下のMarkdown形式のテキストデータを管理しています。
+`scripts/render_live_calendar.py` が以下のMarkdownを読み込み、公開ページ `index.html` と購読用ICS `ics/*.ics` に変換します。
 
 - `summary/sakurazaka46_live_summary.md`  
-  公開ページのHTML生成に使う、ライブカレンダーの元データです。
+  ライブ日程・チケット抽選情報の元データです。
 - `summary/sakurazaka46_event_summary.md`  
-  関連イベント情報を整理するためのまとめファイルです。
+  CD発売、ミーグリ、リアルミーグリ、関連イベント情報の元データです。
 
 ## 主な公開ファイル
 
