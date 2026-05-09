@@ -1,0 +1,116 @@
+{
+  "labels": {
+    "venue_labels": {
+      "幕張イベントホール": "幕張",
+      "LaLa arena TOKYO-BAY": "千葉",
+      "静岡・エコパアリーナ": "静岡",
+      "兵庫・神戸ワールド記念ホール": "神戸",
+      "広島・広島グリーンアリーナ": "広島",
+      "千葉・LaLa arena TOKYO-BAY": "千葉",
+      "宮城・セキスイハイムスーパーアリーナ": "宮城",
+      "香川・あなぶきアリーナ香川": "香川",
+      "ZOZOマリンスタジアム": "アニラ",
+      "大阪・舞洲スポーツアイランド": "ジャイガ"
+    },
+    "live_title_rules": [
+      {"contains": ["BACKS LIVE"], "label": "バックスライブ"},
+      {"contains": ["四期生 LIVE"], "label": "四期生ライブ"},
+      {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ"},
+      {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
+    ],
+    "lottery_title_rules": [
+      {"contains": ["BACKS LIVE"], "label": "バックスライブ抽選"},
+      {"contains": ["四期生 LIVE"], "label": "四期生ライブ抽選"},
+      {"contains": ["全国アリーナツアー", "全国ツアー"], "label": "ツアー抽選"},
+      {"contains": ["ANNIVERSARY LIVE", "アニラ"], "label": "アニラ抽選"},
+      {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ抽選"}
+    ],
+    "lottery_short_labels": {
+      "一般発売": "一般",
+      "イオンカード先行": "イオン",
+      "FC会員先行": "FC",
+      "Leminoスペシャルシート先行": "LeminoS",
+      "Lemino櫻坂46パック先行": "LeminoP",
+      "FC会員2次先行": "FC2",
+      "オフィシャル先行": "先行",
+      "オフィシャル先着受付": "先着",
+      "三井ショッピングパーク チケット先行（千葉公演）": "三井",
+      "オフィシャル2次先行": "先行2"
+    }
+  },
+  "tones": {
+    "html": {
+      "バックスライブ": "live",
+      "四期生ライブ": "live",
+      "静岡公演": "live",
+      "神戸公演": "live",
+      "広島公演": "live",
+      "千葉公演": "live",
+      "宮城公演": "live",
+      "香川公演": "live",
+      "アニラ": "live",
+      "ジャイガ": "live",
+      "FC": "ticket",
+      "LeminoS": "ticket",
+      "LeminoP": "ticket",
+      "イオン": "ticket",
+      "一般": "ticket",
+      "FC2": "ticket",
+      "先行": "ticket",
+      "先着": "ticket",
+      "三井": "ticket",
+      "先行2": "ticket",
+      "祝": "holiday",
+      "情報": "ticket",
+      "deadline": "deadline",
+      "メッセージ": "live",
+      "メッセージキャンペーン": "ticket",
+      "CD": "live",
+      "CD応募": "ticket",
+      "ミーグリ": "live",
+      "リアルミーグリ": "live",
+      "ミーグリ応募": "ticket",
+      "イベント": "live",
+      "イベント応募": "ticket",
+      "応募": "ticket",
+      "発売": "live",
+      "発売日": "live",
+      "live": "live",
+      "live開催": "live",
+      "event開催": "live",
+      "live抽選": "ticket",
+      "event応募": "ticket",
+      "ライブ開催": "live",
+      "イベント開催": "live",
+      "ライブ抽選": "ticket",
+      "live締切": "deadline",
+      "締切": "deadline",
+      "live抽選締切": "deadline",
+      "event応募締切": "deadline",
+      "ライブ抽選締切": "deadline",
+      "イベント応募締切": "deadline"
+    }
+  },
+  "style": {
+    "colors": {
+      "bg": "#f6f6f3",
+      "card": "#ffffff",
+      "line": "#e7e5de",
+      "text": "#1e1e1c",
+      "muted": "#6f6f6a",
+      "live": "#e8a3c3",
+      "ticket": "#5b6ef0",
+      "deadline": "#dc5868",
+      "event": "#76955a",
+      "holiday": "#c9b7ff",
+      "weekend": "#d8505f"
+    },
+    "preview_colors": {
+      "bg": [248, 248, 246],
+      "card": [255, 255, 255],
+      "line": [226, 226, 222],
+      "text": [28, 28, 28],
+      "muted": [120, 120, 120]
+    }
+  }
+}

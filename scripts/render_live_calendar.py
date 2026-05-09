@@ -44,66 +44,61 @@ LOTTERY_ROW_RE = re.compile(
 )
 SOURCE_URL_RE = re.compile(r"https://[^\s)]+")
 
-LIVE_LABEL = {
-    "幕張イベントホール": "幕張",
-    "LaLa arena TOKYO-BAY": "千葉",
-    "静岡・エコパアリーナ": "静岡",
-    "兵庫・神戸ワールド記念ホール": "神戸",
-    "広島・広島グリーンアリーナ": "広島",
-    "千葉・LaLa arena TOKYO-BAY": "千葉",
-    "宮城・セキスイハイムスーパーアリーナ": "宮城",
-    "香川・あなぶきアリーナ香川": "香川",
-    "ZOZOマリンスタジアム": "アニラ",
-    "大阪・舞洲スポーツアイランド": "ジャイガ",
-}
+RULES_PATH = SCRIPT_DIR / "calendar_rules.json"
 
-LOTTERY_SHORT = {
-    "一般発売": "一般",
-    "イオンカード先行": "イオン",
-    "FC会員先行": "FC",
-    "Leminoスペシャルシート先行": "LeminoS",
-    "Lemino櫻坂46パック先行": "LeminoP",
-    "FC会員2次先行": "FC2",
-    "オフィシャル先行": "先行",
-    "オフィシャル先着受付": "先着",
-    "三井ショッピングパーク チケット先行（千葉公演）": "三井",
-    "オフィシャル2次先行": "先行2",
-}
 
-HTML_TONE = {
-    "バックスライブ": "live", "四期生ライブ": "live", "静岡公演": "live", "神戸公演": "live", "広島公演": "live",
-    "千葉公演": "live", "宮城公演": "live", "香川公演": "live", "アニラ": "live", "ジャイガ": "live",
-    "FC": "ticket", "LeminoS": "ticket", "LeminoP": "ticket", "イオン": "ticket", "一般": "ticket",
-    "FC2": "ticket", "先行": "ticket", "先着": "ticket", "三井": "ticket", "先行2": "ticket", "祝": "holiday", "情報": "ticket", "deadline": "deadline",
-    "メッセージ": "live", "メッセージキャンペーン": "ticket", "CD": "live", "CD応募": "ticket", "ミーグリ": "live", "リアルミーグリ": "live",
-    "ミーグリ応募": "ticket", "イベント": "live", "イベント応募": "ticket", "応募": "ticket", "発売": "live", "発売日": "live",
-    "live": "live", "live開催": "live", "event開催": "live", "live抽選": "ticket", "event応募": "ticket",
-    "ライブ開催": "live", "イベント開催": "live", "ライブ抽選": "ticket", "イベント応募": "ticket",
-    "live締切": "deadline", "締切": "deadline", "live抽選締切": "deadline", "event応募締切": "deadline",
-    "ライブ抽選締切": "deadline", "イベント応募締切": "deadline",
-}
+def load_calendar_rules(path: Path = RULES_PATH) -> dict:
+    rules = json.loads(path.read_text(encoding="utf-8"))
+    required_top = {"labels", "tones", "style"}
+    missing_top = required_top - set(rules)
+    if missing_top:
+        raise ValueError(f"calendar rules missing sections: {sorted(missing_top)}")
+    colors = rules.get("style", {}).get("colors", {})
+    for name, value in colors.items():
+        if not re.fullmatch(r"#[0-9a-fA-F]{6}", value):
+            raise ValueError(f"invalid style color for {name}: {value!r}")
+    return rules
 
-RGB_TONE = {
-    "バックスライブ": (232, 163, 195), "四期生ライブ": (232, 163, 195), "静岡公演": (232, 163, 195), "神戸公演": (232, 163, 195),
-    "広島公演": (232, 163, 195), "千葉公演": (232, 163, 195), "宮城公演": (232, 163, 195), "香川公演": (232, 163, 195),
-    "アニラ": (232, 163, 195), "ジャイガ": (232, 163, 195), "FC": (91, 110, 240), "LeminoS": (91, 110, 240), "LeminoP": (91, 110, 240),
-    "イオン": (91, 110, 240), "一般": (91, 110, 240), "FC2": (91, 110, 240), "先行": (91, 110, 240),
-    "先着": (91, 110, 240), "三井": (91, 110, 240), "先行2": (91, 110, 240), "祝": (201, 183, 255), "情報": (91, 110, 240), "deadline": (220, 88, 104),
-    "メッセージ": (232, 163, 195), "メッセージキャンペーン": (91, 110, 240), "CD": (232, 163, 195), "CD応募": (91, 110, 240),
-    "ミーグリ": (232, 163, 195), "リアルミーグリ": (232, 163, 195), "ミーグリ応募": (91, 110, 240), "イベント": (232, 163, 195), "イベント応募": (91, 110, 240),
-    "応募": (91, 110, 240), "event応募": (91, 110, 240), "イベント応募": (91, 110, 240), "発売": (232, 163, 195), "発売日": (232, 163, 195),
-    "ライブ開催": (232, 163, 195), "イベント開催": (232, 163, 195), "ライブ抽選": (91, 110, 240),
-    "live抽選締切": (220, 88, 104), "event応募締切": (220, 88, 104),
-    "ライブ抽選締切": (220, 88, 104), "イベント応募締切": (220, 88, 104),
+
+def hex_to_rgb(value: str) -> tuple[int, int, int]:
+    value = value.lstrip("#")
+    return int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16)
+
+
+def style_root_css() -> str:
+    declarations = "".join(f"--{name}:{value};" for name, value in STYLE_COLORS.items())
+    return f":root {{{declarations}}}"
+
+
+def rule_contains(title: str, rule: dict) -> bool:
+    return any(keyword in title for keyword in rule.get("contains", []))
+
+
+CALENDAR_RULES = load_calendar_rules()
+LABEL_RULES = CALENDAR_RULES["labels"]
+LIVE_LABEL = LABEL_RULES["venue_labels"]
+LIVE_TITLE_RULES = LABEL_RULES["live_title_rules"]
+LOTTERY_TITLE_RULES = LABEL_RULES["lottery_title_rules"]
+LOTTERY_SHORT = LABEL_RULES["lottery_short_labels"]
+HTML_TONE = CALENDAR_RULES["tones"]["html"]
+STYLE_COLORS = CALENDAR_RULES["style"]["colors"]
+PREVIEW_COLORS = CALENDAR_RULES["style"].get("preview_colors", {})
+TONE_RGB = {
+    "live": hex_to_rgb(STYLE_COLORS["live"]),
+    "ticket": hex_to_rgb(STYLE_COLORS["ticket"]),
+    "deadline": hex_to_rgb(STYLE_COLORS["deadline"]),
+    "holiday": hex_to_rgb(STYLE_COLORS["holiday"]),
+    "event": hex_to_rgb(STYLE_COLORS["event"]),
 }
+RGB_TONE = {label: TONE_RGB.get(tone, TONE_RGB["ticket"]) for label, tone in HTML_TONE.items()}
 
 HOLIDAYS = {month: {} for month in range(1, 13)}
 
-BG = (248, 248, 246)
-WHITE = (255, 255, 255)
-LINE = (226, 226, 222)
-TEXT = (28, 28, 28)
-MUTED = (120, 120, 120)
+BG = tuple(PREVIEW_COLORS.get("bg", [248, 248, 246]))
+WHITE = tuple(PREVIEW_COLORS.get("card", [255, 255, 255]))
+LINE = tuple(PREVIEW_COLORS.get("line", [226, 226, 222]))
+TEXT = tuple(PREVIEW_COLORS.get("text", [28, 28, 28]))
+MUTED = tuple(PREVIEW_COLORS.get("muted", [120, 120, 120]))
 
 
 def empty_holiday_map() -> dict[int, dict[int, str]]:
@@ -323,16 +318,9 @@ def render_chip_html(item: dict[str, str]) -> str:
 
 def lottery_calendar_label(title: str) -> str:
     normalized = re.sub(r"^\d+枚目シングル\s*", "", title.strip())
-    if "BACKS LIVE" in normalized:
-        return "バックスライブ抽選"
-    if "四期生 LIVE" in normalized:
-        return "四期生ライブ抽選"
-    if "全国アリーナツアー" in normalized or "全国ツアー" in normalized:
-        return "ツアー抽選"
-    if "ANNIVERSARY LIVE" in normalized or "アニラ" in normalized:
-        return "アニラ抽選"
-    if "OSAKA GIGANTIC MUSIC FESTIVAL" in normalized or "ジャイガ" in normalized:
-        return "ジャイガ抽選"
+    for rule in LOTTERY_TITLE_RULES:
+        if rule_contains(normalized, rule):
+            return rule["label"]
     normalized = re.sub(r"\s*LIVE!?！*$", "", normalized)
     return f"{normalized}抽選"
 
@@ -527,16 +515,15 @@ def write_ics_outputs(all_months: dict) -> tuple[Path, Path]:
 
 
 def live_calendar_label(title: str, venue: str) -> str:
-    if "BACKS LIVE" in title:
-        return "バックスライブ"
-    if "四期生 LIVE" in title:
-        return "四期生ライブ"
-    if "OSAKA GIGANTIC MUSIC FESTIVAL" in title or "ジャイガ" in title:
-        return "ジャイガ"
-    base = LIVE_LABEL.get(venue, title[:4])
-    if "全国アリーナツアー" in title or "全国ツアー" in title:
-        return f"{base}公演"
-    return base
+    for rule in LIVE_TITLE_RULES:
+        if not rule_contains(title, rule):
+            continue
+        if "label" in rule:
+            return rule["label"]
+        if "venue_label_suffix" in rule:
+            base = LIVE_LABEL.get(venue, title[:4])
+            return f"{base}{rule['venue_label_suffix']}"
+    return LIVE_LABEL.get(venue, title[:4])
 
 
 def lottery_phase_labels(
@@ -1450,7 +1437,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>{html.escape(page_title)}</title>
 <style>
-:root {{--bg:#f6f6f3;--card:#ffffff;--line:#e7e5de;--text:#1e1e1c;--muted:#6f6f6a;--live:#e8a3c3;--ticket:#5b6ef0;--deadline:#dc5868;--event:#76955a;--holiday:#c9b7ff;--weekend:#d8505f;}}
+{style_root_css()}
 *{{box-sizing:border-box}} html{{scroll-behavior:smooth}} body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--text)}}
 .page{{max-width:1200px;margin:0 auto;padding:20px 14px 60px}} .hero{{margin-bottom:18px}} .hero h1{{margin:0;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.04em}} .hero p{{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch}}
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}} .legend-meaning{{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px}} .legend-item{{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;line-height:1.4}} .legend-chip{{display:inline-block;width:12px;height:12px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}}
