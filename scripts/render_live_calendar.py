@@ -646,19 +646,19 @@ def format_event_range(start: dt.date, end: dt.date | None = None) -> str:
     return f"{start:%m/%d}〜{end:%m/%d}"
 
 
-def has_cd_suffix_marker(text: str) -> bool:
-    return "(CD)" in text or "（CD）" in text
+def has_nationwide_suffix_marker(text: str) -> bool:
+    return "(全国)" in text or "（全国）" in text
 
 
-def append_cd_suffix(label: str, text: str) -> str:
-    if has_cd_suffix_marker(text) and not has_cd_suffix_marker(label):
-        return f"{label}(CD)"
+def append_nationwide_suffix(label: str, text: str) -> str:
+    if has_nationwide_suffix_marker(text) and not has_nationwide_suffix_marker(label):
+        return f"{label}(全国)"
     return label
 
 
 def format_lottery_chip(label: str, status: str) -> str:
-    if label.endswith("(CD)"):
-        return f"{label[:-4]}{status}(CD)"
+    if label.endswith("(全国)"):
+        return f"{label[:-4]}{status}(全国)"
     return f"{label}{status}"
 
 
@@ -667,7 +667,7 @@ def event_period_label(tag: str, text: str) -> str:
     if "ミニライブ" in joined and ("視聴用ID" in joined or "ミニライブ応募" in joined):
         return "ミニライブ応募"
     if tag in {"ミーグリ", "リアルミーグリ"}:
-        return append_cd_suffix("ミーグリ応募", joined)
+        return append_nationwide_suffix("ミーグリ応募", joined)
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
     if "応募" in joined or "期限" in joined or "締切" in joined:
@@ -682,10 +682,10 @@ def event_single_date_label(tag: str, title: str, venue: str = "") -> str:
     if "発売日" in joined:
         return "発売日"
     if tag == "ミーグリ" and "リアル" in joined:
-        return append_cd_suffix("リアルミーグリ", joined)
+        return append_nationwide_suffix("リアルミーグリ", joined)
     if tag == "メッセージ":
         return "メッセージキャンペーン"
-    return append_cd_suffix(tag, joined)
+    return append_nationwide_suffix(tag, joined)
 
 
 def parse_event_period(period: str, section_dates: list[dt.date]) -> tuple[dt.date, dt.date] | None:
@@ -710,7 +710,7 @@ def mark_long_event_chip(chip: str, is_long: bool) -> str:
 def event_chip_tone_label(chip: str) -> str:
     tone_label = chip[2:] if chip.startswith("長)") else chip
     tone_label = tone_label[2:] if tone_label.startswith("長期") else tone_label
-    if tone_label.endswith("(CD)"):
+    if tone_label.endswith("(全国)"):
         tone_label = tone_label[:-4]
     return re.sub(r"(開始|中|締切)$", "", tone_label)
 
