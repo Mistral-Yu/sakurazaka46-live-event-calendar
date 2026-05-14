@@ -646,14 +646,30 @@ def format_event_range(start: dt.date, end: dt.date | None = None) -> str:
     return f"{start:%m/%d}〜{end:%m/%d}"
 
 
+def has_cd_suffix_marker(text: str) -> bool:
+    return "(CD)" in text or "（CD）" in text
+
+
+def append_cd_suffix(label: str, text: str) -> str:
+    if has_cd_suffix_marker(text) and not has_cd_suffix_marker(label):
+        return f"{label}(CD)"
+    return label
+
+
+def format_lottery_chip(label: str, status: str) -> str:
+    if label.endswith("(CD)"):
+        return f"{label[:-4]}{status}(CD)"
+    return f"{label}{status}"
+
+
 def event_period_label(tag: str, text: str) -> str:
     joined = f"{tag} {text}"
     if "ミニライブ" in joined and ("視聴用ID" in joined or "ミニライブ応募" in joined):
         return "ミニライブ応募"
+    if tag in {"ミーグリ", "リアルミーグリ"}:
+        return append_cd_suffix("ミーグリ応募", joined)
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
-    if "リアル" in joined and ("ミーグリ" in joined or "ミート＆グリート" in joined):
-        return "ミーグリ応募"
     if "応募" in joined or "期限" in joined or "締切" in joined:
         return f"{tag}応募"
     if tag == "メッセージ":
@@ -666,10 +682,10 @@ def event_single_date_label(tag: str, title: str, venue: str = "") -> str:
     if "発売日" in joined:
         return "発売日"
     if tag == "ミーグリ" and "リアル" in joined:
-        return "リアルミーグリ"
+        return append_cd_suffix("リアルミーグリ", joined)
     if tag == "メッセージ":
         return "メッセージキャンペーン"
-    return tag
+    return append_cd_suffix(tag, joined)
 
 
 def parse_event_period(period: str, section_dates: list[dt.date]) -> tuple[dt.date, dt.date] | None:
@@ -694,6 +710,8 @@ def mark_long_event_chip(chip: str, is_long: bool) -> str:
 def event_chip_tone_label(chip: str) -> str:
     tone_label = chip[2:] if chip.startswith("長)") else chip
     tone_label = tone_label[2:] if tone_label.startswith("長期") else tone_label
+    if tone_label.endswith("(CD)"):
+        tone_label = tone_label[:-4]
     return re.sub(r"(開始|中|締切)$", "", tone_label)
 
 
@@ -828,13 +846,13 @@ def parse_event_summary_timeline(text: str, display_months: list[dt.date], holid
                         continue
                     is_single_day_deadline = start_date == end_date and ("期限" in lottery_type or "締切" in lottery_type)
                     if is_single_day_deadline:
-                        chip = "支払い方法選択期限" if "支払い方法選択期限" in lottery_type else f"{label}締切"
+                        chip = "支払い方法選択期限" if "支払い方法選択期限" in lottery_type else format_lottery_chip(label, "締切")
                     elif current_date == start_date:
-                        chip = f"{label}開始"
+                        chip = format_lottery_chip(label, "開始")
                     elif current_date == end_date:
-                        chip = f"{label}締切"
+                        chip = format_lottery_chip(label, "締切")
                     else:
-                        chip = f"{label}中"
+                        chip = format_lottery_chip(label, "中")
                     current_month_key = month_start(current_date.year, current_date.month)
                     if current_month_key not in months:
                         continue
