@@ -223,15 +223,23 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Also generate summary/sakurazaka46_live_calendar_preview.jpg. Default is off.",
     )
+    parser.add_argument(
+        "--output-workflow",
+        action="store_true",
+        help="Also regenerate scripts/sakurazaka_schedule_workflow.md. Default is off.",
+    )
     return parser.parse_args(argv)
 
 
 # generated from summary/sakurazaka46_live_summary.md
 # usage: python3 scripts/render_live_calendar.py
 # outputs:
-#   - summary/sakurazaka46_live_calendar.md
 #   - index.html
+#   - ics/sakurazaka46_all.ics
+#   - ics/sakurazaka46_deadlines.ics
+#   - summary/sakurazaka46_live_calendar.md (optional)
 #   - summary/sakurazaka46_live_calendar_preview.jpg (optional)
+#   - scripts/sakurazaka_schedule_workflow.md (optional)
 
 
 def load_fonts() -> Dict[str, ImageFont.FreeTypeFont | ImageFont.ImageFont]:
@@ -704,6 +712,8 @@ def collect_event_display_months(text: str) -> list[dt.date]:
 
 def event_tag(category: str, title: str) -> str:
     joined = f"{category} {title}"
+    if "サクラミーツ" in joined:
+        return "サクラミーツ"
     if "リアル" in joined and ("ミーグリ" in joined or "ミート＆グリート" in joined):
         return "リアルミーグリ"
     if "ミーグリ" in joined or "ミート＆グリート" in joined:
@@ -743,7 +753,9 @@ def append_event_suffix(label: str, text: str) -> str:
 
 
 def append_nationwide_suffix(label: str, text: str) -> str:
-    return append_event_suffix(label, text)
+    if has_nationwide_suffix_marker(text) and not label.endswith("(全国)"):
+        return f"{label}(全国)"
+    return label
 
 
 def format_lottery_chip(label: str, status: str) -> str:
@@ -936,7 +948,7 @@ def parse_event_summary_timeline(text: str, display_months: list[dt.date], holid
                     })
                     months[summary_month_key]["sources"].extend(section_sources)
                 for current_date in iter_date_range(start_date, end_date):
-                    if label in {"CD応募", "メッセージキャンペーン"} and current_date not in {start_date, end_date}:
+                    if label in {"CD応募", "ミーグリ(シリアルコード)応募", "メッセージキャンペーン"} and current_date not in {start_date, end_date}:
                         continue
                     is_single_day_deadline = start_date == end_date and (
                         "期限" in lottery_type or "締切" in lottery_type or "保障期間" in lottery_type
@@ -1269,7 +1281,7 @@ def build_markdown(months, legend_live, legend_lottery, year: int, display_month
         "## タグ凡例",
         "",
         "- LIVEタグ: " + " / ".join(f"`{k}`={v}" for k, v in legend_live.items()),
-        "- 抽選タグ: 抽選は `開始` / `継続` / `締切`、販売系は `一般発売` / `一般発売中` / `先着受付` / `販売終了` を表記",
+        "- 抽選タグ: 抽選は `開始` / `中` / `締切`、販売系は `一般発売` / `一般発売中` / `先着受付` / `販売終了` を表記",
         "- 抽選コード: " + " / ".join(f"`{k}`={v}" for k, v in legend_lottery.items()),
         "- 祝日: 日付セル内は `祝` のみ表示（正式名はメモと詳細で保持）",
         "",
@@ -3010,9 +3022,10 @@ def main(argv: list[str] | None = None) -> None:
         OUTPUT_HTML.write_text(render_combined_html(live_html, event_html, all_html, next14_html, plan_html=plan_html))
     else:
         OUTPUT_HTML.write_text(live_html)
-    WORKFLOW_MD.write_text(render_workflow(live_display_months, holiday_template_paths))
-    if LEGACY_WORKFLOW_MD.exists():
-        LEGACY_WORKFLOW_MD.unlink()
+    if args.output_workflow:
+        WORKFLOW_MD.write_text(render_workflow(live_display_months, holiday_template_paths))
+        if LEGACY_WORKFLOW_MD.exists():
+            LEGACY_WORKFLOW_MD.unlink()
 
     preview = None
     if args.output_preview:
@@ -3022,7 +3035,8 @@ def main(argv: list[str] | None = None) -> None:
     if args.output_calendar_md:
         print(f"markdown: {OUTPUT_MD.relative_to(BASE_DIR)}")
     print(f"html: {OUTPUT_HTML.relative_to(BASE_DIR)}")
-    print(f"workflow: {WORKFLOW_MD.relative_to(BASE_DIR)}")
+    if args.output_workflow:
+        print(f"workflow: {WORKFLOW_MD.relative_to(BASE_DIR)}")
     print("ics:")
     for path in ics_paths:
         print(f"  - {path.relative_to(BASE_DIR)}")

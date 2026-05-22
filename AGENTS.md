@@ -9,7 +9,7 @@
 - 入力: `summary/sakurazaka46_live_summary.md`（live）、`summary/sakurazaka46_event_summary.md`（event/CD/ミーグリ/リアルミーグリ）
 - 生成器: `scripts/render_live_calendar.py`
 - 公開出力: `index.html`、`ics/sakurazaka46_all.ics`、`ics/sakurazaka46_deadlines.ics`
-- 生成補助: `scripts/calendar_rules.json`、`scripts/sakurazaka_schedule_workflow.md`、`scripts/holidays_template.json`、`scripts/sakurazaka46_members_template.json`
+- 生成補助: `scripts/calendar_rules.json`、`scripts/holidays_template.json`、`scripts/sakurazaka46_members_template.json`、`scripts/fortune_meet_html_to_plan_json.py`
 - `summary/` と `.plan/` は別用途。`.plan/` は公開カレンダー生成入力に使わない。
 - `index.html` は生成物。直接手編集せず、入力Markdownか生成器を直して再生成する。
 
@@ -91,14 +91,14 @@ python3 scripts/render_live_calendar.py --output-preview
 - 1行目: テスト。
 - 2行目: 通常再生成（`index.html` と `ics/*.ics` を出力）。
 - 3行目: 内閣府CSVから祝日を更新する必要があるときだけ実行。
-- 4〜5行目: 任意出力。通常実行で復活させない。
+- 4〜5行目: 任意出力。通常実行で復活・更新させない。
 - このワークスペースでは `python3` をそのまま使える。repo内に有効化すべき `venv/` はない。
 
 ## 検証チェックリスト
 
 - 上記のテストが通る。
 - 生成器や出力に関わる変更では、通常再生成が成功する。
-- `index.html` と `scripts/sakurazaka_schedule_workflow.md` は、意図したときだけ再生成される。
+- `index.html` は通常生成で更新される。
 - all-mode変更では、仕様確認と重ねてブラウザまたはDOMで以下を確認する:
   - `?mode=live`、`?mode=event`、`?mode=all` が正しく切り替わる。
   - 表示中の見出しが `櫻坂46 カレンダー`。
@@ -121,8 +121,9 @@ open -na "Google Chrome" --args --remote-debugging-port=9333 --user-data-dir="/U
 - `scripts/` は原則ローカル運用扱いだが、公開ページ生成に必要な以下は追跡対象にする:
   - `scripts/render_live_calendar.py`
   - `scripts/calendar_rules.json`
-  - `scripts/sakurazaka_schedule_workflow.md`
   - `scripts/holidays_template.json`
+  - `scripts/sakurazaka46_members_template.json`
+  - `scripts/fortune_meet_html_to_plan_json.py`
 - `.gitignore` はGitHubに置かず、ローカル除外ルールは `.git/info/exclude` で管理する。
 - 検証用の `tests/` と一時ファイル、Pythonキャッシュ、OS生成ファイルは公開repoへ混ぜない。
 - `scripts/templates/` は使わない。祝日テンプレートは正とするファイル一覧の `scripts/holidays_template.json` に集約する。

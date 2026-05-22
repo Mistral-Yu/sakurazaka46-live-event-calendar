@@ -1277,6 +1277,16 @@ DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s
  ps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20260910-bcd9ee64b56b-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20260911
+SUMMARY:サクラミーツ
+DESCRIPTION:EVENT: 「サクラミーツ」第4弾 番組イベント\nSGC
+ ホール有明（TOKYO DREAM PARK内）\n09/10 木\nhttps://www.tv-asahi.
+ co.jp/sakura__meets_event/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20260912-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260912
