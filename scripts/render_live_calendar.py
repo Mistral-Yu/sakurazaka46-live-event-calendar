@@ -759,7 +759,7 @@ def event_period_label(tag: str, text: str) -> str:
         return "ミニライブ応募"
     if tag in {"ミーグリ", "リアルミーグリ"}:
         if tag == "リアルミーグリ" or has_nationwide_suffix_marker(joined):
-            return "シリアル応募"
+            return "ミーグリ(シリアルコード)応募"
         return "ミーグリ応募"
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
