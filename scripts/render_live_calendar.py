@@ -749,7 +749,7 @@ def append_nationwide_suffix(label: str, text: str) -> str:
 def format_lottery_chip(label: str, status: str) -> str:
     marker = suffix_marker(label)
     if marker and label.endswith(marker):
-        return f"{label[:-len(marker)]}{status}{marker}"
+        return f"{label[:-len(marker)]}{status}"
     return f"{label}{status}"
 
 
@@ -758,7 +758,9 @@ def event_period_label(tag: str, text: str) -> str:
     if "ミニライブ" in joined and ("視聴用ID" in joined or "ミニライブ応募" in joined):
         return "ミニライブ応募"
     if tag in {"ミーグリ", "リアルミーグリ"}:
-        return append_event_suffix("ミーグリ応募", joined)
+        if tag == "リアルミーグリ" or has_nationwide_suffix_marker(joined):
+            return "シリアル応募"
+        return "ミーグリ応募"
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
     if "応募" in joined or "期限" in joined or "締切" in joined:
@@ -936,7 +938,9 @@ def parse_event_summary_timeline(text: str, display_months: list[dt.date], holid
                 for current_date in iter_date_range(start_date, end_date):
                     if label in {"CD応募", "メッセージキャンペーン"} and current_date not in {start_date, end_date}:
                         continue
-                    is_single_day_deadline = start_date == end_date and ("期限" in lottery_type or "締切" in lottery_type)
+                    is_single_day_deadline = start_date == end_date and (
+                        "期限" in lottery_type or "締切" in lottery_type or "保障期間" in lottery_type
+                    )
                     if is_single_day_deadline:
                         chip = "支払い方法選択期限" if "支払い方法選択期限" in lottery_type else format_lottery_chip(label, "締切")
                     elif current_date == start_date:

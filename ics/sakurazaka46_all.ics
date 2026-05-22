@@ -49,33 +49,11 @@ DESCRIPTION:EVENT: 14枚目シングル「The growing up train」連動オ
  ttps://www.fortunemusic.jp/sakurazaka_202603/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260406-193f0d364bc2-lottery@mistral-yu
+UID:sakurazaka46-20260406-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260406
 DTEND;VALUE=DATE:20260407
-SUMMARY:ミーグリ応募開始
-DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
- 念リアルミート＆グリート 第2次応募保障期間\n対象: 
- リアルミーグリ\n2026-04-06(月)〜2026-04-07(火)\nhttps://sakuraza
- ka46.com/s/s46/page/14th_single_serial?ima=0000\nhttps://sakurazaka46.com/
- s/s46/news/detail/R00532?ima=0000\n\n応募: ★購入者応募抽選企
- 画！14thシングル『The growing up train』発売記念オンライ
- ンミート＆グリート（個別トーク会） 第2次応募保障期
- 間\n対象: オンラインミーグリ(全国)\n2026-04-06(月)〜2026-0
- 4-07(火)\nhttps://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
- \n\n応募: ＮＨＫ仙台フェスティバル２０２６ てれまさ 
- スペシャルステージ「みんなで語ろう！未来へつなぎ
- たい TOHOKU HEART」 着席観覧事前申込\n対象: 無料観覧／
- 入場整理券\n2026-04-06(月)〜2026-04-21(火)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/E00618?ima=0000&link=ROBO004\nhttps://www.event.nhk.o
- r.jp/e-portal/detail.html?id=3983
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260406-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260406
-DTEND;VALUE=DATE:20260407
-SUMMARY:ミーグリ応募開始(全国)
+SUMMARY:シリアル応募開始
 DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  念リアルミート＆グリート 第2次応募保障期間\n対象: 
  リアルミーグリ\n2026-04-06(月)〜2026-04-07(火)\nhttps://sakuraza
@@ -115,33 +93,11 @@ DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  r.jp/e-portal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260407-765d17a1653f-lottery@mistral-yu
+UID:sakurazaka46-20260407-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260407
 DTEND;VALUE=DATE:20260408
-SUMMARY:ミーグリ応募締切
-DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
- 念リアルミート＆グリート 第2次応募保障期間\n対象: 
- リアルミーグリ\n2026-04-06(月)〜2026-04-07(火)\nhttps://sakuraza
- ka46.com/s/s46/page/14th_single_serial?ima=0000\nhttps://sakurazaka46.com/
- s/s46/news/detail/R00532?ima=0000\n\n応募: ★購入者応募抽選企
- 画！14thシングル『The growing up train』発売記念オンライ
- ンミート＆グリート（個別トーク会） 第2次応募保障期
- 間\n対象: オンラインミーグリ(全国)\n2026-04-06(月)〜2026-0
- 4-07(火)\nhttps://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
- \n\n応募: ＮＨＫ仙台フェスティバル２０２６ てれまさ 
- スペシャルステージ「みんなで語ろう！未来へつなぎ
- たい TOHOKU HEART」 着席観覧事前申込\n対象: 無料観覧／
- 入場整理券\n2026-04-06(月)〜2026-04-21(火)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/E00618?ima=0000&link=ROBO004\nhttps://www.event.nhk.o
- r.jp/e-portal/detail.html?id=3983
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260407-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260407
-DTEND;VALUE=DATE:20260408
-SUMMARY:ミーグリ応募締切(全国)
+SUMMARY:シリアル応募締切
 DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  念リアルミート＆グリート 第2次応募保障期間\n対象: 
  リアルミーグリ\n2026-04-06(月)〜2026-04-07(火)\nhttps://sakuraza
@@ -359,41 +315,11 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  rtal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260413-193f0d364bc2-lottery@mistral-yu
+UID:sakurazaka46-20260413-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260414
-SUMMARY:ミーグリ応募開始
-DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
-  全席指定／親子・女性エリア\n4/13(月)〜4/19(日)\nhttps://s
- akurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国ア
- リーナツアー2026 Leminoスペシャルシート先行\n対象: Lemin
- oスペシャルシート\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com
- /s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国アリーナツア
- ー2026 Lemino櫻坂46パック先行\n対象: 全席指定／親子・女
- 性エリア\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com/s/s46/page/n
- ationaltour2026?ima=0000\n\n応募: 14枚目シングル『The growing up 
- train』発売記念リアルミート＆グリート 第3次応募\n対
- 象: リアルミーグリ\n2026-04-13(月)〜2026-04-14(火)\nhttps://sak
- urazaka46.com/s/s46/page/14th_single_serial?ima=0000\nhttps://sakurazaka46
- .com/s/s46/news/detail/R00532?ima=0000\n\n応募: ★購入者応募抽選
- 企画！14thシングル『The growing up train』発売記念オンラ
- インミート＆グリート（個別トーク会） 第3次応募\n対
- 象: オンラインミーグリ(全国)\n2026-04-13(月)〜2026-04-14(火
- )\nhttps://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000\n\n応
- 募: ＮＨＫ仙台フェスティバル２０２６ てれまさ スペ
- シャルステージ「みんなで語ろう！未来へつなぎたい T
- OHOKU HEART」 着席観覧事前申込\n対象: 無料観覧／入場整
- 理券\n2026-04-06(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/
- news/detail/E00618?ima=0000&link=ROBO004\nhttps://www.event.nhk.or.jp/e-po
- rtal/detail.html?id=3983
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260413-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260413
-DTEND;VALUE=DATE:20260414
-SUMMARY:ミーグリ応募開始(全国)
+SUMMARY:シリアル応募開始
 DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
   全席指定／親子・女性エリア\n4/13(月)〜4/19(日)\nhttps://s
  akurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国ア
@@ -479,41 +405,11 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  rtal/detail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260414-765d17a1653f-lottery@mistral-yu
+UID:sakurazaka46-20260414-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260414
 DTEND;VALUE=DATE:20260415
-SUMMARY:ミーグリ応募締切
-DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
-  全席指定／親子・女性エリア\n4/13(月)〜4/19(日)\nhttps://s
- akurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国ア
- リーナツアー2026 Leminoスペシャルシート先行\n対象: Lemin
- oスペシャルシート\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com
- /s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国アリーナツア
- ー2026 Lemino櫻坂46パック先行\n対象: 全席指定／親子・女
- 性エリア\n4/13(月)〜4/19(日)\nhttps://sakurazaka46.com/s/s46/page/n
- ationaltour2026?ima=0000\n\n応募: 14枚目シングル『The growing up 
- train』発売記念リアルミート＆グリート 第3次応募\n対
- 象: リアルミーグリ\n2026-04-13(月)〜2026-04-14(火)\nhttps://sak
- urazaka46.com/s/s46/page/14th_single_serial?ima=0000\nhttps://sakurazaka46
- .com/s/s46/news/detail/R00532?ima=0000\n\n応募: ★購入者応募抽選
- 企画！14thシングル『The growing up train』発売記念オンラ
- インミート＆グリート（個別トーク会） 第3次応募\n対
- 象: オンラインミーグリ(全国)\n2026-04-13(月)〜2026-04-14(火
- )\nhttps://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000\n\n応
- 募: ＮＨＫ仙台フェスティバル２０２６ てれまさ スペ
- シャルステージ「みんなで語ろう！未来へつなぎたい T
- OHOKU HEART」 着席観覧事前申込\n対象: 無料観覧／入場整
- 理券\n2026-04-06(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/
- news/detail/E00618?ima=0000&link=ROBO004\nhttps://www.event.nhk.or.jp/e-po
- rtal/detail.html?id=3983
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260414-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260414
-DTEND;VALUE=DATE:20260415
-SUMMARY:ミーグリ応募締切(全国)
+SUMMARY:シリアル応募締切
 DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
   全席指定／親子・女性エリア\n4/13(月)〜4/19(日)\nhttps://s
  akurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n抽選: 全国ア
@@ -938,33 +834,11 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 FC会員先行\n対象:
  tail.html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260420-193f0d364bc2-lottery@mistral-yu
+UID:sakurazaka46-20260420-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260420
 DTEND;VALUE=DATE:20260421
-SUMMARY:ミーグリ応募開始
-DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
- 念リアルミート＆グリート 第3次応募保障期間\n対象: 
- リアルミーグリ\n2026-04-20(月)〜2026-04-21(火)\nhttps://sakuraza
- ka46.com/s/s46/page/14th_single_serial?ima=0000\nhttps://sakurazaka46.com/
- s/s46/news/detail/R00532?ima=0000\n\n応募: ★購入者応募抽選企
- 画！14thシングル『The growing up train』発売記念オンライ
- ンミート＆グリート（個別トーク会） 第3次応募保障期
- 間\n対象: オンラインミーグリ(全国)\n2026-04-20(月)〜2026-0
- 4-21(火)\nhttps://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
- \n\n応募: ＮＨＫ仙台フェスティバル２０２６ てれまさ 
- スペシャルステージ「みんなで語ろう！未来へつなぎ
- たい TOHOKU HEART」 着席観覧事前申込\n対象: 無料観覧／
- 入場整理券\n2026-04-06(月)〜2026-04-21(火)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/E00618?ima=0000&link=ROBO004\nhttps://www.event.nhk.o
- r.jp/e-portal/detail.html?id=3983
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260420-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260420
-DTEND;VALUE=DATE:20260421
-SUMMARY:ミーグリ応募開始(全国)
+SUMMARY:シリアル応募開始
 DESCRIPTION:応募: 14枚目シングル『The growing up train』発売記
  念リアルミート＆グリート 第3次応募保障期間\n対象: 
  リアルミーグリ\n2026-04-20(月)〜2026-04-21(火)\nhttps://sakuraza
@@ -1030,37 +904,11 @@ DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  html?id=3983
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260421-765d17a1653f-lottery@mistral-yu
+UID:sakurazaka46-20260421-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260421
 DTEND;VALUE=DATE:20260422
-SUMMARY:ミーグリ応募締切
-DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
- 026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバンド事前発送付き
- あり\n4/21(火)〜5/10(日)\nhttps://spice.eplus.jp/articles/345649\nhtt
- ps://eplus.jp/sf/word/0000109593\nhttps://giga.link.fespli.com/\n\n応募:
-  14枚目シングル『The growing up train』発売記念リアルミー
- ト＆グリート 第3次応募保障期間\n対象: リアルミーグ
- リ\n2026-04-20(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/pag
- e/14th_single_serial?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/
- R00532?ima=0000\n\n応募: ★購入者応募抽選企画！14thシング
- ル『The growing up train』発売記念オンラインミート＆グリ
- ート（個別トーク会） 第3次応募保障期間\n対象: オン
- ラインミーグリ(全国)\n2026-04-20(月)〜2026-04-21(火)\nhttps://
- sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000\n\n応募: ＮＨ
- Ｋ仙台フェスティバル２０２６ てれまさ スペシャルス
- テージ「みんなで語ろう！未来へつなぎたい TOHOKU HEART
- 」 着席観覧事前申込\n対象: 無料観覧／入場整理券\n2026
- -04-06(月)〜2026-04-21(火)\nhttps://sakurazaka46.com/s/s46/news/detail/
- E00618?ima=0000&link=ROBO004\nhttps://www.event.nhk.or.jp/e-portal/detail.
- html?id=3983
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260421-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260421
-DTEND;VALUE=DATE:20260422
-SUMMARY:ミーグリ応募締切(全国)
+SUMMARY:シリアル応募締切
 DESCRIPTION:オフィシャル先着受付: OSAKA GIGANTIC MUSIC FESTIVAL 2
  026\n対象: 1DAY/2DAYS/3DAYS/4DAYS・リストバンド事前発送付き
  あり\n4/21(火)〜5/10(日)\nhttps://spice.eplus.jp/articles/345649\nhtt
@@ -2424,13 +2272,13 @@ DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s
  6.com/s/s46/news/detail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/ne
  ws/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / 
  What’s “KAZOKU”?』発売記念リアルミート＆グリート（
- 個別トーク会） 第1次応募\n対象: リアルミーグリ(CD)\n20
- 26-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detai
- l/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s
-  “KAZOKU”?』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00580
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-0
+ 6-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “
+ KAZOKU”?』発売記念オンラインミート＆グリート（個別
+ トーク会） 第1次応募\n対象: オンラインミーグリ(全国)
+ \n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/d
+ etail/R00580
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260610-cd-lottery@mistral-yu
@@ -2454,13 +2302,13 @@ DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s
  6.com/s/s46/news/detail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/ne
  ws/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / 
  What’s “KAZOKU”?』発売記念リアルミート＆グリート（
- 個別トーク会） 第1次応募\n対象: リアルミーグリ(CD)\n20
- 26-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detai
- l/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s
-  “KAZOKU”?』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00580
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-0
+ 6-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “
+ KAZOKU”?』発売記念オンラインミート＆グリート（個別
+ トーク会） 第1次応募\n対象: オンラインミーグリ(全国)
+ \n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/d
+ etail/R00580
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260610-cd-lottery@mistral-yu
@@ -2484,20 +2332,20 @@ DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s
  6.com/s/s46/news/detail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/ne
  ws/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / 
  What’s “KAZOKU”?』発売記念リアルミート＆グリート（
- 個別トーク会） 第1次応募\n対象: リアルミーグリ(CD)\n20
- 26-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detai
- l/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s
-  “KAZOKU”?』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00580
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-0
+ 6-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “
+ KAZOKU”?』発売記念オンラインミート＆グリート（個別
+ トーク会） 第1次応募\n対象: オンラインミーグリ(全国)
+ \n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/d
+ etail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260610-cd-lottery@mistral-yu
+UID:sakurazaka46-20260610-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260610
 DTEND;VALUE=DATE:20260611
-SUMMARY:ミーグリ応募開始(CD)
+SUMMARY:シリアル応募開始
 DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』 CD購入者スペシャル応募抽選企画\n発売日\n
  06/10 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00558?ima=0000\nhtt
@@ -2514,104 +2362,42 @@ DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s
  6.com/s/s46/news/detail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/ne
  ws/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / 
  What’s “KAZOKU”?』発売記念リアルミート＆グリート（
- 個別トーク会） 第1次応募\n対象: リアルミーグリ(CD)\n20
- 26-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detai
- l/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s
-  “KAZOKU”?』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00580
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-0
+ 6-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “
+ KAZOKU”?』発売記念オンラインミート＆グリート（個別
+ トーク会） 第1次応募\n対象: オンラインミーグリ(全国)
+ \n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/d
+ etail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260610-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260610
-DTEND;VALUE=DATE:20260611
-SUMMARY:ミーグリ応募開始(全国)
-DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』 CD購入者スペシャル応募抽選企画\n発売日\n
- 06/10 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00558?ima=0000\nhtt
- ps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-si
- de Single『Lonesome rabbit / What’s “KAZOKU”?』 CD購入者スペ
- シャル応募抽選企画 CD購入者スペシャル応募\n対象: 初
- 回仕様限定盤(TYPE-A〜TYPE-D)・夜桜盤封入シリアルナンバ
- ー／各賞品\n2026-06-10(水)〜2026-08-31(月)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/news/
- detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / Wha
- t’s “KAZOKU”?』 CD購入者スペシャル応募抽選企画 リア
- ルサイン会応募\n対象: 3枚応募／幕張会場・京都会場リ
- アルサイン会\n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka4
- 6.com/s/s46/news/detail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / 
- What’s “KAZOKU”?』発売記念リアルミート＆グリート（
- 個別トーク会） 第1次応募\n対象: リアルミーグリ(CD)\n20
- 26-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detai
- l/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s
-  “KAZOKU”?』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260611-cd-lottery@mistral-yu
+UID:sakurazaka46-20260611-969d63ea801c-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260611
 DTEND;VALUE=DATE:20260612
-SUMMARY:ミーグリ応募中(CD)
+SUMMARY:シリアル応募中
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(
- 水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
+ ーク会） 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)
+ 〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ 応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
+ ”?』発売記念オンラインミート＆グリート（個別トー
  ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
  -06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
  R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260611-b9a12f135c45-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260611
-DTEND;VALUE=DATE:20260612
-SUMMARY:ミーグリ応募中(全国)
-DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(
- 水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
- ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
- -06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
- R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260612-cd-lottery@mistral-yu
+UID:sakurazaka46-20260612-969d63ea801c-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260612
 DTEND;VALUE=DATE:20260613
-SUMMARY:ミーグリ応募中(CD)
+SUMMARY:シリアル応募中
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(
- 水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
- ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
- -06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
- R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260612-b9a12f135c45-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260612
-DTEND;VALUE=DATE:20260613
-SUMMARY:ミーグリ応募中(全国)
-DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(
- 水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
+ ーク会） 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)
+ 〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ 応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
+ ”?』発売記念オンラインミート＆グリート（個別トー
  ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
  -06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
  R00580
@@ -2627,48 +2413,30 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜2026-0
- 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
- )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)〜2026-06-14
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第1次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水)〜202
+ 6-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260613-cd-lottery@mistral-yu
+UID:sakurazaka46-20260613-969d63ea801c-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260613
 DTEND;VALUE=DATE:20260614
-SUMMARY:ミーグリ応募中(CD)
+SUMMARY:シリアル応募中
 DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜2026-0
- 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
- )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260613-b9a12f135c45-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260613
-DTEND;VALUE=DATE:20260614
-SUMMARY:ミーグリ応募中(全国)
-DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
- 先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
- 日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
- 募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
- 』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜2026-0
- 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
- )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)〜2026-06-14
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第1次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水)〜202
+ 6-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260614-edeba8269ab7-lottery-span@mistral-yu
@@ -2686,16 +2454,16 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  etail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n
  \n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
  ”?』発売記念リアルミート＆グリート（個別トーク会
- ） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜20
- 26-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募
- : 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』
- 発売記念オンラインミート＆グリート（個別トーク会
- ） 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10
- (水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
- \n\nEVENT: 15枚目シングル発売記念オンラインミート＆グ
- リート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.co
- m/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazak
- a_202606/
+ ） 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)〜2026-0
+ 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
+ th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
+ 売記念オンラインミート＆グリート（個別トーク会） 
+ 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
+ )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ EVENT: 15枚目シングル発売記念オンラインミート＆グリ
+ ート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.com/s
+ /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260614-cd-lottery@mistral-yu
@@ -2713,23 +2481,23 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  etail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n
  \n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
  ”?』発売記念リアルミート＆グリート（個別トーク会
- ） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜20
- 26-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募
- : 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』
- 発売記念オンラインミート＆グリート（個別トーク会
- ） 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10
- (水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
- \n\nEVENT: 15枚目シングル発売記念オンラインミート＆グ
- リート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.co
- m/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazak
- a_202606/
+ ） 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)〜2026-0
+ 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
+ th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
+ 売記念オンラインミート＆グリート（個別トーク会） 
+ 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
+ )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ EVENT: 15枚目シングル発売記念オンラインミート＆グリ
+ ート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.com/s
+ /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260614-cd-lottery@mistral-yu
+UID:sakurazaka46-20260614-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260614
 DTEND;VALUE=DATE:20260615
-SUMMARY:ミーグリ応募締切(CD)
+SUMMARY:シリアル応募締切
 DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
@@ -2740,43 +2508,16 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  etail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n
  \n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
  ”?』発売記念リアルミート＆グリート（個別トーク会
- ） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜20
- 26-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募
- : 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』
- 発売記念オンラインミート＆グリート（個別トーク会
- ） 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10
- (水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
- \n\nEVENT: 15枚目シングル発売記念オンラインミート＆グ
- リート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.co
- m/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazak
- a_202606/
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260614-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260614
-DTEND;VALUE=DATE:20260615
-SUMMARY:ミーグリ応募締切(全国)
-DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
- 先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
- 日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
- 募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
- 』 CD購入者スペシャル応募抽選企画 リアルサイン会応
- 募\n対象: 3枚応募／幕張会場・京都会場リアルサイン会
- \n2026-06-10(水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/d
- etail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n
- \n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
- ”?』発売記念リアルミート＆グリート（個別トーク会
- ） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜20
- 26-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募
- : 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』
- 発売記念オンラインミート＆グリート（個別トーク会
- ） 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10
- (水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
- \n\nEVENT: 15枚目シングル発売記念オンラインミート＆グ
- リート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.co
- m/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazak
- a_202606/
+ ） 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)〜2026-0
+ 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
+ th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
+ 売記念オンラインミート＆グリート（個別トーク会） 
+ 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
+ )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ EVENT: 15枚目シングル発売記念オンラインミート＆グリ
+ ート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.com/s
+ /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260614-a72a35d6a4c5-event@mistral-yu
@@ -2794,16 +2535,16 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  etail/R00558?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n
  \n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
  ”?』発売記念リアルミート＆グリート（個別トーク会
- ） 第1次応募\n対象: リアルミーグリ(CD)\n2026-06-10(水)〜20
- 26-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募
- : 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』
- 発売記念オンラインミート＆グリート（個別トーク会
- ） 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10
- (水)〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
- \n\nEVENT: 15枚目シングル発売記念オンラインミート＆グ
- リート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.co
- m/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazak
- a_202606/
+ ） 第1次応募\n対象: リアルミーグリ\n2026-06-10(水)〜2026-0
+ 6-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
+ th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
+ 売記念オンラインミート＆グリート（個別トーク会） 
+ 第1次応募\n対象: オンラインミーグリ(全国)\n2026-06-10(水
+ )〜2026-06-14(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ EVENT: 15枚目シングル発売記念オンラインミート＆グリ
+ ート\nオンラインミーグリ\n06/14 日\nhttps://sakurazaka46.com/s
+ /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260615-edeba8269ab7-lottery-span@mistral-yu
@@ -2836,48 +2577,29 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募保障期間\n対象: リアルミーグリ(CD)\n2026-06-17(
- 水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
+ 第1次応募保障期間\n対象: リアルミーグリ\n2026-06-17(水)
+ 〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ 応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
+ ”?』発売記念オンラインミート＆グリート（個別トー
  ク会） 第1次応募保障期間\n対象: オンラインミーグリ(
  全国)\n2026-06-17(水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46
  /news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260617-cd-lottery@mistral-yu
+UID:sakurazaka46-20260617-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260617
 DTEND;VALUE=DATE:20260618
-SUMMARY:ミーグリ応募開始(CD)
+SUMMARY:シリアル応募開始
 DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募保障期間\n対象: リアルミーグリ(CD)\n2026-06-17(
- 水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
- ク会） 第1次応募保障期間\n対象: オンラインミーグリ(
- 全国)\n2026-06-17(水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46
- /news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260617-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260617
-DTEND;VALUE=DATE:20260618
-SUMMARY:ミーグリ応募開始(全国)
-DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
- 先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
- 日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
- 募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
- 』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募保障期間\n対象: リアルミーグリ(CD)\n2026-06-17(
- 水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
+ 第1次応募保障期間\n対象: リアルミーグリ\n2026-06-17(水)
+ 〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ 応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
+ ”?』発売記念オンラインミート＆グリート（個別トー
  ク会） 第1次応募保障期間\n対象: オンラインミーグリ(
  全国)\n2026-06-17(水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46
  /news/detail/R00580
@@ -2893,48 +2615,29 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募保障期間\n対象: リアルミーグリ(CD)\n2026-06-17(
- 水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
+ 第1次応募保障期間\n対象: リアルミーグリ\n2026-06-17(水)
+ 〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ 応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
+ ”?』発売記念オンラインミート＆グリート（個別トー
  ク会） 第1次応募保障期間\n対象: オンラインミーグリ(
  全国)\n2026-06-17(水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46
  /news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260618-cd-lottery@mistral-yu
+UID:sakurazaka46-20260618-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260618
 DTEND;VALUE=DATE:20260619
-SUMMARY:ミーグリ応募締切(CD)
+SUMMARY:シリアル応募締切
 DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募保障期間\n対象: リアルミーグリ(CD)\n2026-06-17(
- 水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
- ク会） 第1次応募保障期間\n対象: オンラインミーグリ(
- 全国)\n2026-06-17(水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46
- /news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260618-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260618
-DTEND;VALUE=DATE:20260619
-SUMMARY:ミーグリ応募締切(全国)
-DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
- 先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
- 日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
- 募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
- 』発売記念リアルミート＆グリート（個別トーク会） 
- 第1次応募保障期間\n対象: リアルミーグリ(CD)\n2026-06-17(
- 水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\
- n\n応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOK
- U”?』発売記念オンラインミート＆グリート（個別トー
+ 第1次応募保障期間\n対象: リアルミーグリ\n2026-06-17(水)
+ 〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
+ 応募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU
+ ”?』発売記念オンラインミート＆グリート（個別トー
  ク会） 第1次応募保障期間\n対象: オンラインミーグリ(
  全国)\n2026-06-17(水)〜2026-06-18(木)\nhttps://sakurazaka46.com/s/s46
  /news/detail/R00580
@@ -2960,48 +2663,30 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ 第2次応募\n対象: リアルミーグリ\n2026-06-20(土)〜2026-06-21
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第2次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土)〜202
+ 6-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260620-cd-lottery@mistral-yu
+UID:sakurazaka46-20260620-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260620
 DTEND;VALUE=DATE:20260621
-SUMMARY:ミーグリ応募開始(CD)
+SUMMARY:シリアル応募開始
 DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260620-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260620
-DTEND;VALUE=DATE:20260621
-SUMMARY:ミーグリ応募開始(全国)
-DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
- 先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
- 日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
- 募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
- 』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ 第2次応募\n対象: リアルミーグリ\n2026-06-20(土)〜2026-06-21
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第2次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土)〜202
+ 6-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260621-f8ea66bb2642-lottery@mistral-yu
@@ -3014,60 +2699,36 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
- EVENT: 15枚目シングル発売記念オンラインミート＆グリ
- ート\nオンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s
- /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
- 02606/
+ 第2次応募\n対象: リアルミーグリ\n2026-06-20(土)〜2026-06-21
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第2次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土)〜202
+ 6-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\nEVENT: 
+ 15枚目シングル発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260621-cd-lottery@mistral-yu
+UID:sakurazaka46-20260621-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260621
 DTEND;VALUE=DATE:20260622
-SUMMARY:ミーグリ応募締切(CD)
+SUMMARY:シリアル応募締切
 DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
- EVENT: 15枚目シングル発売記念オンラインミート＆グリ
- ート\nオンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s
- /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
- 02606/
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260621-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260621
-DTEND;VALUE=DATE:20260622
-SUMMARY:ミーグリ応募締切(全国)
-DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
- 先行\n対象: 全席指定／親子・女性エリア\n6/13(土)〜6/21(
- 日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
- 募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
- 』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
- EVENT: 15枚目シングル発売記念オンラインミート＆グリ
- ート\nオンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s
- /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
- 02606/
+ 第2次応募\n対象: リアルミーグリ\n2026-06-20(土)〜2026-06-21
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第2次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土)〜202
+ 6-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\nEVENT: 
+ 15枚目シングル発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260621-a72a35d6a4c5-event@mistral-yu
@@ -3080,118 +2741,66 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 オフィシャル2次
  日)\nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000\n\n応
  募: 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?
  』発売記念リアルミート＆グリート（個別トーク会） 
- 第2次応募\n対象: リアルミーグリ(CD)\n2026-06-20(土)〜2026-0
- 6-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15
- th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発
- 売記念オンラインミート＆グリート（個別トーク会） 
- 第2次応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土
- )〜2026-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n
- EVENT: 15枚目シングル発売記念オンラインミート＆グリ
- ート\nオンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s
- /s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_2
- 02606/
+ 第2次応募\n対象: リアルミーグリ\n2026-06-20(土)〜2026-06-21
+ (日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th D
+ ouble A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第2次
+ 応募\n対象: オンラインミーグリ(全国)\n2026-06-20(土)〜202
+ 6-06-21(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\nEVENT: 
+ 15枚目シングル発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n06/21 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260623-cd-lottery@mistral-yu
+UID:sakurazaka46-20260623-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260623
 DTEND;VALUE=DATE:20260624
-SUMMARY:ミーグリ応募開始(CD)
+SUMMARY:シリアル応募開始
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第2次応募保障期間\n対象: リアルミーグリ(CD)
- ／京都会場のみ\n2026-06-23(火)〜2026-06-24(水)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Single『L
- onesome rabbit / What’s “KAZOKU”?』発売記念オンラインミ
- ート＆グリート（個別トーク会） 第2次応募保障期間\n
- 対象: オンラインミーグリ(全国)\n2026-06-23(火)〜2026-06-24(
- 水)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ ーク会） 第2次応募保障期間\n対象: リアルミーグリ／
+ 京都会場のみ\n2026-06-23(火)〜2026-06-24(水)\nhttps://sakurazaka4
+ 6.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Single『Lone
+ some rabbit / What’s “KAZOKU”?』発売記念オンラインミー
+ ト＆グリート（個別トーク会） 第2次応募保障期間\n対
+ 象: オンラインミーグリ(全国)\n2026-06-23(火)〜2026-06-24(水
+ )\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260623-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260623
-DTEND;VALUE=DATE:20260624
-SUMMARY:ミーグリ応募開始(全国)
-DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第2次応募保障期間\n対象: リアルミーグリ(CD)
- ／京都会場のみ\n2026-06-23(火)〜2026-06-24(水)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Single『L
- onesome rabbit / What’s “KAZOKU”?』発売記念オンラインミ
- ート＆グリート（個別トーク会） 第2次応募保障期間\n
- 対象: オンラインミーグリ(全国)\n2026-06-23(火)〜2026-06-24(
- 水)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260624-cd-lottery@mistral-yu
+UID:sakurazaka46-20260624-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260624
 DTEND;VALUE=DATE:20260625
-SUMMARY:ミーグリ応募締切(CD)
+SUMMARY:シリアル応募締切
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第2次応募保障期間\n対象: リアルミーグリ(CD)
- ／京都会場のみ\n2026-06-23(火)〜2026-06-24(水)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Single『L
- onesome rabbit / What’s “KAZOKU”?』発売記念オンラインミ
- ート＆グリート（個別トーク会） 第2次応募保障期間\n
- 対象: オンラインミーグリ(全国)\n2026-06-23(火)〜2026-06-24(
- 水)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ ーク会） 第2次応募保障期間\n対象: リアルミーグリ／
+ 京都会場のみ\n2026-06-23(火)〜2026-06-24(水)\nhttps://sakurazaka4
+ 6.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Single『Lone
+ some rabbit / What’s “KAZOKU”?』発売記念オンラインミー
+ ト＆グリート（個別トーク会） 第2次応募保障期間\n対
+ 象: オンラインミーグリ(全国)\n2026-06-23(火)〜2026-06-24(水
+ )\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260624-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260624
-DTEND;VALUE=DATE:20260625
-SUMMARY:ミーグリ応募締切(全国)
-DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第2次応募保障期間\n対象: リアルミーグリ(CD)
- ／京都会場のみ\n2026-06-23(火)〜2026-06-24(水)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Single『L
- onesome rabbit / What’s “KAZOKU”?』発売記念オンラインミ
- ート＆グリート（個別トーク会） 第2次応募保障期間\n
- 対象: オンラインミーグリ(全国)\n2026-06-23(火)〜2026-06-24(
- 水)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260627-cd-lottery@mistral-yu
+UID:sakurazaka46-20260627-da2456639547-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260627
 DTEND;VALUE=DATE:20260628
-SUMMARY:ミーグリ応募開始(CD)
+SUMMARY:シリアル応募開始
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第3次応募\n対象: リアルミーグリ(CD)／京都会
- 場のみ\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46.com/s/s
- 46/news/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabb
- it / What’s “KAZOKU”?』発売記念オンラインミート＆グ
- リート（個別トーク会） 第3次応募\n対象: オンライン
- ミーグリ(全国)\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazak
- a46.com/s/s46/news/detail/R00580\n\nEVENT: 15枚目シングル発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n0
- 6/27 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttp
- s://www.fortunemusic.jp/sakurazaka_202606/
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260627-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260627
-DTEND;VALUE=DATE:20260628
-SUMMARY:ミーグリ応募開始(全国)
-DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第3次応募\n対象: リアルミーグリ(CD)／京都会
- 場のみ\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46.com/s/s
- 46/news/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabb
- it / What’s “KAZOKU”?』発売記念オンラインミート＆グ
- リート（個別トーク会） 第3次応募\n対象: オンライン
- ミーグリ(全国)\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazak
- a46.com/s/s46/news/detail/R00580\n\nEVENT: 15枚目シングル発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n0
- 6/27 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttp
- s://www.fortunemusic.jp/sakurazaka_202606/
+ ーク会） 第3次応募\n対象: リアルミーグリ／京都会場
+ のみ\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46.com/s/s46/
+ news/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit 
+ / What’s “KAZOKU”?』発売記念オンラインミート＆グリ
+ ート（個別トーク会） 第3次応募\n対象: オンラインミ
+ ーグリ(全国)\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46
+ .com/s/s46/news/detail/R00580\n\nEVENT: 15枚目シングル発売記念
+ オンラインミート＆グリート\nオンラインミーグリ\n06/2
+ 7 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttps:/
+ /www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260627-a72a35d6a4c5-event@mistral-yu
@@ -3201,105 +2810,70 @@ DTEND;VALUE=DATE:20260628
 SUMMARY:ミーグリ
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第3次応募\n対象: リアルミーグリ(CD)／京都会
- 場のみ\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46.com/s/s
- 46/news/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabb
- it / What’s “KAZOKU”?』発売記念オンラインミート＆グ
- リート（個別トーク会） 第3次応募\n対象: オンライン
- ミーグリ(全国)\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazak
- a46.com/s/s46/news/detail/R00580\n\nEVENT: 15枚目シングル発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n0
- 6/27 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttp
- s://www.fortunemusic.jp/sakurazaka_202606/
+ ーク会） 第3次応募\n対象: リアルミーグリ／京都会場
+ のみ\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46.com/s/s46/
+ news/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit 
+ / What’s “KAZOKU”?』発売記念オンラインミート＆グリ
+ ート（個別トーク会） 第3次応募\n対象: オンラインミ
+ ーグリ(全国)\n2026-06-27(土)〜2026-06-28(日)\nhttps://sakurazaka46
+ .com/s/s46/news/detail/R00580\n\nEVENT: 15枚目シングル発売記念
+ オンラインミート＆グリート\nオンラインミーグリ\n06/2
+ 7 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttps:/
+ /www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260628-cd-event@mistral-yu
+UID:sakurazaka46-20260628-291b5b45f266-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260628
 DTEND;VALUE=DATE:20260629
-SUMMARY:リアルミーグリ(CD)
+SUMMARY:リアルミーグリ
 DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会）\n幕張メッセ／リアルミーグリ(CD)\n06/28 日\nhttp
- s://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-sid
- e Single『Lonesome rabbit / What’s “KAZOKU”?』発売記念リア
- ルミート＆グリート（個別トーク会） 第3次応募\n対象:
-  リアルミーグリ(CD)／京都会場のみ\n2026-06-27(土)〜2026-06
- -28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15t
- h Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売
- 記念オンラインミート＆グリート（個別トーク会） 第3
- 次応募\n対象: オンラインミーグリ(全国)\n2026-06-27(土)〜
- 2026-06-28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ ーク会）\n幕張メッセ／リアルミーグリ\n06/28 日\nhttps://
+ sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Si
+ ngle『Lonesome rabbit / What’s “KAZOKU”?』発売記念リアルミ
+ ート＆グリート（個別トーク会） 第3次応募\n対象: リ
+ アルミーグリ／京都会場のみ\n2026-06-27(土)〜2026-06-28(日)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double
+  A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記念
+ オンラインミート＆グリート（個別トーク会） 第3次応
+ 募\n対象: オンラインミーグリ(全国)\n2026-06-27(土)〜2026-0
+ 6-28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260628-cd-lottery@mistral-yu
+UID:sakurazaka46-20260628-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260628
 DTEND;VALUE=DATE:20260629
-SUMMARY:ミーグリ応募締切(CD)
+SUMMARY:シリアル応募締切
 DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会）\n幕張メッセ／リアルミーグリ(CD)\n06/28 日\nhttp
- s://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-sid
- e Single『Lonesome rabbit / What’s “KAZOKU”?』発売記念リア
- ルミート＆グリート（個別トーク会） 第3次応募\n対象:
-  リアルミーグリ(CD)／京都会場のみ\n2026-06-27(土)〜2026-06
- -28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15t
- h Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売
- 記念オンラインミート＆グリート（個別トーク会） 第3
- 次応募\n対象: オンラインミーグリ(全国)\n2026-06-27(土)〜
- 2026-06-28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
+ ーク会）\n幕張メッセ／リアルミーグリ\n06/28 日\nhttps://
+ sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-side Si
+ ngle『Lonesome rabbit / What’s “KAZOKU”?』発売記念リアルミ
+ ート＆グリート（個別トーク会） 第3次応募\n対象: リ
+ アルミーグリ／京都会場のみ\n2026-06-27(土)〜2026-06-28(日)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double
+  A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売記念
+ オンラインミート＆グリート（個別トーク会） 第3次応
+ 募\n対象: オンラインミーグリ(全国)\n2026-06-27(土)〜2026-0
+ 6-28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260628-ce187f8b3044-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260628
-DTEND;VALUE=DATE:20260629
-SUMMARY:ミーグリ応募締切(全国)
-DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会）\n幕張メッセ／リアルミーグリ(CD)\n06/28 日\nhttp
- s://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15th Double A-sid
- e Single『Lonesome rabbit / What’s “KAZOKU”?』発売記念リア
- ルミート＆グリート（個別トーク会） 第3次応募\n対象:
-  リアルミーグリ(CD)／京都会場のみ\n2026-06-27(土)〜2026-06
- -28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 15t
- h Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』発売
- 記念オンラインミート＆グリート（個別トーク会） 第3
- 次応募\n対象: オンラインミーグリ(全国)\n2026-06-27(土)〜
- 2026-06-28(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260702-cd-lottery@mistral-yu
+UID:sakurazaka46-20260702-c6c2c4301884-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260702
 DTEND;VALUE=DATE:20260703
-SUMMARY:ミーグリ応募開始(CD)
+SUMMARY:シリアル応募締切
 DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第3次応募保障期間\n対象: リアルミーグリ(CD)
- ／京都会場のみ\n2026-07-02(木)\nhttps://sakurazaka46.com/s/s46/new
- s/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / W
- hat’s “KAZOKU”?』発売記念オンラインミート＆グリー
- ト（個別トーク会） 第3次応募保障期間\n対象: オンラ
- インミーグリ(全国)\n2026-07-02(木)\nhttps://sakurazaka46.com/s/s4
- 6/news/detail/R00580
-END:VEVENT
-BEGIN:VEVENT
-UID:sakurazaka46-20260702-02a20f6c6c83-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260702
-DTEND;VALUE=DATE:20260703
-SUMMARY:ミーグリ応募開始(全国)
-DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s 
- “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会） 第3次応募保障期間\n対象: リアルミーグリ(CD)
- ／京都会場のみ\n2026-07-02(木)\nhttps://sakurazaka46.com/s/s46/new
- s/detail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / W
- hat’s “KAZOKU”?』発売記念オンラインミート＆グリー
- ト（個別トーク会） 第3次応募保障期間\n対象: オンラ
- インミーグリ(全国)\n2026-07-02(木)\nhttps://sakurazaka46.com/s/s4
- 6/news/detail/R00580
+ ーク会） 第3次応募保障期間\n対象: リアルミーグリ／
+ 京都会場のみ\n2026-07-02(木)\nhttps://sakurazaka46.com/s/s46/news/d
+ etail/R00580\n\n応募: 15th Double A-side Single『Lonesome rabbit / What
+ ’s “KAZOKU”?』発売記念オンラインミート＆グリート
+ （個別トーク会） 第3次応募保障期間\n対象: オンライ
+ ンミーグリ(全国)\n2026-07-02(木)\nhttps://sakurazaka46.com/s/s46/n
+ ews/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260704-a72a35d6a4c5-event@mistral-yu
@@ -3375,15 +2949,15 @@ DESCRIPTION:LIVE: OSAKA GIGANTIC MUSIC FESTIVAL 2026\n会場: 大阪・舞
  i.com/
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260802-cd-event@mistral-yu
+UID:sakurazaka46-20260802-291b5b45f266-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260802
 DTEND;VALUE=DATE:20260803
-SUMMARY:リアルミーグリ(CD)
+SUMMARY:リアルミーグリ
 DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
- ーク会）\n京都会場／リアルミーグリ(CD)\n08/02 日\nhttps:/
- /sakurazaka46.com/s/s46/news/detail/R00580
+ ーク会）\n京都会場／リアルミーグリ\n08/02 日\nhttps://sak
+ urazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260808-94be08c4de39-live@mistral-yu
