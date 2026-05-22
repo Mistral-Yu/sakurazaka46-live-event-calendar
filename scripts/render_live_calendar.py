@@ -20,6 +20,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 BASE_DIR = SCRIPT_DIR.parent
 SUMMARY_DIR = BASE_DIR / "summary"
 PLAN_DIR = BASE_DIR / ".plan"
+MEMBERS_TEMPLATE_JSON = SCRIPT_DIR / "sakurazaka46_members_template.json"
 
 SOURCE_MD = SUMMARY_DIR / "sakurazaka46_live_summary.md"
 EVENT_SOURCE_MD = SUMMARY_DIR / "sakurazaka46_event_summary.md"
@@ -268,7 +269,13 @@ def empty_month_struct() -> dict:
 
 
 def month_has_schedule(month_data: dict) -> bool:
-    return bool(month_data["events"] or month_data["lotteries"])
+    if month_data["events"] or month_data["lotteries"]:
+        return True
+    return any(
+        item.get("kind") != "holiday"
+        for items in month_data["days"].values()
+        for item in items
+    )
 
 
 def add_detail(months: dict, month: int, day: int, payload: dict) -> None:
@@ -368,6 +375,76 @@ def build_all_months(
     for month_key in all_months:
         all_months[month_key]["sources"] = sorted(set(all_months[month_key]["sources"]))
     return all_months
+
+
+PLAN_EXCLUDE_KEYWORDS = (
+    "応募",
+    "抽選",
+    "締切",
+    "期限",
+    "発売",
+    "販売",
+    "受付",
+    "支払い",
+    "視聴用ID",
+)
+PLAN_INCLUDE_KEYWORDS = (
+    "ミーグリ",
+    "リアルミーグリ",
+    "公演",
+    "ライブ",
+    "LIVE",
+    "イベント",
+    "フェス",
+    "番組",
+    "出演",
+    "ミニライブ",
+)
+
+
+def is_plan_candidate_item(item: dict) -> bool:
+    text = item.get("text", "")
+    kind = item.get("kind")
+    if kind == "holiday":
+        return False
+    if any(keyword in text for keyword in PLAN_EXCLUDE_KEYWORDS):
+        return False
+    if kind in {"live", "event", "all_event"}:
+        return True
+    return any(keyword in text for keyword in PLAN_INCLUDE_KEYWORDS)
+
+
+def is_plan_detail_item(detail: dict) -> bool:
+    label = str(detail.get("label", ""))
+    if label.startswith(("LIVE:", "EVENT:")):
+        return True
+    text = " ".join(str(detail.get(key, "")) for key in ("label", "sub", "meta"))
+    if any(keyword in text for keyword in PLAN_EXCLUDE_KEYWORDS):
+        return False
+    return any(keyword in text for keyword in PLAN_INCLUDE_KEYWORDS)
+
+
+def build_plan_months(all_months: dict, display_months: list[dt.date]) -> dict:
+    plan_months = {month_key: empty_month_struct() for month_key in display_months}
+    for month_key in display_months:
+        source = all_months.get(month_key)
+        if not source:
+            continue
+        target = plan_months[month_key]
+        target["sources"] = list(source.get("sources", []))
+        for day, items in source["days"].items():
+            holiday_items = [dict(item) for item in merge_day_items(items) if item.get("kind") == "holiday" or item.get("text") == "祝"]
+            candidates = [dict(item) for item in merge_day_items(items) if is_plan_candidate_item(item)]
+            if holiday_items:
+                target["days"][day].extend(holiday_items)
+            if not candidates:
+                continue
+            target["days"][day].extend(candidates)
+            target["detail_map"][day].extend(
+                detail for detail in source["detail_map"].get(day, []) if is_plan_detail_item(detail)
+            )
+        target["events"] = [item for item in source["events"] if True]
+    return plan_months
 
 
 def ics_escape(value: str) -> str:
@@ -646,19 +723,33 @@ def format_event_range(start: dt.date, end: dt.date | None = None) -> str:
     return f"{start:%m/%d}〜{end:%m/%d}"
 
 
+def suffix_marker(text: str) -> str:
+    if "(全国)" in text or "（全国）" in text:
+        return "(全国)"
+    if "(CD)" in text or "（CD）" in text:
+        return "(CD)"
+    return ""
+
+
 def has_nationwide_suffix_marker(text: str) -> bool:
-    return "(全国)" in text or "（全国）" in text
+    return suffix_marker(text) == "(全国)"
 
 
-def append_nationwide_suffix(label: str, text: str) -> str:
-    if has_nationwide_suffix_marker(text) and not has_nationwide_suffix_marker(label):
-        return f"{label}(全国)"
+def append_event_suffix(label: str, text: str) -> str:
+    marker = suffix_marker(text)
+    if marker and not label.endswith(marker):
+        return f"{label}{marker}"
     return label
 
 
+def append_nationwide_suffix(label: str, text: str) -> str:
+    return append_event_suffix(label, text)
+
+
 def format_lottery_chip(label: str, status: str) -> str:
-    if label.endswith("(全国)"):
-        return f"{label[:-4]}{status}(全国)"
+    marker = suffix_marker(label)
+    if marker and label.endswith(marker):
+        return f"{label[:-len(marker)]}{status}{marker}"
     return f"{label}{status}"
 
 
@@ -667,7 +758,7 @@ def event_period_label(tag: str, text: str) -> str:
     if "ミニライブ" in joined and ("視聴用ID" in joined or "ミニライブ応募" in joined):
         return "ミニライブ応募"
     if tag in {"ミーグリ", "リアルミーグリ"}:
-        return append_nationwide_suffix("ミーグリ応募", joined)
+        return append_event_suffix("ミーグリ応募", joined)
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
     if "応募" in joined or "期限" in joined or "締切" in joined:
@@ -710,8 +801,9 @@ def mark_long_event_chip(chip: str, is_long: bool) -> str:
 def event_chip_tone_label(chip: str) -> str:
     tone_label = chip[2:] if chip.startswith("長)") else chip
     tone_label = tone_label[2:] if tone_label.startswith("長期") else tone_label
-    if tone_label.endswith("(全国)"):
-        tone_label = tone_label[:-4]
+    marker = suffix_marker(tone_label)
+    if marker and tone_label.endswith(marker):
+        tone_label = tone_label[:-len(marker)]
     return re.sub(r"(開始|中|締切)$", "", tone_label)
 
 
@@ -1372,12 +1464,14 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
                     active_css_rules.append(
                         f".day-cell.clickable.today:has(.detail-target#{detail_key}:target){{background:rgba(201,183,255,.14);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42), inset 0 0 0 2px rgba(93,119,255,.18);border-color:rgba(201,183,255,.48)}}"
                     )
+                iso_date = f"{year_value:04d}-{month_value:02d}-{day:02d}"
                 cells.append(
-                    f"<a class='{clickable_class}' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}'>"
+                    f"<a class='{clickable_class}' href='#{detail_key}' data-month='{panel_id}' data-detail-key='{detail_key}' data-date='{iso_date}'>"
                     f"<span class='detail-target' id='{detail_key}' aria-hidden='true'></span><div class='day-num'>{day}</div><div class='chips'>{chips}</div></a>"
                 )
             else:
-                cells.append(f"<div class='{day_class}'><div class='day-num'>{day}</div><div class='chips'>{chips}</div></div>")
+                iso_date = f"{year_value:04d}-{month_value:02d}-{day:02d}"
+                cells.append(f"<div class='{day_class}' data-date='{iso_date}'><div class='day-num'>{day}</div><div class='chips'>{chips}</div></div>")
         while len(cells) % 7 != 0:
             cells.append("<div class='day-cell empty'></div>")
 
@@ -1450,6 +1544,15 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         if list_label
         else ""
     )
+    legend_parts = ["<span>凡例: </span>"]
+    if live_meaning:
+        legend_parts.append(f"<span class='legend-chip tone-live' aria-hidden='true'></span><span>{html.escape(live_meaning)}</span>")
+    if ticket_meaning:
+        legend_parts.append(f"<span class='legend-chip tone-ticket' aria-hidden='true'></span><span>{html.escape(ticket_meaning)}</span>")
+    if deadline_meaning:
+        legend_parts.append(f"<span class='legend-chip tone-deadline' aria-hidden='true'></span><span>{html.escape(deadline_meaning)}</span>")
+    legend_parts.append("<span class='legend-chip tone-holiday' aria-hidden='true'></span><span>祝日</span>")
+    legend_meaning_html = "".join(legend_parts)
     return f"""<!doctype html>
 <html lang='ja'>
 <head>
@@ -1483,7 +1586,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
   </section>
   <section class='legend'>
 {legend_row_html}    <div class='legend-meaning'>
-      <div class='legend-item'><span>凡例: </span><span class='legend-chip tone-live' aria-hidden='true'></span><span>{html.escape(live_meaning)}</span><span class='legend-chip tone-ticket' aria-hidden='true'></span><span>{html.escape(ticket_meaning)}</span><span class='legend-chip tone-deadline' aria-hidden='true'></span><span>{html.escape(deadline_meaning)}</span><span class='legend-chip tone-holiday' aria-hidden='true'></span><span>祝日</span></div>
+      <div class='legend-item'>{legend_meaning_html}</div>
     </div>
   </section>
   <nav class='month-nav'>{month_nav}</nav>
@@ -1936,6 +2039,7 @@ def render_next14_html(
           <a class='mode-button' href='?mode=live'>LIVE</a>
           <a class='mode-button' href='?mode=event'>EVENT</a>
           <a class='mode-button' href='?mode=all'>ALL</a>
+          <a class='mode-button' href='?mode=plan'>PLAN</a>
           <a class='mode-button active' href='?mode=next14' aria-current='page'>直近2週間</a>
         </div>
       </nav>
@@ -2043,12 +2147,636 @@ def render_mode_html(months, legend_live, legend_lottery, *, display_months, hol
                 setattr(render_html, name, value)
 
 
-def render_combined_html(live_html: str, event_html: str, all_html: str | None = None, next14_html: str | None = None) -> str:
+
+
+def render_plan_tools_html() -> str:
+    """Render local JSON controls for the PLAN calendar tab."""
+    member_options = json.dumps(json.loads(MEMBERS_TEMPLATE_JSON.read_text()).get("members", []), ensure_ascii=False)
+    return f"""<section class='plan-tools' aria-label='PLAN JSON'>
+  <div class='plan-tools-header'>
+    <div>
+      <div class='plan-tools-title'>参加メモ</div>
+      <p class='plan-tools-copy'>保存済みJSON/HTMLを読み込むと、参加予定の日をカレンダー上で強調します。読み込み・変換はこのブラウザ内だけで行い、ファイルを外部へ送信しません。公開ページには個人用予定を埋め込みません。</p>
+      <ol class='plan-howto'><li>手入力: 日付を選んで参加にチェックし、部数/枚数は <code>1:3,2:5</code> のように入力します。入力後は表示確定後の内容を自分で確認してください。</li><li>Upload JSON/HTML: 保存済みJSON、またはforTUNE music（フォーチュンミュージック）の申込/抽選結果ページをブラウザで開いて <code>Ctrl/⌘+S</code> → HTMLファイルとして保存したものを読み込めます。Ctrl/⌘選択で複数ファイルをまとめて追加・マージできます。カレンダー外の日付はログに <code>カレンダー外 n件</code> と出し、JSON保存には含め、HTML保存では除外します。HTMLからの変換は `scripts/fortune_meet_html_to_plan_json.py` でも実行できます。変換後は日付・メンバー・部数/枚数を自分で確認してください。</li></ol>
+    </div>
+  </div>
+  <div class='plan-actions'>
+    <label class='plan-file-button'>
+      <span>Upload JSON/HTML</span>
+        <input type='file' multiple accept='.json,.html,.htm,application/json,text/html' data-plan-file>
+    </label>
+    <button class='plan-confirm-toggle' type='button' data-plan-confirm-toggle disabled>表示を確定</button>
+    <button class='plan-save-page' type='button' data-plan-save-page disabled>Save Page</button>
+    <button class='plan-download' type='button' data-plan-download disabled>Save JSON</button>
+    <span class='plan-status' data-plan-status>未読み込み</span>
+  </div>
+  <div class='plan-confirmed-list' data-plan-confirmed-list hidden></div>
+</section>
+<script>
+const initPlanTools = () => {{
+const root = document.querySelector("[data-mode='plan']");
+if (!root) return;
+const fileInput = root.querySelector('[data-plan-file]');
+const status = root.querySelector('[data-plan-status]');
+const confirmedList = root.querySelector('[data-plan-confirmed-list]');
+const downloadButton = root.querySelector('[data-plan-download]');
+const savePageButton = root.querySelector('[data-plan-save-page]');
+const confirmToggle = root.querySelector('[data-plan-confirm-toggle]');
+const memberOptions = {member_options};
+let currentPlan = null;
+let planConfirmed = false;
+let currentFilename = 'sakurazaka46_plan.json';
+let planItemsByDate = new Map();
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({{'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}}[char]));
+const toNumberOrEmpty = (value) => {{
+  if (value === '' || value === null || value === undefined) return '';
+  const number = Number(value);
+  return Number.isFinite(number) ? number : '';
+}};
+const normalizeSlotText = (value) => String(value || '')
+  .replace(/[０-９]/g, (char) => String.fromCharCode(char.charCodeAt(0) - 0xFEE0))
+  .replace(/[：]/g, ':')
+  .replace(/[，、]/g, ',');
+const formatSlotSummary = (value) => normalizeSlotText(value).split(',')
+  .map((part) => part.trim())
+  .filter(Boolean)
+  .map((part) => {{
+    const match = part.match(/^(\\d+)\\s*:\\s*(\\d+)$/);
+    return match ? `${{match[1]}}部${{match[2]}}枚` : part;
+  }})
+  .join('・');
+const slotTextToMap = (value) => {{
+  const map = new Map();
+  normalizeSlotText(value).split(',').map((part) => part.trim()).filter(Boolean).forEach((part) => {{
+    const match = part.match(/^(\\d+)\\s*:\\s*(\\d+)$/);
+    if (!match) return;
+    const key = Number(match[1]);
+    map.set(key, (map.get(key) || 0) + Number(match[2]));
+  }});
+  return map;
+}};
+const slotMapToText = (map) => Array.from(map.entries()).sort((a, b) => a[0] - b[0]).map(([part, count]) => `${{part}}:${{count}}`).join(',');
+const getConfirmedSlotNotes = (items = []) => items
+  .filter((item) => item && item.attending !== false && isMeetEventName(item.event))
+  .flatMap((item) => (Array.isArray(item.members) ? item.members : [])
+    .map((member) => {{
+      const slots = formatSlotSummary(member && member.slots);
+      if (!slots) return '';
+      const name = formatMemberDisplayName(member);
+      return name ? `${{name}} ${{slots}}` : slots;
+    }})
+    .filter(Boolean));
+const getConfirmedItemSummary = (item) => {{
+  if (!item || item.attending === false) return '';
+  if (isMeetEventName(item.event)) {{
+    const notes = getConfirmedSlotNotes([item]);
+    return notes.length ? `${{item.event || 'ミーグリ'}}: ${{notes.join(' / ')}}` : (item.event || 'ミーグリ');
+  }}
+  return item.memo ? `${{item.event || '予定'}}: ${{item.memo}}` : (item.event || '予定');
+}};
+const renderConfirmedList = () => {{
+  if (!confirmedList) return;
+  const items = getSortedItems().filter((item) => item.attending !== false);
+  confirmedList.hidden = !planConfirmed || !items.length;
+  if (confirmedList.hidden) {{
+    confirmedList.innerHTML = '';
+    return;
+  }}
+  confirmedList.innerHTML = `<div class='plan-confirmed-list-title'>参加予定</div>`
+    + items.map((item) => `<div class='plan-confirmed-list-item'><span>${{escapeHtml(item.date)}}</span><span>${{escapeHtml(getConfirmedItemSummary(item))}}</span></div>`).join('');
+}};
+const itemSortKey = (item) => `${{item.date}}\n${{item.event || ''}}`;
+const saveBlob = async (blob, suggestedName) => {{
+  if (window.showSaveFilePicker) {{
+    const handle = await window.showSaveFilePicker({{suggestedName}});
+    const writable = await handle.createWritable();
+    await writable.write(blob);
+    await writable.close();
+    return;
+  }}
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = suggestedName;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}};
+const buildConfirmedPageHtml = () => {{
+  const clone = document.documentElement.cloneNode(true);
+  const planView = clone.querySelector("[data-mode='plan']");
+  if (!planView) return '<!doctype html>\\n' + clone.outerHTML;
+  for (const view of Array.from(clone.querySelectorAll('.calendar-view'))) {{
+    if (view !== planView) view.remove();
+  }}
+  planView.hidden = false;
+  planView.classList.add('plan-confirmed');
+  for (const script of Array.from(clone.querySelectorAll('script'))) script.remove();
+  planView.querySelector('.plan-tools')?.remove();
+  planView.querySelector('.mode-switch')?.remove();
+  for (const element of Array.from(planView.querySelectorAll('script,.day-detail,.detail-target,.plan-selected-editor'))) element.remove();
+  for (const link of Array.from(planView.querySelectorAll('a.day-cell'))) {{
+    const div = clone.ownerDocument.createElement('div');
+    div.className = link.className;
+    div.innerHTML = link.innerHTML;
+    for (const attr of Array.from(link.attributes)) {{
+      if (['class', 'href', 'data-detail-key', 'data-month'].includes(attr.name)) continue;
+      div.setAttribute(attr.name, attr.value);
+    }}
+    link.replaceWith(div);
+  }}
+  return '<!doctype html>\\n' + clone.outerHTML;
+}};
+const planFromFortuneHtml = (text, filename) => {{
+  const plain = String(text || '')
+    .replace(/<br\s*\/?>/gi, '\\n')
+    .replace(/<\/(?:tr|p|div|li|dd|dt|td|th|span|h\d)>/gi, '\\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ');
+  const decoded = new DOMParser().parseFromString(`<textarea>${{plain}}</textarea>`, 'text/html').querySelector('textarea')?.value || plain;
+  const eventNameRaw = String(filename || 'forTUNEミーグリ').replace(/\.(html?|json)$/i, '').normalize('NFC');
+  const eventName = eventNameRaw.match(/ミーグリ/) ? eventNameRaw : `${{eventNameRaw}} ミーグリ`;
+  const groups = new Map();
+  let currentDate = '';
+  const tokenRe = /(20\d{{2}})\s*[年\/.\-]\s*(\d{{1,2}})\s*[月\/.\-]\s*(\d{{1,2}})\s*日?|第\s*(\d+)\s*部[\s\S]{{0,80}}?([一-龠々〆ヵヶぁ-んァ-ヶー]+[\s　]+[一-龠々〆ヵヶぁ-んァ-ヶー]+)[\s　]+(\d+)\s*枚/g;
+  let match;
+  while ((match = tokenRe.exec(decoded)) !== null) {{
+    if (match[1]) {{
+      currentDate = `${{match[1]}}-${{String(Number(match[2])).padStart(2, '0')}}-${{String(Number(match[3])).padStart(2, '0')}}`;
+      continue;
+    }}
+    if (!currentDate) throw new Error('HTMLから日付を検出できませんでした。scripts/fortune_meet_html_to_plan_json.py --date YYYY-MM-DD で変換してください。');
+    const part = Number(match[4]);
+    const name = match[5].replace(/[\s　]+/g, '');
+    const count = Number(match[6]);
+    const members = groups.get(currentDate) || new Map();
+    const slots = members.get(name) || new Map();
+    slots.set(part, (slots.get(part) || 0) + count);
+    members.set(name, slots);
+    groups.set(currentDate, members);
+  }}
+  if (!groups.size) throw new Error('HTMLから第N部・メンバー名・枚数の行を検出できませんでした。');
+  return {{
+    version: 1,
+    items: Array.from(groups.entries()).sort((a, b) => a[0].localeCompare(b[0])).map(([date, members]) => ({{
+      date,
+      event: eventName,
+      attending: true,
+      members: Array.from(members.entries()).map(([name, slots]) => ({{
+        name,
+        slots: Array.from(slots.entries()).sort((a, b) => a[0] - b[0]).map(([part, count]) => `${{part}}:${{count}}`).join(',')
+      }}))
+    }}))
+  }};
+}};
+const normalizePlan = (raw) => {{
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new Error('JSONの最上位は object にしてください。');
+  const items = Array.isArray(raw.items) ? raw.items : null;
+  if (!items) throw new Error('items 配列が見つかりません。');
+  return {{
+    version: raw.version || 1,
+    items: items.map((item, index) => {{
+      if (!item || typeof item !== 'object' || Array.isArray(item)) throw new Error(`items[${{index}}] は object にしてください。`);
+      const normalized = {{
+        date: String(item.date || '').trim(),
+        event: String(item.event || item.title || '').trim(),
+        attending: item.attending === false ? false : true,
+        memo: String(item.memo || '').trim(),
+        members: Array.isArray(item.members) ? item.members.map((member) => ({{
+          name: String(member && (member.name || member.member) || '').trim(),
+          name2: String(member && (member.name2 || member.secondName || member.pairName || '') || '').trim(),
+          slots: String(member && (member.slots || member.parts || '') || '').trim()
+        }})) : []
+      }};
+      if (!normalized.members.length && (item.member || item.parts || item.tickets)) {{
+        const parts = String(item.parts || '').trim();
+        const tickets = String(item.tickets || '').trim();
+        normalized.members = [{{name: String(item.member || '').trim(), slots: parts || tickets ? `${{parts}}:${{tickets}}` : ''}}];
+      }}
+      if (!/^\\d{{4}}-\\d{{2}}-\\d{{2}}$/.test(normalized.date)) throw new Error(`items[${{index}}].date は YYYY-MM-DD 形式にしてください。`);
+      return normalized;
+    }}).sort((a, b) => itemSortKey(a).localeCompare(itemSortKey(b)))
+  }};
+}};
+const mergePlans = (...plans) => {{
+  const mergedItems = [];
+  const byKey = new Map();
+  const mergeMember = (target, source) => {{
+    const name = String(source.name || '').trim();
+    if (!name) return;
+    let member = target.members.find((candidate) => candidate.name === name);
+    if (!member) {{
+      member = {{name, slots: ''}};
+      target.members.push(member);
+    }}
+    const slots = slotTextToMap(member.slots);
+    for (const [part, count] of slotTextToMap(source.slots).entries()) slots.set(part, (slots.get(part) || 0) + count);
+    member.slots = slotMapToText(slots) || member.slots || source.slots || '';
+  }};
+  for (const plan of plans.filter(Boolean)) {{
+    for (const item of normalizePlan(plan).items) {{
+      const key = `${{item.date}}\n${{item.event || ''}}`;
+      let target = byKey.get(key);
+      if (!target) {{
+        target = {{date: item.date, event: item.event, attending: item.attending, memo: item.memo || '', members: []}};
+        byKey.set(key, target);
+        mergedItems.push(target);
+      }} else {{
+        target.attending = target.attending !== false || item.attending !== false;
+        if (item.memo && !target.memo) target.memo = item.memo;
+      }}
+      for (const member of item.members || []) mergeMember(target, member);
+    }}
+  }}
+  return normalizePlan({{version: 1, items: mergedItems}});
+}};
+const getPanelForCell = (cell) => {{
+  const panelId = cell?.dataset.month;
+  return panelId ? root.querySelector(`[data-panel-month='${{CSS.escape(panelId)}}']`) : null;
+}};
+const getChipNamesFromCell = (cell) => {{
+  const names = Array.from(cell?.querySelectorAll('.chip-text') || [])
+    .map((node) => node.textContent.trim())
+    .filter(Boolean);
+  return Array.from(new Set(names));
+}};
+const cleanEventName = (value) => String(value || '').replace(/^(LIVE|EVENT):\\s*/, '').trim();
+const getEventNamesFromCell = (cell) => {{
+  const panel = getPanelForCell(cell);
+  const detailNames = Array.from(panel?.querySelectorAll('.detail-item') || [])
+    .map((item) => {{
+      const label = cleanEventName(item.querySelector('.detail-label')?.textContent || '');
+      const sub = String(item.querySelector('.detail-sub')?.textContent || '').trim();
+      return [label, sub].filter(Boolean).join(' / ');
+    }})
+    .filter(Boolean);
+  const names = detailNames.length ? detailNames : getChipNamesFromCell(cell);
+  return Array.from(new Set(names));
+}};
+const isMeetEventName = (eventName) => /ミーグリ|ミート＆グリート|リアルミーグリ/.test(eventName || '');
+const syncPlanDetailCollapse = (panel, collapsed = true) => {{
+  if (!panel) return;
+  panel.classList.toggle('plan-detail-collapsed', collapsed);
+  const button = panel.querySelector('[data-plan-detail-toggle]');
+  if (button) {{
+    button.setAttribute('aria-expanded', String(!collapsed));
+    button.textContent = collapsed ? '詳細を展開' : '詳細を閉じる';
+  }}
+  const title = panel.querySelector('.detail-title');
+  if (title && title.textContent.trim()) {{
+    title.setAttribute('role', 'button');
+    title.setAttribute('tabindex', '0');
+    title.setAttribute('aria-expanded', String(!collapsed));
+    title.setAttribute('title', collapsed ? '詳細を展開' : '詳細を閉じる');
+  }}
+}};
+const togglePlanDetail = (panel) => {{
+  if (!panel) return;
+  const collapsed = !panel.classList.contains('plan-detail-collapsed');
+  syncPlanDetailCollapse(panel, collapsed);
+}};
+const wirePlanTitleToggle = (panel) => {{
+  const title = panel?.querySelector('.detail-title');
+  if (!title || title.dataset.planDetailTitleToggle === 'true') return;
+  title.dataset.planDetailTitleToggle = 'true';
+  title.addEventListener('click', () => togglePlanDetail(panel));
+  title.addEventListener('keydown', (event) => {{
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    togglePlanDetail(panel);
+  }});
+}};
+const compactPlanItem = (item) => {{
+  const compact = {{date: item.date, event: item.event || '', attending: item.attending !== false}};
+  if (isMeetEventName(item.event)) {{
+    compact.members = Array.isArray(item.members) ? item.members
+      .filter((member) => (member.name || '').trim() || (member.name2 || '').trim() || (member.slots || '').trim())
+      .map((member) => ({{name: member.name || '', name2: member.name2 || '', slots: member.slots || ''}})) : [];
+  }} else {{
+    compact.memo = item.memo || '';
+  }}
+  return compact;
+}};
+const getSortedItems = () => Array.from(planItemsByDate.values()).flat().sort((a, b) => itemSortKey(a).localeCompare(itemSortKey(b)));
+const countCalendarOutsideItems = () => getSortedItems().filter((item) => !root.querySelector(`[data-date='${{CSS.escape(item.date)}}']`)).length;
+const withCalendarOutsideLog = (message, suffix = '') => {{
+  const outside = countCalendarOutsideItems();
+  return `${{message}}${{outside ? ` / カレンダー外 ${{outside}}件` : ''}}${{suffix}}`;
+}};
+const updateCurrentItem = (date, index, field, value) => {{
+  const items = planItemsByDate.get(date);
+  const item = items && items[index];
+  if (!item) return;
+  if (field === 'attending') {{
+    item.attending = value === true || value === 'true';
+  }} else {{
+    item[field] = value;
+  }}
+}};
+const ensureMembers = (item) => {{
+  if (!Array.isArray(item.members)) item.members = [];
+  if (!item.members.length) item.members.push({{name: '', slots: ''}});
+  return item.members;
+}};
+const updateMemberItem = (date, itemIndex, memberIndex, field, value) => {{
+  const item = (planItemsByDate.get(date) || [])[itemIndex];
+  if (!item) return;
+  const members = ensureMembers(item);
+  if (!members[memberIndex]) members[memberIndex] = {{name: '', slots: ''}};
+  members[memberIndex][field] = value;
+}};
+const renderMemberOptions = (selected) => ["", ...memberOptions].map((member) => `<option value='${{escapeHtml(member)}}' ${{member === selected ? 'selected' : ''}}>${{escapeHtml(member || '選択')}}</option>`).join('');
+const isNationwideMeetEventName = (eventName) => /ミーグリ\(全国\)|オンラインミーグリ\(全国\)|全国/.test(eventName || '');
+const formatMemberDisplayName = (member) => {{
+  const first = String(member && member.name || '').trim();
+  const second = String(member && member.name2 || '').trim();
+  return [first, second].filter(Boolean).join('・');
+}};
+const renderMemberRows = (item, itemIndex) => {{
+  const nationwide = isNationwideMeetEventName(item.event);
+  return ensureMembers(item).map((member, memberIndex) => `
+  <div class='plan-member-row ${{nationwide ? 'plan-member-row-wide' : ''}}' data-plan-member-index='${{memberIndex}}'>
+    <select data-plan-edit-member aria-label='メンバー1'><option value=''>${{nationwide ? 'メンバー1' : '選択'}}</option>${{memberOptions.map((name) => `<option value='${{escapeHtml(name)}}' ${{name === member.name ? 'selected' : ''}}>${{escapeHtml(name)}}</option>`).join('')}}</select>
+    ${{nationwide ? `<select data-plan-edit-member2 aria-label='メンバー2'><option value=''>メンバー2（任意）</option>${{memberOptions.map((name) => `<option value='${{escapeHtml(name)}}' ${{name === member.name2 ? 'selected' : ''}}>${{escapeHtml(name)}}</option>`).join('')}}</select>` : ''}}
+    <label class='plan-slots-field'>
+      <input type='text' inputmode='numeric' pattern='[0-9:,、， ]*' data-plan-edit-slots value='${{escapeHtml(member.slots || '')}}' placeholder='例 1:3,2:5'>
+      <span>${{nationwide ? '全国: 1枚で2人と話せる枠は2人目も選択' : '例: 1:3=1部3枚、2:5=2部5枚'}}</span>
+    </label>
+    <button class='plan-member-remove' type='button' data-plan-member-remove>削除</button>
+  </div>`).join('');
+}};
+const refreshSelectedEditor = (date) => setSelectedEditor(date, planItemsByDate.get(date) || []);
+const refreshPlanCellState = (date) => {{
+  const items = planItemsByDate.get(date) || [];
+  const activeCount = items.filter((item) => item.attending !== false).length;
+  const slotNotes = planConfirmed ? getConfirmedSlotNotes(items) : [];
+  for (const cell of root.querySelectorAll(`[data-date='${{CSS.escape(date)}}']`)) {{
+    cell.classList.toggle('plan-participating', activeCount > 0);
+    cell.querySelector('.plan-slot-notes')?.remove();
+    if (activeCount > 0) {{
+      cell.dataset.planCount = String(activeCount);
+      cell.title = `参加予定 ${{activeCount}}件`;
+      if (slotNotes.length) {{
+        const note = document.createElement('div');
+        note.className = 'plan-slot-notes';
+        note.innerHTML = slotNotes.map((line) => `<span>${{escapeHtml(line)}}</span>`).join('');
+        (cell.querySelector('.chips') || cell).appendChild(note);
+      }}
+    }} else {{
+      cell.removeAttribute('data-plan-count');
+      cell.removeAttribute('title');
+    }}
+  }}
+}};
+const syncCurrentPlanFromMap = () => {{
+  if (!currentPlan) currentPlan = {{version: 1, items: []}};
+  currentPlan.items = getSortedItems().map(compactPlanItem);
+  status.textContent = withCalendarOutsideLog(`${{currentPlan.items.length}}件を編集中`);
+  downloadButton.disabled = false;
+  if (savePageButton) savePageButton.disabled = currentPlan.items.length === 0;
+  if (confirmToggle) confirmToggle.disabled = currentPlan.items.length === 0;
+  renderConfirmedList();
+}};
+const refreshAllPlanCells = () => {{
+  for (const date of planItemsByDate.keys()) refreshPlanCellState(date);
+}};
+const setPlanConfirmed = (confirmed) => {{
+  planConfirmed = confirmed;
+  root.classList.toggle('plan-confirmed', planConfirmed);
+  if (confirmToggle) confirmToggle.textContent = planConfirmed ? '編集に戻る' : '表示を確定';
+  refreshAllPlanCells();
+  renderConfirmedList();
+}};
+const ensureEditableItemsForCell = (cell) => {{
+  const date = cell?.dataset.date;
+  if (!date) return [];
+  let items = planItemsByDate.get(date);
+  const eventNames = getEventNamesFromCell(cell);
+  if (!items || !items.length) {{
+    items = (eventNames.length ? eventNames : ['カレンダー予定']).map((eventName) => ({{
+      date,
+      event: eventName,
+      attending: false,
+      memo: '',
+      members: []
+    }}));
+    planItemsByDate.set(date, items);
+    refreshPlanCellState(date);
+    syncCurrentPlanFromMap();
+  }} else {{
+    for (const [index, item] of items.entries()) {{
+      if (!item.event) item.event = eventNames[index] || eventNames[0] || 'カレンダー予定';
+    }}
+  }}
+  return items;
+}};
+const setSelectedEditor = (date, items) => {{
+  const cell = root.querySelector(`[data-date='${{CSS.escape(date)}}']`);
+  const panel = getPanelForCell(cell);
+  if (!panel) return;
+  let block = panel.querySelector('.plan-selected-editor');
+  if (!block) {{
+    block = document.createElement('section');
+    block.className = 'plan-selected-editor';
+    const detailList = panel.querySelector('.detail-list');
+    panel.insertBefore(block, detailList || panel.firstChild);
+  }}
+  const cards = items.map((item, index) => {{
+    const eventName = item.event || getEventNamesFromCell(cell)[index] || 'カレンダー予定';
+    item.event = eventName;
+    const isMeet = isMeetEventName(eventName);
+    const meetFields = `
+      <div class='plan-member-list'>${{renderMemberRows(item, index)}}</div>
+      <button class='plan-member-add' type='button' data-plan-member-add>＋ メンバー追加</button>`;
+    const memoField = `<label class='plan-edit-row plan-edit-row-memo'><span class='plan-edit-label'>メモ</span><textarea data-plan-edit-memo rows='2'>${{escapeHtml(item.memo || '')}}</textarea></label>`;
+    return `
+    <div class='plan-edit-card' data-plan-edit-index='${{index}}'>
+      <div class='plan-edit-event'>${{escapeHtml(eventName)}}</div>
+      <label class='plan-attending-check'><input type='checkbox' data-plan-edit-attending ${{item.attending !== false ? 'checked' : ''}}>参加</label>
+      ${{isMeet ? meetFields : memoField}}
+    </div>`;
+  }}).join('');
+  block.innerHTML = `<div class='plan-selected-editor-title'>参加メモ</div><div class='plan-edit-row'><span class='plan-edit-label'>日付</span><span class='plan-edit-static'>${{escapeHtml(date)}}</span></div>${{cards}}<button class='plan-detail-toggle' type='button' data-plan-detail-toggle aria-expanded='false'>詳細を展開</button>`;
+  block.hidden = false;
+  wirePlanTitleToggle(panel);
+  syncPlanDetailCollapse(panel, true);
+  block.querySelector('[data-plan-detail-toggle]')?.addEventListener('click', () => togglePlanDetail(panel));
+  for (const card of block.querySelectorAll('.plan-edit-card')) {{
+    const index = Number(card.dataset.planEditIndex || '0');
+    card.querySelector('[data-plan-edit-attending]')?.addEventListener('change', (event) => {{
+      updateCurrentItem(date, index, 'attending', event.target.checked);
+      refreshPlanCellState(date);
+      syncCurrentPlanFromMap();
+    }});
+    card.querySelector('[data-plan-edit-memo]')?.addEventListener('input', (event) => {{
+      updateCurrentItem(date, index, 'memo', event.target.value);
+      syncCurrentPlanFromMap();
+    }});
+    for (const row of card.querySelectorAll('.plan-member-row')) {{
+      const memberIndex = Number(row.dataset.planMemberIndex || '0');
+      row.querySelector('[data-plan-edit-member]')?.addEventListener('change', (event) => {{
+        updateMemberItem(date, index, memberIndex, 'name', event.target.value);
+        refreshPlanCellState(date);
+        syncCurrentPlanFromMap();
+      }});
+      row.querySelector('[data-plan-edit-member2]')?.addEventListener('change', (event) => {{
+        updateMemberItem(date, index, memberIndex, 'name2', event.target.value);
+        refreshPlanCellState(date);
+        syncCurrentPlanFromMap();
+      }});
+      row.querySelector('[data-plan-edit-slots]')?.addEventListener('input', (event) => {{
+        updateMemberItem(date, index, memberIndex, 'slots', event.target.value);
+        refreshPlanCellState(date);
+        syncCurrentPlanFromMap();
+      }});
+      row.querySelector('[data-plan-member-remove]')?.addEventListener('click', () => {{
+        const item = (planItemsByDate.get(date) || [])[index];
+        if (!item) return;
+        ensureMembers(item).splice(memberIndex, 1);
+        if (!item.members.length) item.members.push({{name: '', name2: '', slots: ''}});
+        refreshSelectedEditor(date);
+        refreshPlanCellState(date);
+        syncCurrentPlanFromMap();
+      }});
+    }}
+    card.querySelector('[data-plan-member-add]')?.addEventListener('click', () => {{
+      const item = (planItemsByDate.get(date) || [])[index];
+      if (!item) return;
+      ensureMembers(item).push({{name: '', name2: '', slots: ''}});
+      refreshSelectedEditor(date);
+      refreshPlanCellState(date);
+      syncCurrentPlanFromMap();
+    }});
+  }}
+}};
+const clearSelectedEditor = () => {{
+  for (const block of root.querySelectorAll('.plan-selected-editor')) {{
+    block.hidden = true;
+    block.innerHTML = '';
+  }}
+  for (const panel of root.querySelectorAll('.day-detail')) syncPlanDetailCollapse(panel, true);
+}};
+const applyPlanToCalendar = (plan) => {{
+  planItemsByDate = new Map();
+  for (const cell of root.querySelectorAll('.day-cell.plan-participating')) {{
+    cell.classList.remove('plan-participating');
+    cell.removeAttribute('data-plan-count');
+    cell.querySelector('.plan-slot-notes')?.remove();
+  }}
+  clearSelectedEditor();
+  for (const item of plan.items) {{
+    const items = planItemsByDate.get(item.date) || [];
+    items.push(item);
+    planItemsByDate.set(item.date, items);
+  }}
+  for (const date of planItemsByDate.keys()) {{
+    const cells = root.querySelectorAll(`[data-date='${{CSS.escape(date)}}']`);
+    if (!cells.length) continue;
+    refreshPlanCellState(date);
+  }}
+  status.textContent = withCalendarOutsideLog(`${{plan.items.length}}件を読み込み`);
+  downloadButton.disabled = false;
+  if (savePageButton) savePageButton.disabled = plan.items.length === 0;
+  if (confirmToggle) confirmToggle.disabled = plan.items.length === 0;
+  setPlanConfirmed(false);
+}};
+const showError = (message) => {{
+  clearSelectedEditor();
+  for (const cell of root.querySelectorAll('.day-cell.plan-participating')) {{
+    cell.classList.remove('plan-participating');
+    cell.querySelector('.plan-slot-notes')?.remove();
+  }}
+  planItemsByDate = new Map();
+  status.textContent = `読み込みエラー: ${{message}}`;
+  downloadButton.disabled = true;
+  if (savePageButton) savePageButton.disabled = true;
+  if (confirmToggle) confirmToggle.disabled = true;
+  setPlanConfirmed(false);
+}};
+fileInput?.addEventListener('change', async () => {{
+  const files = Array.from(fileInput.files || []);
+  if (!files.length) return;
+  currentFilename = files.length === 1 ? (files[0].name || currentFilename) : 'sakurazaka46_plan.json';
+  try {{
+    const loadedPlans = [];
+    for (const file of files) {{
+      const text = await file.text();
+      const isHtml = /\.html?$/i.test(file.name || '') || /^text\/html/i.test(file.type || '');
+      loadedPlans.push(isHtml ? planFromFortuneHtml(text, file.name) : JSON.parse(text));
+    }}
+    currentPlan = mergePlans(currentPlan, ...loadedPlans);
+    applyPlanToCalendar(currentPlan);
+    status.textContent = withCalendarOutsideLog(`${{currentPlan.items.length}}件を読み込み`, files.length > 1 ? ` / ${{files.length}}ファイルをマージ` : '');
+  }} catch (error) {{
+    currentPlan = null;
+    showError(error && error.message ? error.message : String(error));
+  }}
+}});
+root.addEventListener('click', (event) => {{
+  const cell = event.target.closest('[data-date]');
+  if (!cell || !root.contains(cell)) return;
+  setTimeout(() => {{
+    const panel = getPanelForCell(cell);
+    syncPlanDetailCollapse(panel, true);
+    const items = ensureEditableItemsForCell(cell);
+    if (items.length) {{
+      setSelectedEditor(cell.dataset.date, items);
+    }} else {{
+      clearSelectedEditor();
+    }}
+  }}, 0);
+}});
+confirmToggle?.addEventListener('click', () => {{
+  if (confirmToggle.disabled) return;
+  setPlanConfirmed(!planConfirmed);
+}});
+downloadButton?.addEventListener('click', async () => {{
+  if (!currentPlan) return;
+  syncCurrentPlanFromMap();
+  const blob = new Blob([JSON.stringify(currentPlan, null, 2) + '\\n'], {{type: 'application/json'}});
+  try {{
+    await saveBlob(blob, currentFilename || 'sakurazaka46_plan.json');
+    status.textContent = withCalendarOutsideLog(`${{currentPlan.items.length}}件のJSONを保存`, countCalendarOutsideItems() ? 'も含む' : '');
+  }} catch (error) {{
+    if (error && error.name === 'AbortError') return;
+    status.textContent = `保存エラー: ${{error && error.message ? error.message : String(error)}}`;
+  }}
+}});
+savePageButton?.addEventListener('click', async () => {{
+  if (!currentPlan) return;
+  syncCurrentPlanFromMap();
+  setPlanConfirmed(true);
+  const pageHtml = buildConfirmedPageHtml();
+  const blob = new Blob([pageHtml], {{type: 'text/html'}});
+  const suggested = (currentFilename || 'sakurazaka46_plan.json').replace(/\.(json|html?)$/i, '') + '_confirmed.html';
+  try {{
+    await saveBlob(blob, suggested);
+    status.textContent = countCalendarOutsideItems() ? `表示確定ページを保存 / カレンダー外 ${{countCalendarOutsideItems()}}件はHTMLから除外` : '表示確定ページを保存';
+  }} catch (error) {{
+    if (error && error.name === 'AbortError') return;
+    status.textContent = `ページ保存エラー: ${{error && error.message ? error.message : String(error)}}`;
+  }}
+}});
+}};
+if (document.readyState === 'loading') {{
+  document.addEventListener('DOMContentLoaded', initPlanTools, {{once:true}});
+}} else {{
+  initPlanTools();
+}}
+</script>"""
+
+def render_combined_html(live_html: str, event_html: str, all_html: str | None = None, next14_html: str | None = None, plan_html: str | None = None) -> str:
     live_style, live_body, live_script = extract_calendar_parts(live_html)
     _event_style, event_body, event_script = extract_calendar_parts(event_html)
     all_body = all_script = None
     if all_html is not None:
         _all_style, all_body, all_script = extract_calendar_parts(all_html)
+    plan_body = plan_script = None
+    if plan_html is None and all_html is not None:
+        plan_html = all_html
+    if plan_html is not None:
+        _plan_style, plan_body, plan_script = extract_calendar_parts(plan_html)
     root_setup_re = re.compile(
         r"const scriptElement = document\.currentScript;\n"
         r"const rootMode = scriptElement && scriptElement\.dataset \? scriptElement\.dataset\.rootMode : '';\n"
@@ -2076,12 +2804,14 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 .calendar-view:not([data-mode='next14']) .day-cell.clickable:has(.detail-target:target){background-color:#f3f5ff!important;background-image:none!important;box-shadow:none!important;border-color:var(--line)!important}
 .calendar-view:not([data-mode='next14']) .day-cell.clickable.today:has(.detail-target:target){background-color:rgba(201,183,255,.14)!important;background-image:none!important;box-shadow:none!important;border-color:var(--line)!important}
 .next14-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 44px rgba(30,30,28,.05);padding:16px;overflow:hidden}.next14-title{font-size:clamp(26px,3vw,34px);line-height:1;font-weight:600;letter-spacing:-.035em;color:#3b3a36}.next14-range{margin-top:8px;color:var(--muted);font-size:13px}.next14-list{display:grid;gap:8px;margin-top:16px}.next14-row{border:1px solid rgba(231,229,222,.86);border-radius:18px;background:#fff;overflow:hidden}.next14-row.next14-today{box-shadow:inset 0 0 0 1px rgba(201,183,255,.42);background:rgba(201,183,255,.08)}.next14-row-main{width:100%;display:grid;grid-template-columns:92px 1fr;align-items:center;gap:10px;padding:10px 12px;border:none;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer}.next14-row-main:disabled{cursor:default}.next14-date{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap}.next14-date.next14-weekend{color:var(--weekend)}.next14-items{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.next14-items .chip{align-self:auto;display:inline-flex;max-width:100%;padding:3px 7px 4px}.next14-empty{color:var(--muted);font-size:13px}.next14-detail{border-top:1px solid rgba(0,0,0,.06);padding:10px 12px 12px;background:linear-gradient(180deg,#fcfcfa,#f8f8f5)}.next14-detail[hidden]{display:none}.next14-detail-item{padding-top:8px;border-top:1px solid rgba(0,0,0,.05)}.next14-detail-item:first-child{padding-top:0;border-top:none}.next14-source a{color:inherit}@media (max-width:520px){.next14-row-main{grid-template-columns:74px 1fr;padding:9px 10px}.next14-date{font-size:13px}.next14-card{padding:12px;border-radius:22px}.next14-items .chip .chip-text{display:block;white-space:normal;overflow:visible;text-overflow:clip}.next14-items .chip{font-size:10px;line-height:1.12;padding:3px 6px}.next14-items{gap:4px}}
+.plan-tools{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 16px 40px rgba(30,30,28,.06);padding:16px 18px;margin:0 0 18px}.plan-tools-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}.plan-tools-title{font-size:18px;margin:0 0 6px;font-weight:700;color:#3b3a36}.plan-tools-copy{margin:0;color:var(--muted);font-size:14px;line-height:1.7;max-width:68ch}.plan-howto{margin:10px 0 0;padding-left:1.25em;color:var(--muted);font-size:13px;line-height:1.65;max-width:78ch}.plan-howto code{background:rgba(0,0,0,.05);border-radius:6px;padding:1px 5px;color:#3b3a36}.plan-tools-actions{display:flex;gap:8px;flex-wrap:wrap}.plan-file-button{display:inline-flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:999px;border:1px solid #1e1e1c;background:#1e1e1c;color:#fff;font-size:13px;font-weight:700;padding:9px 14px;cursor:pointer;text-decoration:none}.plan-file-button input{position:absolute;inset:0;opacity:0;cursor:pointer}.plan-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}.plan-download,.plan-detail-toggle,.plan-confirm-toggle,.plan-save-page{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer}.plan-confirm-toggle{background:#1e1e1c;color:#fff;border-color:#1e1e1c}.plan-download:disabled,.plan-confirm-toggle:disabled,.plan-save-page:disabled{opacity:.45;cursor:default}.plan-status{color:var(--muted);font-size:13px}.plan-confirmed-list{margin-top:12px;border-top:1px solid rgba(0,0,0,.06);padding-top:10px;display:grid;gap:6px}.plan-confirmed-list[hidden]{display:none}.plan-confirmed-list-title{font-size:13px;font-weight:800;color:#3b3a36}.plan-confirmed-list-item{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;font-size:13px;line-height:1.5;color:#3b3a36}.plan-confirmed-list-item span:first-child{color:var(--muted);font-weight:700}.calendar-view[data-mode='plan'] .day-cell.plan-participating{background-color:rgba(201,183,255,.16)!important;background-image:none!important;box-shadow:inset 0 0 0 1px rgba(91,110,240,.20)!important}.calendar-view[data-mode='plan'] .day-cell.plan-participating::before{content:'参加';position:absolute;right:5px;top:5px;border-radius:999px;background:#1e1e1c;color:#fff;font-size:10px;font-weight:800;letter-spacing:.03em;line-height:1;padding:4px 6px;z-index:3;box-shadow:0 5px 14px rgba(30,30,28,.14)}.calendar-view[data-mode='plan'] .plan-slot-notes{display:grid;gap:2px;margin-top:3px;color:#8a4060;font-size:10px;font-weight:700;line-height:1.25;text-align:center;white-space:normal}.calendar-view[data-mode='plan'] .plan-slot-notes span{display:block;overflow:hidden;text-overflow:ellipsis}.calendar-view[data-mode='plan'].plan-confirmed .plan-selected-editor,.calendar-view[data-mode='plan'].plan-confirmed .day-detail{display:none!important}.calendar-view[data-mode='plan'] .day-cell.plan-participating.active,.calendar-view[data-mode='plan'] .day-cell.plan-participating:has(.detail-target:target){background-color:rgba(201,183,255,.34)!important}.calendar-view[data-mode='plan'] .detail-sections{display:none}.calendar-view[data-mode='plan'] .detail-title{display:none!important}.calendar-view[data-mode='plan'] .day-detail.plan-detail-collapsed .detail-list{display:none}.plan-selected-editor{margin-top:12px;border:1px solid rgba(91,110,240,.18);border-radius:16px;background:#fff;padding:12px;display:grid;gap:10px}.plan-selected-editor[hidden]{display:none}.plan-selected-editor-title{font-size:13px;font-weight:700;color:#3b3a36}.plan-edit-card{display:grid;gap:8px;border-top:1px solid rgba(0,0,0,.05);padding-top:10px}.plan-edit-card:first-of-type{border-top:none;padding-top:0}.plan-edit-event{font-size:13px;font-weight:700;color:#3b3a36;line-height:1.5}.plan-edit-row{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;gap:8px}.plan-edit-row-memo{align-items:start}.plan-edit-label{color:var(--muted);font-size:12px;font-weight:700}.plan-edit-static{font-size:13px;line-height:1.5;color:#3b3a36}.plan-edit-row select,.plan-edit-row textarea,.plan-edit-row input{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);font:inherit;font-size:13px;padding:8px 10px}.plan-edit-row textarea{resize:vertical;line-height:1.5}.plan-attending-check{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700}.plan-attending-check input{width:auto}.plan-member-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto;gap:8px;align-items:center}.plan-member-row.plan-member-row-wide{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) auto}.plan-member-row select,.plan-member-row input{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);font:inherit;font-size:13px;padding:8px 10px}.plan-slots-field{display:grid;gap:3px}.plan-slots-field span{color:var(--muted);font-size:11px;line-height:1.35}.plan-member-remove,.plan-member-add{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;font-size:13px;font-weight:700;padding:8px 10px;cursor:pointer}.plan-member-add{justify-self:start}.plan-detail-toggle{justify-self:start;margin-top:2px}@media (max-width:520px){.plan-tools{padding:14px;border-radius:22px}.plan-file-button,.plan-download,.plan-save-page,.plan-confirm-toggle{width:100%}.plan-edit-row{grid-template-columns:48px minmax(0,1fr)}.plan-confirmed-list-item{grid-template-columns:1fr}.calendar-view[data-mode='plan'] .day-cell.plan-participating::before{font-size:12px;padding:6px 10px}.plan-member-row{grid-template-columns:1fr}.plan-member-remove{justify-self:start}}
 """
     live_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
       <div class='mode-switch-inner'>
         <a class='mode-button active' href='?mode=live' aria-current='page'>LIVE</a>
         <a class='mode-button' href='?mode=event'>EVENT</a>
         <a class='mode-button' href='?mode=all'>ALL</a>
+        <a class='mode-button' href='?mode=plan'>PLAN</a>
         <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
@@ -2090,6 +2820,7 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
         <a class='mode-button' href='?mode=live'>LIVE</a>
         <a class='mode-button active' href='?mode=event' aria-current='page'>EVENT</a>
         <a class='mode-button' href='?mode=all'>ALL</a>
+        <a class='mode-button' href='?mode=plan'>PLAN</a>
         <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
@@ -2098,6 +2829,16 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
         <a class='mode-button' href='?mode=live'>LIVE</a>
         <a class='mode-button' href='?mode=event'>EVENT</a>
         <a class='mode-button active' href='?mode=all' aria-current='page'>ALL</a>
+        <a class='mode-button' href='?mode=plan'>PLAN</a>
+        <a class='mode-button' href='?mode=next14'>直近2週間</a>
+      </div>
+    </nav>"""
+    plan_mode_switch_html = """<nav class='mode-switch' aria-label='表示切替'>
+      <div class='mode-switch-inner'>
+        <a class='mode-button' href='?mode=live'>LIVE</a>
+        <a class='mode-button' href='?mode=event'>EVENT</a>
+        <a class='mode-button' href='?mode=all'>ALL</a>
+        <a class='mode-button active' href='?mode=plan' aria-current='page'>PLAN</a>
         <a class='mode-button' href='?mode=next14'>直近2週間</a>
       </div>
     </nav>"""
@@ -2105,6 +2846,9 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
     event_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + event_mode_switch_html, event_body, count=1, flags=re.S)
     if all_body is not None:
         all_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + all_mode_switch_html, all_body, count=1, flags=re.S)
+    if plan_body is not None:
+        plan_body = re.sub(r"(<h1>.*?</h1>)", r"\1\n    " + plan_mode_switch_html, plan_body, count=1, flags=re.S)
+        plan_body = re.sub(r"(<nav class='month-nav'>)", lambda match: render_plan_tools_html() + "\n  " + match.group(1), plan_body, count=1)
     all_section = ""
     if all_body is not None and all_script is not None:
         all_section = f"""
@@ -2116,6 +2860,18 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 {all_script}
   </script>
 </section>"""
+    plan_section = ""
+    if plan_body is not None and plan_script is not None:
+        plan_section = f"""
+<section class='calendar-view' data-mode='plan' hidden>
+  <div class='page'>
+{plan_body}
+  </div>
+  <script data-root-mode='plan'>
+{plan_script}
+  </script>
+</section>"""
+    next14_section = (next14_html or "").replace("data-mode='next14' hidden", "data-mode='next14'", 1)
     return f"""<!doctype html>
 <html lang='ja'>
 <head>
@@ -2128,7 +2884,7 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
 </style>
 </head>
 <body>
-<section class='calendar-view' data-mode='live'>
+<section class='calendar-view' data-mode='live' hidden>
   <div class='page'>
 {live_body}
   </div>
@@ -2145,10 +2901,11 @@ def render_combined_html(live_html: str, event_html: str, all_html: str | None =
   </script>
 </section>
 {all_section}
-{next14_html or ''}
+{plan_section}
+{next14_section}
 <script>
 const requestedMode = new URL(document.URL).searchParams.get('mode');
-const selectedMode = ['live', 'event', 'all', 'next14'].includes(requestedMode) ? requestedMode : 'live';
+const selectedMode = ['live', 'event', 'all', 'plan', 'next14'].includes(requestedMode) ? requestedMode : 'next14';
 for (const view of document.querySelectorAll('.calendar-view')) {{
   view.hidden = view.dataset.mode !== selectedMode;
 }}
@@ -2229,8 +2986,24 @@ def main(argv: list[str] | None = None) -> None:
             primary_meta_label="開催情報",
             ticket_meta_label="応募・締切情報",
         )
+        plan_months = build_plan_months(combined_months, all_display_months)
+        plan_html = render_mode_html(
+            plan_months,
+            {},
+            {},
+            display_months=all_display_months,
+            holidays_by_month=holidays_by_month_all,
+            page_title="櫻坂46 カレンダー",
+            hero_copy="参加できる可能性のある予定をまとめています。",
+            list_label="",
+            live_meaning="開催",
+            ticket_meaning="",
+            deadline_meaning="",
+            primary_meta_label="候補予定",
+            ticket_meta_label="応募・締切情報",
+        )
         next14_html = render_next14_html(months, event_months, all_display_months)
-        OUTPUT_HTML.write_text(render_combined_html(live_html, event_html, all_html, next14_html))
+        OUTPUT_HTML.write_text(render_combined_html(live_html, event_html, all_html, next14_html, plan_html=plan_html))
     else:
         OUTPUT_HTML.write_text(live_html)
     WORKFLOW_MD.write_text(render_workflow(live_display_months, holiday_template_paths))

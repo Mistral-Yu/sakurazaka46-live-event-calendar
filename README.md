@@ -11,6 +11,14 @@ https://mistral-yu.github.io/sakurazaka46-live-event-calendar/
 - ライブ日程・チケット抽選・関連イベントを月ごとに確認できます
 - スマホ表示とICS購読に対応しています
 
+## PLAN用JSON/HTMLの読み込み
+
+PLANタブでは、自分用の参加メモJSONや、forTUNE music（フォーチュンミュージック）の申込/抽選結果ページを保存したHTMLをブラウザ内だけで読み込めます。ファイルは外部送信されません。
+
+forTUNE musicのHTMLは、対象ページをブラウザで開き、`Ctrl+S` / `⌘+S` でHTMLファイルとして保存してから、PLANタブの `Upload JSON/HTML` で選択します。複数ファイルはCtrl/⌘選択でまとめて追加できます。
+
+カレンダーにない日付は `カレンダー外 n件` と表示します。`Save JSON` にはそのまま含め、`Save Page` のHTML保存ではカレンダー外の予定を除外します。
+
 ## ICSカレンダー購読
 
 ### 購読URL
