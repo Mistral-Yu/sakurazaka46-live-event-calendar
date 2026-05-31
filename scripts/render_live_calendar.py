@@ -1634,8 +1634,19 @@ const shouldUseNativeHash = isCoarsePointer;
 const getDetailKeyFromLocation = () => new URLSearchParams(window.location.search).get('d') || window.location.hash.slice(1);
 const isMonthHash = (value) => /^m[0-9]{{2}}$/.test(value || '') || /^m[0-9]{{6}}$/.test(value || '');
 const getCurrentDate = () => {{
-  const now = new Date();
-  return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const parts = new Intl.DateTimeFormat('en-CA', {{timeZone:'Asia/Tokyo', year:'numeric', month:'2-digit', day:'2-digit'}}).formatToParts(new Date());
+  const values = Object.fromEntries(parts.filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+  return new Date(Number(values.year), Number(values.month) - 1, Number(values.day));
+}};
+const dateKeyFromDate = (date) => `${{date.getFullYear()}}-${{String(date.getMonth() + 1).padStart(2, '0')}}-${{String(date.getDate()).padStart(2, '0')}}`;
+const applyTodayHighlight = () => {{
+  const todayKey = dateKeyFromDate(getCurrentDate());
+  for (const cell of root.querySelectorAll('.day-cell.today')) {{
+    cell.classList.remove('today');
+  }}
+  for (const cell of root.querySelectorAll(`.day-cell[data-date="${{CSS.escape(todayKey)}}"]`)) {{
+    cell.classList.add('today');
+  }}
 }};
 const getMonthEndDate = (card) => {{
   const year = Number(card.dataset.year || '');
@@ -1823,6 +1834,7 @@ for (const button of root.querySelectorAll('.day-cell.clickable')) {{
     openDetailPanel(button);
   }});
 }}
+applyTodayHighlight();
 applyAutoMonthCollapse();
 window.addEventListener('popstate', syncDetailFromLocation);
 window.addEventListener('hashchange', syncDetailFromLocation);
