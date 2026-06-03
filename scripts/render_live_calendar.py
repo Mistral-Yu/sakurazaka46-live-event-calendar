@@ -671,7 +671,7 @@ def iter_month_starts(start: dt.date, end: dt.date):
 
 
 def parse_lottery_period(period: str, section_dates: list[dt.date]) -> tuple[dt.date, dt.date] | None:
-    parsed = re.match(r"(\d{1,2})/(\d{1,2})\([^)]*\)(?:〜(?:(\d{1,2})/(\d{1,2})\([^)]*\)|))?", period)
+    parsed = re.match(r"(\d{1,2})/(\d{1,2})\([^)]*\)[^〜|]*(?:〜(?:(\d{1,2})/(\d{1,2})\([^)]*\)[^〜|]*|))?", period)
     if not parsed or not section_dates:
         return None
 
@@ -1187,7 +1187,7 @@ def parse_summary(text: str, year: int):
                     calendar_label = lottery_calendar_label(title)
                     legend_lottery[short] = lottery_type
                     start_chip_text, middle_chip_text, end_chip_text, start_detail_label, end_detail_label = lottery_phase_labels(calendar_label, title, lottery_type)
-                    parsed = re.match(r"(\d{1,2})/(\d{1,2})\([^)]*\)(?:〜(?:(\d{1,2})/(\d{1,2})\([^)]*\)|))?", period)
+                    parsed = re.match(r"(\d{1,2})/(\d{1,2})\([^)]*\)[^〜|]*(?:〜(?:(\d{1,2})/(\d{1,2})\([^)]*\)[^〜|]*|))?", period)
                     if not parsed:
                         continue
                     start_month, start_day, end_month, end_day = parsed.group(1), parsed.group(2), parsed.group(3), parsed.group(4)
