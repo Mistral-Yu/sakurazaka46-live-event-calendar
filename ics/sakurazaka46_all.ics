@@ -2363,16 +2363,6 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260609-420b7eeeb73c-lottery@mistral-yu
-DTSTAMP:20260101T000000Z
-DTSTART;VALUE=DATE:20260609
-DTEND;VALUE=DATE:20260610
-SUMMARY:イベント開始
-DESCRIPTION:応募: ROCK IN JAPAN FESTIVAL 2026 第2次抽選先行申し
- 込み\n対象: ROCK IN JAPAN FES. 2026\n2026-06-09(火)16:00まで\nhttps
- ://rockinon.com/news/detail/215264
-END:VEVENT
-BEGIN:VEVENT
 UID:sakurazaka46-20260610-b5854a1cbd94-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260610
@@ -3300,13 +3290,18 @@ DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s
  ps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
-UID:sakurazaka46-20260921-e18b1ea15d9c-event@mistral-yu
+UID:sakurazaka46-20260921-rock-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260921
 DTEND;VALUE=DATE:20260922
-SUMMARY:イベント
-DESCRIPTION:EVENT: ROCK IN JAPAN FESTIVAL 2026\n千葉市蘇我スポーツ
- 公園\n09/21 月(祝)\nhttps://rockinon.com/news/detail/215264
+SUMMARY:ROCK
+DESCRIPTION:LIVE: ROCK IN JAPAN FESTIVAL 2026\n会場: 千葉市蘇我ス
+ ポーツ公園\n2026/09/21 月\nhttps://rockinon.com/news/detail/215264\n
+ https://app.adjust.com/1vutzkr1?adj_ulink_path=home%2Fnews_articles%2F7529
+ &campaign=00063&enforce_landing_page=1&og_description=%E3%81%93%E3%81%AE%E
+ 3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%84%E3%82%92J%E3%83%95%E3
+ %82%A7%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%83%81%E3%82%A7%E3%8
+ 3%83%E3%82%AF%E3%81%99%E3%82%8B\nhttps://rijfes.jp/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261008-f2034a50939c-live@mistral-yu

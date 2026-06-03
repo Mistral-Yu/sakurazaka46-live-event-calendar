@@ -325,24 +325,6 @@
 - https://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004
 - https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
 
-## ROCK IN JAPAN FESTIVAL 2026
-
-### イベント開催の日程
-
-| 開催日 | 曜日 | 会場 |
-|---|---|---|
-| 2026-09-21 | 月(祝) | 千葉市蘇我スポーツ公園 |
-
-### 抽選の日程
-
-| 抽選種別 | 受付期限 | 対象 |
-|---|---|---|
-| 第2次抽選先行申し込み | **2026-06-09(火)16:00まで** | ROCK IN JAPAN FES. 2026 |
-
-### 公式ソース
-
-- https://rockinon.com/news/detail/215264
-
 ## 公式ソースまとめ
 
 - 櫻坂46メッセージ Wキャンペーン: https://sakurazaka46.com/s/s46/news/detail/O100081?ima=0000
@@ -356,4 +338,3 @@
 - マチ★アソビ感謝祭ステージ: https://www.machiasobi.com/event/465/
 - ＮＨＫ仙台フェスティバル２０２６ てれまさスペシャルステージ: https://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004
 - NHKイベント・インフォメーション てれまさスペシャルステージ: https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
-- ROCK IN JAPAN FESTIVAL 2026: https://rockinon.com/news/detail/215264
