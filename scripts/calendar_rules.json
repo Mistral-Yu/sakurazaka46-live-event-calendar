@@ -16,6 +16,7 @@
       {"contains": ["BACKS LIVE"], "label": "バックスライブ"},
       {"contains": ["四期生 LIVE"], "label": "四期生ライブ"},
       {"contains": ["ミニライブ"], "label": "ミニライブ"},
+      {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "FES"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
     ],
@@ -24,6 +25,7 @@
       {"contains": ["四期生 LIVE"], "label": "四期生ライブ抽選"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "label": "ツアー抽選"},
       {"contains": ["ANNIVERSARY LIVE", "アニラ"], "label": "アニラ抽選"},
+      {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "FES抽選"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ抽選"}
     ],
     "lottery_short_labels": {
@@ -36,7 +38,8 @@
       "オフィシャル先行": "先行",
       "オフィシャル先着受付": "先着",
       "三井ショッピングパーク チケット先行（千葉公演）": "三井",
-      "オフィシャル2次先行": "先行2"
+      "オフィシャル2次先行": "先行2",
+      "第2次抽選先行申し込み": "FES抽"
     }
   },
   "tones": {
@@ -52,6 +55,7 @@
       "香川公演": "live",
       "アニラ": "live",
       "ジャイガ": "live",
+      "FES": "live",
       "FC": "ticket",
       "LeminoS": "ticket",
       "LeminoP": "ticket",
@@ -62,6 +66,7 @@
       "先着": "ticket",
       "三井": "ticket",
       "先行2": "ticket",
+      "FES抽": "ticket",
       "祝": "holiday",
       "情報": "ticket",
       "deadline": "deadline",
