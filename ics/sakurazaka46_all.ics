@@ -2370,8 +2370,7 @@ DTEND;VALUE=DATE:20260610
 SUMMARY:イベント開始
 DESCRIPTION:応募: ROCK IN JAPAN FESTIVAL 2026 第2次抽選先行申し
  込み\n対象: ROCK IN JAPAN FES. 2026\n2026-06-09(火)16:00まで\nhttps
- ://x.com/rockinon_fes/status/2062013925701607875\nhttps://rockinon.com/new
- s/detail/215264\nhttps://jfes.go.link/ticket/rijf2026
+ ://rockinon.com/news/detail/215264
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260610-b5854a1cbd94-event@mistral-yu
@@ -3307,9 +3306,7 @@ DTSTART;VALUE=DATE:20260921
 DTEND;VALUE=DATE:20260922
 SUMMARY:イベント
 DESCRIPTION:EVENT: ROCK IN JAPAN FESTIVAL 2026\n千葉市蘇我スポーツ
- 公園\n09/21 月(祝)\nhttps://x.com/rockinon_fes/status/2062013925701607
- 875\nhttps://rockinon.com/news/detail/215264\nhttps://jfes.go.link/ticket/
- rijf2026
+ 公園\n09/21 月(祝)\nhttps://rockinon.com/news/detail/215264
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261008-f2034a50939c-live@mistral-yu

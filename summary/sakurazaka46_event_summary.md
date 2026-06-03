@@ -341,9 +341,7 @@
 
 ### 公式ソース
 
-- https://x.com/rockinon_fes/status/2062013925701607875
 - https://rockinon.com/news/detail/215264
-- https://jfes.go.link/ticket/rijf2026
 
 ## 公式ソースまとめ
 
@@ -358,4 +356,4 @@
 - マチ★アソビ感謝祭ステージ: https://www.machiasobi.com/event/465/
 - ＮＨＫ仙台フェスティバル２０２６ てれまさスペシャルステージ: https://sakurazaka46.com/s/s46/news/detail/E00618?ima=0000&link=ROBO004
 - NHKイベント・インフォメーション てれまさスペシャルステージ: https://www.event.nhk.or.jp/e-portal/detail.html?id=3983
-- ROCK IN JAPAN FESTIVAL 2026: https://x.com/rockinon_fes/status/2062013925701607875
+- ROCK IN JAPAN FESTIVAL 2026: https://rockinon.com/news/detail/215264
