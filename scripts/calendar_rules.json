@@ -16,7 +16,7 @@
       {"contains": ["BACKS LIVE"], "label": "バックスライブ"},
       {"contains": ["四期生 LIVE"], "label": "四期生ライブ"},
       {"contains": ["ミニライブ"], "label": "ミニライブ"},
-      {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "FES"},
+      {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "ロッキン"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
     ],
@@ -55,7 +55,7 @@
       "香川公演": "live",
       "アニラ": "live",
       "ジャイガ": "live",
-      "FES": "live",
+      "ロッキン": "live",
       "FC": "ticket",
       "LeminoS": "ticket",
       "LeminoP": "ticket",
