@@ -819,6 +819,17 @@ DESCRIPTION:抽選: 全国アリーナツアー2026 イオンカード先
  \nhttps://sakurazaka46.com/s/s46/page/nationaltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20260609-420b7eeeb73c-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260609
+DTEND;VALUE=DATE:20260610
+SUMMARY:イベント開始
+DESCRIPTION:応募: ROCK IN JAPAN FESTIVAL 2026 第2次抽選先行申し
+ 込み\n対象: ROCK IN JAPAN FES. 2026\n2026-06-09(火)16:00まで\nhttps
+ ://x.com/rockinon_fes/status/2062013925701607875\nhttps://rockinon.com/new
+ s/detail/215264\nhttps://jfes.go.link/ticket/rijf2026
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20260610-b5854a1cbd94-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260610
@@ -1413,6 +1424,17 @@ SUMMARY:ミニライブ
 DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』ミニライブ配信\n会場: 配信\n2026/09/17 木\nhtt
  ps://sakurazaka46.com/s/s46/news/detail/R00580
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260921-e18b1ea15d9c-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260921
+DTEND;VALUE=DATE:20260922
+SUMMARY:イベント
+DESCRIPTION:EVENT: ROCK IN JAPAN FESTIVAL 2026\n千葉市蘇我スポーツ
+ 公園\n09/21 月(祝)\nhttps://x.com/rockinon_fes/status/2062013925701607
+ 875\nhttps://rockinon.com/news/detail/215264\nhttps://jfes.go.link/ticket/
+ rijf2026
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261008-f2034a50939c-live@mistral-yu
