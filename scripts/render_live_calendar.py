@@ -775,6 +775,8 @@ def event_period_label(tag: str, text: str) -> str:
         return "ミーグリ応募"
     if "CD" in joined or "シリアル" in joined or "購入者" in joined:
         return "CD応募"
+    if tag == "サクラミーツ":
+        return "サクラミーツ抽選"
     if "応募" in joined or "期限" in joined or "締切" in joined:
         return f"{tag}応募"
     if tag == "メッセージ":

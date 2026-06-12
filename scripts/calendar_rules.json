@@ -26,7 +26,8 @@
       {"contains": ["全国アリーナツアー", "全国ツアー"], "label": "ツアー抽選"},
       {"contains": ["ANNIVERSARY LIVE", "アニラ"], "label": "アニラ抽選"},
       {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "FES抽選"},
-      {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ抽選"}
+      {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ抽選"},
+      {"contains": ["サクラミーツ"], "label": "サクラミーツ抽選"}
     ],
     "lottery_short_labels": {
       "一般発売": "一般",
@@ -80,6 +81,7 @@
       "ミニライブ応募": "ticket",
       "イベント": "live",
       "サクラミーツ": "live",
+      "サクラミーツ抽選": "ticket",
       "イベント応募": "ticket",
       "応募": "ticket",
       "発売": "live",
