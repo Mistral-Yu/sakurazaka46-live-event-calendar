@@ -4868,15 +4868,30 @@ DESCRIPTION:応募: 15th Double A-side Single『Lonesome rabbit / What’s
  ews/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20260704-1f684a20bd29-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260704
+DTEND;VALUE=DATE:20260705
+SUMMARY:ツアー一般発売
+DESCRIPTION:一般発売: 全国アリーナツアー2026\n対象: 静岡
+ ・神戸公演\n7/4(土)〜\nhttps://sakurazaka46.com/s/s46/page/national
+ tour2026?ima=0000\n\nEVENT: 15枚目シングル発売記念オンライ
+ ンミート＆グリート\nオンラインミーグリ\n07/04 土\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortune
+ music.jp/sakurazaka_202606/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20260704-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260704
 DTEND;VALUE=DATE:20260705
 SUMMARY:ミーグリ
-DESCRIPTION:EVENT: 15枚目シングル発売記念オンラインミート
- ＆グリート\nオンラインミーグリ\n07/04 土\nhttps://sakurazak
- a46.com/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortunemusic.jp/sak
- urazaka_202606/
+DESCRIPTION:一般発売: 全国アリーナツアー2026\n対象: 静岡
+ ・神戸公演\n7/4(土)〜\nhttps://sakurazaka46.com/s/s46/page/national
+ tour2026?ima=0000\n\nEVENT: 15枚目シングル発売記念オンライ
+ ンミート＆グリート\nオンラインミーグリ\n07/04 土\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttps://www.fortune
+ music.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260712-a063a2a03887-event@mistral-yu
@@ -4888,6 +4903,16 @@ DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s
  “KAZOKU”?』発売記念オンラインミート＆グリート（個
  別トーク会）\nオンラインミーグリ(全国)\n07/12 日\nhttps:
  //sakurazaka46.com/s/s46/news/detail/R00580
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260718-1f684a20bd29-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260718
+DTEND;VALUE=DATE:20260719
+SUMMARY:ツアー一般発売
+DESCRIPTION:一般発売: 全国アリーナツアー2026\n対象: 広島
+ ・千葉公演\n7/18(土)〜\nhttps://sakurazaka46.com/s/s46/page/nationa
+ ltour2026?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260719-4020f04c3b8a-lottery@mistral-yu
@@ -4982,14 +5007,28 @@ DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 静岡・エコ
  000
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20260725-1f684a20bd29-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260725
+DTEND;VALUE=DATE:20260726
+SUMMARY:ツアー一般発売
+DESCRIPTION:一般発売: 全国アリーナツアー2026\n対象: 宮城
+ ・香川公演\n7/25(土)〜\nhttps://sakurazaka46.com/s/s46/page/nationa
+ ltour2026?ima=0000\n\n抽選: 15枚目シングル BACKS LIVE!! FC会員2
+ 次先行\n対象: 全席指定／親子・女性エリア\n7/19(日)〜7/
+ 26(日)\nhttps://sakurazaka46.com/s/s46/page/backslive_15th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20260725-d17df60ed1c8-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260725
 DTEND;VALUE=DATE:20260726
 SUMMARY:バックスライブ抽選中
-DESCRIPTION:抽選: 15枚目シングル BACKS LIVE!! FC会員2次先行\n
- 対象: 全席指定／親子・女性エリア\n7/19(日)〜7/26(日)\nht
- tps://sakurazaka46.com/s/s46/page/backslive_15th?ima=0000
+DESCRIPTION:一般発売: 全国アリーナツアー2026\n対象: 宮城
+ ・香川公演\n7/25(土)〜\nhttps://sakurazaka46.com/s/s46/page/nationa
+ ltour2026?ima=0000\n\n抽選: 15枚目シングル BACKS LIVE!! FC会員2
+ 次先行\n対象: 全席指定／親子・女性エリア\n7/19(日)〜7/
+ 26(日)\nhttps://sakurazaka46.com/s/s46/page/backslive_15th?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260726-b4b3f31b881b-lottery@mistral-yu
