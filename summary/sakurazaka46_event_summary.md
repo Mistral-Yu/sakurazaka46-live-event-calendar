@@ -167,10 +167,14 @@
 | 第5次支払い方法選択期限 | **2026-06-06(土)** | オンラインミーグリ |
 | 第6次応募 | **2026-06-10(水)〜2026-06-11(木)** | オンラインミーグリ |
 | 第6次支払い方法選択期限 | **2026-06-13(土)** | オンラインミーグリ |
+| 第10次応募 | **2026-07-08(水)〜2026-07-09(木)** | オンラインミーグリ |
+| 第11次応募 | **2026-07-15(水)〜2026-07-16(木)** | オンラインミーグリ |
+| 第12次応募 | **2026-07-22(水)〜2026-07-23(木)** | オンラインミーグリ |
 
 ### 公式ソース
 
 - https://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000
+- https://sakurazaka46.com/s/s46/news/detail/S00221?ima=0000
 - https://www.fortunemusic.jp/sakurazaka_202606/
 
 ## 15枚目シングル CDショップチェーン別先着特典
@@ -337,6 +341,7 @@
 - 14枚目シングル CD購入者スペシャル応募抽選企画ニュース: https://sakurazaka46.com/s/s46/news/detail/R00532?ima=0000
 - ミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000
 - 15枚目シングル発売記念オンラインミーグリ: https://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000
+- 15枚目シングル発売記念オンラインミーグリ 第10次〜第12次: https://sakurazaka46.com/s/s46/news/detail/S00221?ima=0000
 - 15枚目シングル forTUNE music限定オンラインミーグリ: https://www.fortunemusic.jp/sakurazaka_202606/
 - 15thシングル CD購入者スペシャル応募抽選企画: https://sakurazaka46.com/s/s46/news/detail/R00580
 - リアルミーグリ一覧: https://sakurazaka46.com/s/s46/diary/event_page/list?ima=0000&ct=kobetsu_talk
