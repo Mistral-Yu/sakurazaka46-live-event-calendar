@@ -1632,7 +1632,24 @@ DTEND;VALUE=DATE:20260730
 SUMMARY:神戸公演
 DESCRIPTION:LIVE: 全国アリーナツアー2026\n会場: 兵庫・神戸
  ワールド記念ホール\n2026/07/28〜29 火水\nhttps://sakurazaka46.
- com/s/s46/page/nationaltour2026?ima=0000
+ com/s/s46/page/nationaltour2026?ima=0000\n\n応募: 15枚目シングル
+ 発売記念オンラインミート＆グリート 第13次応募\n対象
+ : オンラインミーグリ\n2026-07-29(水)〜2026-07-30(木)\nhttps://
+ sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhttps://sakurazaka46.c
+ om/s/s46/news/detail/S00221?ima=0000\nhttps://www.fortunemusic.jp/sakuraza
+ ka_202606/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260730-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260730
+DTEND;VALUE=DATE:20260731
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 15枚目シングル発売記念オンラインミー
+ ト＆グリート 第13次応募\n対象: オンラインミーグリ\n20
+ 26-07-29(水)〜2026-07-30(木)\nhttps://sakurazaka46.com/s/s46/news/detai
+ l/S00217?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/S00221?ima=0
+ 000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260801-f8fad0f116b5-live@mistral-yu
@@ -1655,6 +1672,21 @@ DESCRIPTION:EVENT: 15th Double A-side Single『Lonesome rabbit / What’s
  “KAZOKU”?』発売記念リアルミート＆グリート（個別ト
  ーク会）\n京都会場／リアルミーグリ\n08/02 日\nhttps://sak
  urazaka46.com/s/s46/news/detail/R00580
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260806-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260806
+DTEND;VALUE=DATE:20260807
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:抽選: 15枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n8/4(火)〜8/11(火)
+ \nhttps://sakurazaka46.com/s/s46/page/backslive_15th?ima=0000\n\n応募: 1
+ 5枚目シングル発売記念オンラインミート＆グリート 第
+ 14次応募\n対象: オンラインミーグリ\n2026-08-05(水)〜2026-0
+ 8-06(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S00217?ima=0000\nhtt
+ ps://sakurazaka46.com/s/s46/news/detail/S00221?ima=0000\nhttps://www.fortu
+ nemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260808-94be08c4de39-live@mistral-yu
@@ -1691,6 +1723,18 @@ SUMMARY:バックスライブ抽選締切
 DESCRIPTION:抽選: 15枚目シングル BACKS LIVE!! オフィシャル先
  行\n対象: 全席指定／親子・女性エリア\n8/4(火)〜8/11(火)
  \nhttps://sakurazaka46.com/s/s46/page/backslive_15th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260814-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260814
+DTEND;VALUE=DATE:20260815
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 15枚目シングル発売記念オンラインミー
+ ト＆グリート 第15次応募\n対象: オンラインミーグリ\n20
+ 26-08-13(木)〜2026-08-14(金)\nhttps://sakurazaka46.com/s/s46/news/detai
+ l/S00217?ima=0000\nhttps://sakurazaka46.com/s/s46/news/detail/S00221?ima=0
+ 000\nhttps://www.fortunemusic.jp/sakurazaka_202606/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260815-fae5cff5dfc5-live@mistral-yu
