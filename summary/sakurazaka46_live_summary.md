@@ -156,6 +156,7 @@
 |---|---|---|
 | 第2次抽選先行申し込み | **6/3(水)昼12:15〜6/9(火)16:00** | ROCK IN JAPAN FES. 2026 |
 | 第3次抽選先行申し込み | **6/17(水)〜6/23(火)16:00** | ROCK IN JAPAN FES. 2026 |
+| 公式リセール受付 | **8/25(火)16:00〜** | ROCK IN JAPAN FES. 2026 |
 
 ### 公式ソース
 
@@ -163,6 +164,7 @@
 - https://app.adjust.com/1vutzkr1?adj_ulink_path=home%2Fnews_articles%2F7529&campaign=00063&enforce_landing_page=1&og_description=%E3%81%93%E3%81%AE%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%84%E3%82%92J%E3%83%95%E3%82%A7%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B
 - https://x.com/rockinon_fes/status/2067087901008208111
 - https://rijfes.jp/
+- https://rijfes.jp/2026/news/3726/
 
 ## 15枚目シングル BACKS LIVE!!
 
@@ -198,8 +200,13 @@
 
 ### 抽選の日程
 
-- チケット先行詳細は後日発表
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| FC会員先行 | **9/6(日)昼12:00〜** | 全席指定／親子・女性エリア |
+| Leminoスペシャルシート先行 | **9/6(日)昼12:00〜** | Leminoスペシャルシート |
+| Lemino櫻坂46パック先行 | **9/6(日)昼12:00〜** | 全席指定／親子・女性エリア |
 
 ### 公式ソース
 
+- https://sakurazaka46.com/s/s46/page/6th_anniversary
 - https://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000

@@ -636,6 +636,15 @@ def lottery_phase_labels(
             detail_label,
             detail_label,
         )
+    if "リセール" in lottery_type:
+        detail_label = f"{lottery_type}: {title}"
+        return (
+            f"{sale_label}リセール開始",
+            f"{sale_label}リセール中",
+            f"{sale_label}リセール終了",
+            detail_label,
+            detail_label,
+        )
     detail_label = f"抽選: {title} {lottery_type}"
     return f"{calendar_label}開始", f"{calendar_label}中", f"{calendar_label}締切", detail_label, detail_label
 
