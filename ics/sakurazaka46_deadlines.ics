@@ -2087,6 +2087,17 @@ DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s
  ps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261014-b5854a1cbd94-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:発売日
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\n発売日\n10/14 水\nhttps://sakurazak
+ a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261018-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261018
