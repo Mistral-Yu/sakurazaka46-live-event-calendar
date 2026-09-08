@@ -18,6 +18,7 @@
       {"contains": ["ミニライブ"], "label": "ミニライブ"},
       {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "ロッキン"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ"},
+      {"contains": ["MUSIC EXPO LIVE"], "label": "MUSIC EXPO"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
     ],
     "lottery_title_rules": [
@@ -59,6 +60,7 @@
       "アニラ": "live",
       "ジャイガ": "live",
       "ロッキン": "live",
+      "MUSIC EXPO": "live",
       "FC": "ticket",
       "LeminoS": "ticket",
       "LeminoP": "ticket",

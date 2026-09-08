@@ -190,6 +190,23 @@
 
 - https://sakurazaka46.com/s/s46/page/backslive_15th?ima=0000
 
+## MUSIC EXPO LIVE 2026 in TAIPEI
+
+### ライブ公演の日程
+
+| 開催日 | 曜日 | 会場 |
+|---|---|---|
+| 2026-10-25 | 日 | TAIPEI ARENA |
+
+### 抽選の日程
+
+- チケット情報なし
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/news/detail/E00656
+- https://x.com/musicexpolive
+
 ## 6th YEAR ANNIVERSARY LIVE
 
 ### アニバーサリーライブの公演日程
