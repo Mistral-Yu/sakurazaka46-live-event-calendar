@@ -639,9 +639,9 @@ def lottery_phase_labels(
     if "リセール" in lottery_type:
         detail_label = f"{lottery_type}: {title}"
         return (
-            f"{sale_label}リセール開始",
-            f"{sale_label}リセール中",
-            f"{sale_label}リセール終了",
+            f"{sale_label}リセール",
+            f"{sale_label}リセール",
+            f"{sale_label}リセール",
             detail_label,
             detail_label,
         )
@@ -1108,12 +1108,13 @@ def parse_summary_timeline(text: str, display_months: list[dt.date], holidays_by
                 lottery_data = {"period": period, "title": title, "type": lottery_type, "target": target, "sources": section_sources}
                 if start_month_key in months:
                     months[start_month_key]["lotteries"].append(lottery_data)
-                for current_date in iter_date_range(start_date, end_date):
+                display_dates = (start_date,) if "リセール" in lottery_type else iter_date_range(start_date, end_date)
+                for current_date in display_dates:
                     current_month_key = month_start(current_date.year, current_date.month)
                     if current_month_key not in months:
                         continue
                     if current_date == start_date:
-                        start_tone = "deadline" if lottery_type == "一般発売" else short
+                        start_tone = "deadline" if lottery_type in {"一般発売", "公式リセール受付"} else short
                         item = {"text": start_chip_text, "tone": start_tone, "kind": "lottery"}
                         detail_label = start_detail_label
                     elif current_date == end_date:
@@ -1206,7 +1207,7 @@ def parse_summary(text: str, year: int):
                     start_day = int(start_day)
                     lottery_data = {"period": period, "title": title, "type": lottery_type, "target": target, "sources": section_sources}
                     months[start_month]["lotteries"].append(lottery_data)
-                    start_tone = "deadline" if lottery_type == "一般発売" else short
+                    start_tone = "deadline" if lottery_type in {"一般発売", "公式リセール受付"} else short
                     months[start_month]["days"][start_day].append({"text": start_chip_text, "tone": start_tone, "kind": "lottery"})
                     add_detail(months, start_month, start_day, {
                         "label": start_detail_label,
@@ -1214,7 +1215,7 @@ def parse_summary(text: str, year: int):
                         "meta": period,
                         "sources": section_sources,
                     })
-                    if end_month and end_day:
+                    if end_month and end_day and "リセール" not in lottery_type:
                         end_month = int(end_month)
                         end_day = int(end_day)
                         if end_month < start_month:
