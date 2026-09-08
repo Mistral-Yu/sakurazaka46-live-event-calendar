@@ -5745,22 +5745,59 @@ DESCRIPTION:抽選: 6th YEAR ANNIVERSARY LIVE FC会員先行\n対象: 全
  0000
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20260909-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260909
+DTEND;VALUE=DATE:20260910
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第1次応募\n対象: オンライン
+ ミーグリ\n2026-09-09(水)〜2026-09-10(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260910-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260910
+DTEND;VALUE=DATE:20260911
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第1次応募\n対象: オンライン
+ ミーグリ\n2026-09-09(水)〜2026-09-10(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n
+ \nEVENT: 第4回サクラミーツフェス\n昼ミーツ 14:00開演／SG
+ Cホール有明（東京ドリームパーク内）／大沼晶保・増
+ 本綺良・小島凪紗・谷口愛季・中嶋優月 ほか出演予定\
+ n09/10 木\nhttps://sakurazaka46.com/s/s46/news/detail/E00648\nhttps://www
+ .tv-asahi.co.jp/sakura__meets_event/\nhttps://ticket.tv-asahi.co.jp/ex/pro
+ ject/sakurameets2026\n\nEVENT: 第4回サクラミーツフェス\n夜ミ
+ ーツ 19:00開演／SGCホール有明（東京ドリームパーク内
+ ）／大沼晶保・増本綺良・小島凪紗・谷口愛季・中嶋
+ 優月 ほか出演予定\n09/10 木\nhttps://sakurazaka46.com/s/s46/news/
+ detail/E00648\nhttps://www.tv-asahi.co.jp/sakura__meets_event/\nhttps://ti
+ cket.tv-asahi.co.jp/ex/project/sakurameets2026
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20260910-bcd9ee64b56b-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
 SUMMARY:サクラミーツ
-DESCRIPTION:EVENT: 第4回サクラミーツフェス\n昼ミーツ 14:00
- 開演／SGCホール有明（東京ドリームパーク内）／大沼
- 晶保・増本綺良・小島凪紗・谷口愛季・中嶋優月 ほか
- 出演予定\n09/10 木\nhttps://sakurazaka46.com/s/s46/news/detail/E00648
- \nhttps://www.tv-asahi.co.jp/sakura__meets_event/\nhttps://ticket.tv-asahi
- .co.jp/ex/project/sakurameets2026\n\nEVENT: 第4回サクラミーツフ
- ェス\n夜ミーツ 19:00開演／SGCホール有明（東京ドリーム
- パーク内）／大沼晶保・増本綺良・小島凪紗・谷口愛
- 季・中嶋優月 ほか出演予定\n09/10 木\nhttps://sakurazaka46.com
- /s/s46/news/detail/E00648\nhttps://www.tv-asahi.co.jp/sakura__meets_event/
- \nhttps://ticket.tv-asahi.co.jp/ex/project/sakurameets2026
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第1次応募\n対象: オンライン
+ ミーグリ\n2026-09-09(水)〜2026-09-10(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n
+ \nEVENT: 第4回サクラミーツフェス\n昼ミーツ 14:00開演／SG
+ Cホール有明（東京ドリームパーク内）／大沼晶保・増
+ 本綺良・小島凪紗・谷口愛季・中嶋優月 ほか出演予定\
+ n09/10 木\nhttps://sakurazaka46.com/s/s46/news/detail/E00648\nhttps://www
+ .tv-asahi.co.jp/sakura__meets_event/\nhttps://ticket.tv-asahi.co.jp/ex/pro
+ ject/sakurameets2026\n\nEVENT: 第4回サクラミーツフェス\n夜ミ
+ ーツ 19:00開演／SGCホール有明（東京ドリームパーク内
+ ）／大沼晶保・増本綺良・小島凪紗・谷口愛季・中嶋
+ 優月 ほか出演予定\n09/10 木\nhttps://sakurazaka46.com/s/s46/news/
+ detail/E00648\nhttps://www.tv-asahi.co.jp/sakura__meets_event/\nhttps://ti
+ cket.tv-asahi.co.jp/ex/project/sakurameets2026
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260912-a72a35d6a4c5-event@mistral-yu
@@ -5787,6 +5824,17 @@ DESCRIPTION:EVENT: 15枚目シングル発売記念オンラインミート
  /
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20260916-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260916
+DTEND;VALUE=DATE:20260917
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第2次応募\n対象: オンライン
+ ミーグリ\n2026-09-16(水)〜2026-09-17(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20260917-f2034a50939c-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20260917
@@ -5794,7 +5842,25 @@ DTEND;VALUE=DATE:20260918
 SUMMARY:ミニライブ
 DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s 
  “KAZOKU”?』ミニライブ配信\n会場: 配信\n2026/09/17 木\nhtt
- ps://sakurazaka46.com/s/s46/news/detail/R00580
+ ps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 16枚目シン
+ グル『愛MUST BE』発売記念オンラインミート＆グリート 
+ 第2次応募\n対象: オンラインミーグリ\n2026-09-16(水)〜2026
+ -09-17(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://ww
+ w.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260917-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260917
+DTEND;VALUE=DATE:20260918
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s 
+ “KAZOKU”?』ミニライブ配信\n会場: 配信\n2026/09/17 木\nhtt
+ ps://sakurazaka46.com/s/s46/news/detail/R00580\n\n応募: 16枚目シン
+ グル『愛MUST BE』発売記念オンラインミート＆グリート 
+ 第2次応募\n対象: オンラインミーグリ\n2026-09-16(水)〜2026
+ -09-17(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://ww
+ w.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260921-89397ee92e84-live@mistral-yu
@@ -5810,6 +5876,28 @@ DESCRIPTION:LIVE: ROCK IN JAPAN FESTIVAL 2026\n会場: 千葉市蘇我ス
  %82%A7%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%83%81%E3%82%A7%E3%8
  3%83%E3%82%AF%E3%81%99%E3%82%8B\nhttps://x.com/rockinon_fes/status/2067087
  901008208111\nhttps://rijfes.jp/\nhttps://rijfes.jp/2026/news/3726/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260924-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260924
+DTEND;VALUE=DATE:20260925
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第3次応募\n対象: オンライン
+ ミーグリ\n2026-09-24(木)〜2026-09-25(金)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20260925-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20260925
+DTEND;VALUE=DATE:20260926
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第3次応募\n対象: オンライン
+ ミーグリ\n2026-09-24(木)〜2026-09-25(金)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20260929-913d8e9e735f-live@mistral-yu
@@ -5842,6 +5930,28 @@ DESCRIPTION:LIVE: 15th Double A-side Single『Lonesome rabbit / What’s
  ps://sakurazaka46.com/s/s46/news/detail/R00580
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261018-a72a35d6a4c5-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:ミーグリ
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n10/18 日\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261031-a72a35d6a4c5-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:ミーグリ
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n10/31 土\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261114-5fe6121efeae-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261114
@@ -5860,5 +5970,49 @@ SUMMARY:アニラ
 DESCRIPTION:LIVE: 6th YEAR ANNIVERSARY LIVE\n会場: ZOZOマリンスタジ
  アム\n2026/11/14〜15 土日\nhttps://sakurazaka46.com/s/s46/page/6th_an
  niversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261121-a72a35d6a4c5-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:ミーグリ
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n11/21 土\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261122-a72a35d6a4c5-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:ミーグリ
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n11/22 日\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261129-a72a35d6a4c5-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:ミーグリ
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n11/29 日\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261213-a72a35d6a4c5-event@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261213
+DTEND;VALUE=DATE:20261214
+SUMMARY:ミーグリ
+DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n12/13 日\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
 END:VEVENT
 END:VCALENDAR
