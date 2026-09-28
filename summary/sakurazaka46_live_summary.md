@@ -17,6 +17,24 @@
 
 - https://sakurazaka46.com/s/s46/page/14th_single_serial?ima=0000
 
+## 16th Single『愛MUST BE』ミニライブ配信
+
+### ライブ公演の日程
+
+| 開催日 | 曜日 | 会場 |
+|---|---|---|
+| 2026-12-10 | 木 | 配信 |
+| 2026-12-17 | 木 | アーカイブ配信 |
+| 2027-01-14 | 木 | メンバー解説付き・アーカイブ配信 |
+
+### 抽選の日程
+
+- 応募締切はイベントタブに整理します。
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/news/detail/R00627
+
 ## 15th Double A-side Single『Lonesome rabbit / What’s “KAZOKU”?』ミニライブ配信
 
 ### ライブ公演の日程
