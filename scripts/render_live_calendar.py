@@ -1437,14 +1437,17 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         normalized_months = months
         holidays_by_month = holidays_by_month or {month_key: {} for month_key in display_months}
 
-    month_nav = "".join(
-        f"<a href='#m{month_key.month:02d}'>{month_key.month}月</a>" if legacy_mode else f"<a href='#m{month_key.year}{month_key.month:02d}'>{month_key.year}/{month_key.month:02d}</a>"
-        for month_key in display_months
-    )
     detail_payload = {}
     cards = []
     active_css_rules = []
     today = get_today()
+    current_month = today.replace(day=1)
+    nav_links = [
+        (month_key, f"<a href='#m{month_key.month:02d}'>{month_key.month}月</a>" if legacy_mode else f"<a href='#m{month_key.year}{month_key.month:02d}'>{month_key.year}/{month_key.month:02d}</a>")
+        for month_key in display_months
+    ]
+    month_nav = "".join(link for key, link in nav_links if key >= current_month)
+    past_month_nav = "".join(link for key, link in nav_links if key < current_month)
     page_title = getattr(render_html, "page_title", "櫻坂46 ライブカレンダー")
     hero_copy = getattr(render_html, "hero_copy", "5th YEAR ANNIVERSARY LIVE以降のライブ情報を、見やすく整理してまとめています。")
     list_label = getattr(render_html, "list_label", "ライブ一覧")
@@ -1521,14 +1524,14 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
         has_schedule = month_has_schedule(month_data)
         month_end = dt.date(year_value, month_value, total)
         is_past_month = month_end < today
-        collapsed = " collapsed" if (not has_schedule or is_past_month) else ""
-        open_attr = " open" if (has_schedule and not is_past_month) else ""
+        collapsed = " collapsed" if (not has_schedule and not is_past_month) else ""
+        open_attr = " open" if (has_schedule or is_past_month) else ""
         month_heading = f"{month_value}月"
         live_count = len(month_data["events"])
         lot_count = len(lot_items)
         month_id = f"m{month_value:02d}" if legacy_mode else f"m{year_value}{month_value:02d}"
         cards.append(
-            f"""
+            (month_key, f"""
 <details class='month-card{collapsed}' id='{month_id}' data-year='{year_value}' data-month-number='{month_value:02d}' data-has-schedule='{'true' if has_schedule else 'false'}'{open_attr}>
   <summary class='month-summary'>
     <div class='month-header'>
@@ -1554,8 +1557,22 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
       </div>
     </div>
   </div>
-</details>"""
+</details>""")
         )
+
+    past_cards = [(key, card) for key, card in cards if key < current_month]
+    current_cards = [card for key, card in cards if key >= current_month]
+    past_label = (
+        f"過去の月（{past_cards[0][0]:%Y/%m}〜{past_cards[-1][0]:%Y/%m}・{len(past_cards)}か月）"
+        if past_cards else "過去の月"
+    )
+    month_cards_html = (
+        f"<details class='past-months'{' hidden' if not past_cards else ''}>"
+        f"<summary class='past-months-summary'><span class='past-months-label'>{past_label}</span></summary>"
+        f"<div class='past-month-list'><nav class='month-nav past-month-nav'>{past_month_nav}</nav>"
+        f"{''.join(card for _, card in past_cards)}</div></details>"
+        + "".join(current_cards)
+    )
 
     detail_json = json.dumps(detail_payload, ensure_ascii=False)
     active_css = "".join(active_css_rules)
@@ -1592,8 +1609,8 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 *{{box-sizing:border-box}} html{{scroll-behavior:smooth}} body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif;background:var(--bg);color:var(--text)}}
 .page{{max-width:1200px;margin:0 auto;padding:20px 14px 60px}} .hero{{margin-bottom:18px}} .hero h1{{margin:0;font-size:clamp(32px,4.2vw,52px);letter-spacing:-.04em}} .hero p{{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7;max-width:72ch}}
 .legend{{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px 18px;box-shadow:0 16px 40px rgba(30,30,28,.06);margin-bottom:18px}} .legend h2{{font-size:18px;margin:0 0 10px}} .legend-row{{color:var(--muted);font-size:14px;line-height:1.75}} .legend-meaning{{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:10px}} .legend-item{{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;line-height:1.4}} .legend-chip{{display:inline-block;width:12px;height:12px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}}
-.month-nav{{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}} .month-nav a{{text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:14px;box-shadow:0 8px 20px rgba(30,30,28,.04)}}
-.month-list{{display:grid;gap:18px}} .month-card{{background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 44px rgba(30,30,28,.05);overflow:hidden;scroll-margin-top:14px}} .month-summary{{list-style:none;cursor:pointer;padding:20px 18px}} .month-summary::-webkit-details-marker{{display:none}} .month-card.collapsed .month-summary{{background:rgba(0,0,0,.01)}}
+.month-nav{{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}} .month-nav:empty{{display:none}} .month-nav a{{text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:14px;box-shadow:0 8px 20px rgba(30,30,28,.04)}}
+.month-list,.past-month-list{{display:grid;gap:18px}} .past-months[hidden]{{display:none}} .past-months-summary{{list-style:none;cursor:pointer;padding:17px 20px;background:var(--card);border:1px solid var(--line);border-radius:24px;color:var(--text);font-size:18px;font-weight:600}} .past-months-summary::-webkit-details-marker{{display:none}} .past-months-summary::after{{content:'＋';float:right;color:var(--muted)}} .past-months[open]>.past-months-summary::after{{content:'−'}} .past-month-list{{padding-top:18px}} .past-month-nav{{margin:0}} .month-card{{background:var(--card);border:1px solid var(--line);border-radius:30px;box-shadow:0 18px 44px rgba(30,30,28,.05);overflow:hidden;scroll-margin-top:14px}} .month-summary{{list-style:none;cursor:pointer;padding:20px 18px}} .month-summary::-webkit-details-marker{{display:none}} .month-card.collapsed .month-summary{{background:rgba(0,0,0,.01)}}
 .month-header{{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}} .month-title{{font-size:clamp(21px,2.52vw,27px);line-height:1;letter-spacing:-.035em;font-weight:600;color:#3b3a36;font-feature-settings:'palt' 1}} .month-sub{{color:var(--muted);font-size:13px}}
 .month-body{{padding:0 16px 16px}} .weekdays,.grid{{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}} .weekdays{{margin:0 0 6px}} .weekday{{text-align:center;color:var(--muted);font-size:13px;padding:4px 0}} .weekday.weekend{{color:var(--weekend)}}
 .day-cell{{position:relative;min-height:96px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;background:#fff;text-align:center;overflow:hidden}} .day-cell:nth-child(7n+1){{border-left:none}} .day-cell.empty{{background:rgba(0,0,0,.012)}} .day-cell.today{{background:rgba(201,183,255,.10);box-shadow:inset 0 0 0 1px rgba(201,183,255,.42)}} .day-cell.today .day-num{{font-weight:700}} .day-cell.today:not(.weekend):not(.holiday) .day-num{{color:#6d5bb3}} .day-cell.weekend .day-num,.day-cell.holiday .day-num{{color:var(--weekend)}}
@@ -1604,7 +1621,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
 .detail-sections{{display:grid;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}} .detail-sections.is-hidden{{display:none}} .meta-fold{{border:1px solid rgba(0,0,0,.06);border-radius:16px;background:rgba(255,255,255,.72);overflow:hidden}} .meta-fold summary{{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;font-size:14px;font-weight:600}} .meta-fold summary::-webkit-details-marker{{display:none}} .meta-count{{color:var(--muted);font-size:12px;font-weight:500}} .meta-fold .meta-list{{padding:0 14px 14px}} .meta-list{{display:grid;gap:8px;color:var(--muted);font-size:14px}} .meta-item{{line-height:1.6}}
 .site-footer{{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6;text-align:center}} .site-footer a{{color:inherit}}
 {active_css}
-@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:24px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 3px 3px;font-size:8.2px;line-height:1.04;letter-spacing:-.055em;border-radius:8px}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.chip{{font-size:7.2px;padding-left:2px;padding-right:2px;letter-spacing:-.075em}} .chip-text{{display:none}} .chip-mobile-text{{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1px;min-height:1em;white-space:normal;overflow:hidden}} .chip-mobile-text span{{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .chips{{gap:3px}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
+@media (min-width:900px){{.page{{max-width:1080px}} .detail-sections{{grid-template-columns:1.15fr 1fr}}}} @media (max-width:720px){{.page{{padding:16px 10px 42px}} .month-summary{{padding:16px 12px}} .month-body{{padding:0 10px 14px}} .month-card{{border-radius:24px}} .month-title{{font-size:24px}} .day-cell{{min-height:88px;padding:5px}} .day-num{{font-size:17px}} .chip{{padding:2px 3px 3px;font-size:8.2px;line-height:1.04;letter-spacing:-.055em;border-radius:8px}} .legend-row{{font-size:13px}} .day-detail{{scroll-margin-top:14vh}}}} @media (max-width:520px){{.past-months-summary{{font-size:15px;padding:14px 14px}} .chip{{font-size:7.2px;padding-left:2px;padding-right:2px;letter-spacing:-.075em}} .chip-text{{display:none}} .chip-mobile-text{{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1px;min-height:1em;white-space:normal;overflow:hidden}} .chip-mobile-text span{{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}} .chips{{gap:3px}}}} @media (hover:none), (pointer:coarse){{.day-cell.clickable{{transition:none}} .day-cell.clickable:hover{{transform:none;box-shadow:none;background:linear-gradient(180deg,#fff,#f8f8f5)}} .day-cell.clickable:active{{transform:none}}}}
 </style>
 </head>
 <body>
@@ -1618,7 +1635,7 @@ def render_html(months, legend_live, legend_lottery, year: int | None = None, di
     </div>
   </section>
   <nav class='month-nav'>{month_nav}</nav>
-  <section class='month-list'>{''.join(cards)}</section>
+  <section class='month-list'>{month_cards_html}</section>
   <footer class='site-footer'>© 2026 Mistral-Yu. 非公式ファン制作ページです。各種権利は権利者に帰属します。CC BY-NC 4.0<br><a href='https://github.com/Mistral-Yu/sakurazaka46-live-event-calendar#readme'>README</a></footer>
 </div>
 <script>
@@ -1671,19 +1688,40 @@ const setMonthOpen = (card, shouldOpen) => {{
   card.open = shouldOpen;
   card.classList.toggle('collapsed', !shouldOpen);
 }};
+const groupPastMonths = () => {{
+  const group = root.querySelector('.past-months');
+  const pastList = group?.querySelector('.past-month-list');
+  const monthList = group?.parentElement;
+  const pastNav = group?.querySelector('.past-month-nav');
+  const monthNav = root.querySelector('.month-nav:not(.past-month-nav)');
+  if (!group || !pastList || !monthList || !pastNav || !monthNav) return;
+  const today = getCurrentDate();
+  const cards = Array.from(root.querySelectorAll('.month-card'));
+  const past = cards.filter((card) => getMonthEndDate(card) < today);
+  const cardOrder = new Map(cards.map((card, index) => [card.id, index]));
+  const links = Array.from(root.querySelectorAll('.month-nav a[href^="#m"]'));
+  links.sort((a, b) => (cardOrder.get(a.hash.slice(1)) ?? 0) - (cardOrder.get(b.hash.slice(1)) ?? 0));
+  for (const link of links) {{
+    const card = root.querySelector(`#${{CSS.escape(link.hash.slice(1))}}`);
+    (card && getMonthEndDate(card) < today ? pastNav : monthNav).append(link);
+  }}
+  for (const card of past) pastList.append(card);
+  for (const card of cards.filter((card) => !past.includes(card))) monthList.append(card);
+  group.hidden = past.length === 0;
+  if (!past.length) {{ group.open = false; return; }}
+  const label = (card) => `${{card.dataset.year}}/${{card.dataset.monthNumber}}`;
+  group.querySelector('.past-months-label').textContent = `過去の月（${{label(past[0])}}〜${{label(past[past.length - 1])}}・${{past.length}}か月）`;
+}};
 const applyAutoMonthCollapse = () => {{
+  groupPastMonths();
   const today = getCurrentDate();
   for (const card of root.querySelectorAll('.month-card')) {{
     const hasSchedule = card.dataset.hasSchedule !== 'false';
     const monthEnd = getMonthEndDate(card);
-    if (!hasSchedule) {{
-      setMonthOpen(card, false);
-      continue;
-    }}
     if (monthEnd && monthEnd < today) {{
-      setMonthOpen(card, false);
-    }} else {{
       setMonthOpen(card, true);
+    }} else {{
+      setMonthOpen(card, hasSchedule);
     }}
   }}
 }};
@@ -1691,6 +1729,8 @@ const openMonthFromHash = (monthId, scroll = false) => {{
   if (!isMonthHash(monthId)) return false;
   const card = root.querySelector(`#${{CSS.escape(monthId)}}`);
   if (!card) return false;
+  const pastGroup = card.closest('.past-months');
+  if (pastGroup) pastGroup.open = true;
   setMonthOpen(card, true);
   forceVisualRefresh(card);
   if (scroll) {{
@@ -1789,6 +1829,8 @@ const syncDetailFromLocation = () => {{
   const button = Array.from(root.querySelectorAll('.day-cell.clickable')).find((candidate) => candidate.dataset.detailKey === detailKey);
   if (!button) return;
   const monthCard = button.closest('.month-card');
+  const pastGroup = monthCard?.closest('.past-months');
+  if (pastGroup) pastGroup.open = true;
   setMonthOpen(monthCard, true);
   openDetailPanel(button);
 }};
