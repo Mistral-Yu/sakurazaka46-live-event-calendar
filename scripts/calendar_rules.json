@@ -19,6 +19,7 @@
       {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "ロッキン"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ"},
       {"contains": ["MUSIC EXPO LIVE"], "label": "MUSIC EXPO"},
+      {"contains": ["FUKUOKA MUSIC FES"], "label": "福フェス"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
     ],
     "lottery_title_rules": [
@@ -28,6 +29,7 @@
       {"contains": ["ANNIVERSARY LIVE", "アニラ"], "label": "アニラ抽選"},
       {"contains": ["ROCK IN JAPAN FESTIVAL", "ROCK IN JAPAN FES"], "label": "FES抽選"},
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ抽選"},
+      {"contains": ["FUKUOKA MUSIC FES"], "label": "福フェス抽選"},
       {"contains": ["サクラミーツ"], "label": "サクラミーツ抽選"}
     ],
     "lottery_short_labels": {
@@ -61,6 +63,7 @@
       "ジャイガ": "live",
       "ロッキン": "live",
       "MUSIC EXPO": "live",
+      "福フェス": "live",
       "FC": "ticket",
       "LeminoS": "ticket",
       "LeminoP": "ticket",

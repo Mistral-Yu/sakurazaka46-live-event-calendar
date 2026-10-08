@@ -225,6 +225,27 @@
 - https://sakurazaka46.com/s/s46/news/detail/E00656
 - https://x.com/musicexpolive
 
+## FUKUOKA MUSIC FES.2027
+
+### ライブ公演の日程
+
+| 開催日 | 曜日 | 会場 |
+|---|---|---|
+| 2027-01-31 | 日 | みずほPayPayドーム福岡 |
+
+### 抽選の日程
+
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| オフィシャル2次先行 | **10/8(木)〜10/18(日)** | 1/31(日)公演／各券種 |
+
+- 前方スタンディングエリア（事前抽選制）の受付方法・受付期間は後日発表。
+
+### 公式ソース
+
+- https://x.com/sakurazaka46/status/2108154079239409869
+- https://fukuokamusic-fes.com/2027/index.html
+
 ## 6th YEAR ANNIVERSARY LIVE
 
 ### アニバーサリーライブの公演日程
