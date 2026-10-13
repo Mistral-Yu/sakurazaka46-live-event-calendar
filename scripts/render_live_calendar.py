@@ -10,7 +10,9 @@ import hashlib
 import html
 import json
 import re
+import tempfile
 import urllib.request
+import warnings
 from typing import Callable, Dict, List
 
 from PIL import Image, ImageDraw, ImageFont
@@ -135,24 +137,46 @@ def fetch_holiday_csv(url: str = HOLIDAY_CSV_URL) -> bytes:
         return response.read()
 
 
-def load_holiday_template(template_path: Path) -> dict[int, dict[int, str]] | None:
+def load_holiday_template(template_path: Path, year: int = DEFAULT_YEAR) -> dict[int, dict[int, str]] | None:
     if not template_path.exists():
         return None
-    raw = json.loads(template_path.read_text())
-    holidays = empty_holiday_map()
-    for month_key, day_map in raw.items():
-        month = int(month_key)
-        holidays[month] = {int(day): name for day, name in day_map.items()}
+    try:
+        raw = json.loads(template_path.read_text(encoding="utf-8"))
+        if raw.get("year") != year:
+            return None
+        holidays = empty_holiday_map()
+        for month_key, day_map in raw["holidays"].items():
+            month = int(month_key)
+            for day_key, name in day_map.items():
+                day = int(day_key)
+                dt.date(year, month, day)
+                if not isinstance(name, str) or not name.strip():
+                    return None
+                holidays[month][day] = name
+    except (ValueError, KeyError, TypeError, AttributeError):
+        return None
+    if not any(holidays.values()):
+        return None
     return holidays
 
 
 def get_holiday_template_path(year: int) -> Path:
-    return SCRIPT_DIR / "holidays_template.json"
+    return SCRIPT_DIR / f"holidays_template_{year}.json"
 
 
-def write_holiday_template(template_path: Path, holidays: dict[int, dict[int, str]]) -> None:
+def write_holiday_template(template_path: Path, holidays: dict[int, dict[int, str]], year: int = DEFAULT_YEAR) -> None:
     template_path.parent.mkdir(parents=True, exist_ok=True)
-    template_path.write_text(json.dumps(holidays, ensure_ascii=False, indent=2))
+    payload = json.dumps({"year": year, "holidays": holidays}, ensure_ascii=False, indent=2) + "\n"
+    temporary_path = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=template_path.parent,
+                                         prefix=template_path.name + ".", suffix=".tmp", delete=False) as stream:
+            temporary_path = Path(stream.name)
+            stream.write(payload)
+        temporary_path.replace(template_path)
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
 
 
 def load_or_fetch_holidays(
@@ -164,7 +188,7 @@ def load_or_fetch_holidays(
     if template_path is None:
         template_path = get_holiday_template_path(year)
 
-    existing_template = load_holiday_template(template_path)
+    existing_template = load_holiday_template(template_path, year=year)
     if existing_template is not None and not refresh:
         return existing_template
 
@@ -173,15 +197,18 @@ def load_or_fetch_holidays(
 
     try:
         holidays = parse_holiday_csv_bytes(fetcher(), year=year)
+        if not any(holidays.values()):
+            raise ValueError(f"公式CSVに{year}年の祝日データがありません。")
     except Exception as exc:
-        seeded = empty_holiday_map()
-        write_holiday_template(template_path, seeded)
+        if existing_template is not None:
+            warnings.warn(f"{year}年の祝日更新に失敗したため、既存の {template_path.name} を使用します: {exc}", RuntimeWarning)
+            return existing_template
         raise RuntimeError(
-            f"祝日CSVの取得に失敗したため、テンプレート {template_path.name} を作成しました。"
-            "ネットワーク復旧後に再実行するか、このテンプレートへ手動入力してください。"
+            f"{year}年の祝日CSVの取得・解析に失敗しました。{template_path.name} は変更していません。"
+            "ネットワークと公式CSVの掲載年を確認して再実行してください。"
         ) from exc
 
-    write_holiday_template(template_path, holidays)
+    write_holiday_template(template_path, holidays, year=year)
     return holidays
 
 
@@ -1983,7 +2010,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - 取得結果は再利用用テンプレートとして保存する。
 {holiday_lines}
 - 通常運用では年に1回取得できれば十分で、毎回の更新は不要。
-- CSV取得に失敗し、まだテンプレートが無い年は空テンプレートを作って後で再試行できるようにする。
+- CSV取得に失敗し、有効なテンプレートが無い年はファイルを作成・上書きせずエラーにする。
 - CSV取得に失敗しても既存テンプレートがあれば、そのまま既存テンプレートを使う。
 - 日付セルには `祝` だけを表示し、祝日名の詳細は詳細欄や補足側で扱う。
 
@@ -2001,7 +2028,7 @@ python3 scripts/render_live_calendar.py --output-preview
 - 日付クリックで同じ月カード内の詳細パネルを開く。初期状態の `日付をタップすると詳細を表示` 注釈は出さない
 - 月見出しは太く出しすぎず、やや小さめ・軽めのモダンな日本語フォント感にする
 - プレビュー画像は Python 生成の JPG（`--output-preview` 指定時のみ `summary/` に出力）
-- 祝日テンプレートは `scripts/holidays_template.json` で管理する
+- 祝日テンプレートは `scripts/holidays_template_<year>.json` で年別に管理し、JSON内の年も照合する
 
 ## 編集ルール
 
@@ -3013,7 +3040,7 @@ def main(argv: list[str] | None = None) -> None:
     holidays_by_event_month = {month: holidays_by_month_all.get(month, {}) for month in event_display_months}
     holiday_template_paths = [get_holiday_template_path(year) for year in sorted({month.year for month in all_display_months})]
     latest_year = max(all_display_months).year
-    HOLIDAYS = load_holiday_template(get_holiday_template_path(latest_year)) or empty_holiday_map()
+    HOLIDAYS = load_holiday_template(get_holiday_template_path(latest_year), year=latest_year) or empty_holiday_map()
 
     months, legend_live, legend_lottery = parse_summary_timeline(source_text, live_display_months, holidays_by_live_month)
     event_months, legend_event, legend_event_dates = parse_event_summary_timeline(event_source_text, event_display_months, holidays_by_event_month) if event_source_text else ({}, {}, {})
