@@ -6659,46 +6659,104 @@ DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
  nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261014-4020f04c3b8a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:バックスライブ抽選開始
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261014-a9dc4bce9cf1-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:福フェス抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261014-61c1c62115d3-lottery-span@mistral-yu
@@ -6706,41 +6764,49 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:アニラ抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261014-b5854a1cbd94-event@mistral-yu
@@ -6748,41 +6814,49 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:発売日
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261014-cd-lottery@mistral-yu
@@ -6790,41 +6864,49 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:長期CD応募開始
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261014-cd-lottery@mistral-yu
@@ -6832,41 +6914,49 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:CD応募開始
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261014-a84ab0853d88-lottery@mistral-yu
@@ -6874,41 +6964,49 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:ミーグリ(シリアルコード)応募開始
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261014-193f0d364bc2-lottery@mistral-yu
@@ -6916,41 +7014,80 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:ミーグリ応募開始
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\nEVENT: 16th
-  Single『愛MUST BE』 CD購入者スペシャル応募抽選企画\n発
- 売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n
- 応募: 16th Single『愛MUST BE』 CD購入者スペシャル応募抽選
- 企画 CD購入者スペシャル応募\n対象: 初回仕様限定盤(TYP
- E-A〜TYPE-D)封入シリアルナンバー／各賞品（賞品別の締
- 切に注意）\n2026-10-14(水)〜2026-12-25(金)\nhttps://sakurazaka46.c
- om/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購
- 入者スペシャル応募抽選企画 リアルサイン会応募\n対
- 象: 3枚応募／東京会場・京都会場リアルサイン会\n2026-1
- 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
- 0627\n\n応募: 16th Single『愛MUST BE』発売記念リアルミート
- ＆グリート（個別トーク会） 第1次応募\n対象: リアル
- ミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\nEVENT: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』 CD購入者ス
+ ペシャル応募抽選企画 CD購入者スペシャル応募\n対象: 
+ 初回仕様限定盤(TYPE-A〜TYPE-D)封入シリアルナンバー／各
+ 賞品（賞品別の締切に注意）\n2026-10-14(水)〜2026-12-25(金)
+ \nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single
+ 『愛MUST BE』 CD購入者スペシャル応募抽選企画 リアルサ
+ イン会応募\n対象: 3枚応募／東京会場・京都会場リアル
+ サイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/
  s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
- 念オンラインミート＆グリート（個別トーク会） 第1次
- 応募\n対象: オンラインミーグリ(全国)\n2026-10-14(水)〜202
- 6-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46.com/s/s46/news
- /detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/\n\n応募: 
- 16枚目シングル『愛MUST BE』発売記念オンラインミート
- ＆グリート 第6次応募\n対象: オンラインミーグリ\n2026-1
- 0-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0
- 0225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ 念リアルミート＆グリート（個別トーク会） 第1次応募
+ \n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日)\nhttps:
+ //sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MU
+ ST BE』発売記念オンラインミート＆グリート（個別トー
+ ク会） 第1次応募\n対象: オンラインミーグリ(全国)\n2026
+ -10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/
+ R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート\n発売日\n10/14 水\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オンラ
+ インミート＆グリート 第6次応募\n対象: オンラインミ
+ ーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s
+ 46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261015-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次応募\n対象: オンライ
+ ンミーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.c
+ om/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610
+ /
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261015-a9dc4bce9cf1-lottery-span@mistral-yu
@@ -6958,21 +7095,30 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:福フェス抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16
- 枚目シングル『愛MUST BE』発売記念オンラインミート＆
- グリート 第6次応募\n対象: オンラインミーグリ\n2026-10-1
- 4(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0022
- 5\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次応募\n対象: オンライ
+ ンミーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.c
+ om/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610
+ /
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261015-61c1c62115d3-lottery-span@mistral-yu
@@ -6980,21 +7126,30 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:アニラ抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16
- 枚目シングル『愛MUST BE』発売記念オンラインミート＆
- グリート 第6次応募\n対象: オンラインミーグリ\n2026-10-1
- 4(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0022
- 5\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次応募\n対象: オンライ
+ ンミーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.c
+ om/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610
+ /
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261015-765d17a1653f-lottery@mistral-yu
@@ -7002,21 +7157,57 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:ミーグリ応募締切
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16
- 枚目シングル『愛MUST BE』発売記念オンラインミート＆
- グリート 第6次応募\n対象: オンラインミーグリ\n2026-10-1
- 4(水)〜2026-10-15(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S0022
- 5\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次応募\n対象: オンライ
+ ンミーグリ\n2026-10-14(水)〜2026-10-15(木)\nhttps://sakurazaka46.c
+ om/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610
+ /
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261016-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261016
+DTEND;VALUE=DATE:20261017
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261016-a9dc4bce9cf1-lottery-span@mistral-yu
@@ -7024,17 +7215,26 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:福フェス抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261016-61c1c62115d3-lottery-span@mistral-yu
@@ -7042,17 +7242,57 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:アニラ抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261017-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次支払い方法選択期限\n
+ 対象: オンラインミーグリ\n2026-10-17(土)\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261017-a9dc4bce9cf1-lottery-span@mistral-yu
@@ -7060,21 +7300,30 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:福フェス抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16
- 枚目シングル『愛MUST BE』発売記念オンラインミート＆
- グリート 第6次支払い方法選択期限\n対象: オンライン
- ミーグリ\n2026-10-17(土)\nhttps://sakurazaka46.com/s/s46/news/detail/
- S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次支払い方法選択期限\n
+ 対象: オンラインミーグリ\n2026-10-17(土)\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261017-61c1c62115d3-lottery-span@mistral-yu
@@ -7082,21 +7331,30 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:アニラ抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16
- 枚目シングル『愛MUST BE』発売記念オンラインミート＆
- グリート 第6次支払い方法選択期限\n対象: オンライン
- ミーグリ\n2026-10-17(土)\nhttps://sakurazaka46.com/s/s46/news/detail/
- S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次支払い方法選択期限\n
+ 対象: オンラインミーグリ\n2026-10-17(土)\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261017-820b3f83f88a-lottery@mistral-yu
@@ -7104,21 +7362,70 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:支払い方法選択期限
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16
- 枚目シングル『愛MUST BE』発売記念オンラインミート＆
- グリート 第6次支払い方法選択期限\n対象: オンライン
- ミーグリ\n2026-10-17(土)\nhttps://sakurazaka46.com/s/s46/news/detail/
- S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記念オ
+ ンラインミート＆グリート 第6次支払い方法選択期限\n
+ 対象: オンラインミーグリ\n2026-10-17(土)\nhttps://sakurazaka46
+ .com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2026
+ 10/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261018-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261018
+DTEND;VALUE=DATE:20261019
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画 リアルサイン会応募\n対象: 3枚応募／
+ 東京会場・京都会場リアルサイン会\n2026-10-14(水)〜2026-1
+ 0-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16
+ th Single『愛MUST BE』発売記念リアルミート＆グリート（
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-1
+ 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0627\n\n応募: 16th Single『愛MUST BE』発売記念オンラインミ
+ ート＆グリート（個別トーク会） 第1次応募\n対象: オ
+ ンラインミーグリ(全国)\n2026-10-14(水)〜2026-10-18(日)\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 16枚目シング
+ ル『愛MUST BE』発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n10/18 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261018-cde64ed913df-lottery@mistral-yu
@@ -7126,31 +7433,39 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:福フェス抽選締切
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16t
- h Single『愛MUST BE』 CD購入者スペシャル応募抽選企画 リ
- アルサイン会応募\n対象: 3枚応募／東京会場・京都会場
- リアルサイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』
- 発売記念リアルミート＆グリート（個別トーク会） 第1
- 次応募\n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日
- )\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Singl
- e『愛MUST BE』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n1
- 0/18 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
- ortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画 リアルサイン会応募\n対象: 3枚応募／
+ 東京会場・京都会場リアルサイン会\n2026-10-14(水)〜2026-1
+ 0-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16
+ th Single『愛MUST BE』発売記念リアルミート＆グリート（
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-1
+ 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0627\n\n応募: 16th Single『愛MUST BE』発売記念オンラインミ
+ ート＆グリート（個別トーク会） 第1次応募\n対象: オ
+ ンラインミーグリ(全国)\n2026-10-14(水)〜2026-10-18(日)\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 16枚目シング
+ ル『愛MUST BE』発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n10/18 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261018-61c1c62115d3-lottery-span@mistral-yu
@@ -7158,31 +7473,39 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:アニラ抽選中
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16t
- h Single『愛MUST BE』 CD購入者スペシャル応募抽選企画 リ
- アルサイン会応募\n対象: 3枚応募／東京会場・京都会場
- リアルサイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』
- 発売記念リアルミート＆グリート（個別トーク会） 第1
- 次応募\n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日
- )\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Singl
- e『愛MUST BE』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n1
- 0/18 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
- ortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画 リアルサイン会応募\n対象: 3枚応募／
+ 東京会場・京都会場リアルサイン会\n2026-10-14(水)〜2026-1
+ 0-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16
+ th Single『愛MUST BE』発売記念リアルミート＆グリート（
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-1
+ 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0627\n\n応募: 16th Single『愛MUST BE』発売記念オンラインミ
+ ート＆グリート（個別トーク会） 第1次応募\n対象: オ
+ ンラインミーグリ(全国)\n2026-10-14(水)〜2026-10-18(日)\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 16枚目シング
+ ル『愛MUST BE』発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n10/18 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261018-cd-lottery@mistral-yu
@@ -7190,31 +7513,39 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:CD応募締切
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16t
- h Single『愛MUST BE』 CD購入者スペシャル応募抽選企画 リ
- アルサイン会応募\n対象: 3枚応募／東京会場・京都会場
- リアルサイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』
- 発売記念リアルミート＆グリート（個別トーク会） 第1
- 次応募\n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日
- )\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Singl
- e『愛MUST BE』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n1
- 0/18 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
- ortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画 リアルサイン会応募\n対象: 3枚応募／
+ 東京会場・京都会場リアルサイン会\n2026-10-14(水)〜2026-1
+ 0-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16
+ th Single『愛MUST BE』発売記念リアルミート＆グリート（
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-1
+ 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0627\n\n応募: 16th Single『愛MUST BE』発売記念オンラインミ
+ ート＆グリート（個別トーク会） 第1次応募\n対象: オ
+ ンラインミーグリ(全国)\n2026-10-14(水)〜2026-10-18(日)\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 16枚目シング
+ ル『愛MUST BE』発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n10/18 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261018-ac7a534b5fe6-lottery@mistral-yu
@@ -7222,31 +7553,39 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:ミーグリ(シリアルコード)応募締切
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16t
- h Single『愛MUST BE』 CD購入者スペシャル応募抽選企画 リ
- アルサイン会応募\n対象: 3枚応募／東京会場・京都会場
- リアルサイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』
- 発売記念リアルミート＆グリート（個別トーク会） 第1
- 次応募\n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日
- )\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Singl
- e『愛MUST BE』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n1
- 0/18 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
- ortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画 リアルサイン会応募\n対象: 3枚応募／
+ 東京会場・京都会場リアルサイン会\n2026-10-14(水)〜2026-1
+ 0-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16
+ th Single『愛MUST BE』発売記念リアルミート＆グリート（
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-1
+ 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0627\n\n応募: 16th Single『愛MUST BE』発売記念オンラインミ
+ ート＆グリート（個別トーク会） 第1次応募\n対象: オ
+ ンラインミーグリ(全国)\n2026-10-14(水)〜2026-10-18(日)\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 16枚目シング
+ ル『愛MUST BE』発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n10/18 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261018-a72a35d6a4c5-event@mistral-yu
@@ -7254,31 +7593,63 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
 SUMMARY:ミーグリ
-DESCRIPTION:抽選: FUKUOKA MUSIC FES.2027 オフィシャル2次先行\n
- 対象: 1/31(日)公演／各券種\n10/8(木)〜10/18(日)\nhttps://x.com
- /sakurazaka46/status/2108154079239409869\nhttps://fukuokamusic-fes.com/202
- 7/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット
- 先行\n対象: 全席指定／親子・女性エリア／着席指定席
- ／スタンド見切れ席／注釈付きグラウンド見切れ席\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th
-  YEAR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/
- 10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\
- nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n応募: 16t
- h Single『愛MUST BE』 CD購入者スペシャル応募抽選企画 リ
- アルサイン会応募\n対象: 3枚応募／東京会場・京都会場
- リアルサイン会\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakuraza
- ka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』
- 発売記念リアルミート＆グリート（個別トーク会） 第1
- 次応募\n対象: リアルミーグリ\n2026-10-14(水)〜2026-10-18(日
- )\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Singl
- e『愛MUST BE』発売記念オンラインミート＆グリート（個
- 別トーク会） 第1次応募\n対象: オンラインミーグリ(全
- 国)\n2026-10-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
- 念オンラインミート＆グリート\nオンラインミーグリ\n1
- 0/18 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
- ortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: FUKUOKA MUSIC FES.2027 オフィ
+ シャル2次先行\n対象: 1/31(日)公演／各券種\n10/8(木)〜10/1
+ 8(日)\nhttps://x.com/sakurazaka46/status/2108154079239409869\nhttps://fuk
+ uokamusic-fes.com/2027/index.html\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロ
+ ーソンチケット先行\n対象: 全席指定／親子・女性エリ
+ ア／着席指定席／スタンド見切れ席／注釈付きグラウ
+ ンド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s4
+ 6/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?
+ ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n
+ 対象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/
+ s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E0061
+ 9?ima=0000\n\n応募: 16th Single『愛MUST BE』 CD購入者スペシャ
+ ル応募抽選企画 リアルサイン会応募\n対象: 3枚応募／
+ 東京会場・京都会場リアルサイン会\n2026-10-14(水)〜2026-1
+ 0-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627\n\n応募: 16
+ th Single『愛MUST BE』発売記念リアルミート＆グリート（
+ 個別トーク会） 第1次応募\n対象: リアルミーグリ\n2026-1
+ 0-14(水)〜2026-10-18(日)\nhttps://sakurazaka46.com/s/s46/news/detail/R0
+ 0627\n\n応募: 16th Single『愛MUST BE』発売記念オンラインミ
+ ート＆グリート（個別トーク会） 第1次応募\n対象: オ
+ ンラインミーグリ(全国)\n2026-10-14(水)〜2026-10-18(日)\nhttps
+ ://sakurazaka46.com/s/s46/news/detail/R00627\n\nEVENT: 16枚目シング
+ ル『愛MUST BE』発売記念オンラインミート＆グリート\n
+ オンラインミーグリ\n10/18 日\nhttps://sakurazaka46.com/s/s46/new
+ s/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261019-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロー
+ ソンチケット先行\n対象: 全席指定／親子・女性エリア
+ ／着席指定席／スタンド見切れ席／注釈付きグラウン
+ ド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/p
+ age/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima
+ =0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n対
+ 象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46
+ /page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?i
+ ma=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261019-dd7caafcefb6-lottery@mistral-yu
@@ -7286,14 +7657,39 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
 SUMMARY:アニラ抽選締切
-DESCRIPTION:抽選: 6th YEAR ANNIVERSARY LIVE ローソンチケット先
- 行\n対象: 全席指定／親子・女性エリア／着席指定席／
- スタンド見切れ席／注釈付きグラウンド見切れ席\n10/10(
- 土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\nht
- tps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000\n\n抽選: 6th YE
- AR ANNIVERSARY LIVE 海外チケット先行\n対象: 全席指定\n10/10(
- 土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\nht
- tps://sakurazaka46.com/s/s46/news/detail/E00619?ima=0000
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE ロー
+ ソンチケット先行\n対象: 全席指定／親子・女性エリア
+ ／着席指定席／スタンド見切れ席／注釈付きグラウン
+ ド見切れ席\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46/p
+ age/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?ima
+ =0000\n\n抽選: 6th YEAR ANNIVERSARY LIVE 海外チケット先行\n対
+ 象: 全席指定\n10/10(土)〜10/19(月)\nhttps://sakurazaka46.com/s/s46
+ /page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?i
+ ma=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261020-b4b3f31b881b-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:バックスライブ抽選締切
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! Leminoスペシャル
+ シート先行\n対象: Leminoスペシャルシート\n10/14(水)〜10/2
+ 0(火)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 16枚目シングル BACKS LIVE!! Lemino櫻坂46パック先行\n対
+ 象: 全席指定／親子・女性エリア\n10/14(水)〜10/20(火)\nhtt
+ ps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: 16枚
+ 目シングル BACKS LIVE!! FC会員先行\n対象: 全席指定／親子
+ ・女性エリア\n10/14(水)〜10/20(火)\nhttps://sakurazaka46.com/s/s4
+ 6/page/backslive_16th?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261022-dec84a4b3c06-lottery@mistral-yu
@@ -7318,15 +7714,48 @@ DESCRIPTION:抽選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対
  /s/s46/news/detail/E00619?ima=0000
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261024-4020f04c3b8a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261024
+DTEND;VALUE=DATE:20261025
+SUMMARY:バックスライブ抽選開始
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対象: 全席指
+ 定／親子・女性エリア\n10/22(木)〜10/25(日)\nhttps://sakurazak
+ a46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/de
+ tail/E00619?ima=0000
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261024-61c1c62115d3-lottery-span@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
 SUMMARY:アニラ抽選中
-DESCRIPTION:抽選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対
- 象: 全席指定／親子・女性エリア\n10/22(木)〜10/25(日)\nhtt
- ps://sakurazaka46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com
- /s/s46/news/detail/E00619?ima=0000
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽
+ 選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対象: 全席指
+ 定／親子・女性エリア\n10/22(木)〜10/25(日)\nhttps://sakurazak
+ a46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/de
+ tail/E00619?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261025-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nLIVE:
+  MUSIC EXPO LIVE 2026 in TAIPEI\n会場: TAIPEI ARENA\n2026/10/25 日\nhtt
+ ps://sakurazaka46.com/s/s46/news/detail/E00656\nhttps://x.com/musicexpoliv
+ e\n\n抽選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対象: 
+ 全席指定／親子・女性エリア\n10/22(木)〜10/25(日)\nhttps://
+ sakurazaka46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/E00619?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261025-music-expo-live@mistral-yu
@@ -7334,12 +7763,15 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:MUSIC EXPO
-DESCRIPTION:LIVE: MUSIC EXPO LIVE 2026 in TAIPEI\n会場: TAIPEI ARENA\n202
- 6/10/25 日\nhttps://sakurazaka46.com/s/s46/news/detail/E00656\nhttps://x.
- com/musicexpolive\n\n抽選: 6th YEAR ANNIVERSARY LIVE イオンカード
- 先行\n対象: 全席指定／親子・女性エリア\n10/22(木)〜10/2
- 5(日)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\nhttps://sakur
- azaka46.com/s/s46/news/detail/E00619?ima=0000
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nLIVE:
+  MUSIC EXPO LIVE 2026 in TAIPEI\n会場: TAIPEI ARENA\n2026/10/25 日\nhtt
+ ps://sakurazaka46.com/s/s46/news/detail/E00656\nhttps://x.com/musicexpoliv
+ e\n\n抽選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対象: 
+ 全席指定／親子・女性エリア\n10/22(木)〜10/25(日)\nhttps://
+ sakurazaka46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/E00619?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261025-dd7caafcefb6-lottery@mistral-yu
@@ -7347,12 +7779,33 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
 SUMMARY:アニラ抽選締切
-DESCRIPTION:LIVE: MUSIC EXPO LIVE 2026 in TAIPEI\n会場: TAIPEI ARENA\n202
- 6/10/25 日\nhttps://sakurazaka46.com/s/s46/news/detail/E00656\nhttps://x.
- com/musicexpolive\n\n抽選: 6th YEAR ANNIVERSARY LIVE イオンカード
- 先行\n対象: 全席指定／親子・女性エリア\n10/22(木)〜10/2
- 5(日)\nhttps://sakurazaka46.com/s/s46/page/6th_anniversary\nhttps://sakur
- azaka46.com/s/s46/news/detail/E00619?ima=0000
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nLIVE:
+  MUSIC EXPO LIVE 2026 in TAIPEI\n会場: TAIPEI ARENA\n2026/10/25 日\nhtt
+ ps://sakurazaka46.com/s/s46/news/detail/E00656\nhttps://x.com/musicexpoliv
+ e\n\n抽選: 6th YEAR ANNIVERSARY LIVE イオンカード先行\n対象: 
+ 全席指定／親子・女性エリア\n10/22(木)〜10/25(日)\nhttps://
+ sakurazaka46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/E00619?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261026-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16th Single『愛MUST BE』発売記念リアルミート＆グリー
+ ト（個別トーク会） 第1次応募保障期間\n対象: リアル
+ ミーグリ\n2026-10-26(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第1次
+ 応募保障期間\n対象: オンラインミーグリ(全国)\n2026-10-2
+ 6(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R0062
+ 7
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261026-a84ab0853d88-lottery@mistral-yu
@@ -7360,14 +7813,35 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
 SUMMARY:ミーグリ(シリアルコード)応募開始
-DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
- ト＆グリート（個別トーク会） 第1次応募保障期間\n対
- 象: リアルミーグリ\n2026-10-26(月)〜2026-10-27(火)\nhttps://sak
- urazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE
- 』発売記念オンラインミート＆グリート（個別トーク
- 会） 第1次応募保障期間\n対象: オンラインミーグリ(全
- 国)\n2026-10-26(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16th Single『愛MUST BE』発売記念リアルミート＆グリー
+ ト（個別トーク会） 第1次応募保障期間\n対象: リアル
+ ミーグリ\n2026-10-26(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第1次
+ 応募保障期間\n対象: オンラインミーグリ(全国)\n2026-10-2
+ 6(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R0062
+ 7
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261027-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16th Single『愛MUST BE』発売記念リアルミート＆グリー
+ ト（個別トーク会） 第1次応募保障期間\n対象: リアル
+ ミーグリ\n2026-10-26(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第1次
+ 応募保障期間\n対象: オンラインミーグリ(全国)\n2026-10-2
+ 6(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R0062
+ 7
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261027-ac7a534b5fe6-lottery@mistral-yu
@@ -7375,14 +7849,64 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261027
 DTEND;VALUE=DATE:20261028
 SUMMARY:ミーグリ(シリアルコード)応募締切
-DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
- ト＆グリート（個別トーク会） 第1次応募保障期間\n対
- 象: リアルミーグリ\n2026-10-26(月)〜2026-10-27(火)\nhttps://sak
- urazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE
- 』発売記念オンラインミート＆グリート（個別トーク
- 会） 第1次応募保障期間\n対象: オンラインミーグリ(全
- 国)\n2026-10-26(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16th Single『愛MUST BE』発売記念リアルミート＆グリー
+ ト（個別トーク会） 第1次応募保障期間\n対象: リアル
+ ミーグリ\n2026-10-26(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第1次
+ 応募保障期間\n対象: オンラインミーグリ(全国)\n2026-10-2
+ 6(月)〜2026-10-27(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R0062
+ 7
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261028-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261029-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261030-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261031-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261031
+DTEND;VALUE=DATE:20261101
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n一
+ 般発売: 6th YEAR ANNIVERSARY LIVE\n対象: 全席指定／親子・女
+ 性エリア／先着販売\n10/31(土)〜\nhttps://sakurazaka46.com/s/s46
+ /page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?i
+ ma=0000\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n10/31 土\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261031-fcc244b24993-lottery@mistral-yu
@@ -7390,13 +7914,16 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:アニラ一般発売
-DESCRIPTION:一般発売: 6th YEAR ANNIVERSARY LIVE\n対象: 全席指定
- ／親子・女性エリア／先着販売\n10/31(土)〜\nhttps://sakuraz
- aka46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/
- detail/E00619?ima=0000\n\nEVENT: 16枚目シングル『愛MUST BE』発
- 売記念オンラインミート＆グリート\nオンラインミーグ
- リ\n10/31 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps:/
- /www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n一
+ 般発売: 6th YEAR ANNIVERSARY LIVE\n対象: 全席指定／親子・女
+ 性エリア／先着販売\n10/31(土)〜\nhttps://sakurazaka46.com/s/s46
+ /page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?i
+ ma=0000\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n10/31 土\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261031-a72a35d6a4c5-event@mistral-yu
@@ -7404,13 +7931,26 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
 SUMMARY:ミーグリ
-DESCRIPTION:一般発売: 6th YEAR ANNIVERSARY LIVE\n対象: 全席指定
- ／親子・女性エリア／先着販売\n10/31(土)〜\nhttps://sakuraz
- aka46.com/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/
- detail/E00619?ima=0000\n\nEVENT: 16枚目シングル『愛MUST BE』発
- 売記念オンラインミート＆グリート\nオンラインミーグ
- リ\n10/31 土\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps:/
- /www.fortunemusic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n一
+ 般発売: 6th YEAR ANNIVERSARY LIVE\n対象: 全席指定／親子・女
+ 性エリア／先着販売\n10/31(土)〜\nhttps://sakurazaka46.com/s/s46
+ /page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/E00619?i
+ ma=0000\n\nEVENT: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート\nオンラインミーグリ\n10/31 土\
+ nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
+ ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261101-b4b3f31b881b-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:バックスライブ抽選締切
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! オフィシャル先
+ 行\n対象: 全席指定／親子・女性エリア\n10/24(土)〜11/1(
+ 日)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261102-a84ab0853d88-lottery@mistral-yu
@@ -7521,15 +8061,76 @@ DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
  2026-11-17(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261118-4020f04c3b8a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:バックスライブ抽選開始
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261119-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261120-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261121-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT
+ : 16枚目シングル『愛MUST BE』発売記念オンラインミート
+ ＆グリート\nオンラインミーグリ\n11/21 土\nhttps://sakurazak
+ a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261121-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:ミーグリ
-DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
- ラインミート＆グリート\nオンラインミーグリ\n11/21 土\
- nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
- ic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT
+ : 16枚目シングル『愛MUST BE』発売記念オンラインミート
+ ＆グリート\nオンラインミーグリ\n11/21 土\nhttps://sakurazak
+ a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261122-d17df60ed1c8-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:バックスライブ抽選中
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT
+ : 16枚目シングル『愛MUST BE』発売記念オンラインミート
+ ＆グリート\nオンラインミーグリ\n11/22 日\nhttps://sakurazak
+ a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261122-a72a35d6a4c5-event@mistral-yu
@@ -7537,10 +8138,31 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:ミーグリ
-DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
- ラインミート＆グリート\nオンラインミーグリ\n11/22 日\
- nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
- ic.jp/sakurazaka_202610/
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT
+ : 16枚目シングル『愛MUST BE』発売記念オンラインミート
+ ＆グリート\nオンラインミーグリ\n11/22 日\nhttps://sakurazak
+ a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261123-b4b3f31b881b-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:バックスライブ抽選締切
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16th Single『愛MUST BE』発売記念リアルミート＆グリー
+ ト（個別トーク会） 第3次応募保障期間\n対象: リアル
+ ミーグリ\n2026-11-23(月)〜2026-11-24(火)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第3次
+ 応募保障期間\n対象: オンラインミーグリ(全国)\n2026-11-2
+ 3(月)〜2026-11-24(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R0062
+ 7
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261123-a84ab0853d88-lottery@mistral-yu
@@ -7548,14 +8170,17 @@ DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261123
 DTEND;VALUE=DATE:20261124
 SUMMARY:ミーグリ(シリアルコード)応募開始
-DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
- ト＆グリート（個別トーク会） 第3次応募保障期間\n対
- 象: リアルミーグリ\n2026-11-23(月)〜2026-11-24(火)\nhttps://sak
- urazaka46.com/s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE
- 』発売記念オンラインミート＆グリート（個別トーク
- 会） 第3次応募保障期間\n対象: オンラインミーグリ(全
- 国)\n2026-11-23(月)〜2026-11-24(火)\nhttps://sakurazaka46.com/s/s46/ne
- ws/detail/R00627
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16th Single『愛MUST BE』発売記念リアルミート＆グリー
+ ト（個別トーク会） 第3次応募保障期間\n対象: リアル
+ ミーグリ\n2026-11-23(月)〜2026-11-24(火)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/R00627\n\n応募: 16th Single『愛MUST BE』発売記
+ 念オンラインミート＆グリート（個別トーク会） 第3次
+ 応募保障期間\n対象: オンラインミーグリ(全国)\n2026-11-2
+ 3(月)〜2026-11-24(火)\nhttps://sakurazaka46.com/s/s46/news/detail/R0062
+ 7
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261124-ac7a534b5fe6-lottery@mistral-yu
@@ -7583,15 +8208,30 @@ DESCRIPTION:応募: 16th Single『愛MUST BE』ミニライブ視聴用ID
  27(金)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261129-13095b6260a2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:バックスライブ一般発売
+DESCRIPTION:一般発売: 16枚目シングル BACKS LIVE!!\n対象: 全席
+ 指定／親子・女性エリア／先着販売\n11/29(日)〜\nhttps://s
+ akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT: 16枚目シ
+ ングル『愛MUST BE』発売記念オンラインミート＆グリー
+ ト\nオンラインミーグリ\n11/29 日\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261129-a72a35d6a4c5-event@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:ミーグリ
-DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
- ラインミート＆グリート\nオンラインミーグリ\n11/29 日\
- nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
- ic.jp/sakurazaka_202610/
+DESCRIPTION:一般発売: 16枚目シングル BACKS LIVE!!\n対象: 全席
+ 指定／親子・女性エリア／先着販売\n11/29(日)〜\nhttps://s
+ akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT: 16枚目シ
+ ングル『愛MUST BE』発売記念オンラインミート＆グリー
+ ト\nオンラインミーグリ\n11/29 日\nhttps://sakurazaka46.com/s/s4
+ 6/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261204-181994301571-lottery@mistral-yu
@@ -7634,6 +8274,26 @@ DESCRIPTION:EVENT: 16枚目シングル『愛MUST BE』発売記念オン
  ラインミート＆グリート\nオンラインミーグリ\n12/13 日\
  nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemus
  ic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261215-913d8e9e735f-live@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:バックスライブ
+DESCRIPTION:LIVE: 16枚目シングル BACKS LIVE!!\n会場: ぴあアリ
+ ーナMM／開場17:30・開演19:00\n2026/12/15〜16 火水\nhttps://saku
+ razaka46.com/s/s46/page/backslive_16th?ima=0000
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261216-913d8e9e735f-live@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261216
+DTEND;VALUE=DATE:20261217
+SUMMARY:バックスライブ
+DESCRIPTION:LIVE: 16枚目シングル BACKS LIVE!!\n会場: ぴあアリ
+ ーナMM／開場17:30・開演19:00\n2026/12/15〜16 火水\nhttps://saku
+ razaka46.com/s/s46/page/backslive_16th?ima=0000
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261217-f2034a50939c-live@mistral-yu
