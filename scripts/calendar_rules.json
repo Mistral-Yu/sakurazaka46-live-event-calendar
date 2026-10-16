@@ -13,6 +13,7 @@
       "大阪・舞洲スポーツアイランド": "ジャイガ"
     },
     "live_title_rules": [
+      {"contains": ["ANNIVERSARY LIVE", "アニラ"], "label": "アニラ"},
       {"contains": ["BACKS LIVE"], "label": "バックスライブ"},
       {"contains": ["四期生 LIVE"], "label": "四期生ライブ"},
       {"contains": ["ミニライブ"], "label": "ミニライブ"},
