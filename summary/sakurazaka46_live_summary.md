@@ -248,6 +248,28 @@
 - https://sakurazaka46.com/s/s46/news/detail/E00656
 - https://x.com/musicexpolive
 
+## COUNTDOWN JAPAN 26/27
+
+### ライブ公演の日程
+
+| 開催日 | 曜日 | 会場 |
+|---|---|---|
+| 2026-12-26 | 土 | 幕張メッセ国際展示場1〜11ホール |
+
+### 抽選の日程
+
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| 第2次抽選先行 | **10/28(水)〜11/2(月)** | 12/26(土)公演／1日券・12/26を含むセット券（Jフェスアプリ） |
+
+- ステージ前方エリア事前抽選は11月下旬頃に実施予定（受付日程の詳細は未発表）。
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/news/detail/E00693
+- https://countdownjapan.jp/
+- https://countdownjapan.jp/2627/ticket/
+
 ## FUKUOKA MUSIC FES.2027
 
 ### ライブ公演の日程
