@@ -8567,14 +8567,43 @@ DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
  ws/detail/R00627
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261127-d941dd4fdcb4-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:イオンライブ抽選開始
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695\n\n応募: 16th Single『
+ 愛MUST BE』ミニライブ視聴用ID ミニライブ応募締切\n対
+ 象: ミニライブ 視聴用ID\n2026-11-27(金)\nhttps://sakurazaka46.co
+ m/s/s46/news/detail/R00627
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261127-181994301571-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261127
 DTEND;VALUE=DATE:20261128
 SUMMARY:ミニライブ応募締切
-DESCRIPTION:応募: 16th Single『愛MUST BE』ミニライブ視聴用ID 
- ミニライブ応募締切\n対象: ミニライブ 視聴用ID\n2026-11-
- 27(金)\nhttps://sakurazaka46.com/s/s46/news/detail/R00627
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695\n\n応募: 16th Single『
+ 愛MUST BE』ミニライブ視聴用ID ミニライブ応募締切\n対
+ 象: ミニライブ 視聴用ID\n2026-11-27(金)\nhttps://sakurazaka46.co
+ m/s/s46/news/detail/R00627
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261128-3b1b6971e5e5-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:イオンライブ抽選中
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261129-13095b6260a2-lottery@mistral-yu
@@ -8584,10 +8613,31 @@ DTEND;VALUE=DATE:20261130
 SUMMARY:バックスライブ一般発売
 DESCRIPTION:一般発売: 16枚目シングル BACKS LIVE!!\n対象: 全席
  指定／親子・女性エリア／先着販売\n11/29(日)〜\nhttps://s
- akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT: 16枚目シ
- ングル『愛MUST BE』発売記念オンラインミート＆グリー
- ト\nオンラインミーグリ\n11/29 日\nhttps://sakurazaka46.com/s/s4
- 6/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: SAKURAZAKA46
+  Live，AEON CARD with YOU！Vol.6 イオンカード一次先行\n対象:
+  イオンカード(櫻坂46)・イオン銀行キャッシュ+デビッ
+ ト会員限定\n11/27(金)〜12/2(水)\nhttps://sakurazaka46.com/s/s46/ne
+ ws/detail/E00695\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
+ 念オンラインミート＆グリート\nオンラインミーグリ\n1
+ 1/29 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
+ ortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261129-3b1b6971e5e5-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:イオンライブ抽選中
+DESCRIPTION:一般発売: 16枚目シングル BACKS LIVE!!\n対象: 全席
+ 指定／親子・女性エリア／先着販売\n11/29(日)〜\nhttps://s
+ akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: SAKURAZAKA46
+  Live，AEON CARD with YOU！Vol.6 イオンカード一次先行\n対象:
+  イオンカード(櫻坂46)・イオン銀行キャッシュ+デビッ
+ ト会員限定\n11/27(金)〜12/2(水)\nhttps://sakurazaka46.com/s/s46/ne
+ ws/detail/E00695\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
+ 念オンラインミート＆グリート\nオンラインミーグリ\n1
+ 1/29 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
+ ortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261129-a72a35d6a4c5-event@mistral-yu
@@ -8597,10 +8647,47 @@ DTEND;VALUE=DATE:20261130
 SUMMARY:ミーグリ
 DESCRIPTION:一般発売: 16枚目シングル BACKS LIVE!!\n対象: 全席
  指定／親子・女性エリア／先着販売\n11/29(日)〜\nhttps://s
- akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT: 16枚目シ
- ングル『愛MUST BE』発売記念オンラインミート＆グリー
- ト\nオンラインミーグリ\n11/29 日\nhttps://sakurazaka46.com/s/s4
- 6/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+ akurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n抽選: SAKURAZAKA46
+  Live，AEON CARD with YOU！Vol.6 イオンカード一次先行\n対象:
+  イオンカード(櫻坂46)・イオン銀行キャッシュ+デビッ
+ ト会員限定\n11/27(金)〜12/2(水)\nhttps://sakurazaka46.com/s/s46/ne
+ ws/detail/E00695\n\nEVENT: 16枚目シングル『愛MUST BE』発売記
+ 念オンラインミート＆グリート\nオンラインミーグリ\n1
+ 1/29 日\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.f
+ ortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261130-3b1b6971e5e5-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:イオンライブ抽選中
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261201-3b1b6971e5e5-lottery-span@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:イオンライブ抽選中
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261202-cfbf477139b9-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:イオンライブ抽選締切
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261204-181994301571-lottery@mistral-yu
@@ -8760,7 +8847,22 @@ SUMMARY:CDJ
 DESCRIPTION:LIVE: COUNTDOWN JAPAN 26/27\n会場: 幕張メッセ国際展
  示場1〜11ホール\n2026/12/26 土\nhttps://sakurazaka46.com/s/s46/news
  /detail/E00693\nhttps://countdownjapan.jp/\nhttps://countdownjapan.jp/2627
- /ticket/
+ /ticket/\n\nLIVE: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6\n会場: 
+ Kanadevia Hall／開場18:00・開演19:00\n2026/12/26 土\nhttps://sakura
+ zaka46.com/s/s46/news/detail/E00695
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261226-889626bc49ad-live@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261226
+DTEND;VALUE=DATE:20261227
+SUMMARY:イオンライブ
+DESCRIPTION:LIVE: COUNTDOWN JAPAN 26/27\n会場: 幕張メッセ国際展
+ 示場1〜11ホール\n2026/12/26 土\nhttps://sakurazaka46.com/s/s46/news
+ /detail/E00693\nhttps://countdownjapan.jp/\nhttps://countdownjapan.jp/2627
+ /ticket/\n\nLIVE: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6\n会場: 
+ Kanadevia Hall／開場18:00・開演19:00\n2026/12/26 土\nhttps://sakura
+ zaka46.com/s/s46/news/detail/E00695
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261227-a063a2a03887-event@mistral-yu

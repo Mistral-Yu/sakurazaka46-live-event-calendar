@@ -270,6 +270,26 @@
 - https://countdownjapan.jp/
 - https://countdownjapan.jp/2627/ticket/
 
+## SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6
+
+### ライブ公演の日程
+
+| 開催日 | 曜日 | 会場 |
+|---|---|---|
+| 2026-12-26 | 土 | Kanadevia Hall／開場18:00・開演19:00 |
+
+### 抽選の日程
+
+| 抽選種別 | 受付期間 | 対象 |
+|---|---|---|
+| イオンカード一次先行 | **11/27(金)〜12/2(水)** | イオンカード(櫻坂46)・イオン銀行キャッシュ+デビット会員限定 |
+
+- チケットの一般発売はありません。先行受付の詳細は後日発表。
+
+### 公式ソース
+
+- https://sakurazaka46.com/s/s46/news/detail/E00695
+
 ## FUKUOKA MUSIC FES.2027
 
 ### ライブ公演の日程

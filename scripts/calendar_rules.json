@@ -22,6 +22,7 @@
       {"contains": ["MUSIC EXPO LIVE"], "label": "MUSIC EXPO"},
       {"contains": ["FUKUOKA MUSIC FES"], "label": "福フェス"},
       {"contains": ["COUNTDOWN JAPAN"], "label": "CDJ"},
+      {"contains": ["AEON CARD with YOU"], "label": "イオンライブ"},
       {"contains": ["全国アリーナツアー", "全国ツアー"], "venue_label_suffix": "公演"}
     ],
     "lottery_title_rules": [
@@ -33,11 +34,13 @@
       {"contains": ["OSAKA GIGANTIC MUSIC FESTIVAL", "ジャイガ"], "label": "ジャイガ抽選"},
       {"contains": ["FUKUOKA MUSIC FES"], "label": "福フェス抽選"},
       {"contains": ["COUNTDOWN JAPAN"], "label": "CDJ抽選"},
+      {"contains": ["AEON CARD with YOU"], "label": "イオンライブ抽選"},
       {"contains": ["サクラミーツ"], "label": "サクラミーツ抽選"}
     ],
     "lottery_short_labels": {
       "一般発売": "一般",
       "イオンカード先行": "イオン",
+      "イオンカード一次先行": "イオン1",
       "FC会員先行": "FC",
       "Leminoスペシャルシート先行": "LeminoS",
       "Lemino櫻坂46パック先行": "LeminoP",
@@ -70,10 +73,12 @@
       "MUSIC EXPO": "live",
       "福フェス": "live",
       "CDJ": "live",
+      "イオンライブ": "live",
       "FC": "ticket",
       "LeminoS": "ticket",
       "LeminoP": "ticket",
       "イオン": "ticket",
+      "イオン1": "ticket",
       "一般": "ticket",
       "FC2": "ticket",
       "先行": "ticket",
