@@ -8380,6 +8380,28 @@ DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
  ws/detail/R00627
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261111-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261111
+DTEND;VALUE=DATE:20261112
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第10次応募\n対象: オンライン
+ ミーグリ\n2026-11-11(水)〜2026-11-12(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261112-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第10次応募\n対象: オンライン
+ ミーグリ\n2026-11-11(水)〜2026-11-12(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261114-5fe6121efeae-live@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261114
@@ -8388,7 +8410,26 @@ SUMMARY:アニラ
 DESCRIPTION:LIVE: 6th YEAR ANNIVERSARY LIVE\n会場: ZOZOマリンスタジ
  アム／開場15:30・開演17:30\n2026/11/14 土\nhttps://sakurazaka46.c
  om/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/
- E00619?ima=0000
+ E00619?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記
+ 念オンラインミート＆グリート 第10次支払い方法選択
+ 期限\n対象: オンラインミーグリ\n2026-11-14(土)\nhttps://saku
+ razaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakuraz
+ aka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261114-820b3f83f88a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261114
+DTEND;VALUE=DATE:20261115
+SUMMARY:支払い方法選択期限
+DESCRIPTION:LIVE: 6th YEAR ANNIVERSARY LIVE\n会場: ZOZOマリンスタジ
+ アム／開場15:30・開演17:30\n2026/11/14 土\nhttps://sakurazaka46.c
+ om/s/s46/page/6th_anniversary\nhttps://sakurazaka46.com/s/s46/news/detail/
+ E00619?ima=0000\n\n応募: 16枚目シングル『愛MUST BE』発売記
+ 念オンラインミート＆グリート 第10次支払い方法選択
+ 期限\n対象: オンラインミーグリ\n2026-11-14(土)\nhttps://saku
+ razaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakuraz
+ aka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261115-5fe6121efeae-live@mistral-yu
@@ -8437,7 +8478,25 @@ DTEND;VALUE=DATE:20261119
 SUMMARY:バックスライブ抽選開始
 DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
  行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
- 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16枚目シングル『愛MUST BE』発売記念オンラインミー
+ ト＆グリート 第11次応募\n対象: オンラインミーグリ\n20
+ 26-11-18(水)〜2026-11-19(木)\nhttps://sakurazaka46.com/s/s46/news/detai
+ l/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261118-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16枚目シングル『愛MUST BE』発売記念オンラインミー
+ ト＆グリート 第11次応募\n対象: オンラインミーグリ\n20
+ 26-11-18(水)〜2026-11-19(木)\nhttps://sakurazaka46.com/s/s46/news/detai
+ l/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261119-d17df60ed1c8-lottery-span@mistral-yu
@@ -8447,7 +8506,25 @@ DTEND;VALUE=DATE:20261120
 SUMMARY:バックスライブ抽選中
 DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
  行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
- 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16枚目シングル『愛MUST BE』発売記念オンラインミー
+ ト＆グリート 第11次応募\n対象: オンラインミーグリ\n20
+ 26-11-18(水)〜2026-11-19(木)\nhttps://sakurazaka46.com/s/s46/news/detai
+ l/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261119-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\n応
+ 募: 16枚目シングル『愛MUST BE』発売記念オンラインミー
+ ト＆グリート 第11次応募\n対象: オンラインミーグリ\n20
+ 26-11-18(水)〜2026-11-19(木)\nhttps://sakurazaka46.com/s/s46/news/detai
+ l/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261120-d17df60ed1c8-lottery-span@mistral-yu
@@ -8471,7 +8548,10 @@ DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
  : 16枚目シングル『愛MUST BE』発売記念オンラインミート
  ＆グリート\nオンラインミーグリ\n11/21 土\nhttps://sakurazak
  a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
- 02610/
+ 02610/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第11次支払い方法選択期限\n対
+ 象: オンラインミーグリ\n2026-11-21(土)\nhttps://sakurazaka46.co
+ m/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261121-a72a35d6a4c5-event@mistral-yu
@@ -8485,7 +8565,27 @@ DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
  : 16枚目シングル『愛MUST BE』発売記念オンラインミート
  ＆グリート\nオンラインミーグリ\n11/21 土\nhttps://sakurazak
  a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
- 02610/
+ 02610/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第11次支払い方法選択期限\n対
+ 象: オンラインミーグリ\n2026-11-21(土)\nhttps://sakurazaka46.co
+ m/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261121-820b3f83f88a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:支払い方法選択期限
+DESCRIPTION:抽選: 16枚目シングル BACKS LIVE!! イオンカード先
+ 行\n対象: 全席指定／親子・女性エリア\n11/18(水)〜11/23(
+ 月)\nhttps://sakurazaka46.com/s/s46/page/backslive_16th?ima=0000\n\nEVENT
+ : 16枚目シングル『愛MUST BE』発売記念オンラインミート
+ ＆グリート\nオンラインミーグリ\n11/21 土\nhttps://sakurazak
+ a46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_2
+ 02610/\n\n応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第11次支払い方法選択期限\n対
+ 象: オンラインミーグリ\n2026-11-21(土)\nhttps://sakurazaka46.co
+ m/s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261122-d17df60ed1c8-lottery-span@mistral-yu
@@ -8567,6 +8667,28 @@ DESCRIPTION:応募: 16th Single『愛MUST BE』発売記念リアルミー
  ws/detail/R00627
 END:VEVENT
 BEGIN:VEVENT
+UID:sakurazaka46-20261125-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第12次応募\n対象: オンライン
+ ミーグリ\n2026-11-25(水)〜2026-11-26(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261126-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第12次応募\n対象: オンライン
+ ミーグリ\n2026-11-25(水)〜2026-11-26(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
 UID:sakurazaka46-20261127-d941dd4fdcb4-lottery@mistral-yu
 DTSTAMP:20260101T000000Z
 DTSTART;VALUE=DATE:20261127
@@ -8603,7 +8725,26 @@ SUMMARY:イオンライブ抽選中
 DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
  ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
  銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
- tps://sakurazaka46.com/s/s46/news/detail/E00695
+ tps://sakurazaka46.com/s/s46/news/detail/E00695\n\n応募: 16枚目シン
+ グル『愛MUST BE』発売記念オンラインミート＆グリート 
+ 第12次支払い方法選択期限\n対象: オンラインミーグリ\n
+ 2026-11-28(土)\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps:
+ //www.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261128-820b3f83f88a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:支払い方法選択期限
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695\n\n応募: 16枚目シン
+ グル『愛MUST BE』発売記念オンラインミート＆グリート 
+ 第12次支払い方法選択期限\n対象: オンラインミーグリ\n
+ 2026-11-28(土)\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps:
+ //www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261129-13095b6260a2-lottery@mistral-yu
@@ -8687,7 +8828,37 @@ SUMMARY:イオンライブ抽選締切
 DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
  ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
  銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
- tps://sakurazaka46.com/s/s46/news/detail/E00695
+ tps://sakurazaka46.com/s/s46/news/detail/E00695\n\n応募: 16枚目シン
+ グル『愛MUST BE』発売記念オンラインミート＆グリート 
+ 第13次応募\n対象: オンラインミーグリ\n2026-12-02(水)〜202
+ 6-12-03(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://w
+ ww.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261202-193f0d364bc2-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:ミーグリ応募開始
+DESCRIPTION:抽選: SAKURAZAKA46 Live，AEON CARD with YOU！Vol.6 イオ
+ ンカード一次先行\n対象: イオンカード(櫻坂46)・イオン
+ 銀行キャッシュ+デビット会員限定\n11/27(金)〜12/2(水)\nht
+ tps://sakurazaka46.com/s/s46/news/detail/E00695\n\n応募: 16枚目シン
+ グル『愛MUST BE』発売記念オンラインミート＆グリート 
+ 第13次応募\n対象: オンラインミーグリ\n2026-12-02(水)〜202
+ 6-12-03(木)\nhttps://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://w
+ ww.fortunemusic.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261203-765d17a1653f-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261204
+SUMMARY:ミーグリ応募締切
+DESCRIPTION:応募: 16枚目シングル『愛MUST BE』発売記念オン
+ ラインミート＆グリート 第13次応募\n対象: オンライン
+ ミーグリ\n2026-12-02(水)〜2026-12-03(木)\nhttps://sakurazaka46.com/
+ s/s46/news/detail/S00225\nhttps://www.fortunemusic.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261204-181994301571-lottery@mistral-yu
@@ -8709,7 +8880,26 @@ SUMMARY:リアルミーグリ
 DESCRIPTION:EVENT: 16th Single『愛MUST BE』発売記念リアルミー
  ト＆グリート（個別トーク会）\n東京ビッグサイト／リ
  アルミーグリ・リアルサイン会\n12/05 土\nhttps://sakurazaka4
- 6.com/s/s46/news/detail/R00627
+ 6.com/s/s46/news/detail/R00627\n\n応募: 16枚目シングル『愛MUST B
+ E』発売記念オンラインミート＆グリート 第13次支払い
+ 方法選択期限\n対象: オンラインミーグリ\n2026-12-05(土)\n
+ https://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusi
+ c.jp/sakurazaka_202610/
+END:VEVENT
+BEGIN:VEVENT
+UID:sakurazaka46-20261205-820b3f83f88a-lottery@mistral-yu
+DTSTAMP:20260101T000000Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:支払い方法選択期限
+DESCRIPTION:EVENT: 16th Single『愛MUST BE』発売記念リアルミー
+ ト＆グリート（個別トーク会）\n東京ビッグサイト／リ
+ アルミーグリ・リアルサイン会\n12/05 土\nhttps://sakurazaka4
+ 6.com/s/s46/news/detail/R00627\n\n応募: 16枚目シングル『愛MUST B
+ E』発売記念オンラインミート＆グリート 第13次支払い
+ 方法選択期限\n対象: オンラインミーグリ\n2026-12-05(土)\n
+ https://sakurazaka46.com/s/s46/news/detail/S00225\nhttps://www.fortunemusi
+ c.jp/sakurazaka_202610/
 END:VEVENT
 BEGIN:VEVENT
 UID:sakurazaka46-20261210-f2034a50939c-live@mistral-yu
